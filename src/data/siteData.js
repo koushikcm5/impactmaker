@@ -26,76 +26,76 @@ export const siteData = {
   programs: [
     {
       id: 1,
-      title: "Action Packed Works",
-      description: "Skill enablement workshops blended with proven transformative techniques to empower the corporate employees deliver better quality of work at their workplace.",
+      title: "Action Packed Corporate workshops",
+      description: "Skill enablement workshops blended with proven transformative techniques to empower the corporate employees deliver better quality of work @ their workplace.",
       icon: "briefcase"
     },
     {
       id: 2,
       title: "Faculty Workshop",
-      description: "An industry focussed workshop blended with activity based learning on the technologies of the future and empower them with a transformed mindset.",
+      description: "An Industry focussed workshop blended with \"activity based learning\" on the technologies of the future and empower them with a mindset of Transformed Mindset.",
       icon: "users"
     },
     {
       id: 3,
       title: "Student Transformation",
-      description: "A high voltage action packed workshop guaranteed to ignite the creative spark in the minds of learners. Learning is never going to be hard again.",
+      description: "A High Voltage Action Packed workshop guaranteed to ignite the creative spark in the minds of learners.\"Learning is never going to be hard again\"",
       icon: "graduation-cap"
     }
   ],
   about: {
     title: "About Impact Maker",
-    intro: "Welcome to J-Impact Creative Learning Services, your platform for a 360 degree student and teacher transformation.",
-    mission: "We are on a mission to impart creative teaching methods to every teacher or coach in India and enable creative learning habits in our student learners community.",
-    content: "As a teacher, I understand that the current education system is not perfect in developing great learning habits. Educational institutions often focus on repetitive processes, paperwork, and performance metrics.\n\nThis leads to mechanical teaching styles and makes learning a struggle.\n\nWe believe that the best learning comes through experimentation, mistakes, creative thinking, and real-world application.\n\nOur workshops introduce simple frameworks and tools that create a paradigm shift in teaching and learning.",
+    intro: "Welcome to J-Impact Creative Learning Services, Your platform for a 360 degree student and teacher transformation. We are on a mission to impart creative teaching methods to every teacher/coach in India and enable creative learning habits in our student learners community.",
+    content: "As a teacher, I know that the school system isn't perfect in terms of teaching or developing the habits of great learning in our student community. Based on my routine interaction with many teaching professionals, I realized that most often than not, these educational institutions and their teaching staff are too caught up in the daily repetitive processes and related paperwork. They are made to focus more on meeting national standards, measuring student progress through marks and quality control. As a result their teaching style becomes more mechanical over a period of time thus being perceived as a teaching machine. Such experiences make learning in life more of a struggle. It is high time the education fraternity realizes that the best learning comes by taking a risk and making mistakes, by experimenting, by thinking out of the box.\n\nOur state-of-the-art workshops are designed to address such challenges.. The curriculum stays closer to reality and introduces simple, easy to action framework disciplines and tools that generates a paradigm shift in how teachers perceive themselves, their work and their vision towards providing students with a lasting learning experience.",
     founder: {
       name: "Arun Divakaran",
-      description: "Arun Divakaran is a creative teaching expert and award-winning trainer. He challenges educators to rethink teaching methods and focus on engagement. He has trained thousands of professionals and students across India and abroad.",
-      philosophy: "A great teacher takes the child's hand, touches their heart and opens their mind."
+      title: "About The Founder",
+      quote: "World today needs not teachers who can just teach but one who can create stories that engages the student community",
+      description: "Arun Divakaran is a gifted creative teaching talent who challenges the teachers to ask the question to themselves \"What is the best way to teach my students\". He received one of the most prestigious \"Trainer of the year\" awards from the institution he served for more than a decade. He has an incredible passion to understand, integrate and deepen the transformative changes needed in the conventional methods of teaching. Over thousands of Teaching professionals and students across the country and abroad have been benefited in the Action-packed creativity enabling workshops he pioneered. The unique, innovative and interesting methods that he has uncovered in the teaching arena have proved to be highly effective in every field of teaching, at every job level, across cultures, and even at home and school. He believes that a great teacher takes the child's hand, touches their heart and opens their mind. Their influence literally has no limits. The children they inspire will go on to save lives, lead countries, build innovative things and change the world forever."
     }
   },
   workshops: [
     {
       id: 1,
       title: "FDP Workshops (Technology)",
-      short: "The journey from a good to a great teacher requires continuous learning beyond textbooks.",
-      full: "Teachers who embrace technology can streamline tasks, improve efficiency, and enhance learning experiences. With the rise of digital-native students, teachers must adapt and integrate modern tools. These workshops combine academic knowledge and industry expertise to improve teaching effectiveness and confidence."
+      short: "The journey from a good to a great teacher happens only if you go beyond the call of duty and the textbook and invest in yourself for a continuous learning process by attending workshops, seminars etc",
+      full: "It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation. The advent of technology has opened several doors to knowledge which were previously difficult to breach.With the Z-Generation students becoming more and more adept to use of newer technology.\n\nTeachers are in danger of being overtaken by their students. Although it is an occasion to celebrate when students do better, yet a repeated occurrence of the same also leads to a marked decrease in the respect they hold for their educators. Teachers, as a result, need to embrace the newer technology in the classroom and improve their overall way of teaching by using creative teaching techniques. These technology focussed workshops for the teaching fraternity is a perfect blend of expertise from the academy and technocrats from the industry, that helps to expand their repertoire. It gives teachers more confidence, which, in turn, helps them perform better. It adds value to the teaching-and-learning process by making it more effective and efficient. These techno savvy workshops enlighten them about the latest developments and trends happening in the industry and help them to prepare for the same in the field of education."
     },
     {
       id: 2,
       title: "FDP Workshops (Transformation)",
-      short: "Technology adoption improves efficiency and teaching quality.",
-      full: "These workshops focus on mindset transformation, helping teachers evolve beyond traditional methods and adopt innovative approaches."
+      short: "It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.",
+      full: "It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation."
     },
     {
       id: 3,
       title: "Corporate Workshops",
-      short: "Each workshop is unique and never repeated in the same way.",
-      full: "These action-based workshops are built from 18+ years of experience across industries. They help employees develop new perspectives, improve collaboration, and adapt to modern workplace challenges."
+      short: "The only one mantra that i carry in each of my workshop is \"that I dont train the same topic in the same way more than once\". Absolutely not!..Hence repeaters finds it very interesting to be part of my workshops more than once.",
+      full: "The only one mantra that i carry in each of my workshop is \"that I dont train the same topic in the same way more than once\". Absolutely not!..Hence repeaters finds it very interesting to be part of my workshops more than once. These power packed action based workshops are built based on various lessons leared during my 1.8 decade of the industry experience both in India and Abroad.\n\nI have had successes in handling every type of personalities be it introverts or extroverts or ambiverts. The equation of life is that not everyone have the same view of the world, and their understanding of something may differ dramatically from that of yours. Through these custom built workshops for corporates, you get a remarkably new perspective of thinking altogether paving way for opening up to newer ideas, newer ways of doing things at your work place"
     },
     {
       id: 4,
       title: "Student Motivation Seminars",
-      short: "Motivation is key to continuous progress.",
-      full: "These sessions use ancient practices and modern techniques to keep students engaged, motivated, and focused on growth."
+      short: "Everyone has to keep moving irrespective of any setbacks they get from Life and for us to keep moving we need a strong drive to push ourselves. My short workshop for students is simply packaged and executed based on that fundamental principle.",
+      full: "Everyone has to keep moving irrespective of any setbacks they get from Life and for us to keep moving we need a strong drive to push ourselves. My short workshop for students is simply packaged and executed based on that fundamental principle.I have introduced several ancient practices which will be demonstrated in the sessions making students mindfully engaged and at the same time taking the right message.\n\nStudents who are more motivated to learn persist longer, produce higher quality effort, learn more deeply and improve their overall performance both on a personal front and academically."
     },
     {
       id: 5,
-      title: "Employability Skills",
-      short: "Future readiness is essential for students.",
-      full: "This program builds professional skills, confidence, and adaptability based on real-world experience training 5000+ individuals."
+      title: "Employability",
+      short: "Employability skills are very much essential in a student's overall professional development. This course is prepared keeping in mind the term \"Future readiness\" and is blended with ancient strategies and principles.",
+      full: "Employability skills are very much essential in a student's overall professional development. This course is prepared keeping in mind the term \"Future readiness\" and is blended with ancient strategies and principles to help you build the personal qualities that make you employable This package encompasses the lessons learned from all hardships\n\nI went through during my Training, Coaching, Mentoring of more than 5000 resources for Industrial Intake during my 18+ year career span."
     },
     {
       id: 6,
       title: "Entrepreneurship",
-      short: "Entrepreneurship is a mindset.",
-      full: "Encourages students to explore innovation, overcome fear, and build independent career paths with guidance from real entrepreneurs."
+      short: "It is a way of thinking and it defines a path that identifies newer opportunities and solves existing problems. There is a positive impact of new businesses on the employment levels yielding to social and economic growth.",
+      full: "It is a way of thinking and it defines a path that identifies newer opportunities and solves existing problems. There is a positive impact of new businesses on the employment levels yielding to social and economic growth. For the population that our beloved nation carries.\n\nwe require more and more successful young entrepreneurs to meet the growing needs of the country.It did not take me a lot of time to realize the immense power of our youth exploring things outside of the typical corporate/government job race. This Z generation students are determined to be in the \"BYOB\" (Be Your Own Boss) club. They have shown the courage to invent new things. There are many who are unable to come out of that fear shell to explore this journey. In this workshop, I share simple strategies and steps to motivate young aspirants to become entrepreneurs and help them build a mindset that accepts newer challenges and finding new opportunities. I will be introducing you to entrepreneurs from different sectors who will share their experience and learnings that will inspire you."
     },
     {
       id: 7,
       title: "Digital Transformation Skills",
-      short: "Technology + business = success.",
-      full: "Helps individuals understand digital evolution and develop skills required to thrive in Industry 4.0 environments."
+      short: "\"Without the technical expertise, solutions can't be developed, and without business-focused skills, those solutions will never drive value\". The industry is in the 4.0 revolution stage and digital transformation is the next big thing.",
+      full: "\"Without the technical expertise, solutions can't be developed, and without business-focused skills, those solutions will never drive value\". The industry is in the 4.0 revolution stage and digital transformation is the next big thing. The effects of this digital revolution are causing organizations to re-examine the way their IT and business departments fit within the company from the delivery of a value standpoint.\n\nThis shift in the industry demands that IT talent must have both a business and relationship acumen in order to be truly effective in the current and future marketplace. This workshop helps you understand, prepare and execute these business oriented and technology blended skills required to adapt and succeed in this digital wave"
     }
   ],
   testimonials: [
@@ -108,36 +108,42 @@ export const siteData = {
   blog: [
     {
       id: 1,
-      title: "Corporate Visibility",
-      excerpt: "Content about workplace visibility challenges and insights.",
-      category: "Corporate"
+      title: "CORPORATE VISIBILITY",
+      excerpt: "The term \"VISIBILITY\" is one of the most misinterpreted, misjudged, convoluted terms in the corporate world. It is so unbelievable that even today.",
+      category: "Corporate",
+      full: "The term \"VISIBILITY\" is one of the most misinterpreted, misjudged, convoluted terms in the corporate world. It is so unbelievable that even today, this term is still deeply rooted in the corporate culture.\n\nI have witnessed how this term has ruined many of my fellow colleagues' careers, constituted many peer pressures, contributed to several unhealthy means of working styles, reduced peace of mind, induced political shrewdness, yielded resignations/separations etc. I am connecting my understanding to the famous Peter's principle and sharing 4 effective takeaways from this entire article. Have a good read!"
     },
     {
       id: 2,
-      title: "Testing Transformation Model",
-      excerpt: "Explains evolution of testing in digital era.",
-      category: "Technology"
+      title: "TESTING TRANSFORMATION MODEL",
+      excerpt: "The article \"Mechanics of Aerobics in the Digital Testing Era\" is a very deeply thought provoking Test Transformation Theme. It traverses the journey of testing life cycle.",
+      category: "Technology",
+      full: "The article \"Mechanics of Aerobics in the Digital Testing Era\" is a very deeply thought provoking Test Transformation Theme. It traverses the journey of testing life cycle across times and enlightens us the way it is being perceived today.\n\nThis article revolves around 2 key pointers mentioned inside the article. Target readers should be able to relate it to the events occurring in their routine testing life cycle."
     },
     {
       id: 3,
-      title: "Start With Why Summary",
-      excerpt: "Inspired by Simon Sinek's philosophy of purpose-driven leadership.",
-      category: "Leadership"
+      title: "SIMON SINEK'S START WITH WHY SUMMARY",
+      excerpt: "Those who start with WHY never manipulate, they inspire. Great leaders are able to inspire people to act. And those who are able to inspire give people a sense of purpose or belonging.",
+      category: "Leadership",
+      full: "The ability to inspire those around you and to achieve remarkable things starts with WHY. Those who start with WHY never manipulate, they inspire. Great leaders are able to inspire people to act. And those who are able to inspire give people a sense of purpose or belonging that has little to do with any external incentive or benefit to be gained.\n\nSimon Sinek in his book titled \"Start with Why\" has emphasized the need to identify the true purpose behind your choices, actions that will help people to perform their duties with utmost sincerity"
     },
     {
       id: 4,
-      title: "Creati-Witty",
-      excerpt: "Guide for creative teaching strategies.",
-      category: "Education"
+      title: "CREATI-WITTY",
+      excerpt: "Unfolding the secret formulas of a creative teacher. A practical Handbook on new page strategies and personalized teaching techniques that enables learning to be all the more interesting and engaging.",
+      category: "Education",
+      full: "Unfolding the secret formulas of a creative teacher. A practical Handbook on new page strategies and personalized teaching techniques that enables learning to be all the more interesting and engaging."
     }
   ],
   cta: {
-    title: "Contact Us Today",
-    description: "Ready to transform your organization? Get in touch with us.",
-    buttonText: "Contact Now"
+    title: "Contact us today",
+    description: "Find answers to your questions",
+    buttonText: "Contact Now",
+    callLabel: "Call us today",
+    emailLabel: "Send us Email"
   },
   contact: {
-    phone: "+91 80788 34082",
+    phone: "91 80788 34082",
     email: "arun.divakaran@hotmail.com",
     social: {
       linkedin: "#",

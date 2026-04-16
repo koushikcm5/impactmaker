@@ -50,14 +50,28 @@
   border-radius: 24px;
   border: 1px solid rgba(22, 89, 167, 0.1);
   display: grid;
-  gap: 12px;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .contact-phone,
 .contact-email {
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   color: var(--text-dark);
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 

@@ -1,5 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import logo from '../assets/J-Impact New Logo 2024 Main.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -20,8 +21,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-content">
           <a href="#home" className="navbar-brand">
-            <span>J-Impact</span>
-            <small>Creative Learning</small>
+            <img src={logo} alt="J-Impact Logo" className="navbar-logo" />
           </a>
           
           <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>

@@ -35,7 +35,7 @@ function App() {
         <span className="depth-plane" />
       </div>
       <Navbar />
-      <Hero data={siteData.hero} metrics={heroMetrics} />
+      <Hero data={siteData.hero} />
       <Trust data={siteData.trust} />
       <Services data={siteData.programs} />
       <Testimonials data={siteData.testimonials} />

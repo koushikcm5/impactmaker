@@ -1,61 +1,64 @@
-.service-card {
-  background:
-    linear-gradient(180deg, rgba(22, 89, 167, 0.03), rgba(255, 255, 255, 0.9)),
-    var(--bg-white);
+.service-card-container {
+  perspective: 1000px;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+}
+
+.service-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-style: preserve-3d;
+}
+
+.service-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.service-card-front,
+.service-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 36px 30px;
   border-radius: 28px;
   border: 1px solid var(--border);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  position: relative;
-  overflow: hidden;
   box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+.service-card-front {
+  background: linear-gradient(180deg, rgba(22, 89, 167, 0.03), rgba(255, 255, 255, 0.9)), var(--bg-white);
+  gap: 16px;
 }
 
-.service-card::after {
-  content: '';
-  position: absolute;
-  inset: auto -20% -40% 30%;
-  height: 180px;
-  background: radial-gradient(circle, rgba(22, 89, 167, 0.12), transparent 65%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.service-card-back {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  transform: rotateY(180deg);
+  text-align: center;
 }
 
-.service-card:hover {
-  transform: translateY(-12px) rotateX(8deg) rotateY(-6deg);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(22, 89, 167, 0.2);
-}
-
-.service-card:hover::before {
-  transform: scaleX(1);
-}
-
-.service-card:hover::after {
-  opacity: 1;
+.service-card-back p {
+  margin: 0;
+  color: white;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  font-weight: 500;
 }
 
 .service-icon {
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  border-radius: 18px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,32 +67,62 @@
   transition: all 0.3s ease;
 }
 
-.service-card:hover .service-icon {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 20px 32px rgba(22, 89, 167, 0.18);
+.service-card-front:hover .service-icon {
+  transform: scale(1.12) rotate(-8deg);
+  box-shadow: 0 24px 32px rgba(22, 89, 167, 0.22);
 }
 
-.service-card h3 {
-  font-size: 1.45rem;
-  margin: 0;
+.service-card-front h3 {
+  font-size: 1.4rem;
+  margin: 8px 0 0 0;
   color: var(--text-dark);
+  text-align: center;
   transition: color 0.3s ease;
+  font-weight: 700;
 }
 
-.service-card:hover h3 {
+.service-card-front:hover h3 {
   color: var(--primary-dark);
 }
 
-.service-card p {
-  flex: 1;
-  margin: 0;
-  color: var(--text-light);
-  font-size: 0.95rem;
-  line-height: 1.7;
+.front-text {
+  margin: 12px 0 0 0;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  opacity: 0.8;
+}
+
+.service-card-front::before {
+  content: '';
+  position: absolute;
+  inset: auto -20% -40% 30%;
+  height: 180px;
+  background: radial-gradient(circle, rgba(22, 89, 167, 0.12), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.service-card-front:hover::before {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
-  .service-card {
+  .service-card-front,
+  .service-card-back {
     padding: 30px 24px;
+    min-height: 350px;
+  }
+
+  .service-card-front h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-icon {
+    width: 70px;
+    height: 70px;
   }
 }

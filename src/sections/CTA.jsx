@@ -9,10 +9,15 @@ const CTA = ({ data }) => {
           <h2>{data.title}</h2>
           <p>{data.description}</p>
           <div className="contact-info">
-            <a href={`tel:${data.phone}`} className="contact-phone">Phone: {data.phone}</a>
-            <a href={`mailto:${data.email}`} className="contact-email">Email: {data.email}</a>
+            <div className="contact-item">
+              <span className="contact-label">{data.callLabel}</span>
+              <a href={`tel:${data.phone}`} className="contact-phone">{data.phone}</a>
+            </div>
+            <div className="contact-item">
+              <span className="contact-label">{data.emailLabel}</span>
+              <a href={`mailto:${data.email}`} className="contact-email">{data.email}</a>
+            </div>
           </div>
-          <Button variant="primary" href={`mailto:${data.email}`}>{data.buttonText}</Button>
         </div>
       </div>
     </section>

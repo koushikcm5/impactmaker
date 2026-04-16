@@ -63,14 +63,6 @@
   color: var(--primary-dark);
 }
 
-.insight-card p {
-  margin: 0;
-  flex: 1;
-  color: var(--text-light);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
 .insight-link {
   display: flex;
   align-items: center;
@@ -79,11 +71,24 @@
   font-weight: 600;
   transition: all 0.3s ease;
   font-size: 0.95rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .insight-link:hover {
   gap: 12px;
   color: var(--primary-dark);
+}
+
+.insight-card p {
+  margin: 0;
+  flex: 1;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-line;
 }
 
 @media (max-width: 768px) {

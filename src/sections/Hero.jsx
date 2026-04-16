@@ -1,7 +1,7 @@
 import Button from '../components/Button';
 import './Hero.css';
 
-const Hero = ({ data, metrics = [] }) => {
+const Hero = ({ data }) => {
   return (
     <section className="hero" id="home">
       <div className="container">
@@ -19,14 +19,6 @@ const Hero = ({ data, metrics = [] }) => {
             <div className="hero-cta">
               <Button variant="primary" href="#contact">{data.cta}</Button>
               <Button variant="outline" href="#about">{data.ctaSecondary}</Button>
-            </div>
-            <div className="hero-metrics">
-              {metrics.map((metric) => (
-                <div key={metric.label} className="hero-metric">
-                  <strong>{metric.value}</strong>
-                  <span>{metric.label}</span>
-                </div>
-              ))}
             </div>
           </div>
 

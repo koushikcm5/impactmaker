@@ -7,7 +7,6 @@ const Insights = ({ data }) => {
       <div className="container">
         <div className="section-header">
           <h2>Blog & Articles</h2>
-          <p>Insights on education, leadership, and transformation</p>
         </div>
         <div className="insights-grid">
           {data.map(insight => (
@@ -16,6 +15,7 @@ const Insights = ({ data }) => {
               title={insight.title}
               excerpt={insight.excerpt}
               category={insight.category}
+              full={insight.full}
             />
           ))}
         </div>

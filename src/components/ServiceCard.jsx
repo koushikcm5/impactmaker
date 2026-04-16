@@ -1,5 +1,5 @@
 import { Briefcase, Users, GraduationCap, Target, Lightbulb, TrendingUp } from 'lucide-react';
-import Button from './Button';
+import { useState } from 'react';
 import './ServiceCard.css';
 
 const iconMap = {
@@ -12,16 +12,30 @@ const iconMap = {
 };
 
 const ServiceCard = ({ title, description, icon }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
   const Icon = iconMap[icon] || Briefcase;
   
   return (
-    <div className="service-card">
-      <div className="service-icon">
-        <Icon size={32} />
+    <div 
+      className="service-card-container"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div className={`service-card-inner ${isFlipped ? 'flipped' : ''}`}>
+        {/* Front */}
+        <div className="service-card-front">
+          <div className="service-icon">
+            <Icon size={40} />
+          </div>
+          <h3>{title}</h3>
+          
+        </div>
+        
+        {/* Back */}
+        <div className="service-card-back">
+          <p>{description}</p>
+        </div>
       </div>
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <Button variant="secondary">Learn More</Button>
     </div>
   );
 };
