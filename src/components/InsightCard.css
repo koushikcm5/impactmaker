@@ -1,0 +1,93 @@
+.insight-card {
+  background:
+    linear-gradient(180deg, rgba(22, 89, 167, 0.03), rgba(255, 255, 255, 0.92)),
+    var(--bg-white);
+  padding: 32px;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.insight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.insight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(22, 89, 167, 0.18);
+}
+
+.insight-card:hover::before {
+  transform: scaleX(1);
+}
+
+.insight-category {
+  display: inline-block;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, rgba(22, 89, 167, 0.1), rgba(22, 89, 167, 0.04));
+  color: var(--primary-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 20px;
+  width: fit-content;
+  border: 1px solid rgba(22, 89, 167, 0.12);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.insight-card h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+.insight-card:hover h3 {
+  color: var(--primary-dark);
+}
+
+.insight-card p {
+  margin: 0;
+  flex: 1;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.insight-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.insight-link:hover {
+  gap: 12px;
+  color: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+  .insight-card {
+    padding: 24px;
+  }
+}

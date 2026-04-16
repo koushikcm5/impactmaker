@@ -1,0 +1,32 @@
+.events {
+  padding: 6rem 0;
+  background: #f9fafb;
+}
+
+.events h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1a1a2e;
+}
+
+.events-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #6b7280;
+}
+
+.events-empty svg {
+  color: #e94560;
+  margin-bottom: 1rem;
+}
+
+.events-empty p {
+  font-size: 1.125rem;
+  margin: 0.5rem 0;
+}
+
+.events-subtitle {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
