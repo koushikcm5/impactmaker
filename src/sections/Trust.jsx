@@ -7,6 +7,7 @@ const Trust = ({ data }) => {
   const hasAnimated = useRef(false);
 
   useEffect(() => {
+    const timers = [];
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
@@ -18,7 +19,7 @@ const Trust = ({ data }) => {
             const increment = target / steps;
             let current = 0;
 
-            const timer = setInterval(() => {
+            const timer = window.setInterval(() => {
               current += increment;
               if (current >= target) {
                 setCounts(prev => {
@@ -26,7 +27,7 @@ const Trust = ({ data }) => {
                   newCounts[index] = target;
                   return newCounts;
                 });
-                clearInterval(timer);
+                window.clearInterval(timer);
               } else {
                 setCounts(prev => {
                   const newCounts = [...prev];
@@ -35,6 +36,8 @@ const Trust = ({ data }) => {
                 });
               }
             }, duration / steps);
+
+            timers.push(timer);
           });
         }
       },
@@ -45,12 +48,19 @@ const Trust = ({ data }) => {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      timers.forEach((timer) => window.clearInterval(timer));
+    };
   }, [data.metrics]);
 
   return (
     <section className="trust" id="results" ref={sectionRef}>
       <div className="container">
+        <div className="section-header trust-header">
+          <h2>Impact at a glance</h2>
+          <p>Real reach across campuses, educators, and corporate teams.</p>
+        </div>
         <div className="trust-grid">
           {data.metrics.map((metric, index) => (
             <div key={index} className="trust-metric">

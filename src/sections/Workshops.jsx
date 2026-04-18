@@ -12,15 +12,6 @@ const Workshops = ({ data }) => {
   return (
     <section id="workshops" className="workshops">
       <div className="container">
-        <div className="workshops-header">
-          <h2>THE GAME-CHANGER WORKSHOPS</h2>
-          <p className="workshops-subtitle">These game changing workshops assures holistic transformation</p>
-          <div className="workshops-intro">
-            <p>Of your teachers in the way they teach.</p>
-            <p>Of your students in the way they learn.</p>
-            <p>Of your employees in the way they perform.</p>
-          </div>
-        </div>
         <div className="workshops-grid">
           {data.map(workshop => (
             <div key={workshop.id} className="workshop-card">

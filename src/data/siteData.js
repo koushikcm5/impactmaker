@@ -1,15 +1,9 @@
 export const siteData = {
   hero: {
-    title: "The Game-Changer Workshops",
-    subtitle: "These game changing workshops assures holistic transformation",
-    content: [
-      "Of your employees in the way they perform.",
-      "Of your teachers in the way they teach",
-      "Of your students in the way they learn"
-    ],
-    quote: "Just by enabling their creative thinking capacity through ancient practices",
-    cta: "Get Started",
-    ctaSecondary: "Learn More"
+    title: "Dr. Arun Divakaran -",
+    subtitle: "Human Creative intelligence focussed AI enabler",
+    cta: "Contact Now",
+    ctaSecondary: "About Arun"
   },
   trust: {
     metrics: [
@@ -100,9 +94,94 @@ export const siteData = {
   ],
   testimonials: [
     {
-      text: "You are totally a fun loving guy who knows how to engage the folks, wish to meet you in person sir, thank you for your learnings and experiences. We love you sir.",
+      text: "You are totally a fun loving guy who knows how to engage the folks. Wish to meet you in person sir. Thank you for your learnings and experiences. We love you sir.",
+      company: "DY Patil University",
       author: "Mahima Singh",
-      position: "Student, DY Patil University (Batch Sep 2022)"
+      designation: "Student, Batch Sep 2022"
+    },
+    {
+      text: "Most interesting, curious teacher I have ever met. Every session of yours was fab. I wish you could teach me always.",
+      company: "DY Patil University",
+      author: "Kumar Shambav Bhargav",
+      designation: "Student, Batch Sep 2022"
+    },
+    {
+      text: "Absolutely loved your sessions sir, and it was one of those classes which was not a hassle to attend but was interesting too.",
+      company: "DY Patil University",
+      author: "Vikas Kumar",
+      designation: "Student, Batch Sep 2022"
+    },
+    {
+      text: "The way of communicating among the participants was quite amazing. We understood the concept with ease through adequate examples.",
+      company: "Cognizant",
+      author: "Sabarainathan M",
+      designation: "SAFe Agile Workshop, 4th Oct 2019"
+    },
+    {
+      text: "It was not like a training session, it was like grooming. It was more interactive and I personally liked the way he taught and the effort spent by him was appreciable.",
+      company: "Cognizant",
+      author: "Sowmya K",
+      designation: "SAFe Agile Workshop, 4th Oct 2019"
+    },
+    {
+      text: "Good and very informative session. Presented well by Mr. Arun.",
+      company: "Cambridge Institute of Technology",
+      author: "K. Komala Devi",
+      designation: "Research Scholar"
+    },
+    {
+      text: "The presentation was very clear and informative. The entire session was good.",
+      company: "DMI College of Engineering, Chennai",
+      author: "V.A. Pravina",
+      designation: "Assistant Professor"
+    },
+    {
+      text: "Good session, suitable especially for online delivery.",
+      company: "LBSITW",
+      author: "Dr Naveen S",
+      designation: "Associate Professor, ECE Department"
+    },
+    {
+      text: "Really it was so inspiring sir. Thank you so much sir.",
+      company: "Govt College of Technology, Coimbatore",
+      author: "Kirtikaa Chezhian",
+      designation: "Student, First Year"
+    },
+    {
+      text: "Sir, your session is completely awesome sir. Fantastico hombre, valiante, vera level, verithanam.",
+      company: "Govt College of Technology, Coimbatore",
+      author: "Chandrasekar S M",
+      designation: "Student, First Year"
+    },
+    {
+      text: "The SAFe Agile trainer was really good at explaining the Agile values and principles through activities rather than walkthrough slides. This session really helped me understand SAFe and how we need to adapt and follow the principles.",
+      company: "Cognizant",
+      author: "Sivakumar Subramani",
+      designation: "Agile Workshop Attendee, Associate, 22nd Aug 2019"
+    },
+    {
+      text: "Very interactive and effective training session. All the agile concepts were tied to day-to-day activities and examples, which made the team easily understand, learn, and implement them in the project. He simply changed our mindset to be agile adapted.",
+      company: "Cognizant",
+      author: "Roshanara Mumtaz Mohammed Burhansha",
+      designation: "Agile Workshop Attendee, 22nd Aug 2019"
+    },
+    {
+      text: "Thank you so much for being a wonderful mentor. Your guidance and advice helped brighten my career and professional life.",
+      company: "Cognizant",
+      author: "Shivani",
+      designation: "Programmer Analyst, Team Member 2018-19"
+    },
+    {
+      text: "You are such a great leader who motivates the team to the fullest. You gave me a base to combine my ideas and thoughts while exploring Python. I felt positive vibration and brain refreshment while sitting around you even for a few minutes.",
+      company: "Cognizant",
+      author: "J Ramya Saminathan",
+      designation: "Associate, Technical Team Member 2018-19"
+    },
+    {
+      text: "The way of communication he did was awesome. He explained all concepts with live examples, so it was easy to understand and relate to them.",
+      company: "Cognizant",
+      author: "Karthika Palaniswamy",
+      designation: "Agile Workshop, 22nd Aug 2019"
     }
   ],
   blog: [

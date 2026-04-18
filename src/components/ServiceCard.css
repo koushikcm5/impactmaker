@@ -40,7 +40,8 @@
 }
 
 .service-card-back {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  /* Use the same blue gradient as the icon for consistency */
+  background: linear-gradient(135deg, #1660a7 0%, #3fa7f7 100%);
   color: white;
   transform: rotateY(180deg);
   text-align: center;
@@ -54,10 +55,14 @@
   font-weight: 500;
 }
 
+
+/* Use a single blue or saffron gradient for all icons */
 .service-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  /* Blue gradient: */
+  background: linear-gradient(135deg, #1660a7 0%, #3fa7f7 100%);
+  /* For saffron, use: background: linear-gradient(135deg, #f28c28 0%, #fbbf24 100%); */
   border-radius: 20px;
   display: flex;
   align-items: center;

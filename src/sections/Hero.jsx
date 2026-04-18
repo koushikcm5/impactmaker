@@ -7,15 +7,11 @@ const Hero = ({ data }) => {
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
-            <span className="hero-eyebrow">AI-inspired learning experiences</span>
-            <h1>{data.title}</h1>
-            <p className="hero-subtitle">{data.subtitle}</p>
-            <div className="hero-list">
-              {data.content.map((item, index) => (
-                <p key={index} className="hero-item">{item}</p>
-              ))}
-            </div>
-            <blockquote className="hero-quote">{data.quote}</blockquote>
+            <h1 className="hero-heading">
+              <span className="hero-heading-name">{data.title}</span>
+              <span className="hero-heading-gradient">{data.subtitle}</span>
+            </h1>
+            <div className="hero-heading-spacer" aria-hidden="true" />
             <div className="hero-cta">
               <Button variant="primary" href="#contact">{data.cta}</Button>
               <Button variant="outline" href="#about">{data.ctaSecondary}</Button>
@@ -30,19 +26,22 @@ const Hero = ({ data }) => {
               <div className="scene-glow" />
               <div className="scene-core">
                 <span className="scene-core-label">AI</span>
-                <span className="scene-core-copy">Creative Thinking Engine</span>
+                <span className="scene-core-copy">
+                  <strong>Driven by Passion, Excellence Assured</strong>
+                  <small>My Innovative DNA</small>
+                </span>
               </div>
               <div className="scene-panel scene-panel-left">
-                <span>Adaptive flow</span>
-                <strong>Teacher and student energy aligned</strong>
+                <span>IT Consultancy &amp; Leadership</span>
+                <strong>Gen AI for Functional Roles</strong>
               </div>
               <div className="scene-panel scene-panel-right">
-                <span>Live workshop layer</span>
-                <strong>Interactive delivery for teams and campuses</strong>
+                <span>IT, HR, Marketing, Business &amp; MSME</span>
+                <strong>Agentic AI – Business Workflow Automation</strong>
               </div>
               <div className="scene-panel scene-panel-bottom">
-                <span>Insight signal</span>
-                <strong>Ancient practices translated into modern action</strong>
+                <span>Enterprise Agile &amp; Design Thinking</span>
+                <strong>Gamified Learning for Gen Z</strong>
               </div>
               <span className="scene-node scene-node-one" />
               <span className="scene-node scene-node-two" />

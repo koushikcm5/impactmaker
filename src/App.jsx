@@ -14,8 +14,6 @@ import { siteData } from './data/siteData';
 import './App.css';
 
 function App() {
-  const heroMetrics = siteData.trust.metrics.slice(0, 3);
-
   return (
     <div className="app">
       <div className="app-aurora app-aurora-left" aria-hidden="true" />
@@ -38,9 +36,9 @@ function App() {
       <Hero data={siteData.hero} />
       <Trust data={siteData.trust} />
       <Services data={siteData.programs} />
+      <Workshops data={siteData.workshops} />
       <Testimonials data={siteData.testimonials} />
       <About data={siteData.about} />
-      <Workshops data={siteData.workshops} />
       <Insights data={siteData.blog} />
       <Gallery />
       <Events />
