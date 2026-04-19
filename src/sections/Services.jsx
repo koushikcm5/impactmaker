@@ -1,23 +1,40 @@
 import ServiceCard from '../components/ServiceCard';
+import NetworkCanvas from '../components/NetworkCanvas';
+import { Briefcase, BookOpen, Users, Quote } from 'lucide-react';
 import './Services.css';
 
 const Services = ({ data }) => {
   return (
     <section className="services" id="workshops">
-      <div className="container">
+      <NetworkCanvas />
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="section-header services-header">
           <h2>The Game-Changer Workshops</h2>
           <p className="services-subtitle">
             These game-changing workshops enable holistic transformation for teams, educators, and students.
           </p>
-          <div className="services-points">
-            <p>For your employees - in the way they perform.</p>
-            <p>For your teachers - in the way they teach.</p>
-            <p>For your students - in the way they learn.</p>
+          
+          <div className="services-impact-chips">
+            <div className="impact-chip">
+              <Briefcase size={18} className="chip-icon" />
+              <span><strong>For employees</strong> - in the way they perform</span>
+            </div>
+            <div className="impact-chip">
+              <BookOpen size={18} className="chip-icon" />
+              <span><strong>For teachers</strong> - in the way they teach</span>
+            </div>
+            <div className="impact-chip">
+              <Users size={18} className="chip-icon" />
+              <span><strong>For students</strong> - in the way they learn</span>
+            </div>
           </div>
-          <p className="services-quote">
-            "Just by enabling their creative thinking capacity through ancient practices"
-          </p>
+          
+          <div className="premium-quote-box">
+            <Quote size={40} className="quote-bg-icon" />
+            <p className="premium-quote-text">
+              "Just by enabling their creative thinking capacity through ancient practices"
+            </p>
+          </div>
         </div>
         <div className="services-grid">
           {data.map(service => (

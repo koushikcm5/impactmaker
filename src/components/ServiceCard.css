@@ -35,13 +35,60 @@
 }
 
 .service-card-front {
-  background: linear-gradient(180deg, rgba(22, 89, 167, 0.03), rgba(255, 255, 255, 0.9)), var(--bg-white);
+  background: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(22, 32, 51, 0.1);
   gap: 16px;
+  overflow: hidden;
+}
+
+/* Abstract Blob Animation */
+.svg-blob-bg {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  fill: rgba(242, 140, 40, 0.08);
+  animation: blobFloat 8s infinite alternate ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+  transition: fill 0.4s ease;
+}
+
+.service-card-front:hover .svg-blob-bg {
+  fill: rgba(22, 96, 167, 0.12);
+}
+
+@keyframes blobFloat {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.15) rotate(20deg); }
+}
+
+/* Outer Rect Trace Animation */
+.card-border-trace {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.card-border-trace rect {
+  fill: none;
+  stroke: rgba(22, 89, 167, 0.6);
+  stroke-width: 3;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  transition: stroke-dashoffset 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card-container:hover .card-border-trace rect {
+  stroke-dashoffset: 0;
 }
 
 .service-card-back {
-  /* Use the same blue gradient as the icon for consistency */
-  background: linear-gradient(135deg, #1660a7 0%, #3fa7f7 100%);
+  background: rgb(22, 32, 51);
   color: white;
   transform: rotateY(180deg);
   text-align: center;
@@ -60,9 +107,7 @@
 .service-icon {
   width: 80px;
   height: 80px;
-  /* Blue gradient: */
-  background: linear-gradient(135deg, #1660a7 0%, #3fa7f7 100%);
-  /* For saffron, use: background: linear-gradient(135deg, #f28c28 0%, #fbbf24 100%); */
+  background: rgb(22, 32, 51);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -70,6 +115,8 @@
   color: #ffffff;
   box-shadow: 0 16px 26px rgba(22, 89, 167, 0.16);
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .service-card-front:hover .service-icon {
@@ -84,6 +131,8 @@
   text-align: center;
   transition: color 0.3s ease;
   font-weight: 700;
+  position: relative;
+  z-index: 1;
 }
 
 .service-card-front:hover h3 {

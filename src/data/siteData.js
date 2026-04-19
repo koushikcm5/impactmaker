@@ -1,6 +1,14 @@
+import wsEmp from '../assets/workshops/C1 - Employability Skills.PNG';
+import wsEnt from '../assets/workshops/C2-Entrepreneurship Skills.PNG';
+import wsDig from '../assets/workshops/C3-Digital Transformation Skills.PNG';
+import wsCorp from '../assets/workshops/Corporate Training.gif';
+import wsStu from '../assets/workshops/Student motivation seminar.png';
+import wsFte from '../assets/workshops/Teacher Training Technology.gif';
+import wsFtr from '../assets/workshops/Teacher Training Transformation.gif';
+
 export const siteData = {
   hero: {
-    title: "Dr. Arun Divakaran -",
+    title: "Dr. Arun Divakaran",
     subtitle: "Human Creative intelligence focussed AI enabler",
     cta: "Contact Now",
     ctaSecondary: "About Arun"
@@ -53,43 +61,50 @@ export const siteData = {
       id: 1,
       title: "FDP Workshops (Technology)",
       short: "The journey from a good to a great teacher happens only if you go beyond the call of duty and the textbook and invest in yourself for a continuous learning process by attending workshops, seminars etc",
-      full: "It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation. The advent of technology has opened several doors to knowledge which were previously difficult to breach.With the Z-Generation students becoming more and more adept to use of newer technology.\n\nTeachers are in danger of being overtaken by their students. Although it is an occasion to celebrate when students do better, yet a repeated occurrence of the same also leads to a marked decrease in the respect they hold for their educators. Teachers, as a result, need to embrace the newer technology in the classroom and improve their overall way of teaching by using creative teaching techniques. These technology focussed workshops for the teaching fraternity is a perfect blend of expertise from the academy and technocrats from the industry, that helps to expand their repertoire. It gives teachers more confidence, which, in turn, helps them perform better. It adds value to the teaching-and-learning process by making it more effective and efficient. These techno savvy workshops enlighten them about the latest developments and trends happening in the industry and help them to prepare for the same in the field of education."
+      full: "It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation. The advent of technology has opened several doors to knowledge which were previously difficult to breach.With the Z-Generation students becoming more and more adept to use of newer technology.\n\nTeachers are in danger of being overtaken by their students. Although it is an occasion to celebrate when students do better, yet a repeated occurrence of the same also leads to a marked decrease in the respect they hold for their educators. Teachers, as a result, need to embrace the newer technology in the classroom and improve their overall way of teaching by using creative teaching techniques. These technology focussed workshops for the teaching fraternity is a perfect blend of expertise from the academy and technocrats from the industry, that helps to expand their repertoire. It gives teachers more confidence, which, in turn, helps them perform better. It adds value to the teaching-and-learning process by making it more effective and efficient. These techno savvy workshops enlighten them about the latest developments and trends happening in the industry and help them to prepare for the same in the field of education.",
+      image: wsFte
     },
     {
       id: 2,
       title: "FDP Workshops (Transformation)",
       short: "It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.",
-      full: "It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation."
+      full: "It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.",
+      image: wsFtr
     },
     {
       id: 3,
       title: "Corporate Workshops",
       short: "The only one mantra that i carry in each of my workshop is \"that I dont train the same topic in the same way more than once\". Absolutely not!..Hence repeaters finds it very interesting to be part of my workshops more than once.",
-      full: "The only one mantra that i carry in each of my workshop is \"that I dont train the same topic in the same way more than once\". Absolutely not!..Hence repeaters finds it very interesting to be part of my workshops more than once. These power packed action based workshops are built based on various lessons leared during my 1.8 decade of the industry experience both in India and Abroad.\n\nI have had successes in handling every type of personalities be it introverts or extroverts or ambiverts. The equation of life is that not everyone have the same view of the world, and their understanding of something may differ dramatically from that of yours. Through these custom built workshops for corporates, you get a remarkably new perspective of thinking altogether paving way for opening up to newer ideas, newer ways of doing things at your work place"
+      full: "The only one mantra that i carry in each of my workshop is \"that I dont train the same topic in the same way more than once\". Absolutely not!..Hence repeaters finds it very interesting to be part of my workshops more than once. These power packed action based workshops are built based on various lessons leared during my 1.8 decade of the industry experience both in India and Abroad.\n\nI have had successes in handling every type of personalities be it introverts or extroverts or ambiverts. The equation of life is that not everyone have the same view of the world, and their understanding of something may differ dramatically from that of yours. Through these custom built workshops for corporates, you get a remarkably new perspective of thinking altogether paving way for opening up to newer ideas, newer ways of doing things at your work place",
+      image: wsCorp
     },
     {
       id: 4,
       title: "Student Motivation Seminars",
       short: "Everyone has to keep moving irrespective of any setbacks they get from Life and for us to keep moving we need a strong drive to push ourselves. My short workshop for students is simply packaged and executed based on that fundamental principle.",
-      full: "Everyone has to keep moving irrespective of any setbacks they get from Life and for us to keep moving we need a strong drive to push ourselves. My short workshop for students is simply packaged and executed based on that fundamental principle.I have introduced several ancient practices which will be demonstrated in the sessions making students mindfully engaged and at the same time taking the right message.\n\nStudents who are more motivated to learn persist longer, produce higher quality effort, learn more deeply and improve their overall performance both on a personal front and academically."
+      full: "Everyone has to keep moving irrespective of any setbacks they get from Life and for us to keep moving we need a strong drive to push ourselves. My short workshop for students is simply packaged and executed based on that fundamental principle.I have introduced several ancient practices which will be demonstrated in the sessions making students mindfully engaged and at the same time taking the right message.\n\nStudents who are more motivated to learn persist longer, produce higher quality effort, learn more deeply and improve their overall performance both on a personal front and academically.",
+      image: wsStu
     },
     {
       id: 5,
       title: "Employability",
       short: "Employability skills are very much essential in a student's overall professional development. This course is prepared keeping in mind the term \"Future readiness\" and is blended with ancient strategies and principles.",
-      full: "Employability skills are very much essential in a student's overall professional development. This course is prepared keeping in mind the term \"Future readiness\" and is blended with ancient strategies and principles to help you build the personal qualities that make you employable This package encompasses the lessons learned from all hardships\n\nI went through during my Training, Coaching, Mentoring of more than 5000 resources for Industrial Intake during my 18+ year career span."
+      full: "Employability skills are very much essential in a student's overall professional development. This course is prepared keeping in mind the term \"Future readiness\" and is blended with ancient strategies and principles to help you build the personal qualities that make you employable This package encompasses the lessons learned from all hardships\n\nI went through during my Training, Coaching, Mentoring of more than 5000 resources for Industrial Intake during my 18+ year career span.",
+      image: wsEmp
     },
     {
       id: 6,
       title: "Entrepreneurship",
       short: "It is a way of thinking and it defines a path that identifies newer opportunities and solves existing problems. There is a positive impact of new businesses on the employment levels yielding to social and economic growth.",
-      full: "It is a way of thinking and it defines a path that identifies newer opportunities and solves existing problems. There is a positive impact of new businesses on the employment levels yielding to social and economic growth. For the population that our beloved nation carries.\n\nwe require more and more successful young entrepreneurs to meet the growing needs of the country.It did not take me a lot of time to realize the immense power of our youth exploring things outside of the typical corporate/government job race. This Z generation students are determined to be in the \"BYOB\" (Be Your Own Boss) club. They have shown the courage to invent new things. There are many who are unable to come out of that fear shell to explore this journey. In this workshop, I share simple strategies and steps to motivate young aspirants to become entrepreneurs and help them build a mindset that accepts newer challenges and finding new opportunities. I will be introducing you to entrepreneurs from different sectors who will share their experience and learnings that will inspire you."
+      full: "It is a way of thinking and it defines a path that identifies newer opportunities and solves existing problems. There is a positive impact of new businesses on the employment levels yielding to social and economic growth. For the population that our beloved nation carries.\n\nwe require more and more successful young entrepreneurs to meet the growing needs of the country.It did not take me a lot of time to realize the immense power of our youth exploring things outside of the typical corporate/government job race. This Z generation students are determined to be in the \"BYOB\" (Be Your Own Boss) club. They have shown the courage to invent new things. There are many who are unable to come out of that fear shell to explore this journey. In this workshop, I share simple strategies and steps to motivate young aspirants to become entrepreneurs and help them build a mindset that accepts newer challenges and finding new opportunities. I will be introducing you to entrepreneurs from different sectors who will share their experience and learnings that will inspire you.",
+      image: wsEnt
     },
     {
       id: 7,
       title: "Digital Transformation Skills",
       short: "\"Without the technical expertise, solutions can't be developed, and without business-focused skills, those solutions will never drive value\". The industry is in the 4.0 revolution stage and digital transformation is the next big thing.",
-      full: "\"Without the technical expertise, solutions can't be developed, and without business-focused skills, those solutions will never drive value\". The industry is in the 4.0 revolution stage and digital transformation is the next big thing. The effects of this digital revolution are causing organizations to re-examine the way their IT and business departments fit within the company from the delivery of a value standpoint.\n\nThis shift in the industry demands that IT talent must have both a business and relationship acumen in order to be truly effective in the current and future marketplace. This workshop helps you understand, prepare and execute these business oriented and technology blended skills required to adapt and succeed in this digital wave"
+      full: "\"Without the technical expertise, solutions can't be developed, and without business-focused skills, those solutions will never drive value\". The industry is in the 4.0 revolution stage and digital transformation is the next big thing. The effects of this digital revolution are causing organizations to re-examine the way their IT and business departments fit within the company from the delivery of a value standpoint.\n\nThis shift in the industry demands that IT talent must have both a business and relationship acumen in order to be truly effective in the current and future marketplace. This workshop helps you understand, prepare and execute these business oriented and technology blended skills required to adapt and succeed in this digital wave.",
+      image: wsDig
     }
   ],
   testimonials: [

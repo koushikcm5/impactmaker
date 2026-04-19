@@ -1,16 +1,45 @@
+import { useState, useEffect } from 'react';
 import Button from '../components/Button';
 import './Hero.css';
 
+import img1 from '../assets/home/3-1.jpg.jpeg';
+import img2 from '../assets/home/IMG-20220819-WA0013.jpg.jpeg';
+import img3 from '../assets/home/IMG-20220819-WA0014.jpg.jpeg';
+
+const heroImages = [img1, img2, img3];
+
 const Hero = ({ data }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="hero" id="home">
-      <div className="container">
+      <div className="hero-bg-slider">
+        {heroImages.map((img, idx) => (
+          <div
+            key={idx}
+            className={`hero-bg-slide ${idx === currentImageIndex ? 'active' : ''}`}
+            style={{ backgroundImage: `url(${img})` }}
+          />
+        ))}
+        <div className="hero-bg-overlay" />
+      </div>
+      <div className="container relative-z10">
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-heading">
               <span className="hero-heading-name">{data.title}</span>
-              <span className="hero-heading-gradient">{data.subtitle}</span>
             </h1>
+            <div className="hero-subtitle-badge">
+              <span className="hero-badge-pill">✦ AI Enabler</span>
+              <p className="hero-subtitle-text">{data.subtitle}</p>
+            </div>
             <div className="hero-heading-spacer" aria-hidden="true" />
             <div className="hero-cta">
               <Button variant="primary" href="#contact">{data.cta}</Button>

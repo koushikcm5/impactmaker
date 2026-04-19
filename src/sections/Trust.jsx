@@ -1,5 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
+import { School, Building2, Presentation, Users2, GraduationCap, FileText, Map, Globe2 } from 'lucide-react';
 import './Trust.css';
+
+const metricIcons = [
+  School,
+  Building2,
+  Presentation,
+  Users2,
+  GraduationCap,
+  FileText,
+  Map,
+  Globe2
+];
 
 const Trust = ({ data }) => {
   const [counts, setCounts] = useState(data.metrics.map(() => 0));
@@ -58,16 +70,25 @@ const Trust = ({ data }) => {
     <section className="trust" id="results" ref={sectionRef}>
       <div className="container">
         <div className="section-header trust-header">
-          <h2>Impact at a glance</h2>
+          <h2>Impact at a Glance</h2>
           <p>Real reach across campuses, educators, and corporate teams.</p>
         </div>
         <div className="trust-grid">
-          {data.metrics.map((metric, index) => (
-            <div key={index} className="trust-metric">
-              <h3 className="metric-value">{counts[index]}{metric.value.replace(/[0-9]/g, '')}</h3>
-              <p className="metric-label">{metric.label}</p>
-            </div>
-          ))}
+          {data.metrics.map((metric, index) => {
+            const Icon = metricIcons[index % metricIcons.length];
+            return (
+              <div key={index} className="trust-metric">
+                <div className="metric-icon-shell">
+                  <Icon className="metric-icon" size={24} />
+                </div>
+                <h3 className="metric-value">
+                  {counts[index]}
+                  <span className="metric-suffix">{metric.value.replace(/[0-9]/g, '')}</span>
+                </h3>
+                <p className="metric-label">{metric.label}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

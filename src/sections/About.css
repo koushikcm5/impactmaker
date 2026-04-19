@@ -1,107 +1,268 @@
 .about {
+  padding: 120px 0;
   position: relative;
+  background: #ffffff;
+  overflow: hidden;
 }
 
-.about::before {
-  content: '';
+/* Background Decorations */
+.about-backdrop {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 380px;
-  height: 380px;
-  background: radial-gradient(circle, rgba(242, 140, 40, 0.12) 0%, transparent 70%);
-  border-radius: 50%;
+  inset: 0;
+  z-index: 0;
   pointer-events: none;
 }
 
-.about-content {
-  max-width: 900px;
-  margin: 0 auto;
+.backdrop-blob {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(22, 59, 117, 0.03) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+.about-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
   position: relative;
   z-index: 1;
-  padding: 42px;
-  border-radius: 34px;
-  background:
-    linear-gradient(180deg, rgba(22, 89, 167, 0.03), rgba(255, 255, 255, 0.94)),
-    var(--surface-soft);
-  border: 1px solid rgba(22, 89, 167, 0.12);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(20px);
 }
 
-.about-text h2 {
-  margin-bottom: 32px;
+/* Narrative Panel Styling */
+.about-narrative-panel {
+  display: flex;
+  flex-direction: column;
 }
 
-.about-intro {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 16px;
-  line-height: 1.7;
-}
-
-.about-mission {
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #9a5512;
+.mission-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(22, 32, 51, 0.05);
+  color: rgb(22, 32, 51);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   margin-bottom: 24px;
-  padding: 16px 20px;
-  background: rgba(242, 140, 40, 0.08);
-  border-left: 4px solid rgba(242, 140, 40, 0.66);
-  border-radius: 18px;
 }
 
-.about-text p {
-  margin-bottom: 24px;
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.founder-section {
-  margin-top: 48px;
-  padding-top: 48px;
-  border-top: 1px solid rgba(22, 89, 167, 0.12);
-}
-
-.founder-section h3 {
+.about-main-title {
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+  color: rgb(22, 32, 51);
   margin-bottom: 20px;
-  color: var(--primary);
-  font-size: 1.75rem;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
-.founder-quote {
-  background: rgba(22, 89, 167, 0.04);
-  border-left: 4px solid rgba(22, 89, 167, 0.42);
-  padding: 24px 32px;
-  margin: 24px 0;
+.about-intro-lead {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #49617c;
+  font-weight: 500;
+  max-width: 90%;
+  margin-bottom: 48px;
+}
+
+/* Philosophy Grid */
+.about-philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  margin-bottom: 56px;
+}
+
+.philosophy-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.philosophy-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.philosophy-icon-box.orange {
+  background: rgba(242, 140, 40, 0.08);
+  color: #f28c28;
+}
+
+.philosophy-icon-box.blue {
+  background: rgba(22, 89, 167, 0.08);
+  color: #1659a7;
+}
+
+.philosophy-icon-box.navy {
+  background: rgba(22, 32, 51, 0.08);
+  color: rgb(22, 32, 51);
+}
+
+.philosophy-text h4 {
+  font-size: 1.15rem;
+  color: rgb(22, 32, 51);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.philosophy-text p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #5f6f82;
+  margin: 0;
+}
+
+.about-long-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-top: 1px solid rgba(22, 32, 51, 0.06);
+  padding-top: 40px;
+}
+
+.narrative-para {
   font-size: 1.1rem;
-  color: var(--text-dark);
-  border-radius: 24px;
   line-height: 1.8;
-  box-shadow: var(--shadow-sm);
-  font-style: italic;
+  color: #49617c;
 }
 
-.positioning {
-  background: rgba(22, 89, 167, 0.04);
-  border-left: 4px solid rgba(22, 89, 167, 0.42);
-  padding: 32px;
-  margin-top: 24px;
-  font-size: 1.25rem;
-  color: var(--text-dark);
-  border-radius: 24px;
-  line-height: 1.8;
-  box-shadow: var(--shadow-sm);
+/* Founder Card Styling */
+.about-founder-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-card-premium {
+  background: rgb(22, 32, 51);
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(22, 32, 51, 0.25);
+  position: sticky;
+  top: 120px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.founder-img-container {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+}
+
+.founder-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.founder-card-premium:hover .founder-portrait {
+  transform: scale(1.05);
+}
+
+.founder-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.founder-badge span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+.founder-body {
+  padding: 40px;
+}
+
+.founder-body h3 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.founder-kicker {
+  display: block;
+  font-size: 0.85rem;
+  color: #f28c28; /* Saffron highlight */
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+
+.founder-accent-quote {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 24px;
+  border-left: 3px solid rgba(242, 140, 40, 0.4);
+}
+
+.accent-quote-icon {
+  position: absolute;
+  top: -12px;
+  left: -28px;
+  opacity: 0.15;
+  color: #f28c28;
+}
+
+.founder-accent-quote p {
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+.founder-bio-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .about-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .founder-card-premium {
+    position: static;
+    max-width: 500px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {
-  .about::before {
-    width: 200px;
-    height: 200px;
+  .about {
+    padding: 80px 0;
   }
-
-  .about-content {
-    padding: 28px 22px;
+  
+  .about-philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .founder-img-container {
+    height: 320px;
   }
 }
+

@@ -6,6 +6,7 @@ import './Navbar.css';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [scrolled, setScrolled] = useState(false);
 
   const navLinks = [
     { label: "Home", id: "home", href: "#home" },
@@ -18,6 +19,12 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
     const observerOptions = {
       root: null,
       rootMargin: '-20% 0px -70% 0px',
@@ -37,15 +44,22 @@ const Navbar = () => {
       if (section) observer.observe(section);
     });
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="navbar-content">
           <a href="#home" className="navbar-brand">
             <img src={logo} alt="J-Impact Logo" className="navbar-logo" />
+            <div className="brand-text">
+              <span className="brand-name">J-Impact</span>
+              <span className="brand-subtitle">Creative Learning Services</span>
+            </div>
           </a>
           
           <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>

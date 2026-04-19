@@ -1,52 +1,86 @@
 .value-proposition {
-  background: var(--bg-light);
+  padding: 100px 0;
+  background: #ffffff;
   position: relative;
 }
 
-.value-proposition::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+.value-kicker {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(22, 32, 51);
+  background: rgba(22, 32, 51, 0.05);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 20px;
 }
 
 .value-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
 }
 
 .value-item {
   text-align: center;
-  padding: 32px 24px;
+  padding: 40px 32px;
+  background: #ffffff;
+  border-radius: 32px;
+  border: 1px solid rgba(22, 32, 51, 0.06);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 20px rgba(22, 32, 51, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.value-icon {
-  color: var(--accent);
-  margin-bottom: 20px;
+.value-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(22, 32, 51, 0.08);
+  border-color: rgba(22, 32, 51, 0.12);
+}
+
+.value-icon-shell {
+  width: 64px;
+  height: 64px;
+  background: rgba(22, 32, 51, 0.05);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(22, 32, 51);
+  margin-bottom: 24px;
   transition: all 0.3s ease;
 }
 
-.value-item:hover .value-icon {
-  transform: scale(1.2) rotate(-10deg);
+.value-item:hover .value-icon-shell {
+  background: rgb(22, 32, 51);
+  color: #ffffff;
+  transform: scale(1.1) rotate(-8deg);
 }
 
 .value-item h3 {
   font-size: 1.25rem;
   margin-bottom: 12px;
-  color: var(--primary);
+  color: rgb(22, 32, 51);
+  font-weight: 700;
 }
 
 .value-item p {
   margin: 0;
-  color: var(--text-light);
+  color: #49617c;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 @media (max-width: 768px) {
   .value-grid {
-    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .value-item {
+    padding: 30px 20px;
   }
 }
