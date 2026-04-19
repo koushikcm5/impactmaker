@@ -1,12 +1,9 @@
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+  padding: 132px 0 104px;
   color: #ffffff;
   position: relative;
   overflow: hidden;
   background: #162033;
-  padding: 100px 0; /* Fallback padding */
 }
 
 .hero-bg-slider {
@@ -445,75 +442,69 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 980px) {
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 60px;
-    text-align: center;
   }
 
   .hero-text {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: none;
   }
 
   .hero-heading {
     max-width: none;
-    align-items: center;
-  }
-
-  .hero-subtitle-badge {
-    align-items: center;
-  }
-
-  .hero-badge-pill {
-    margin: 0 auto;
-  }
-
-  .hero-cta {
-    justify-content: center;
   }
 
   .hero-visual {
-    min-height: auto;
-    display: none; /* Hide complex 3D element on mobile for extreme clarity & speed */
+    min-height: 480px;
+  }
+
+  .hero-scene {
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 0 20px; /* Centered flex handles vertical, 20px for horizontal breathing room */
+    padding: 112px 0 72px;
   }
 
   .hero-heading {
-    font-size: clamp(2.4rem, 12vw, 3.8rem);
-    line-height: 1.1;
-    letter-spacing: -0.04em;
-  }
-
-  .hero-subtitle-text {
-    font-size: clamp(1.2rem, 5vw, 1.8rem);
-    line-height: 1.4;
+    font-size: clamp(2.7rem, 10vw, 4rem);
+    gap: 8px;
   }
 
   .hero-cta {
     flex-direction: column;
-    width: 100%;
-    max-width: 300px;
-    gap: 12px;
   }
 
   .hero-cta .btn {
     width: 100%;
   }
-}
 
-@media (max-height: 600px) {
-  .hero {
-    min-height: 600px; /* Prevent squishing on short screens */
-    padding: 80px 20px;
+  .hero-visual {
+    min-height: 420px;
+  }
+
+  .hero-scene {
+    height: 420px;
+  }
+
+  .scene-panel {
+    width: 180px;
+    padding: 14px 14px 12px;
+  }
+
+  .scene-panel strong {
+    font-size: 0.84rem;
+  }
+
+  .scene-core {
+    width: 180px;
+    height: 180px;
+  }
+
+  .scene-core-label {
+    font-size: 3rem;
   }
 }
