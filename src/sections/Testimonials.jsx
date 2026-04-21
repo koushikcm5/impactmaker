@@ -1,6 +1,9 @@
 import { useEffect, useState, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import speakerImg from '../assets/about/IMG-20221221-WA0017.jpg';
+import img1 from '../assets/about/IMG-20230630-WA0010.jpg';
+import img2 from '../assets/about/IMG-20221221-WA0012.jpg';
+import TestimonialImageSlider from '../components/TestimonialImageSlider';
 import './Testimonials.css';
 
 const AUTO_SLIDE_DELAY = 6000;
@@ -44,11 +47,7 @@ const Testimonials = ({ data }) => {
         >
           <div className="testimonial-visual-panel">
             <div className="testimonial-image-shell">
-              <img
-                src={speakerImg}
-                alt="Dr. Arun Divakaran"
-                className="testimonial-photo"
-              />
+              <TestimonialImageSlider images={[img1, img2]} interval={5000} />
               <div className="testimonial-image-overlay">
                 <span className="image-badge">Lead Trainer</span>
               </div>
@@ -56,8 +55,9 @@ const Testimonials = ({ data }) => {
           </div>
 
           <div className={`testimonial-content-panel is-${direction}`} key={activeIndex}>
+            <div className="testimonial-content-glow" aria-hidden="true" />
             <div className="quote-icon-wrapper">
-              <Quote className="testimonial-quote-icon" size={48} />
+              <Quote className="testimonial-quote-icon" size={44} strokeWidth={1.5} />
             </div>
             
             <p className="testimonial-copy">{activeTestimonial.text}</p>
@@ -67,7 +67,7 @@ const Testimonials = ({ data }) => {
                 <h4 className="author-name">{activeTestimonial.author}</h4>
                 <p className="author-details">
                   <span className="author-designation">{activeTestimonial.designation}</span>
-                  <span className="author-divider">|</span>
+                  <span className="author-divider" aria-hidden="true" />
                   <span className="author-org">{activeTestimonial.company}</span>
                 </p>
               </div>

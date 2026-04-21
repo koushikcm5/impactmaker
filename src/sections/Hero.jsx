@@ -20,7 +20,13 @@ const Hero = ({ data }) => {
 
   return (
     <section className="hero" id="home">
-      <div className="hero-bg-slider">
+      <div className="hero-bg-slider" aria-hidden="true">
+        {/* Preload images to prevent blinking on mobile */}
+        <div className="hero-preload" style={{ display: 'none' }}>
+          {heroImages.map((img, idx) => (
+            <img key={`preload-${idx}`} src={img} alt="" />
+          ))}
+        </div>
         {heroImages.map((img, idx) => (
           <div
             key={idx}

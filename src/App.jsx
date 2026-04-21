@@ -2,7 +2,6 @@ import Navbar from './sections/Navbar';
 import Hero from './sections/Hero';
 import Trust from './sections/Trust';
 import Clients from './sections/Clients';
-import Services from './sections/Services';
 import Testimonials from './sections/Testimonials';
 import About from './sections/About';
 import Workshops from './sections/Workshops';
@@ -37,8 +36,7 @@ function App() {
       <Hero data={siteData.hero} />
       <Trust data={siteData.trust} />
       <Clients />
-      <Services data={siteData.programs} />
-      <Workshops data={siteData.workshops} />
+      <Workshops programs={siteData.programs} data={siteData.workshops} />
       <Testimonials data={siteData.testimonials} />
       <About data={siteData.about} />
       <Insights data={siteData.blog} />

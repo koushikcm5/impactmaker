@@ -36,8 +36,7 @@ const ServiceCard = ({ title, description, icon }) => {
           <h3>{title}</h3>
           
         </div>
-        
-        {/* Back */}
+                {/* Back */}
         <div className="service-card-back">
           <p>{description}</p>
         </div>
