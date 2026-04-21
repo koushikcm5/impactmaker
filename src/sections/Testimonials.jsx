@@ -1,96 +1,78 @@
-import { useEffect, useState, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import speakerImg from '../assets/about/IMG-20221221-WA0017.jpg';
-import img1 from '../assets/about/IMG-20230630-WA0010.jpg';
-import img2 from '../assets/about/IMG-20221221-WA0012.jpg';
-import TestimonialImageSlider from '../components/TestimonialImageSlider';
+import { useEffect, useState, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import TestimonialCard from '../components/TestimonialCard';
 import './Testimonials.css';
 
-const AUTO_SLIDE_DELAY = 6000;
-
 const Testimonials = ({ data }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState('next');
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const sliderRef = useRef(null);
 
-  const showNext = useCallback(() => {
-    setDirection('next');
-    setActiveIndex((current) => (current + 1) % data.length);
-  }, [data.length]);
+  const showNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % data.length);
+  };
 
-  const showPrevious = useCallback(() => {
-    setDirection('prev');
-    setActiveIndex((current) => (current - 1 + data.length) % data.length);
-  }, [data.length]);
+  const showPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + data.length) % data.length);
+  };
 
   useEffect(() => {
-    if (data.length <= 1 || isPaused) return undefined;
-    const intervalId = window.setInterval(showNext, AUTO_SLIDE_DELAY);
-    return () => window.clearInterval(intervalId);
-  }, [data.length, isPaused, showNext]);
+    if (isPaused || data.length <= 1) return;
+    const interval = setInterval(showNext, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, data.length]);
 
-  const activeTestimonial = data[activeIndex];
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  }, [currentIndex]);
 
   return (
     <section className="testimonials" id="testimonials">
       <div className="container">
-        <div className="section-header testimonials-header">
-          <span className="testimonials-kicker">Voices of Impact</span>
+        <div className="section-header">
+          <span className="section-kicker">Voices of Impact</span>
           <h2>What Our Students Say</h2>
           <p>Stories of transformation from campuses and corporate sessions globally.</p>
         </div>
 
-        <div
-          className="testimonials-showcase"
+        <div 
+          className="testimonials-slider-wrapper"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="testimonial-visual-panel">
-            <div className="testimonial-image-shell">
-              <TestimonialImageSlider images={[img1, img2]} interval={5000} />
-              <div className="testimonial-image-overlay">
-                <span className="image-badge">Lead Trainer</span>
+          <div className="testimonials-slider" ref={sliderRef}>
+            {data.map((testimonial, index) => (
+              <div key={index} className="testimonial-slide">
+                <TestimonialCard
+                  image={testimonial.image}
+                  name={testimonial.author}
+                  role={testimonial.designation}
+                  company={testimonial.company}
+                  text={testimonial.text}
+                />
               </div>
-            </div>
+            ))}
           </div>
 
-          <div className={`testimonial-content-panel is-${direction}`} key={activeIndex}>
-            <div className="testimonial-content-glow" aria-hidden="true" />
-            <div className="quote-icon-wrapper">
-              <Quote className="testimonial-quote-icon" size={44} strokeWidth={1.5} />
-            </div>
-            
-            <p className="testimonial-copy">{activeTestimonial.text}</p>
-
-            <div className="testimonial-footer">
-              <div className="testimonial-author-box">
-                <h4 className="author-name">{activeTestimonial.author}</h4>
-                <p className="author-details">
-                  <span className="author-designation">{activeTestimonial.designation}</span>
-                  <span className="author-divider" aria-hidden="true" />
-                  <span className="author-org">{activeTestimonial.company}</span>
-                </p>
-              </div>
-
-              <div className="testimonial-controls">
+          <div className="slider-controls">
+            <button onClick={showPrevious} className="slider-btn" aria-label="Previous">
+              <ChevronLeft size={20} />
+            </button>
+            <div className="slider-dots">
+              {data.map((_, index) => (
                 <button
-                  type="button"
-                  className="control-btn"
-                  onClick={showPrevious}
-                  aria-label="Previous testimonial"
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                <button
-                  type="button"
-                  className="control-btn"
-                  onClick={showNext}
-                  aria-label="Next testimonial"
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`slider-dot ${index === currentIndex ? 'active' : ''}`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
             </div>
+            <button onClick={showNext} className="slider-btn" aria-label="Next">
+              <ChevronRight size={20} />
+            </button>
           </div>
         </div>
       </div>
