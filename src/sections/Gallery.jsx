@@ -1,18 +1,22 @@
 import { useState, useEffect, useCallback } from 'react';
-import img13 from '../assets/Gallery/13.jpg';
-import img16 from '../assets/Gallery/16.jpg';
-import img17 from '../assets/Gallery/17.jpg';
-import imgAgile from '../assets/Gallery/Agile Transformation Session @ Cognizant.jpg';
-import imgDrug from '../assets/Gallery/Drug Free India Motivational Talk @ KCT.jpg';
 import './Gallery.css';
 
-const galleryItems = [
-  { src: imgAgile,  alt: 'Agile Transformation Session @ Cognizant', caption: 'Agile Transformation Session', sub: 'Cognizant' },
-  { src: img16,     alt: 'Impact Session 16',                        caption: 'Leadership Impact Session',   sub: 'Corporate Programme' },
-  { src: imgDrug,   alt: 'Drug Free India Motivational Talk @ KCT',  caption: 'Drug Free India Talk',         sub: 'KCT Campus' },
-  { src: img13,     alt: 'Impact Session 13',                        caption: 'Motivational Masterclass',     sub: 'Campus Drive' },
-  { src: img17,     alt: 'Impact Session 17',                        caption: 'Youth Empowerment Workshop',   sub: 'Outreach Programme' },
-];
+const images = import.meta.glob('../assets/Gallery/*.{jpg,jpeg,png,gif,webp}', { eager: true });
+
+const galleryItems = Object.entries(images).map(([path, module]) => {
+  const filename = path.split('/').pop().replace(/\.[^/.]+$/, "");
+  const nameParts = filename.split('@');
+  const caption = nameParts[0].trim();
+  const sub = nameParts[1] ? nameParts[1].trim() : 'Event Highlight';
+  
+  return {
+    src: module.default,
+    alt: filename,
+    caption: caption,
+    sub: sub
+  };
+});
+
 
 const Gallery = () => {
   const [lightbox, setLightbox] = useState(null); // index or null
@@ -46,7 +50,8 @@ const Gallery = () => {
           {galleryItems.map((item, i) => (
             <button
               key={i}
-              className={`gallery-card gallery-card--${i}`}
+              className="gallery-card"
+              style={{ animationDelay: `${(i % 15) * 0.05}s` }}
               onClick={() => setLightbox(i)}
               aria-label={`Open image: ${item.alt}`}
             >
