@@ -22,7 +22,14 @@ const Hero = ({ data }) => {
   return (
     <section className="hero" id="home">
       <div className="hero-bg-slider" aria-hidden="true">
-        {/* Removed preload div - use native lazy loading instead */}
+        {/* Hidden high-priority image for LCP optimization */}
+        <img 
+          src={heroImages[0]} 
+          alt="" 
+          style={{ display: 'none' }} 
+          fetchpriority="high" 
+          loading="eager" 
+        />
         {heroImages.map((img, idx) => (
           <div
             key={idx}
