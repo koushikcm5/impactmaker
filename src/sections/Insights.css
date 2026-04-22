@@ -1,25 +1,464 @@
 .insights {
+  padding: 100px 0;
   position: relative;
+  background: white;
 }
 
-.insights::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 181, 116, 0.24), transparent);
+.insights-eyebrow {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
 }
 
 .insights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+
+/* Full-Screen Article Viewer */
+.article-viewer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 26, 0.95);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-viewer-container {
+  width: 95vw;
+  height: 95vh;
+  background: #f8fafc;
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.article-viewer-header {
+  padding: 24px 40px;
+  background: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.viewer-title-area {
+  text-align: center;
+}
+
+.viewer-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.viewer-title {
+  font-size: 1.5rem;
+  color: #162033;
+  margin: 4px 0 0;
+}
+
+.back-btn, .close-viewer-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #162033;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  padding: 8px 16px;
+  border-radius: 99px;
+}
+
+.back-btn:hover {
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
+
+.close-viewer-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.article-viewer-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 40px;
+}
+
+.article-main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* If no PDF, make text section centered and width-limited */
+.article-main-layout:not(:has(.article-pdf-section)) {
+  grid-template-columns: 1fr;
+  max-width: 800px;
+}
+
+.article-featured-img-wrap {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.article-featured-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.article-full-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #334155;
+}
+
+.article-full-text p {
+  margin-bottom: 24px;
+}
+
+.article-pdf-section {
+  display: flex;
+  flex-direction: column;
+  height: calc(95vh - 200px);
+}
+
+.pdf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  background: #1e293b;
+  padding: 12px 20px;
+  border-radius: 12px;
+  color: white;
+}
+
+.pdf-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.pdf-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pdf-download-btn:hover {
+  color: white;
+}
+
+.pdf-frame-container {
+  flex-grow: 1;
+  background: #cbd5e1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Book Specific Styles */
+.book-action-banner {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
   gap: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.04);
+}
+
+.banner-visual {
+  width: 64px;
+  height: 64px;
+  background: #eff6ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  flex-shrink: 0;
+}
+
+.banner-info {
+  flex-grow: 1;
+}
+
+.book-action-banner h3 {
+  color: #162033;
+  margin: 0 0 4px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.book-action-banner p {
+  color: #64748b;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.read-book-here-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.read-book-here-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+
+.kindle-embed-view {
+  width: 100%;
+  height: calc(95vh - 120px);
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.kindle-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Page Mode Overrides */
+.insight-page-wrapper {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: white; /* Match the root background if needed */
+  position: relative;
+  z-index: 10;
+}
+
+.article-viewer-container.page-mode {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  min-height: 80vh;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+  background: #f8fafc;
+}
+
+/* Full Screen Reader Page */
+.full-screen-reader-page {
+  position: fixed;
+  inset: 0;
+  background: #1e293b;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+
+.reader-header {
+  padding: 16px 32px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.reader-back-btn {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.reader-back-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.reader-title-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reader-title-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.reader-download-btn {
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  transition: background 0.2s;
+}
+
+.reader-download-btn:hover {
+  background: #2563eb;
+}
+
+.reader-main-content {
+  flex-grow: 1;
+  background: #334155;
+}
+
+.reader-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.reader-cta-box {
+  background: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  padding: 24px;
+  border-radius: 16px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.reader-cta-box p {
+  margin-bottom: 16px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.open-reader-btn {
+  background: #1e293b;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.open-reader-btn:hover {
+  background: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+@media (max-width: 1200px) {
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .article-main-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .article-pdf-section {
+    height: 700px;
+  }
 }
 
 @media (max-width: 768px) {
+  .insights {
+    padding: 60px 0;
+  }
   .insights-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .article-viewer-container {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .article-viewer-header {
+    padding: 16px 20px;
+  }
+  .viewer-title {
+    font-size: 1.1rem;
+  }
+  .article-viewer-content {
+    padding: 24px;
+  }
+  .article-pdf-section {
+    height: 500px;
   }
 }
+

@@ -1,20 +1,34 @@
-import { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, BookOpen } from 'lucide-react';
 import './InsightCard.css';
 
-const InsightCard = ({ title, excerpt, category, full }) => {
-  const [expanded, setExpanded] = useState(false);
-
+const InsightCard = ({ title, excerpt, category, image, onClick, isBook }) => {
   return (
-    <div className="insight-card">
-      <span className="insight-category">{category}</span>
-      <h3>{title}</h3>
-      <p>{expanded ? full : excerpt}</p>
-      <button onClick={() => setExpanded(!expanded)} className="insight-link">
-        {expanded ? 'Show Less' : 'Read More'} <ArrowRight size={16} />
-      </button>
+    <div className="insight-card-modern" onClick={onClick}>
+      <div className="insight-image-container">
+        {image ? (
+          <img src={image} alt={title} className="insight-card-img" loading="lazy" />
+        ) : (
+          <div className="insight-card-placeholder">
+            <BookOpen size={40} strokeWidth={1} />
+          </div>
+        )}
+        <div className="insight-card-tag">{category}</div>
+      </div>
+      
+      <div className="insight-content">
+        <h3 className="insight-card-title">{title}</h3>
+        <p className="insight-card-excerpt">{excerpt}</p>
+        
+        <button className="insight-read-btn">
+          {isBook ? 'Read More' : 'Read More'} <ArrowRight size={16} />
+        </button>
+      </div>
+      
+      <div className="insight-card-glow" />
     </div>
   );
 };
 
+
 export default InsightCard;
+
