@@ -12,6 +12,7 @@ const Hero = ({ data }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
+    // Use CSS animation instead of state-driven updates to reduce reflows
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
     }, 4500);
@@ -21,17 +22,14 @@ const Hero = ({ data }) => {
   return (
     <section className="hero" id="home">
       <div className="hero-bg-slider" aria-hidden="true">
-        {/* Preload images to prevent blinking on mobile */}
-        <div className="hero-preload" style={{ display: 'none' }}>
-          {heroImages.map((img, idx) => (
-            <img key={`preload-${idx}`} src={img} alt="" />
-          ))}
-        </div>
+        {/* Removed preload div - use native lazy loading instead */}
         {heroImages.map((img, idx) => (
           <div
             key={idx}
             className={`hero-bg-slide ${idx === currentImageIndex ? 'active' : ''}`}
             style={{ backgroundImage: `url(${img})` }}
+            role="img"
+            aria-hidden="true"
           />
         ))}
         <div className="hero-bg-overlay" />

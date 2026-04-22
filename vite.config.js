@@ -15,9 +15,17 @@ export default defineConfig({
     })
   ],
   build: {
+    // Optimize JS parsing for Lighthouse
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: (id) => {
+          // Separate vendor chunks to leverage browser caching
           if (id.includes('node_modules/react')) {
             return 'react-vendor';
           }
@@ -27,8 +35,22 @@ export default defineConfig({
           if (id.includes('node_modules/lucide-react')) {
             return 'lucide';
           }
-        }
+        },
+        // Optimize chunk naming for better caching
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]',
       }
+    },
+    // Increase chunk size warnings
+    chunkSizeWarningLimit: 600,
+    // Source maps only for production debugging
+    sourcemap: false,
+  },
+  // Optimize module resolution
+  resolve: {
+    alias: {
+      '@': '/src',
     }
   }
 })
