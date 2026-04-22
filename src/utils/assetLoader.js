@@ -2,7 +2,15 @@
 const imageFiles = import.meta.glob('../assets/Events/article/*.{png,jpg,jpeg,PNG,JPG,JPEG}', { eager: true });
 const pdfFiles = import.meta.glob('../assets/Events/article/*.pdf', { eager: true });
 
+// Cache for asset lookups to avoid repeated file scanning
+const assetCache = {};
+
 export const getArticleAssets = (title) => {
+  // Return cached result if available
+  if (assetCache[title]) {
+    return assetCache[title];
+  }
+
   const normalizedTitle = title.toLowerCase().replace(/[^a-z0-9]/g, '');
   
   let image = null;
@@ -32,7 +40,11 @@ export const getArticleAssets = (title) => {
       if (simonPdf) pdf = simonPdf;
   }
 
-  return { image, pdf };
+  // Store in cache before returning
+  const result = { image, pdf };
+  assetCache[title] = result;
+  
+  return result;
 };
 
 export const AMAZON_KINDLE_URL = "https://read.amazon.in/kp/embed?preview=inline&linkCode=kpe&ref_=cm_sw_p_kb_dp&asin=B0BD51SKQ9&tag=kp041-21&amazonDeviceType=A2CLFWBIMVSE9N&from=Bookcard&reshareId=3PZ0S55T";

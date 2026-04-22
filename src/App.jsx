@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import Navbar from './sections/Navbar';
 import Hero from './sections/Hero';
 import Trust from './sections/Trust';
@@ -11,11 +12,22 @@ import Gallery from './sections/Gallery';
 import Events from './sections/Events';
 import CTA from './sections/CTA';
 import Footer from './sections/Footer';
-import InsightDetail from './pages/InsightDetail';
-import InsightReader from './pages/InsightReader';
 import ScrollToTop from './components/ScrollToTop';
 import { siteData } from './data/siteData';
 import './App.css';
+
+// Code splitting: load these routes on-demand
+const InsightDetail = lazy(() => import('./pages/InsightDetail'));
+const InsightReader = lazy(() => import('./pages/InsightReader'));
+
+// Loading placeholder for lazy-loaded pages
+const PageLoader = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
+    <div style={{ textAlign: 'center' }}>
+      <div style={{ fontSize: '18px', color: '#666' }}>Loading...</div>
+    </div>
+  </div>
+);
 
 
 const HomePage = () => (
@@ -60,8 +72,22 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/insight/:id" element={<InsightDetail />} />
-          <Route path="/insight/:id/reader" element={<InsightReader />} />
+          <Route 
+            path="/insight/:id" 
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <InsightDetail />
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/insight/:id/reader" 
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <InsightReader />
+              </Suspense>
+            } 
+          />
         </Routes>
       </div>
     </Router>
