@@ -50,11 +50,11 @@ const Workshops = ({ programs, data }) => {
               </div>
               <div className="impact-chip">
                 <BookOpen size={18} className="chip-icon" />
-                <span><strong>For teachers</strong> - in the way they teach</span>
-              </div>
-              <div className="impact-chip">
-                <Users size={18} className="chip-icon" />
-                <span><strong>For students</strong> - in the way they learn</span>
+                <span>
+                  <strong>Ed Tech</strong><br />
+                  <small><strong>For teachers</strong> - in the way they teach</small><br />
+                  <small><strong>For students</strong> - in the way they learn</small>
+                </span>
               </div>
             </div>
             

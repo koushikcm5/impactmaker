@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Navbar from './sections/Navbar';
 import Hero from './sections/Hero';
+import DomainExpertise from './sections/DomainExpertise';
 import Trust from './sections/Trust';
 import Clients from './sections/Clients';
 import Testimonials from './sections/Testimonials';
@@ -34,6 +35,7 @@ const HomePage = () => (
   <>
     <Navbar />
     <Hero data={siteData.hero} />
+    <DomainExpertise />
     <Trust data={siteData.trust} />
     <Clients />
     <Workshops programs={siteData.programs} data={siteData.workshops} />

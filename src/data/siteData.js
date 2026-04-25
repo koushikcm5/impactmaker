@@ -15,14 +15,14 @@ export const siteData = {
   },
   trust: {
     metrics: [
-      { value: "33+", label: "Colleges Visited" },
-      { value: "3000+", label: "Corporates Trained" },
-      { value: "450+", label: "Seminars Organized" },
-      { value: "2500+", label: "Teachers Trained" },
-      { value: "6200+", label: "Students Trained" },
-      { value: "17+", label: "Articles Published" },
-      { value: "11+", label: "Schools Visited" },
-      { value: "4+", label: "Countries" }
+      { value: "90+", label: "Colleges Visited" },
+      { value: "50000+", label: "Corporates Trained" },
+      { value: "450+", label: "Seminars & Keynotes Addressed" },
+      { value: "4000+", label: "Teachers Trained" },
+      { value: "10000+", label: "Students Trained" },
+      { value: "30+", label: "Articles Published" },
+      //{ value: "11+", label: "Schools Visited" },
+      { value: "15+", label: "Countries" }
     ]
   },
   programs: [

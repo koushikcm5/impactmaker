@@ -1,0 +1,144 @@
+.domain-expertise {
+  position: relative;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, rgba(22, 89, 167, 0.05) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(232, 234, 246, 0.3) 100%);
+  overflow: hidden;
+}
+
+.domain-expertise .container {
+  position: relative;
+  z-index: 1;
+}
+
+.domain-heading {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #1a237e;
+  margin: 0 0 3rem 0;
+  letter-spacing: -0.5px;
+}
+
+.ticker-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.ticker-container {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem 0;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: scroll-left 45s linear infinite;
+  width: fit-content;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-33.333% - 0.5rem));
+  }
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.domain-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1659a7;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(22, 89, 167, 0.12);
+  border: 1px solid rgba(22, 89, 167, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.domain-pill:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(22, 89, 167, 0.25);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(22, 89, 167, 0.3);
+}
+
+.ticker-fade-left,
+.ticker-fade-right {
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ticker-fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.ticker-fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+@media (max-width: 768px) {
+  .domain-expertise {
+    padding: 3rem 0;
+  }
+
+  .domain-heading {
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+  }
+
+  .domain-pill {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .ticker-track {
+    gap: 1rem;
+  }
+
+  .ticker-fade-left,
+  .ticker-fade-right {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .domain-expertise {
+    padding: 2rem 0;
+  }
+
+  .domain-heading {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .domain-pill {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .ticker-track {
+    gap: 0.75rem;
+  }
+
+  .ticker-fade-left,
+  .ticker-fade-right {
+    width: 40px;
+  }
+}
