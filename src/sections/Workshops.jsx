@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Sparkles, X, ArrowRight, ExternalLink, Briefcase, BookOpen, Users, Quote } from 'lucide-react';
+import { Sparkles, X, ArrowRight, ExternalLink, Briefcase, BookOpen, Users, Quote, Monitor, GraduationCap, School } from 'lucide-react';
 import NetworkCanvas from '../components/NetworkCanvas';
 import ServiceCard from '../components/ServiceCard';
 import './Workshops.css';
@@ -38,31 +38,52 @@ const Workshops = ({ programs, data }) => {
         {/* --- Game-Changer Workshops --- */}
         <div className="game-changer-part">
           <div className="section-header services-header">
+            <span className="workshops-pill">Holistic Evolution</span>
             <h2>The Game-Changer Workshops</h2>
             <p className="services-subtitle">
               These game-changing workshops enable holistic transformation for teams, educators, and students.
             </p>
             
-            <div className="services-impact-chips">
-              <div className="impact-chip">
-                <Briefcase size={18} className="chip-icon" />
-                <span><strong>For employees</strong> - in the way they perform</span>
+            <div className="transformation-pillars">
+              <div className="transformation-pillar">
+                <div className="pillar-icon-wrapper">
+                  <Briefcase className="pillar-icon" size={24} />
+                </div>
+                <div className="pillar-content">
+                  <h3>For Employees</h3>
+                  <p>In the way they perform</p>
+                </div>
               </div>
-              <div className="impact-chip">
-                <BookOpen size={18} className="chip-icon" />
-                <span>
-                  <strong>Ed Tech</strong><br />
-                  <small><strong>For teachers</strong> - in the way they teach</small><br />
-                  <small><strong>For students</strong> - in the way they learn</small>
-                </span>
+
+              <div className="transformation-pillar ed-tech-pillar">
+                <div className="pillar-icon-wrapper">
+                  <Monitor className="pillar-icon" size={24} />
+                </div>
+                <div className="pillar-content">
+                  <h3>Ed Tech</h3>
+                  <div className="sub-pillars">
+                    <div className="sub-pillar">
+                      <School size={16} />
+                      <span><strong>For teachers</strong> - in the way they teach</span>
+                    </div>
+                    <div className="sub-pillar">
+                      <GraduationCap size={16} />
+                      <span><strong>For students</strong> - in the way they learn</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className="premium-quote-box">
-              <Quote size={40} className="quote-bg-icon" />
-              <p className="premium-quote-text">
-                "Just by enabling their creative thinking capacity through ancient practices"
-              </p>
+            <div className="premium-quote-container">
+              <div className="quote-accent-line"></div>
+              <div className="premium-quote-box">
+                <Quote size={40} className="quote-bg-icon" />
+                <p className="premium-quote-text">
+                  "Just by enabling their creative thinking capacity through ancient practices"
+                </p>
+              </div>
+              <div className="quote-accent-line"></div>
             </div>
           </div>
           

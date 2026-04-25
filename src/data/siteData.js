@@ -16,7 +16,7 @@ export const siteData = {
   trust: {
     metrics: [
       { value: "90+", label: "Colleges Visited" },
-      { value: "50000+", label: "Corporates Trained" },
+      { value: "10000+", label: "Corporates Trained" },
       { value: "450+", label: "Seminars & Keynotes Addressed" },
       { value: "4000+", label: "Teachers Trained" },
       { value: "10000+", label: "Students Trained" },
