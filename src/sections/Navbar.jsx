@@ -32,9 +32,10 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
     
+    // Use a 0px horizontal line across the middle of the screen to detect the active section
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -70% 0px',
+      rootMargin: '-50% 0px -50% 0px',
       threshold: 0
     };
 
@@ -46,10 +47,13 @@ const Navbar = () => {
       });
     }, observerOptions);
 
-    navLinks.forEach(link => {
-      const section = document.getElementById(link.id);
-      if (section) observer.observe(section);
-    });
+    // Timeout ensures DOM elements are rendered before observing
+    setTimeout(() => {
+      navLinks.forEach(link => {
+        const section = document.getElementById(link.id);
+        if (section) observer.observe(section);
+      });
+    }, 100);
 
     return () => {
       observer.disconnect();

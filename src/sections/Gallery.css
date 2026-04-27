@@ -6,9 +6,163 @@
   overflow: hidden;
 }
 
+/* ── Filters ──────────────────────────────────────────────────────── */
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(22, 32, 51, 0.1);
+  background: #ffffff;
+  color: #162033;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(22, 32, 51, 0.05);
+}
+
+.filter-btn.active {
+  background: #162033;
+  color: #ffffff;
+  border-color: #162033;
+  box-shadow: 0 10px 20px rgba(22, 32, 51, 0.15);
+}
+
+/* ── Grid ─────────────────────────────────────────────────────────── */
 .gallery-grid {
   columns: 3 350px;
   column-gap: 24px;
+}
+
+/* ── Breadcrumb ───────────────────────────────────────────────────── */
+.gallery-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #162033;
+}
+
+.gallery-breadcrumb .back-btn {
+  background: none;
+  border: none;
+  color: #0070f3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+  padding: 0;
+}
+
+.gallery-breadcrumb .back-btn:hover {
+  opacity: 0.7;
+}
+
+.gallery-breadcrumb .separator {
+  color: rgba(22, 32, 51, 0.4);
+}
+
+.gallery-breadcrumb .current {
+  color: #162033;
+}
+
+/* ── Folder Card ──────────────────────────────────────────────────── */
+.gallery-folder-card {
+  break-inside: avoid;
+  margin-bottom: 24px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(22, 32, 51, 0.08);
+  padding: 16px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  transition: all 0.4s ease;
+  animation: galleryFadeUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  opacity: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.gallery-folder-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(22, 32, 51, 0.08);
+  border-color: rgba(22, 32, 51, 0.15);
+}
+
+.folder-cover {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #f1f5f9;
+}
+
+.folder-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-folder-card:hover .folder-cover img {
+  transform: scale(1.05);
+}
+
+.folder-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(22, 32, 51, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-folder-card:hover .folder-overlay {
+  opacity: 1;
+}
+
+.folder-icon {
+  font-size: 2.5rem;
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+
+.gallery-folder-card:hover .folder-icon {
+  transform: translateY(0);
+}
+
+.folder-info h3 {
+  font-size: 1.1rem;
+  color: #162033;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+
+.folder-info span {
+  font-size: 0.85rem;
+  color: rgba(22, 32, 51, 0.6);
+  font-weight: 500;
 }
 
 /* Card base */

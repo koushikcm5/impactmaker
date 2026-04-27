@@ -1,6 +1,14 @@
 import speakerImg from '../assets/about/IMG-20221221-WA0017.jpg';
-import { Target, Quote as QuoteIcon, Zap, Brain, Heart } from 'lucide-react';
+import { Target, Quote as QuoteIcon, Zap, Brain, Heart, PenTool, Mic, Activity, BookOpen, Star } from 'lucide-react';
 import './About.css';
+
+const iconMap = {
+  PenTool,
+  Mic,
+  Activity,
+  Zap,
+  BookOpen
+};
 
 const About = ({ data }) => {
   return (
@@ -83,6 +91,42 @@ const About = ({ data }) => {
             </div>
           </div>
         </div>
+
+        {/* Trainer USP Section */}
+        {data.usp && (
+          <div className="trainer-usp-section">
+            <div className="usp-header">
+              <div className="usp-badge">
+                <Star size={16} />
+                <span>Excellence</span>
+              </div>
+              <h3 className="usp-title">Trainer's USP</h3>
+            </div>
+            <div className="usp-grid">
+              {data.usp.map((item, idx) => {
+                const Icon = iconMap[item.icon] || Star;
+                return (
+                  <div key={idx} className="usp-card">
+                    <div className="usp-icon-wrapper">
+                      <Icon size={24} />
+                    </div>
+                    <div className="usp-content">
+                      <h4>{item.title}</h4>
+                      <p>
+                        {item.description.split('\n').map((line, i) => (
+                          <span key={i}>
+                            {line}
+                            {i < item.description.split('\n').length - 1 && <br />}
+                          </span>
+                        ))}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

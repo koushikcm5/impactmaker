@@ -50,8 +50,13 @@ const Workshops = ({ programs, data }) => {
                   <Briefcase className="pillar-icon" size={24} />
                 </div>
                 <div className="pillar-content">
-                  <h3>For Employees</h3>
-                  <p>In the way they perform</p>
+                  <h3>Corporate</h3>
+                  <div className="sub-pillars">
+                    <div className="sub-pillar">
+                      <Users size={16} />
+                      <span><strong>For Employees</strong> - in the way they perform</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 

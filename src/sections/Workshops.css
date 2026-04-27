@@ -18,12 +18,14 @@
   font-size: 3rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 16px;
   background: linear-gradient(135deg, #162033 0%, #1659a7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
   display: inline-block;
+  text-align: center;
 }
 
 .services-header h2::after {
@@ -41,6 +43,8 @@
 .services-subtitle {
   font-size: 1.15rem;
   margin: 0 auto 22px;
+  text-align: center;
+  max-width: 650px;
 }
 
 .transformation-pillars {

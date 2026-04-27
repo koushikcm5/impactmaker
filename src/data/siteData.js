@@ -54,7 +54,34 @@ export const siteData = {
       title: "About The Founder",
       quote: "World today needs not teachers who can just teach but one who can create stories that engages the student community",
       description: "Arun Divakaran is a gifted creative teaching talent who challenges the teachers to ask the question to themselves \"What is the best way to teach my students\". He received one of the most prestigious \"Trainer of the year\" awards from the institution he served for more than a decade. He has an incredible passion to understand, integrate and deepen the transformative changes needed in the conventional methods of teaching. Over thousands of Teaching professionals and students across the country and abroad have been benefited in the Action-packed creativity enabling workshops he pioneered. The unique, innovative and interesting methods that he has uncovered in the teaching arena have proved to be highly effective in every field of teaching, at every job level, across cultures, and even at home and school. He believes that a great teacher takes the child's hand, touches their heart and opens their mind. Their influence literally has no limits. The children they inspire will go on to save lives, lead countries, build innovative things and change the world forever."
-    }
+    },
+    usp: [
+      {
+        title: "Creative Content Builder",
+        description: "Impactful and unique content & curriculum based puzzles created exclusively by the trainer using torrance test of creative thinking framework.",
+        icon: "PenTool"
+      },
+      {
+        title: "Articulative & Audience Pulse Reader",
+        description: "Articulates the content, changes the pitches in a way that is easily understood by the audience. Applies Feynman technique & Elevator pitches.",
+        icon: "Mic"
+      },
+      {
+        title: "Change Influencer",
+        description: "Ability to influence change in mindset and instrumental in helping others navigate through changes, whether they are related to organizational restructuring, new initiatives, or shifts in policies and procedures.",
+        icon: "Activity"
+      },
+      {
+        title: "Dynamic Delivery",
+        description: "Expert in delivering spontaneous content and surprise elements during the session.",
+        icon: "Zap"
+      },
+      {
+        title: "Best Selling Book Author",
+        description: "Author of:\nThe Accidental Data Analyst\nCreati-Witty: Unfolding the Secret Formulas of a Creative Teacher",
+        icon: "BookOpen"
+      }
+    ]
   },
   workshops: [
     {

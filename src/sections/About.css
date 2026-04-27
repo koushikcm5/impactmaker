@@ -239,6 +239,120 @@
   margin: 0;
 }
 
+/* Trainer USP Section */
+.trainer-usp-section {
+  margin-top: 100px;
+  padding-top: 80px;
+  border-top: 1px solid rgba(22, 32, 51, 0.08);
+  position: relative;
+}
+
+.usp-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.usp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(242, 140, 40, 0.1);
+  color: #f28c28;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.usp-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  color: rgb(22, 32, 51);
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 0;
+}
+
+.usp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.usp-card {
+  background: #ffffff;
+  border: 1px solid rgba(22, 32, 51, 0.06);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 10px 30px rgba(22, 32, 51, 0.02);
+  position: relative;
+  overflow: hidden;
+}
+
+.usp-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(22, 89, 167, 0.03), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.usp-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(22, 32, 51, 0.08);
+  border-color: rgba(22, 89, 167, 0.15);
+}
+
+.usp-card:hover::before {
+  opacity: 1;
+}
+
+.usp-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(22, 89, 167, 0.08), rgba(22, 89, 167, 0.15));
+  color: #1659a7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.usp-content {
+  position: relative;
+  z-index: 1;
+}
+
+.usp-content h4 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: rgb(22, 32, 51);
+  margin-bottom: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.usp-content p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #49617c;
+  margin: 0;
+}
+
 @media (max-width: 1100px) {
   .about-layout-grid {
     grid-template-columns: 1fr;
@@ -263,6 +377,19 @@
   
   .founder-img-container {
     height: 320px;
+  }
+  
+  .trainer-usp-section {
+    margin-top: 80px;
+    padding-top: 60px;
+  }
+  
+  .usp-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .usp-card {
+    padding: 32px;
   }
 }
 
