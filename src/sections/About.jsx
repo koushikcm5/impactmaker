@@ -1,14 +1,8 @@
 import speakerImg from '../assets/about/IMG-20221221-WA0017.jpg';
-import { Target, Quote as QuoteIcon, Zap, Brain, Heart, PenTool, Mic, Activity, BookOpen, Star } from 'lucide-react';
+import { Target, Quote as QuoteIcon, Zap, Brain, Heart, CheckCircle2, Star } from 'lucide-react';
 import './About.css';
 
-const iconMap = {
-  PenTool,
-  Mic,
-  Activity,
-  Zap,
-  BookOpen
-};
+
 
 const About = ({ data }) => {
   return (
@@ -60,6 +54,23 @@ const About = ({ data }) => {
               </div>
             </div>
 
+            {/* Trainer USP List */}
+            {data.usp && (
+              <div className="usp-inline-section">
+                <h3 className="usp-inline-title">Trainer's USP</h3>
+                <ul className="usp-list">
+                  {data.usp.map((item, idx) => (
+                    <li key={idx} className="usp-item">
+                      <CheckCircle2 className="usp-tick" size={24} />
+                      <div className="usp-text">
+                        <strong>{item.title}:</strong> {item.description}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <div className="about-long-narrative">
               {data.content.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="narrative-para">{paragraph}</p>
@@ -73,7 +84,7 @@ const About = ({ data }) => {
               <div className="founder-img-container">
                 <img src={speakerImg} alt={data.founder.name} className="founder-portrait" />
                 <div className="founder-badge">
-                  <span>Founder & CEO</span>
+                  <span>CO Founder & Executive Corporate Trainer</span>
                 </div>
               </div>
               
@@ -92,41 +103,7 @@ const About = ({ data }) => {
           </div>
         </div>
 
-        {/* Trainer USP Section */}
-        {data.usp && (
-          <div className="trainer-usp-section">
-            <div className="usp-header">
-              <div className="usp-badge">
-                <Star size={16} />
-                <span>Excellence</span>
-              </div>
-              <h3 className="usp-title">Trainer's USP</h3>
-            </div>
-            <div className="usp-grid">
-              {data.usp.map((item, idx) => {
-                const Icon = iconMap[item.icon] || Star;
-                return (
-                  <div key={idx} className="usp-card">
-                    <div className="usp-icon-wrapper">
-                      <Icon size={24} />
-                    </div>
-                    <div className="usp-content">
-                      <h4>{item.title}</h4>
-                      <p>
-                        {item.description.split('\n').map((line, i) => (
-                          <span key={i}>
-                            {line}
-                            {i < item.description.split('\n').length - 1 && <br />}
-                          </span>
-                        ))}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
+
       </div>
     </section>
   );

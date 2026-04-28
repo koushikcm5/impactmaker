@@ -98,6 +98,21 @@
   transform: rotate(180deg);
 }
 
+.premium-quote-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(22, 89, 167, 0.08);
+  color: #1659a7;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .premium-quote-text {
   position: relative;
   margin: 0;
@@ -109,6 +124,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 1;
+}
+
+.premium-quote-text span {
+  font-weight: 800;
 }
 
 .services-grid {

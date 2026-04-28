@@ -34,7 +34,8 @@ const Clients = () => {
         <div className="clients-header">
           <span className="clients-kicker">Professional Network</span>
           <h2>Trusted by Industry Leaders</h2>
-          <p>We've empowered workforce transformation at these prestigious organizations.</p>
+          <p>Delivered workforce transformation Programs at these prestigious organizations.
+</p>
         </div>
 
         <div className="marquee-wrapper">

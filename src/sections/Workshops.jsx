@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Sparkles, X, ArrowRight, ExternalLink, Briefcase, BookOpen, Users, Quote, Monitor, GraduationCap, School } from 'lucide-react';
+import { Sparkles, X, ArrowRight, ExternalLink, Quote } from 'lucide-react';
 import NetworkCanvas from '../components/NetworkCanvas';
 import ServiceCard from '../components/ServiceCard';
+import gameChangerImg from '../assets/Gallery/others/f0e5ee81-4645-4133-a12e-f5104b7e1658.png';
 import './Workshops.css';
 
 const Workshops = ({ programs, data }) => {
@@ -40,52 +41,18 @@ const Workshops = ({ programs, data }) => {
           <div className="section-header services-header">
             <span className="workshops-pill">Holistic Evolution</span>
             <h2>The Game-Changer Workshops</h2>
-            <p className="services-subtitle">
-              These game-changing workshops enable holistic transformation for teams, educators, and students.
-            </p>
             
-            <div className="transformation-pillars">
-              <div className="transformation-pillar">
-                <div className="pillar-icon-wrapper">
-                  <Briefcase className="pillar-icon" size={24} />
-                </div>
-                <div className="pillar-content">
-                  <h3>Corporate</h3>
-                  <div className="sub-pillars">
-                    <div className="sub-pillar">
-                      <Users size={16} />
-                      <span><strong>For Employees</strong> - in the way they perform</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="transformation-pillar ed-tech-pillar">
-                <div className="pillar-icon-wrapper">
-                  <Monitor className="pillar-icon" size={24} />
-                </div>
-                <div className="pillar-content">
-                  <h3>Ed Tech</h3>
-                  <div className="sub-pillars">
-                    <div className="sub-pillar">
-                      <School size={16} />
-                      <span><strong>For teachers</strong> - in the way they teach</span>
-                    </div>
-                    <div className="sub-pillar">
-                      <GraduationCap size={16} />
-                      <span><strong>For students</strong> - in the way they learn</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="game-changer-hero-image">
+               <img src={gameChangerImg} alt="The Game-Changer Workshops" loading="lazy" />
             </div>
             
             <div className="premium-quote-container">
               <div className="quote-accent-line"></div>
               <div className="premium-quote-box">
                 <Quote size={40} className="quote-bg-icon" />
+                <span className="premium-quote-kicker">Highlighted Impact</span>
                 <p className="premium-quote-text">
-                  "Just by enabling their creative thinking capacity through ancient practices"
+                  These game-changing workshops enable <span className="premium-quote-emphasis">holistic transformation</span> for Corporates, educators, and student Leaners by enabling their <span className="premium-quote-emphasis">creative thinking capacity</span> through <span className="premium-quote-emphasis">ancient practices</span>
                 </p>
               </div>
               <div className="quote-accent-line"></div>

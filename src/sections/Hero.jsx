@@ -55,7 +55,7 @@ const Hero = ({ data }) => {
             <div className="hero-scene">
               <div className="scene-orbit scene-orbit-one" />
               <div className="scene-orbit scene-orbit-two" />
-              <div className="scene-grid-plane" />
+          
               <div className="scene-glow" />
               <div className="scene-core">
                 <span className="scene-core-label">AI</span>

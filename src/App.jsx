@@ -35,9 +35,9 @@ const HomePage = () => (
   <>
     <Navbar />
     <Hero data={siteData.hero} />
-    <DomainExpertise />
     <Trust data={siteData.trust} />
     <Clients />
+    <DomainExpertise />
     <Workshops programs={siteData.programs} data={siteData.workshops} />
     <Testimonials data={siteData.testimonials} />
     <About data={siteData.about} />
@@ -97,4 +97,3 @@ function App() {
 }
 
 export default App;
-
