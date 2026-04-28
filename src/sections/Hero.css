@@ -1,5 +1,5 @@
 .hero {
-  padding: 132px 0 104px;
+  padding: 110px 0 80px;
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -308,8 +308,11 @@
 .scene-panel strong {
   display: block;
   color: var(--text-dark);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.95rem;
-  line-height: 1.5;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
 .scene-panel-left {
@@ -329,9 +332,10 @@
 .scene-panel-bottom {
   bottom: 10%;
   left: 50%;
-  width: 240px;
+  width: 280px;
   transform: translateX(-50%) rotateX(14deg);
   animation: floatPanel 7.5s ease-in-out infinite;
+  white-space: nowrap;
 }
 
 .scene-node {
@@ -499,8 +503,10 @@
   }
 
   .scene-panel {
-    width: 180px;
-    padding: 14px 14px 12px;
+    width: fit-content;
+    min-width: 160px;
+    padding: 14px 16px;
+    white-space: nowrap;
   }
 
   .scene-panel strong {

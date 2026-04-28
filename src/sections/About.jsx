@@ -57,7 +57,7 @@ const About = ({ data }) => {
             {/* Trainer USP List */}
             {data.usp && (
               <div className="usp-inline-section">
-                <h3 className="usp-inline-title">Trainer's USP</h3>
+                <h3 className="usp-inline-title">Dr. Arun Divakaran's USP</h3>
                 <ul className="usp-list">
                   {data.usp.map((item, idx) => (
                     <li key={idx} className="usp-item">

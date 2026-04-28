@@ -1,24 +1,44 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Folder } from 'lucide-react';
 import './Gallery.css';
 
 const images = import.meta.glob('../assets/Gallery/**/*.{jpg,jpeg,png,gif,webp}', { eager: true });
+
+const formatText = (str) => {
+  if (!str) return '';
+  return str.split(' ').map(word => 
+    word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  ).join(' ');
+};
 
 const parsedImages = Object.entries(images).map(([path, module]) => {
   const parts = path.split('/');
   const filenameWithExt = parts.pop();
   const filename = filenameWithExt.replace(/\.[^/.]+$/, "");
   
-  const isCorporateFolder = parts.includes('corporate');
+  const corporateIdx = parts.indexOf('corporate');
+  const edtechIdx = parts.indexOf('edtech');
   
-  if (isCorporateFolder) {
+  if (corporateIdx !== -1 && parts.length > corporateIdx + 1) {
     const eventName = parts[parts.length - 1]; 
     return {
       type: 'eventImage',
       src: module.default,
       alt: filename,
-      caption: eventName,
+      caption: formatText(eventName),
       sub: 'Corporate Event',
       category: 'Corporate',
+      folder: eventName
+    };
+  } else if (edtechIdx !== -1 && parts.length > edtechIdx + 1) {
+    const eventName = parts[parts.length - 1]; 
+    return {
+      type: 'eventImage',
+      src: module.default,
+      alt: filename,
+      caption: formatText(eventName),
+      sub: 'Ed Tech Event',
+      category: 'Ed Tech',
       folder: eventName
     };
   } else {
@@ -31,34 +51,43 @@ const parsedImages = Object.entries(images).map(([path, module]) => {
       'student', 'college', 'school', 'skcet', 'kct', 'muthayammal',
       'yuvakshetra', 'vsb', 'hindustan', 'amritha', 'vdit', 'teachers',
       'fdp', 'lisieux', 'ngp', 'kpr', 'campus', 'drug free', 'education'
-    ].some(kw => lowerName.includes(kw));
+    ].some(kw => lowerName.includes(kw)) || edtechIdx !== -1;
 
     return {
       type: 'standalone',
       src: module.default,
       alt: filename,
-      caption: caption,
-      sub: sub,
+      caption: formatText(caption),
+      sub: formatText(sub),
       category: isEdTech ? 'Ed Tech' : 'All'
     };
   }
 });
 
-const corporateImages = parsedImages.filter(img => img.category === 'Corporate');
-const foldersMap = {};
-corporateImages.forEach(img => {
-  if (!foldersMap[img.folder]) {
-    foldersMap[img.folder] = {
-      name: img.folder,
-      cover: img.src,
-      count: 0,
-      images: []
-    };
-  }
-  foldersMap[img.folder].count += 1;
-  foldersMap[img.folder].images.push(img);
-});
-const corporateFolders = Object.values(foldersMap);
+const getFolders = (category) => {
+  const categoryImages = parsedImages.filter(img => img.category === category && img.type === 'eventImage');
+  const foldersMap = {};
+  categoryImages.forEach(img => {
+    if (!foldersMap[img.folder]) {
+      foldersMap[img.folder] = {
+        name: img.folder,
+        cover: img.src,
+        count: 0,
+        images: []
+      };
+    }
+    foldersMap[img.folder].count += 1;
+    foldersMap[img.folder].images.push(img);
+  });
+  return foldersMap;
+};
+
+const corporateFoldersMap = getFolders('Corporate');
+const edtechFoldersMap = getFolders('Ed Tech');
+
+const corporateFolders = Object.values(corporateFoldersMap);
+const edtechFolders = Object.values(edtechFoldersMap);
+
 const standalones = parsedImages.filter(img => img.type === 'standalone');
 
 
@@ -72,15 +101,23 @@ const Gallery = () => {
   
   if (activeCategory === 'Corporate') {
     if (activeFolder) {
-      displayItems = foldersMap[activeFolder]?.images || [];
+      displayItems = corporateFoldersMap[activeFolder]?.images || [];
     } else {
       displayItems = corporateFolders;
       isFolderView = true;
     }
+  } else if (activeCategory === 'Ed Tech') {
+    if (activeFolder) {
+      displayItems = edtechFoldersMap[activeFolder]?.images || [];
+    } else {
+      // Mixed view: Folders first, then standalones
+      displayItems = [
+        ...edtechFolders.map(f => ({ ...f, isFolder: true })),
+        ...standalones.filter(img => img.category === 'Ed Tech')
+      ];
+    }
   } else if (activeCategory === 'All') {
     displayItems = standalones;
-  } else if (activeCategory === 'Ed Tech') {
-    displayItems = standalones.filter(img => img.category === 'Ed Tech');
   }
 
   const close  = useCallback(() => setLightbox(null), []);
@@ -126,19 +163,19 @@ const Gallery = () => {
           ))}
         </div>
 
-        {activeCategory === 'Corporate' && activeFolder && (
+        {(activeFolder) && (
           <div className="gallery-breadcrumb">
             <button className="back-btn" onClick={() => setActiveFolder(null)}>
-              <span aria-hidden="true">←</span> Corporate
+              <span aria-hidden="true">←</span> {activeCategory}
             </button>
             <span className="separator">/</span>
-            <span className="current">{activeFolder}</span>
+            <span className="current">{formatText(activeFolder)}</span>
           </div>
         )}
 
         <div className="gallery-grid">
           {displayItems.map((item, i) => {
-            if (isFolderView) {
+            if (isFolderView || item.isFolder) {
               return (
                 <button
                   key={item.name}
@@ -148,13 +185,15 @@ const Gallery = () => {
                 >
                   <div className="folder-cover">
                     <img src={item.cover} alt={item.name} loading="lazy" />
-                    <div className="folder-overlay">
-                      <span className="folder-icon">📂</span>
+                    <div className="gallery-overlay">
+                      <div className="gallery-overlay-text">
+                        <span className="gallery-caption">{formatText(item.name)}</span>
+                        <span className="gallery-sub">{item.count} Photos</span>
+                      </div>
+                      <span className="gallery-zoom-icon" aria-hidden="true">
+                        <Folder size={20} />
+                      </span>
                     </div>
-                  </div>
-                  <div className="folder-info">
-                    <h3>{item.name}</h3>
-                    <span>{item.count} Photos</span>
                   </div>
                 </button>
               );

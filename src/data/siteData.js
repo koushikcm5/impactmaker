@@ -31,9 +31,9 @@ export const siteData = {
         title: "Redefining Learning for the Future",
         icon: "BookOpen",
         paragraphs: [
-          "As educators, we recognize that the current school system is not always effective in nurturing the habits required for meaningful and lifelong learning. Through continuous interaction with education professionals, a common challenge becomes evident\u2014institutions and their staff are often overwhelmed by repetitive administrative processes and extensive paperwork.",
-          "The emphasis on meeting national standards, evaluating performance through marks, and maintaining quality control has gradually led to a mechanical approach to teaching. Over time, educators risk being perceived as \u201cteaching machines,\u201d and learning itself becomes a struggle rather than an inspiring journey.",
-          "However, true learning does not come from rigid systems\u2014it emerges through curiosity, experimentation, risk-taking, and the freedom to make mistakes. It thrives when students are encouraged to think beyond boundaries and explore ideas creatively."
+          "As educators, we recognize that the current school system is not always effective in nurturing the habits required for meaningful and lifelong learning. Through continuous interaction with education professionals, a common challenge becomes evident—institutions and their staff are often overwhelmed by repetitive administrative processes and extensive paperwork.",
+          "The emphasis on meeting national standards, evaluating performance through marks, and maintaining quality control has gradually led to a mechanical approach to teaching. Over time, educators risk being perceived as “teaching machines,” and learning itself becomes a struggle rather than an inspiring journey.",
+          "However, true learning does not come from rigid systems—it emerges through curiosity, experimentation, risk-taking, and the freedom to make mistakes. It thrives when students are encouraged to think beyond boundaries and explore ideas creatively."
         ]
       },
       {
@@ -42,7 +42,7 @@ export const siteData = {
         icon: "Lightbulb",
         paragraphs: [
           "Our state-of-the-art workshops are thoughtfully designed to address these challenges. The curriculum is grounded in real-world relevance and focuses on simple, actionable frameworks, disciplines, and tools.",
-          "We aim to create a paradigm shift\u2014empowering educators to reimagine their roles, redefine their purpose, and deliver learning experiences that are engaging, impactful, and lasting."
+          "We aim to create a paradigm shift—empowering educators to reimagine their roles, redefine their purpose, and deliver learning experiences that are engaging, impactful, and lasting."
         ]
       }
     ],
@@ -90,7 +90,7 @@ export const siteData = {
     content: "As an educator, I have seen how schools can struggle to build the habits that make students lifelong learners. Through regular conversations with education professionals, one pattern stands out: institutions and staff are often caught up in repetitive processes, paperwork, standards, marks, and quality checks. Over time, teaching can become mechanical, and learning begins to feel like a struggle instead of a joyful, courageous journey.\n\nOur state-of-the-art workshops are built to change that. Grounded in real classroom challenges, they introduce simple, action-ready frameworks, disciplines, and tools that help educators create spaces where students take risks, make mistakes, experiment, and think beyond the obvious. The result is a meaningful shift in how educators see themselves, their work, and their vision for lasting learning experiences.",
     founder: {
       name: "Dr. Arun Divakaran",
-      //title: "About",
+      title: "CO FOUNDER",
       quote: "World today needs not educators who can just teach but ones who can create stories that engage the student community",
       description: "Arun Divakaran is a gifted creative educator who challenges educators to ask the question to themselves \"What is the best way to teach my students\". He received one of the most prestigious \"Trainer of the year\" awards from the institution he served for more than a decade. He has an incredible passion to understand, integrate and deepen the transformative changes needed in the conventional methods of education. Over thousands of education professionals and students across the country and abroad have been benefited in the Action-packed creativity enabling workshops he pioneered. The unique, innovative and interesting methods that he has uncovered in the education arena have proved to be highly effective in every field of education, at every job level, across cultures, and even at home and school. He believes that a great educator takes the child's hand, touches their heart and opens their mind. Their influence literally has no limits. The children they inspire will go on to save lives, lead countries, build innovative things and change the world forever."
     },
@@ -126,6 +126,7 @@ export const siteData = {
     {
       id: 1,
       title: "Corporate Workshops",
+      intro: "Skill enablement workshops blended with proven transformative techniques to empower the corporate employees deliver better quality of work @ their workplace.",
       short: "The only one mantra that i carry in each of my workshop is \"that I dont train the same topic in the same way more than once\". Absolutely not!..Hence repeaters finds it very interesting to be part of my workshops more than once.",
       full: "The only one mantra that i carry in each of my workshop is \"that I dont train the same topic in the same way more than once\". Absolutely not!..Hence repeaters finds it very interesting to be part of my workshops more than once. These power packed action based workshops are built based on various lessons leared during my 1.8 decade of the industry experience both in India and Abroad.\n\nI have had successes in handling every type of personalities be it introverts or extroverts or ambiverts. The equation of life is that not everyone have the same view of the world, and their understanding of something may differ dramatically from that of yours. Through these custom built workshops for corporates, you get a remarkably new perspective of thinking altogether paving way for opening up to newer ideas, newer ways of doing things at your work place",
       image: wsCorp
@@ -133,19 +134,102 @@ export const siteData = {
     {
       id: 2,
       title: "B-Schools, Engineering, Science stream Workshops",
-      short: "It is no secret that educators who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.",
-      full: "It is no secret that educators who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.",
+      short: "It is no secret that students who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.",
+      full: "It is no secret that students who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.\n\nA High Voltage Action Packed workshop guaranteed to ignite the creative spark in the minds of learners. \"Learning is never going to be hard again\"",
       image: wsFtr
     },
     {
       id: 3,
       title: "Teacher Empowerment Workshops",
-      short: "The journey from a good to a great educator happens only if you go beyond the call of duty and the textbook and invest in yourself for a continuous learning process by attending workshops, seminars etc",
-      full: "It is no secret that educators who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation. The advent of technology has opened several doors to knowledge which were previously difficult to breach.With the Z-Generation students becoming more and more adept to use of newer technology.\n\nEducators are in danger of being overtaken by their students. Although it is an occasion to celebrate when students do better, yet a repeated occurrence of the same also leads to a marked decrease in the respect they hold for their educators. Educators, as a result, need to embrace the newer technology in the classroom and improve their overall way of teaching by using creative teaching techniques. These technology focussed workshops for the education fraternity is a perfect blend of expertise from the academy and technocrats from the industry, that helps to expand their repertoire. It gives educators more confidence, which, in turn, helps them perform better. It adds value to the teaching-and-learning process by making it more effective and efficient. These techno savvy workshops enlighten them about the latest developments and trends happening in the industry and help them to prepare for the same in the field of education.",
+      intro: "An Industry focussed workshop blended with “activity based learning” on the technologies of the future and empower them with a mindset of Transformed Mindset.",
+      short: `It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.
+The advent of technology has opened several doors to knowledge which were previously difficult to breach. With the Z-Generation students becoming more and more adept to use of newer technology.`,
+      full: `It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.
+The advent of technology has opened several doors to knowledge which were previously difficult to breach. With the Z-Generation students becoming more and more adept to use of newer technology.
+
+Teachers are in danger of being overtaken by their students. Although it is an occasion to celebrate when students do better, yet a repeated occurrence of the same also leads to a marked decrease in the respect they hold for their educators. Teachers, as a result, need to embrace the newer technology in the classroom and improve their overall way of teaching by using creative teaching techniques.
+These technology focussed workshops for the teaching fraternity is a perfect blend of expertise from the academy and technocrats from the industry, that helps to expand their repertoire. It gives teachers more confidence, which, in turn, helps them perform better. It adds value to the teaching-and-learning process by making it more effective and efficient. These techno savvy workshops enlighten them about the latest developments and trends happening in the industry and help them to prepare for the same in the field of education.`,
       image: wsFte
     }
   ],
   testimonials: [
+    {
+      text: "The SAFe Agile trainer was really good at explaining the Agile values and principles through activities rather than walkthrough slides. This session really helped me understand SAFe and how we need to adapt and follow the principles.",
+      company: "Cognizant",
+      author: "Sivakumar Subramani",
+      designation: "Agile Workshop Attendee, Associate, 22nd Aug 2019",
+      image: "https://ui-avatars.com/api/?name=Sivakumar+Subramani&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "Very interactive and effective training session. All the agile concepts were tied to day-to-day activities and examples, which made the team easily understand, learn, and implement them in the project. He simply changed our mindset to be agile adapted.",
+      company: "Cognizant",
+      author: "Roshanara Mumtaz Mohammed Burhansha",
+      designation: "Agile Workshop Attendee, 22nd Aug 2019",
+      image: "https://ui-avatars.com/api/?name=Roshanara+Mohammed&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "Arun Divakaran created and presented fantastic journey through the latest AI concepts, approaches, and current tools for attendees to leverage the entire spectrum of the BA responsibilities. Practical Use Cases were provided for attendees to apply the techniques via hands-on application of the AI tools. Even in my non-BA role, I came away with a lot more depth and skills than many of my prior AI classes. Arun is an expert and invested a lot of preparation, so the class flowed well across the entire AI spectrum. Take this course, you will not be disappointed.",
+      company: "AI for Business Leaders",
+      author: "Training Participant",
+      designation: "Workshop Attendee, Feb 2026",
+      image: "https://ui-avatars.com/api/?name=AI+Participant&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "The 3 day training session was very useful. It helped me learn a lot of things and I'm confident that I've improved a lot on the communication part. This is a huge step for me as a quite person. Mr Arun did a fantastic work and thank you Infoblox for this wonderful opportunity.",
+      company: "Infoblox",
+      author: "Sreelakshmi",
+      designation: "Software Engineer",
+      image: "https://ui-avatars.com/api/?name=Sreelakshmi&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "It was a very energetic session by Mr Arun Divakaran. He explained how professional etiquettes matter in a corporate environment very well!",
+      company: "Infoblox",
+      author: "Amitha Ajith",
+      designation: "Software Engineer",
+      image: "https://ui-avatars.com/api/?name=Amitha+Ajith&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "The 3 day Communication training was great. The session was fully engaging. We have done several activities including practice, role play, meetings discussion. Whole impact what I got is that it helped me to improve my communication skills and confidence. Thanks to trainer and Infoblox for this wonderful session.",
+      company: "Infoblox",
+      author: "Varsha Karunakaran",
+      designation: "Software Engineer",
+      image: "https://ui-avatars.com/api/?name=Varsha+Karunakaran&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "The trainer Mr. Arun Divakaran was so professional and interactive. His attention to detail to all the trainees made all of us learn all area of the professional communication and professional excellence.",
+      company: "Infoblox",
+      author: "Sujith S. Nair",
+      designation: "Software Engineer",
+      image: "https://ui-avatars.com/api/?name=Sujith+Nair&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "Arun, your teaching style is truly commendable. I thoroughly enjoyed the sessions and look forward to continuing my learning journey with KnowledgeHut. Your insights and guidance have been invaluable.",
+      company: "KnowledgeHut",
+      author: "Program Participant",
+      designation: "Learning Program Attendee",
+      image: "https://ui-avatars.com/api/?name=Program+Participant&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "Arun has done his best on researching and is quite determined to get everyone skilled on all the tools. I am learning a lot to say the least. Thank you!!",
+      company: "AI for Scrum Masters",
+      author: "Batch Participant",
+      designation: "Workshop Attendee, Sep 2025",
+      image: "https://ui-avatars.com/api/?name=Batch+Participant&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "The way of communicating among the participants was quite amazing. We understood the concept with ease through adequate examples.",
+      company: "Cognizant",
+      author: "Sabarainathan M",
+      designation: "SAFe Agile Workshop, 4th Oct 2019",
+      image: "https://ui-avatars.com/api/?name=Sabarainathan+M&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "It was not like a training session, it was like grooming. It was more interactive and I personally liked the way he taught and the effort spent by him was appreciable.",
+      company: "Cognizant",
+      author: "Sowmya K",
+      designation: "SAFe Agile Workshop, 4th Oct 2019",
+      image: "https://ui-avatars.com/api/?name=Sowmya+K&background=1a1a2e&color=fff&size=128"
+    },
     {
       text: "You are totally a fun loving guy who knows how to engage the folks. Wish to meet you in person sir. Thank you for your learnings and experiences. We love you sir.",
       company: "DY Patil University",
@@ -166,20 +250,6 @@ export const siteData = {
       author: "Vikas Kumar",
       designation: "Student, Batch Sep 2022",
       image: "https://ui-avatars.com/api/?name=Vikas+Kumar&background=1a1a2e&color=fff&size=128"
-    },
-    {
-      text: "The way of communicating among the participants was quite amazing. We understood the concept with ease through adequate examples.",
-      company: "Cognizant",
-      author: "Sabarainathan M",
-      designation: "SAFe Agile Workshop, 4th Oct 2019",
-      image: "https://ui-avatars.com/api/?name=Sabarainathan+M&background=1a1a2e&color=fff&size=128"
-    },
-    {
-      text: "It was not like a training session, it was like grooming. It was more interactive and I personally liked the way he taught and the effort spent by him was appreciable.",
-      company: "Cognizant",
-      author: "Sowmya K",
-      designation: "SAFe Agile Workshop, 4th Oct 2019",
-      image: "https://ui-avatars.com/api/?name=Sowmya+K&background=1a1a2e&color=fff&size=128"
     },
     {
       text: "Good and very informative session. Presented well by Mr. Arun.",
@@ -217,20 +287,6 @@ export const siteData = {
       image: "https://ui-avatars.com/api/?name=Chandrasekar+SM&background=1a1a2e&color=fff&size=128"
     },
     {
-      text: "The SAFe Agile trainer was really good at explaining the Agile values and principles through activities rather than walkthrough slides. This session really helped me understand SAFe and how we need to adapt and follow the principles.",
-      company: "Cognizant",
-      author: "Sivakumar Subramani",
-      designation: "Agile Workshop Attendee, Associate, 22nd Aug 2019",
-      image: "https://ui-avatars.com/api/?name=Sivakumar+Subramani&background=1a1a2e&color=fff&size=128"
-    },
-    {
-      text: "Very interactive and effective training session. All the agile concepts were tied to day-to-day activities and examples, which made the team easily understand, learn, and implement them in the project. He simply changed our mindset to be agile adapted.",
-      company: "Cognizant",
-      author: "Roshanara Mumtaz Mohammed Burhansha",
-      designation: "Agile Workshop Attendee, 22nd Aug 2019",
-      image: "https://ui-avatars.com/api/?name=Roshanara+Mohammed&background=1a1a2e&color=fff&size=128"
-    },
-    {
       text: "Thank you so much for being a wonderful mentor. Your guidance and advice helped brighten my career and professional life.",
       company: "Cognizant",
       author: "Shivani",
@@ -252,46 +308,11 @@ export const siteData = {
       image: "https://ui-avatars.com/api/?name=Karthika+Palaniswamy&background=1a1a2e&color=fff&size=128"
     },
     {
-      text: "The 3 day training session was very useful. It helped me learn a lot of things and I'm confident that I've improved a lot on the communication part. This is a huge step for me as a quite person. Mr Arun did a fantastic work and thank you Infoblox for this wonderful opportunity.",
-      company: "Infoblox",
-      author: "Sreelakshmi",
-      designation: "Software Engineer",
-      image: "https://ui-avatars.com/api/?name=Sreelakshmi&background=1a1a2e&color=fff&size=128"
-    },
-    {
-      text: "It was a very energetic session by Mr Arun Divakaran. He explained how professional etiquettes matter in a corporate environment very well!",
-      company: "Infoblox",
-      author: "Amitha Ajith",
-      designation: "Software Engineer",
-      image: "https://ui-avatars.com/api/?name=Amitha+Ajith&background=1a1a2e&color=fff&size=128"
-    },
-    {
-      text: "The 3 day Communication training was great. The session was fully engaging. We have done several activities including practice, role play, meetings discussion. Whole impact what I got is that it helped me to improve my communication skills and confidence. Thanks to trainer and Infoblox for this wonderful session.",
-      company: "Infoblox",
-      author: "Varsha Karunakaran",
-      designation: "Software Engineer",
-      image: "https://ui-avatars.com/api/?name=Varsha+Karunakaran&background=1a1a2e&color=fff&size=128"
-    },
-    {
-      text: "The trainer Mr. Arun Divakaran was so professional and interactive. His attention to detail to all the trainees made all of us learn all area of the professional communication and professional excellence.",
-      company: "Infoblox",
-      author: "Sujith S. Nair",
-      designation: "Software Engineer",
-      image: "https://ui-avatars.com/api/?name=Sujith+Nair&background=1a1a2e&color=fff&size=128"
-    },
-    {
       text: "It was a good training with Arun sir. He is one of the few trainers who really knows conveying the right thing without anyone getting bored. Kudos to his classes.",
       company: "Training Participant",
       author: "Training Attendee",
       designation: "Professional Development",
       image: "https://ui-avatars.com/api/?name=Training+Attendee&background=1a1a2e&color=fff&size=128"
-    },
-    {
-      text: "Arun Divakaran created and presented fantastic journey through the latest AI concepts, approaches, and current tools for attendees to leverage the entire spectrum of the BA responsibilities. Practical Use Cases were provided for attendees to apply the techniques via hands-on application of the AI tools. Even in my non-BA role, I came away with a lot more depth and skills than many of my prior AI classes. Arun is an expert and invested a lot of preparation, so the class flowed well across the entire AI spectrum. Take this course, you will not be disappointed.",
-      company: "AI for Business Leaders",
-      author: "Training Participant",
-      designation: "Workshop Attendee, Feb 2026",
-      image: "https://ui-avatars.com/api/?name=AI+Participant&background=1a1a2e&color=fff&size=128"
     },
     {
       text: "Arun was a great instructor. I would take his class again. He is very interactive, knowledgeable and encouraging.",
@@ -306,20 +327,6 @@ export const siteData = {
       author: "Student",
       designation: "Learning Program Participant",
       image: "https://ui-avatars.com/api/?name=Student&background=1a1a2e&color=fff&size=128"
-    },
-    {
-      text: "Arun, your teaching style is truly commendable. I thoroughly enjoyed the sessions and look forward to continuing my learning journey with KnowledgeHut. Your insights and guidance have been invaluable.",
-      company: "KnowledgeHut",
-      author: "Program Participant",
-      designation: "Learning Program Attendee",
-      image: "https://ui-avatars.com/api/?name=Program+Participant&background=1a1a2e&color=fff&size=128"
-    },
-    {
-      text: "Arun has done his best on researching and is quite determined to get everyone skilled on all the tools. I am learning a lot to say the least. Thank you!!",
-      company: "AI for Scrum Masters",
-      author: "Batch Participant",
-      designation: "Workshop Attendee, Sep 2025",
-      image: "https://ui-avatars.com/api/?name=Batch+Participant&background=1a1a2e&color=fff&size=128"
     }
   ],
   blog: [

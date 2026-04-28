@@ -37,11 +37,15 @@ const Workshops = ({ programs, data }) => {
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         
         {/* --- Game-Changer Workshops --- */}
-        <div className="game-changer-part">
-          <div className="section-header services-header">
-            <span className="workshops-pill">Holistic Evolution</span>
-            <h2>The Game-Changer Workshops</h2>
-            
+
+
+        {/* --- Deep-Dive Workshops --- */}
+        <div className="deep-dive-part">
+        <div className="section-header">
+          <span className="workshops-pill">Holistic Evolution</span>
+          <h2 className="main-workshop-title">The Game-Changer Workshops</h2>
+          
+          <div className="workshop-hero-split">
             <div className="game-changer-hero-image">
                <img src={gameChangerImg} alt="The Game-Changer Workshops" loading="lazy" />
             </div>
@@ -57,25 +61,12 @@ const Workshops = ({ programs, data }) => {
               <div className="quote-accent-line"></div>
             </div>
           </div>
-          
-          <div className="services-grid">
-            {programs && programs.map(service => (
-              <ServiceCard 
-                key={service.id}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-              />
-            ))}
-          </div>
-        </div>
 
-        {/* --- Deep-Dive Workshops --- */}
-        <div className="deep-dive-part">
-        <div className="section-header">
-          <span className="workshops-pill">Transformative Learning</span>
-          <h2>Deep-Dive Workshops</h2>
-          <p>Holistic transformation modules designed for sustainable impact across all levels of education and corporate life.</p>
+          <div style={{ marginTop: '60px' }}>
+            <span className="workshops-pill">Transformative Learning</span>
+            <h2>Deep-Dive Workshops</h2>
+            <p>Holistic transformation modules designed for sustainable impact across all levels of education and corporate life.</p>
+          </div>
         </div>
         
         <div className="workshops-grid">
@@ -121,6 +112,7 @@ const Workshops = ({ programs, data }) => {
             </button>
             <div className="workshop-modal-content animate-modal">
               <div className="workshop-modal-visual">
+                {selectedWorkshop.intro && <p className="workshop-modal-intro">{selectedWorkshop.intro}</p>}
                 <img src={selectedWorkshop.image} alt={selectedWorkshop.title} />
               </div>
               <div className="workshop-modal-info">

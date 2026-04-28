@@ -1,5 +1,5 @@
 .workshops {
-  padding: 80px 0 120px;
+  padding: 80px 0;
   background: #f9fafb;
   position: relative;
   overflow: hidden;
@@ -7,7 +7,7 @@
 
 /* --- Game-Changer Area --- */
 .game-changer-part {
-  margin-bottom: 120px;
+  margin-bottom: 80px;
 }
 
 .services-header {
@@ -27,6 +27,72 @@
   display: inline-block;
   text-align: center;
 }
+
+.main-workshop-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 20px;
+}
+
+.main-workshop-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 60px;
+  height: 5px;
+  background: linear-gradient(90deg, #1659a7, #f28c28);
+  border-radius: 10px;
+  transform: translateX(-50%);
+}
+
+.workshop-hero-split {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin: 48px auto;
+  max-width: 1200px;
+}
+
+.workshop-hero-split .game-changer-hero-image {
+  flex: 1;
+  max-width: 500px;
+  margin: 0;
+}
+
+.workshop-hero-split .premium-quote-container {
+  flex: 1.2;
+  max-width: 600px;
+  margin: 0;
+  justify-content: flex-start;
+}
+
+.workshop-hero-split .quote-accent-line {
+  display: none;
+}
+
+.workshop-hero-split .premium-quote-box {
+  text-align: left;
+  padding: 42px;
+}
+
+@media (max-width: 1024px) {
+  .workshop-hero-split {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .workshop-hero-split .premium-quote-container {
+    justify-content: center;
+  }
+  
+  .workshop-hero-split .premium-quote-box {
+    text-align: center;
+  }
+}
+
 
 .services-header h2::after {
   content: '';
@@ -195,7 +261,7 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
-  margin: 20px auto 80px;
+  margin: 20px auto 60px;
   max-width: 1000px;
 }
 
@@ -341,7 +407,7 @@
 
 .workshop-card-image {
   position: relative;
-  height: 240px;
+  height: 280px;
   overflow: hidden;
   background: #f8faff;
 }
@@ -349,7 +415,8 @@
 .workshop-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 12px;
   transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -505,10 +572,30 @@
 .workshop-modal-visual {
   background: #f8faff;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 40px;
+  justify-content: flex-start;
+  padding: 60px 40px;
   border-right: 1px solid rgba(0,0,0,0.05);
+  gap: 24px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.workshop-modal-intro {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1659a7;
+  text-align: center;
+  line-height: 1.5;
+  background: rgba(22, 89, 167, 0.05);
+  padding: 16px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(22, 89, 167, 0.1);
+  margin: 0;
+  max-width: 90%;
 }
 
 .workshop-modal-visual img {
@@ -516,6 +603,11 @@
   max-height: 500px;
   object-fit: contain;
   border-radius: 20px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
 .workshop-modal-info {
@@ -580,7 +672,8 @@
 }
 
 .animate-modal {
-  animation: modalIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: modalIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  will-change: transform, opacity;
 }
 
 @keyframes modalIn {

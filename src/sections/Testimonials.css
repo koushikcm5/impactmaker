@@ -21,21 +21,24 @@
   margin-bottom: 16px;
 }
 
-.testimonials-slider-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
+.testimonials-slider-container {
+  width: 100%;
   overflow: hidden;
+  padding: 40px 0; /* Space for lifting cards */
+  position: relative;
+}
+
+.testimonials-slider-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .testimonials-slider {
   display: flex;
-  transition: transform 0.5s ease-in-out;
 }
 
 .testimonial-slide {
-  min-width: 100%;
-  padding: 0 20px;
+  padding: 0 12px;
   box-sizing: border-box;
 }
 

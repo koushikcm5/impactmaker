@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 
-const NetworkCanvas = () => {
+const NetworkCanvas = memo(() => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -147,6 +147,6 @@ const NetworkCanvas = () => {
       }}
     />
   );
-};
+});
 
 export default NetworkCanvas;
