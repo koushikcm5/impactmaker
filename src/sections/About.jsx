@@ -12,18 +12,18 @@ const About = ({ data }) => {
       </div>
       
       <div className="container">
+        <div className="about-section-header">
+          <div className="mission-badge">
+            <Target size={16} />
+            <span>Our Mission</span>
+          </div>
+          <h2 className="about-main-title">{data.title}</h2>
+          <p className="about-intro-lead">{data.intro}</p>
+        </div>
+
         <div className="about-layout-grid">
           {/* Main Narrative Area */}
           <div className="about-narrative-panel">
-            <div className="about-header">
-              <div className="mission-badge">
-                <Target size={16} />
-                <span>Our Mission</span>
-              </div>
-              <h2 className="about-main-title">{data.title}</h2>
-              <p className="about-intro-lead">{data.intro}</p>
-            </div>
-
             <div className="about-philosophy-grid">
               <div className="philosophy-item">
                 <div className="philosophy-icon-box orange">
@@ -90,7 +90,7 @@ const About = ({ data }) => {
               
               <div className="founder-body">
                 <h3>{data.founder.name}</h3>
-                <span className="founder-kicker">{data.founder.title}</span>
+                <span className="founder-kicker">{data.founder.title || "Founder"}</span>
                 
                 <div className="founder-accent-quote">
                   <QuoteIcon size={20} className="accent-quote-icon" />
@@ -102,8 +102,6 @@ const About = ({ data }) => {
             </div>
           </div>
         </div>
-
-
       </div>
     </section>
   );

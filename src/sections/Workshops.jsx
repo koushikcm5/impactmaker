@@ -50,7 +50,6 @@ const Workshops = ({ programs, data }) => {
               <div className="quote-accent-line"></div>
               <div className="premium-quote-box">
                 <Quote size={40} className="quote-bg-icon" />
-                <span className="premium-quote-kicker">Highlighted Impact</span>
                 <p className="premium-quote-text">
                   These game-changing workshops enable <span className="premium-quote-emphasis">holistic transformation</span> for Corporates, educators, and student Leaners by enabling their <span className="premium-quote-emphasis">creative thinking capacity</span> through <span className="premium-quote-emphasis">ancient practices</span>
                 </p>
