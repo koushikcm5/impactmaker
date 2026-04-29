@@ -56,16 +56,14 @@ const Hero = ({ data }) => {
 
           <div className="hero-visual" aria-hidden="true">
             <div className="hero-scene">
+              <div className="scene-glow" />
               <div className="scene-orbit scene-orbit-one" />
               <div className="scene-orbit scene-orbit-two" />
-              <div className="scene-glow" />
 
               <div className="scene-core">
-                <span className="scene-core-label">AI</span>
-                <span className="scene-core-copy">
-                  <strong>Driven by Passion, Excellence Assured</strong>
-                  <small>My Innovative DNA</small>
-                </span>
+                <div className="scene-core-label">AI</div>
+                <div className="scene-core-tagline">Driven by Passion, Excellence Assured</div>
+                <div className="scene-core-subtitle">My Innovative DNA</div>
               </div>
 
               <div className="scene-panel scene-panel-left">
@@ -73,7 +71,7 @@ const Hero = ({ data }) => {
                 <strong>Gen AI for Functional Roles</strong>
               </div>
 
-              <div className="scene-panel scene-panel-right">
+              <div className="scene-panel scene-panel-featured">
                 <span>IT, HR, Marketing, Business &amp; MSME</span>
                 <strong>Agentic AI - Business Workflow Automation</strong>
               </div>
@@ -83,12 +81,12 @@ const Hero = ({ data }) => {
                 <strong>Gamified Learning for Gen Z</strong>
               </div>
 
-              <span className="scene-node scene-node-one" />
-              <span className="scene-node scene-node-two" />
-              <span className="scene-node scene-node-three" />
-              <span className="scene-node scene-node-four" />
-              <span className="scene-beam scene-beam-one" />
-              <span className="scene-beam scene-beam-two" />
+              <div className="scene-node scene-node-one" />
+              <div className="scene-node scene-node-two" />
+              <div className="scene-node scene-node-three" />
+              <div className="scene-node scene-node-four" />
+              <div className="scene-beam scene-beam-one" />
+              <div className="scene-beam scene-beam-two" />
             </div>
           </div>
         </div>

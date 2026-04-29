@@ -9,7 +9,7 @@ const Footer = ({ contact }) => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>Arun Divakaran</h3>
+            <h3>Dr. Arun Divakaran</h3>
             <p>Transforming education through creative teaching methods</p>
           </div>
           
@@ -53,7 +53,7 @@ const Footer = ({ contact }) => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {year} Arun Divakaran. All rights reserved.</p>
+          <p>&copy; {year} Dr. Arun Divakaran. All rights reserved.</p>
         </div>
       </div>
     </footer>
