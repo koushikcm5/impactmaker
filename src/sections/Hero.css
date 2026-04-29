@@ -1,5 +1,5 @@
 .hero {
-  padding: 110px 0 80px;
+  padding: 136px 0 88px;
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -48,13 +48,17 @@
 
 .hero-content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   align-items: center;
-  gap: 48px;
+  gap: clamp(40px, 5vw, 72px);
+  min-height: clamp(560px, calc(100vh - 180px), 760px);
 }
 
 .hero-text {
-  max-width: 760px;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   text-align: left;
 }
 
@@ -110,6 +114,8 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 8px;
+  align-items: flex-start;
+  max-width: 40rem;
 }
 
 .hero-badge-pill {
@@ -161,16 +167,20 @@
   gap: 16px;
   margin-bottom: 0;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .hero-visual {
   position: relative;
   min-height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .hero-scene {
   position: relative;
-  width: min(100%, 520px);
+  width: min(100%, 500px);
   height: 540px;
   margin-left: auto;
   perspective: 1800px;
@@ -454,21 +464,42 @@
   }
 }
 
+/* Tablet & Small Desktop (980px and below) */
 @media (max-width: 980px) {
+  .hero {
+    padding: 124px 0 76px;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
+    gap: 40px;
+    min-height: auto;
+    justify-items: center;
   }
 
   .hero-text {
-    max-width: none;
+    max-width: 720px;
+    text-align: center;
+    align-items: center;
   }
 
   .hero-heading {
     max-width: none;
+    font-size: clamp(2.5rem, 8vw, 4.8rem);
+  }
+
+  .hero-subtitle-badge {
+    align-items: center;
+  }
+
+  .hero-cta {
+    justify-content: center;
   }
 
   .hero-visual {
     min-height: 480px;
+    width: 100%;
+    justify-content: center;
   }
 
   .hero-scene {
@@ -476,18 +507,34 @@
   }
 }
 
+/* Tablet (768px and below) */
 @media (max-width: 768px) {
   .hero {
-    padding: 112px 0 72px;
+    padding: 110px 0 60px;
+  }
+
+  .hero-content {
+    gap: 32px;
   }
 
   .hero-heading {
-    font-size: clamp(2.7rem, 10vw, 4rem);
+    font-size: clamp(2.2rem, 7vw, 3.6rem);
     gap: 8px;
+  }
+
+  .hero-subtitle-text {
+    font-size: clamp(1.1rem, 4vw, 1.8rem);
+  }
+
+  .hero-badge-pill {
+    font-size: 0.65rem;
+    padding: 4px 12px;
   }
 
   .hero-cta {
     flex-direction: column;
+    gap: 12px;
+    width: min(100%, 460px);
   }
 
   .hero-cta .btn {
@@ -495,30 +542,383 @@
   }
 
   .hero-visual {
-    min-height: 420px;
+    min-height: 400px;
   }
 
   .hero-scene {
-    height: 420px;
+    height: 400px;
+    width: min(100%, 420px);
   }
 
   .scene-panel {
-    width: fit-content;
-    min-width: 160px;
-    padding: 14px 16px;
-    white-space: nowrap;
+    width: min(42vw, 180px);
+    min-width: 0;
+    padding: 12px 14px;
+    font-size: 0.75rem;
+  }
+
+  .scene-panel span {
+    font-size: 0.65rem;
+    margin-bottom: 4px;
   }
 
   .scene-panel strong {
-    font-size: 0.84rem;
+    font-size: 0.78rem;
   }
 
   .scene-core {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
+    padding: 18px;
   }
 
   .scene-core-label {
-    font-size: 3rem;
+    font-size: 2.5rem;
+  }
+
+  .scene-core-copy {
+    gap: 6px;
+    font-size: 0.75rem;
+  }
+
+  .scene-core-copy strong {
+    font-size: 0.85rem;
+  }
+
+  .scene-core-copy small {
+    font-size: 0.65rem;
+  }
+}
+
+/* Small Tablet (640px and below) */
+@media (max-width: 640px) {
+  .hero {
+    padding: 104px 0 52px;
+  }
+
+  .hero-heading {
+    font-size: clamp(1.9rem, 6vw, 3.2rem);
+    gap: 6px;
+  }
+
+  .hero-subtitle-text {
+    font-size: clamp(0.95rem, 3.5vw, 1.5rem);
+    line-height: 1.2;
+  }
+
+  .hero-badge-pill {
+    font-size: 0.6rem;
+    padding: 3px 10px;
+  }
+
+  .hero-heading-spacer {
+    height: 12px;
+  }
+
+  .hero-cta {
+    gap: 10px;
+  }
+
+  .hero-visual {
+    min-height: 340px;
+  }
+
+  .hero-scene {
+    width: min(100%, 360px);
+    height: 340px;
+  }
+
+  /* Scale down 3D scene elements for better mobile performance */
+  .scene-orbit {
+    top: 16%;
+    left: 14%;
+    right: 14%;
+    bottom: 14%;
+  }
+
+  .scene-core {
+    width: 140px;
+    height: 140px;
+    padding: 14px;
+    top: 32%;
+  }
+
+  .scene-core-label {
+    font-size: 2rem;
+  }
+
+  .scene-core-copy {
+    gap: 4px;
+    font-size: 0.65rem;
+  }
+
+  .scene-core-copy strong {
+    font-size: 0.75rem;
+  }
+
+  .scene-panel {
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 0.7rem;
+    width: min(43vw, 150px);
+  }
+
+  .scene-panel span {
+    font-size: 0.6rem;
+    margin-bottom: 3px;
+  }
+
+  .scene-panel strong {
+    font-size: 0.72rem;
+  }
+
+  .scene-panel-bottom {
+    bottom: 12%;
+    width: min(100%, 236px);
+  }
+
+  .scene-panel-left {
+    top: 18%;
+    left: 2%;
+  }
+
+  .scene-panel-right {
+    top: 20%;
+    right: 2%;
+  }
+}
+
+/* Mobile Large (480px and below) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 96px 0 44px;
+  }
+
+  .hero-content {
+    gap: 26px;
+  }
+
+  .hero-text {
+    text-align: center;
+    gap: 0;
+  }
+
+  .hero-heading {
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    gap: 6px;
+    flex-direction: column;
+  }
+
+  .hero-subtitle-text {
+    font-size: clamp(0.85rem, 3vw, 1.3rem);
+    line-height: 1.15;
+  }
+
+  .hero-badge-pill {
+    font-size: 0.55rem;
+    padding: 3px 8px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-heading-spacer {
+    height: 8px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 12px 16px;
+  }
+
+  .hero-visual {
+    min-height: 300px;
+  }
+
+  .hero-scene {
+    height: 300px;
+    width: min(100%, 320px);
+    perspective: 1200px;
+  }
+
+  /* Optimize 3D transforms for mobile */
+  .scene-grid-plane {
+    display: none;
+  }
+
+  .scene-orbit {
+    top: 18%;
+    left: 12%;
+    right: 12%;
+    bottom: 18%;
+  }
+
+  .scene-orbit-one {
+    transform: rotateX(45deg) rotateZ(0deg);
+  }
+
+  .scene-orbit-two {
+    inset: 22%;
+    transform: rotateY(45deg) rotateX(20deg);
+  }
+
+  .scene-core {
+    width: 120px;
+    height: 120px;
+    padding: 12px;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%) rotateX(15deg) rotateY(-15deg) translateZ(40px);
+  }
+
+  .scene-core-label {
+    font-size: 1.6rem;
+  }
+
+  .scene-core-copy {
+    gap: 3px;
+    font-size: 0.6rem;
+  }
+
+  .scene-core-copy strong {
+    font-size: 0.68rem;
+    line-height: 1.1;
+  }
+
+  .scene-core-copy small {
+    font-size: 0.55rem;
+  }
+
+  .scene-panel {
+    min-width: 0;
+    max-width: 132px;
+    padding: 8px 10px;
+    font-size: 0.65rem;
+    width: auto;
+  }
+
+  .scene-panel span {
+    font-size: 0.55rem;
+    margin-bottom: 2px;
+  }
+
+  .scene-panel strong {
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+
+  .scene-panel-left {
+    top: 20%;
+    left: 0;
+    transform: rotateY(15deg) rotateX(5deg);
+  }
+
+  .scene-panel-right {
+    top: 22%;
+    right: 0;
+    transform: rotateY(-15deg) rotateX(-5deg);
+  }
+
+  .scene-panel-bottom {
+    bottom: 8%;
+    width: min(100%, 196px);
+    white-space: normal;
+    font-size: 0.65rem;
+  }
+
+  .scene-node {
+    width: 12px;
+    height: 12px;
+  }
+
+  .scene-beam {
+    display: none;
+  }
+
+  /* Reduce animation performance cost on mobile */
+  .scene-orbit-one {
+    animation: spinOrbit 16s linear infinite;
+  }
+
+  .scene-orbit-two {
+    animation: spinOrbitReverse 20s linear infinite;
+  }
+
+  .scene-core {
+    animation: floatCore 8s ease-in-out infinite;
+  }
+
+  .scene-panel {
+    animation: floatPanel 9s ease-in-out infinite;
+  }
+
+  .scene-glow {
+    display: none;
+  }
+}
+
+/* Mobile Extra Small (375px and below) */
+@media (max-width: 375px) {
+  .hero {
+    padding: 90px 0 38px;
+  }
+
+  .hero-heading {
+    font-size: clamp(1.4rem, 4.5vw, 2.2rem);
+  }
+
+  .hero-subtitle-text {
+    font-size: clamp(0.8rem, 2.8vw, 1.1rem);
+  }
+
+  .hero-badge-pill {
+    font-size: 0.5rem;
+    padding: 2px 6px;
+  }
+
+  .hero-visual {
+    min-height: 280px;
+  }
+
+  .hero-scene {
+    width: min(100%, 288px);
+    height: 280px;
+  }
+
+  .scene-core {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+  }
+
+  .scene-core-label {
+    font-size: 1.4rem;
+  }
+
+  .scene-core-copy {
+    font-size: 0.55rem;
+  }
+
+  .scene-panel {
+    min-width: 0;
+    max-width: 116px;
+    padding: 6px 8px;
+    font-size: 0.6rem;
+  }
+
+  .scene-panel strong {
+    font-size: 0.6rem;
+  }
+
+  .hero-cta .btn {
+    font-size: 0.85rem;
+    padding: 10px 14px;
   }
 }
