@@ -352,7 +352,7 @@
 }
 
 .scene-panel-bottom {
-  bottom: 15%;
+  bottom: 18%;
   left: 50%;
   width: 300px;
   transform: translateX(-50%) rotateX(14deg);
