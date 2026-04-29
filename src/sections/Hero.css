@@ -219,14 +219,14 @@
 
 .scene-orbit-one {
   transform: rotateX(72deg) rotateZ(8deg);
-  animation: spinOrbit 12s linear infinite;
+  animation: spinOrbit 12s linear infinite, orbitGlowSubtle 4s ease-in-out infinite;
 }
 
 .scene-orbit-two {
   inset: 18%;
   border-color: rgba(242, 140, 40, 0.26);
   transform: rotateY(72deg) rotateX(28deg);
-  animation: spinOrbitReverse 16s linear infinite;
+  animation: spinOrbitReverse 16s linear infinite, orbitGlowOrangeSubtle 4.5s ease-in-out infinite;
 }
 
 .scene-core {
@@ -245,7 +245,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
     0 24px 54px rgba(17, 52, 98, 0.14);
   backdrop-filter: blur(10px);
-  animation: floatCore 6s ease-in-out infinite;
+  animation: floatCore 6s ease-in-out infinite, coreGlowSubtle 4s ease-in-out infinite;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -365,26 +365,31 @@
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(22, 89, 167, 0.45) 45%, rgba(22, 89, 167, 0) 72%);
   box-shadow: 0 0 18px rgba(22, 89, 167, 0.24);
+  animation: nodePulseSubtle 3s ease-in-out infinite;
 }
 
 .scene-node-one {
   top: 18%;
   left: 24%;
+  animation-delay: 0s;
 }
 
 .scene-node-two {
   top: 30%;
   right: 14%;
+  animation-delay: 0.75s;
 }
 
 .scene-node-three {
   bottom: 18%;
   left: 20%;
+  animation-delay: 1.5s;
 }
 
 .scene-node-four {
   bottom: 24%;
   right: 24%;
+  animation-delay: 2.25s;
 }
 
 .scene-beam {
@@ -392,6 +397,7 @@
   background: linear-gradient(90deg, rgba(22, 89, 167, 0), rgba(22, 89, 167, 0.6), rgba(242, 140, 40, 0));
   transform-origin: left center;
   opacity: 0.6;
+  animation: beamPulseSubtle 3.5s ease-in-out infinite;
 }
 
 .scene-beam-one {
@@ -399,6 +405,7 @@
   left: 18%;
   width: 220px;
   transform: rotate(18deg);
+  animation-delay: 0s;
 }
 
 .scene-beam-two {
@@ -406,6 +413,7 @@
   right: 14%;
   width: 170px;
   transform: rotate(-30deg);
+  animation-delay: 1.75s;
 }
 
 @keyframes floatCore {
@@ -455,12 +463,66 @@
   }
 }
 
+@keyframes coreGlowSubtle {
+  0%, 100% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      0 24px 54px rgba(17, 52, 98, 0.14);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      0 24px 54px rgba(17, 52, 98, 0.14),
+      0 0 30px rgba(22, 89, 167, 0.12);
+  }
+}
+
+@keyframes nodePulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 18px rgba(22, 89, 167, 0.24);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 22px rgba(22, 89, 167, 0.35);
+  }
+}
+
+@keyframes beamPulseSubtle {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes orbitGlowSubtle {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(22, 89, 167, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(22, 89, 167, 0.2);
+  }
+}
+
+@keyframes orbitGlowOrangeSubtle {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(242, 140, 40, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(242, 140, 40, 0.25);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scene-orbit-one,
   .scene-orbit-two,
   .scene-core,
   .scene-panel,
-  .scene-glow {
+  .scene-glow,
+  .scene-node,
+  .scene-beam {
     animation: none;
   }
 }
@@ -766,13 +828,13 @@
 
   .scene-orbit-one {
     transform: rotateX(45deg) rotateZ(0deg);
-    animation: spinOrbit 16s linear infinite;
+    animation: spinOrbit 16s linear infinite, orbitGlowSubtle 4s ease-in-out infinite;
   }
 
   .scene-orbit-two {
     inset: 22%;
     transform: rotateY(45deg) rotateX(20deg);
-    animation: spinOrbitReverse 20s linear infinite;
+    animation: spinOrbitReverse 20s linear infinite, orbitGlowOrangeSubtle 4.5s ease-in-out infinite;
   }
 
   .scene-core {
@@ -780,7 +842,7 @@
     height: 120px;
     padding: 12px;
     transform: translateX(-50%) translateY(-50%) rotateX(15deg) rotateY(-15deg) translateZ(40px);
-    animation: floatCore 8s ease-in-out infinite;
+    animation: floatCore 8s ease-in-out infinite, coreGlowSubtle 4s ease-in-out infinite;
   }
 
   .scene-core-label {
@@ -827,7 +889,6 @@
   }
 
   .scene-panel-bottom {
-    bottom: 6%;
     width: min(100%, 208px);
     font-size: 0.65rem;
   }
