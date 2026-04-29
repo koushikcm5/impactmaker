@@ -973,7 +973,7 @@
   }
 
   .scene-panel-bottom {
-    bottom: 8%;
+    bottom: 20%;
     width: min(100%, 190px);
   }
 
