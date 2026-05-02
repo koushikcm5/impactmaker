@@ -16,10 +16,10 @@
 }
 
 .btn-primary {
-  background: rgb(22, 32, 51);
+  background: linear-gradient(135deg, #1659a7 0%, rgb(22, 32, 51) 100%);
   color: #ffffff;
-  box-shadow: 0 6px 20px rgba(22, 32, 51, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 22px rgba(22, 89, 167, 0.42);
+  border: 1px solid rgba(74, 163, 245, 0.22);
 }
 
 .btn-primary::after {
@@ -38,8 +38,8 @@
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(22, 32, 51, 0.4);
-  background: rgb(30, 44, 70);
+  box-shadow: 0 10px 32px rgba(22, 89, 167, 0.55);
+  background: linear-gradient(135deg, #1e6bbf 0%, #3592e8 100%);
 }
 
 .btn-secondary {
