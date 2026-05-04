@@ -1,24 +1,55 @@
-import { Menu, X } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/J-Impact New Logo 2024 Main.png';
 import './Navbar.css';
+
+const workshopDropdownItems = [
+  { label: "The Game-Changer Workshops", anchor: "game-changer" },
+  { label: "Deep-Dive Workshops", anchor: "deep-dive" },
+  { label: "Technical Workshops", anchor: "technical-workshops" },
+  { label: "Transformational Workshops", anchor: "transformational-workshops" },
+  { label: "Speaker", anchor: "speaker-section" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const [workshopOpen, setWorkshopOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const { pathname } = useLocation();
 
   const navLinks = [
     { label: "Home", id: "home", href: "/#home" },
     { label: "About", id: "about", href: "/#about" },
-    { label: "Workshops", id: "workshops", href: "/#workshops" },
+    { label: "Workshops", id: "workshops", href: "/#workshops", hasDropdown: true },
     { label: "Blog & Articles", id: "blog", href: "/#blog" },
     { label: "Gallery", id: "gallery", href: "/#gallery" },
     { label: "Events", id: "events", href: "/#events" },
     { label: "Contact", id: "contact", href: "/#contact" }
   ];
+
+  const handleDropdownItemClick = (anchor) => {
+    setIsOpen(false);
+    setWorkshopOpen(false);
+    if (pathname === '/') {
+      const el = document.getElementById(anchor);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = `/#${anchor}`;
+    }
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setWorkshopOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     if (pathname !== '/') {
@@ -31,8 +62,7 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
-    // Use a 0px horizontal line across the middle of the screen to detect the active section
+
     const observerOptions = {
       root: null,
       rootMargin: '-50% 0px -50% 0px',
@@ -47,7 +77,6 @@ const Navbar = () => {
       });
     }, observerOptions);
 
-    // Timeout ensures DOM elements are rendered before observing
     setTimeout(() => {
       navLinks.forEach(link => {
         const section = document.getElementById(link.id);
@@ -72,28 +101,59 @@ const Navbar = () => {
               <span className="brand-subtitle">Creative Learning Services</span>
             </div>
           </Link>
-          
+
           <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
-            {navLinks.map((link, index) => (
-              pathname === '/' ? (
-                <a 
-                  key={index} 
-                  href={link.href.replace('/', '')} 
+            {navLinks.map((link, index) => {
+              if (link.hasDropdown) {
+                return (
+                  <div
+                    key={index}
+                    className="nav-dropdown-wrapper"
+                    ref={dropdownRef}
+                  >
+                    <button
+                      className={`nav-dropdown-trigger ${activeSection === link.id ? 'active' : ''}`}
+                      onClick={() => setWorkshopOpen(v => !v)}
+                      aria-expanded={workshopOpen}
+                      aria-haspopup="true"
+                    >
+                      <span>Workshops</span>
+                      <ChevronDown size={14} className={`nav-chevron ${workshopOpen ? 'open' : ''}`} />
+                    </button>
+                    <div className={`nav-dropdown-menu ${workshopOpen ? 'open' : ''}`}>
+                      {workshopDropdownItems.map((item) => (
+                        <button
+                          key={item.anchor}
+                          className="nav-dropdown-item"
+                          onClick={() => handleDropdownItemClick(item.anchor)}
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              return pathname === '/' ? (
+                <a
+                  key={index}
+                  href={link.href.replace('/', '')}
                   className={activeSection === link.id ? 'active' : ''}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </a>
               ) : (
-                <Link 
-                  key={index} 
-                  to={link.href} 
+                <Link
+                  key={index}
+                  to={link.href}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </Link>
-              )
-            ))}
+              );
+            })}
           </div>
 
           <button
@@ -110,4 +170,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

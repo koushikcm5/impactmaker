@@ -13,6 +13,14 @@
   padding: 60px;
   box-shadow: 0 20px 60px rgba(22, 32, 51, 0.08);
   border: 1px solid rgba(22, 89, 167, 0.08);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.game-changer-section.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .game-changer-header {
@@ -87,7 +95,7 @@
 .game-changer-details {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
 }
 
 .details-intro {
@@ -211,7 +219,7 @@
   }
 
   .highlights-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .game-changer-cta {
@@ -990,5 +998,345 @@
 
   .workshop-modal-info h2 {
     font-size: 2.2rem;
+  }
+}
+
+/* ============================================================
+   Domain Expertise — Full-width row inside Game-Changer card
+   ============================================================ */
+
+.domain-expertise-row {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(22, 89, 167, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.domain-row-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.domain-divider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(22, 89, 167, 0.2), transparent);
+}
+
+.domain-section-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #1659a7;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  padding: 6px 18px;
+  background: rgba(22, 89, 167, 0.06);
+  border-radius: 99px;
+  border: 1px solid rgba(22, 89, 167, 0.12);
+}
+
+.domain-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.domain-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 14px 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(22, 89, 167, 0.08);
+  border-radius: 14px;
+  text-align: center;
+  cursor: default;
+  opacity: 0;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.game-changer-section.in-view .domain-card {
+  animation: slideUpFade 0.45s ease var(--delay, 0.5s) both;
+}
+
+.domain-card:hover {
+  background: #ffffff;
+  border-color: rgba(22, 89, 167, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(22, 89, 167, 0.1);
+}
+
+.domain-card-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, rgba(22, 89, 167, 0.1), rgba(22, 89, 167, 0.04));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1659a7;
+  flex-shrink: 0;
+}
+
+.domain-card-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #162033;
+  line-height: 1.2;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .domain-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .domain-expertise-row {
+    margin-top: 32px;
+    padding-top: 28px;
+  }
+}
+
+/* ============================================================
+   New Category Sections (Technical, Transformational, Speaker)
+   ============================================================ */
+
+.ws-category-section {
+  margin-top: 80px;
+  padding: 60px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 255, 0.98));
+  border-radius: 32px;
+  box-shadow: 0 20px 60px rgba(22, 32, 51, 0.08);
+  border: 1px solid rgba(22, 89, 167, 0.08);
+}
+
+.ws-section-alt {
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(255, 249, 240, 0.95));
+  border-color: rgba(242, 140, 40, 0.12);
+}
+
+.ws-section-speaker {
+  background: linear-gradient(135deg, rgba(22, 32, 51, 0.03), rgba(22, 32, 51, 0.06));
+  border-color: rgba(22, 32, 51, 0.1);
+}
+
+.ws-category-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.ws-category-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #162033;
+  background: linear-gradient(135deg, #162033 0%, #1659a7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 16px;
+  letter-spacing: -0.03em;
+}
+
+.ws-title-orange {
+  background: linear-gradient(135deg, #162033 0%, #f28c28 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ws-title-navy {
+  background: linear-gradient(135deg, #162033 0%, #49617c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ws-category-desc {
+  color: #49617c;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Pill color variants */
+.ws-pill-orange {
+  background: rgba(242, 140, 40, 0.1);
+  color: #c9720a;
+  border: 1px solid rgba(242, 140, 40, 0.2);
+}
+
+.ws-pill-navy {
+  background: rgba(22, 32, 51, 0.08);
+  color: #162033;
+  border: 1px solid rgba(22, 32, 51, 0.12);
+}
+
+/* Category Grid */
+.ws-category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.ws-speaker-grid {
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Item Cards */
+.ws-item-card {
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(22, 89, 167, 0.08);
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.ws-item-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(22, 32, 51, 0.1);
+  border-color: rgba(22, 89, 167, 0.2);
+}
+
+.ws-card-alt {
+  border-color: rgba(242, 140, 40, 0.08);
+}
+
+.ws-card-alt:hover {
+  border-color: rgba(242, 140, 40, 0.25);
+  box-shadow: 0 20px 40px rgba(242, 140, 40, 0.08);
+}
+
+.ws-speaker-card {
+  border-color: rgba(22, 32, 51, 0.08);
+}
+
+.ws-speaker-card:hover {
+  border-color: rgba(22, 32, 51, 0.2);
+  box-shadow: 0 20px 40px rgba(22, 32, 51, 0.1);
+}
+
+/* Card Icons */
+.ws-item-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.ws-icon-blue {
+  background: linear-gradient(135deg, #1659a7, #1a7bc4);
+  box-shadow: 0 6px 16px rgba(22, 89, 167, 0.25);
+}
+
+.ws-icon-orange {
+  background: linear-gradient(135deg, #f28c28, #e07218);
+  box-shadow: 0 6px 16px rgba(242, 140, 40, 0.25);
+}
+
+.ws-icon-navy {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #162033, #1659a7);
+  box-shadow: 0 8px 20px rgba(22, 32, 51, 0.2);
+  margin-bottom: 24px;
+}
+
+/* Card Text */
+.ws-item-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #162033;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.ws-item-desc {
+  font-size: 0.93rem;
+  color: #49617c;
+  line-height: 1.65;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* Speaker CTA button */
+.ws-speaker-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #162033, #1659a7);
+  color: #ffffff;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.ws-speaker-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(22, 89, 167, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ws-category-section {
+    padding: 50px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ws-category-section {
+    padding: 40px 24px;
+    margin-top: 60px;
+  }
+
+  .ws-category-grid,
+  .ws-speaker-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ws-category-title {
+    font-size: 1.8rem;
+  }
+
+  .ws-category-desc {
+    font-size: 1rem;
+  }
+
+  .ws-item-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ws-category-section {
+    padding: 32px 20px;
+    margin-top: 48px;
   }
 }

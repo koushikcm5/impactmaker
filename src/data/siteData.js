@@ -371,7 +371,10 @@ These technology focussed workshops for the teaching fraternity is a perfect ble
     email: "arun.divakaran@hotmail.com",
     social: {
       linkedin: "#",
-      twitter: "#"
+      twitter: "#",
+      instagram: "#",
+      youtube: "#",
+      facebook: "#"
     }
   },
   navigation: [

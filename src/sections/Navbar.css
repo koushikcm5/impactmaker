@@ -173,3 +173,188 @@
     top: 80px;
   }
 }
+
+/* ============================================================
+   Workshops Dropdown
+   ============================================================ */
+
+.nav-dropdown-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: #49617c;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-dropdown-trigger::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: rgb(22, 32, 51);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-dropdown-trigger:hover,
+.nav-dropdown-trigger.active {
+  color: rgb(22, 32, 51);
+}
+
+.nav-dropdown-trigger.active::after {
+  width: 100%;
+}
+
+.nav-chevron {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.nav-chevron.open {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 270px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(22, 32, 51, 0.14);
+  border: 1px solid rgba(22, 32, 51, 0.06);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Bridge the gap so hover doesn't break when moving mouse to menu */
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+.nav-dropdown-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: all;
+}
+
+@media (min-width: 901px) {
+  .nav-dropdown-wrapper:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: all;
+  }
+}
+
+.nav-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #49617c;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(22, 89, 167, 0.06);
+  color: #1659a7;
+  padding-left: 22px;
+}
+
+/* Mobile dropdown — inline accordion */
+@media (max-width: 900px) {
+  .nav-dropdown-wrapper {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-dropdown-trigger {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    left: auto;
+    top: auto;
+    min-width: unset;
+    visibility: hidden;
+    box-shadow: none;
+    border: 1px solid rgba(22, 89, 167, 0.1);
+    background: rgba(22, 89, 167, 0.03);
+    border-radius: 12px;
+    margin-top: 8px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), padding 0.3s ease, visibility 0s 0.4s;
+    pointer-events: none;
+  }
+
+  .nav-dropdown-menu.open {
+    visibility: visible;
+    max-height: 400px;
+    padding: 8px;
+    pointer-events: all;
+    transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), padding 0.3s ease;
+  }
+
+  /* Prevent desktop hover from activating on mobile */
+  .nav-dropdown-wrapper:hover .nav-dropdown-menu:not(.open) {
+    opacity: 1;
+    visibility: hidden;
+    pointer-events: none;
+    max-height: 0;
+    padding: 0;
+  }
+
+  .nav-dropdown-item {
+    text-align: center;
+    padding: 10px 16px;
+  }
+
+  .nav-dropdown-item:hover {
+    padding-left: 16px;
+  }
+}
