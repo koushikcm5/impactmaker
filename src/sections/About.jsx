@@ -6,7 +6,8 @@ import './About.css';
 
 const About = ({ data }) => {
   return (
-    <section className="about" id="about">
+    <section className="about" id="about-impact-maker">
+      <span id="about" aria-hidden="true" style={{ position: 'absolute', top: 0 }} />
       <div className="about-backdrop" aria-hidden="true">
         <div className="backdrop-blob" />
       </div>

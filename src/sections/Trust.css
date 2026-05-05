@@ -1,5 +1,6 @@
 .trust {
   position: relative;
+  background: #f4f8ff;
 }
 
 .trust::before {
@@ -9,30 +10,60 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(22, 89, 167, 0.22), transparent);
+  background: linear-gradient(90deg, transparent, rgba(22, 89, 167, 0.2), transparent);
+}
+
+.trust::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(22, 89, 167, 0.12), transparent);
+}
+
+.trust-eyebrow {
+  display: inline-block;
+  background: rgba(22, 89, 167, 0.08);
+  color: #1659a7;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(22, 89, 167, 0.16);
+  font-family: 'Manrope', sans-serif;
+}
+
+.trust-header {
+  margin-bottom: 48px;
 }
 
 .trust-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 24px;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .trust-metric {
-  padding: 32px 24px;
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(22, 32, 51, 0.08);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  flex: 0 0 calc(25% - 15px);
+  min-width: 200px;
+  padding: 32px 22px 28px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(22, 89, 167, 0.1);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(22, 32, 51, 0.04);
+  box-shadow: 0 2px 10px rgba(22, 32, 51, 0.04), 0 1px 3px rgba(22, 32, 51, 0.03);
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .trust-metric::before {
@@ -41,46 +72,44 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 3px;
   background: linear-gradient(90deg, #1659a7, #4aa3f5);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .trust-metric:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(22, 32, 51, 0.12);
-  border-color: rgba(22, 32, 51, 0.15);
-  background: #ffffff;
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(22, 89, 167, 0.12);
+  border-color: rgba(22, 89, 167, 0.22);
 }
 
 .trust-metric:hover::before {
-  transform: scaleX(1);
+  opacity: 1;
 }
 
 .metric-icon-shell {
-  width: 54px;
-  height: 54px;
-  background: rgba(22, 32, 51, 0.05);
+  width: 52px;
+  height: 52px;
+  background: rgba(22, 89, 167, 0.08);
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  color: rgb(22, 32, 51);
+  margin-bottom: 18px;
+  color: #1659a7;
   transition: all 0.3s ease;
 }
 
 .trust-metric:hover .metric-icon-shell {
-  background: rgb(22, 32, 51);
+  background: #1659a7;
   color: #ffffff;
-  transform: rotate(-8deg) scale(1.1);
+  transform: scale(1.06);
 }
 
 .metric-value {
-  font-size: 2.5rem;
-  color: rgb(22, 32, 51);
+  font-size: 2.75rem;
+  color: #162033;
   margin-bottom: 8px;
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -88,31 +117,54 @@
 }
 
 .metric-suffix {
-  font-size: 1.5rem;
-  margin-left: 2px;
-  opacity: 0.8;
+  font-size: 1.75rem;
+  margin-left: 1px;
+  color: #f28c28;
+  font-weight: 800;
 }
 
 .metric-label {
-  font-size: 0.9rem;
-  color: #49617c;
+  font-size: 0.78rem;
+  color: #5f6f82;
   margin: 0;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+}
+
+@media (max-width: 1024px) {
+  .trust-metric {
+    flex: 0 0 calc(33.333% - 14px);
+  }
 }
 
 @media (max-width: 768px) {
   .trust-header {
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
 
   .trust-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 14px;
   }
-  
+
+  .trust-metric {
+    flex: 0 0 calc(50% - 7px);
+    min-width: 0;
+    padding: 24px 16px 20px;
+  }
+
   .metric-value {
-    font-size: 2.25rem;
+    font-size: 2.2rem;
+  }
+
+  .metric-suffix {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .trust-metric {
+    flex: 0 0 100%;
   }
 }

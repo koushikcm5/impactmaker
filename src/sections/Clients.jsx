@@ -29,7 +29,7 @@ const clientLogos = [
 
 const Clients = () => {
   return (
-    <section className="clients-section">
+    <section className="clients-section" id="trusted-leaders">
       <div className="container">
         <div className="clients-header">
           <span className="clients-kicker">Professional Network</span>

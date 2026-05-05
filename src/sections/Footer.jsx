@@ -1,4 +1,5 @@
 import { Mail, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const LinkedInIcon = () => (
@@ -44,7 +45,8 @@ const Footer = ({ contact }) => {
 
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="footer-glow" aria-hidden="true" />
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="footer-content">
           <div className="footer-section footer-brand">
             <h3>Dr. Arun Divakaran</h3>
@@ -71,12 +73,22 @@ const Footer = ({ contact }) => {
           <div className="footer-section">
             <h4>Quick Links</h4>
             <nav className="footer-nav">
-              <a href="#home">Home</a>
-              <a href="#about">About</a>
-              <a href="#workshops">Workshops</a>
-              <a href="#blog">Blog & Articles</a>
-              <a href="#gallery">Gallery</a>
-              <a href="#events">Events</a>
+              <a href="/#home">Home</a>
+              <a href="/#about-impact-maker">About</a>
+              <Link to="/blog">Blog &amp; Articles</Link>
+              <Link to="/gallery">Gallery</Link>
+              <Link to="/events">Events</Link>
+            </nav>
+          </div>
+
+          <div className="footer-section">
+            <h4>Workshops</h4>
+            <nav className="footer-nav">
+              <Link to="/workshops/game-changer">The Game-Changer</Link>
+              <Link to="/workshops/deep-dive">Deep-Dive</Link>
+              <Link to="/workshops/technical">Technical</Link>
+              <Link to="/workshops/transformational">Transformational</Link>
+              <Link to="/workshops/speaker">Speaker</Link>
             </nav>
           </div>
 

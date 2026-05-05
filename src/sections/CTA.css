@@ -1,229 +1,396 @@
+/* ============================================================
+   Contact / Enquiry Section
+   ============================================================ */
+
 .cta-section {
-  padding: 100px 0;
-  background: #f8faff;
+  padding: 100px 0 110px;
+  background: linear-gradient(180deg, #0d1522 0%, #162033 100%);
   position: relative;
+  overflow: hidden;
 }
 
-.cta-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
-  align-items: start;
+/* Subtle grid overlay */
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
 }
 
-.enquiry-card, .contact-info-card, .map-card {
-  background: #ffffff;
-  border-radius: 32px;
-  border: 1px solid rgba(22, 32, 51, 0.05);
-  box-shadow: 0 4px 20px rgba(22, 32, 51, 0.03);
+/* Ambient glow — top-right */
+.cta-section::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(22, 89, 167, 0.2) 0%, transparent 68%);
+  pointer-events: none;
 }
 
-/* Enquiry Form Styling */
-.enquiry-card {
-  padding: 50px;
+/* Amber glow — bottom-left */
+.cta-glow-bottom {
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(242, 140, 40, 0.12) 0%, transparent 68%);
+  pointer-events: none;
 }
 
-.form-header {
-  margin-bottom: 40px;
+/* ── Section Header ─────────────────────────────────────── */
+.cta-header {
+  text-align: center;
+  margin-bottom: 56px;
+  position: relative;
+  z-index: 1;
 }
 
-.pill-badge {
+.cta-pill {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: #ffffff;
-  background: #ff8c00;
-  padding: 6px 16px;
+  color: #162033;
+  background: var(--accent-bright, #ffb457);
+  padding: 6px 18px;
   border-radius: 999px;
   margin-bottom: 20px;
 }
 
+.cta-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+.cta-subtext {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 460px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Two-column grid ─────────────────────────────────────── */
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Enquiry Form Card ───────────────────────────────────── */
+.enquiry-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 44px 48px;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+
+.enquiry-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1659a7, #4aa3f5, #f28c28);
+}
+
+.form-header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(22, 32, 51, 0.07);
+}
+
 .form-header h2 {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-  color: rgb(22, 32, 51);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #162033;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
 }
 
 .form-header p {
-  color: #49617c;
-  font-size: 1.1rem;
+  color: #5f6f82;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.pill-badge {
+  display: none;
 }
 
 .enquiry-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 18px;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 16px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .form-group label {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: rgb(22, 32, 51);
+  color: #162033;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
 }
 
-.form-group input, .form-group textarea {
-  padding: 14px 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(22, 32, 51, 0.1);
-  background: #fcfdfe;
+.form-group input,
+.form-group textarea {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(22, 32, 51, 0.1);
+  background: #f7f9fc;
   font-family: inherit;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  color: rgb(22, 32, 51);
+  font-size: 0.93rem;
+  color: #162033;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group textarea {
+  resize: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #a0b0c0;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
   outline: none;
-  border-color: rgb(22, 32, 51);
+  border-color: #1659a7;
   background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(22, 32, 51, 0.05);
+  box-shadow: 0 0 0 3px rgba(22, 89, 167, 0.1);
 }
 
 .submit-btn {
-  background: rgb(22, 32, 51);
+  width: 100%;
+  background: linear-gradient(135deg, #1659a7 0%, #2070c8 100%);
   color: #ffffff;
-  padding: 16px 32px;
+  padding: 14px 28px;
   border-radius: 12px;
+  font-family: inherit;
   font-weight: 700;
+  font-size: 0.93rem;
+  letter-spacing: 0.03em;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  transition: all 0.3s ease;
-  margin-top: 12px;
+  gap: 10px;
   border: none;
   cursor: pointer;
+  margin-top: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .submit-btn:hover:not(:disabled) {
-  background: #1e2c46;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(22, 32, 51, 0.15);
+  box-shadow: 0 12px 28px rgba(22, 89, 167, 0.38);
 }
 
 .submit-btn:disabled {
-  opacity: 0.7;
+  opacity: 0.65;
   cursor: not-allowed;
 }
 
-/* Loader Styling */
+/* ── Spinner ─────────────────────────────────────────────── */
 .loader {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #ffffff;
-  border-bottom-color: transparent;
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
   border-radius: 50%;
-  display: inline-block;
-  animation: rotation 1s linear infinite;
+  animation: spin 0.8s linear infinite;
 }
 
-@keyframes rotation {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-/* Info Stack Styling */
+/* ── Info Stack (right column) ───────────────────────────── */
 .info-stack {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
+  height: 100%;
 }
 
+/* ── Contact Info Card ───────────────────────────────────── */
 .contact-info-card {
-  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 32px 28px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .contact-info-card h3 {
-  margin-bottom: 30px;
-  font-size: 1.4rem;
-  color: rgb(22, 32, 51);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.38);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .contact-grid-simple {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 18px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
 }
 
 .icon-box {
-  width: 48px;
-  height: 48px;
-  background: rgba(22, 32, 51, 0.05);
-  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  background: rgba(255, 180, 87, 0.1);
+  border: 1px solid rgba(255, 180, 87, 0.18);
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(22, 32, 51);
+  color: var(--accent-bright, #ffb457);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-item:hover .icon-box {
+  background: rgba(255, 180, 87, 0.18);
+  border-color: rgba(255, 180, 87, 0.3);
 }
 
 .contact-item .label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.67rem;
   font-weight: 700;
-  color: #49617c;
+  color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.09em;
   margin-bottom: 2px;
 }
 
 .contact-item .value {
   display: block;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: rgb(22, 32, 51);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
+  word-break: break-all;
 }
 
 .contact-item a.value:hover {
-  color: #1659a7;
+  color: var(--accent-bright, #ffb457);
 }
 
+/* ── Map Card ────────────────────────────────────────────── */
 .map-card {
-  height: 300px;
+  flex: 1;
+  min-height: 200px;
+  border-radius: 20px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
 }
 
+.map-card iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .cta-grid {
     grid-template-columns: 1fr;
+    align-items: start;
   }
-  
+
   .info-stack {
-    order: -1;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contact-info-card {
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .map-card {
+    flex: 1;
+    min-width: 260px;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-header {
+    margin-bottom: 44px;
+  }
+
+  .info-stack {
+    flex-direction: column;
+  }
+
+  .map-card {
+    height: 240px;
+    min-height: unset;
   }
 }
 
 @media (max-width: 600px) {
-  .enquiry-card {
-    padding: 30px 20px;
+  .cta-section {
+    padding: 72px 0 80px;
   }
-  
+
+  .enquiry-card {
+    padding: 32px 22px 28px;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
   }
-  
+
   .form-header h2 {
-    font-size: 1.8rem;
+    font-size: 1.35rem;
+  }
+
+  .cta-heading {
+    font-size: 1.75rem;
   }
 }

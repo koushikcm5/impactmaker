@@ -67,13 +67,12 @@ const Trust = ({ data }) => {
   }, [data.metrics]);
 
   return (
-    <section className="trust" id="results" ref={sectionRef}>
+    <section className="trust" id="impact-highlights" ref={sectionRef}>
       <div className="container">
         <div className="section-header trust-header">
+          <span className="trust-eyebrow">Impact by Numbers</span>
           <h2>Impact Highlights</h2>
-          <p>On a Mission to Transform Corporates, Educators & Student Learners into impactmakers
-
-</p>
+          <p>On a mission to transform corporates, educators &amp; student learners into impactmakers.</p>
         </div>
         <div className="trust-grid">
           {data.metrics.map((metric, index) => {
