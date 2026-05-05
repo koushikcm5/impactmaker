@@ -1,5 +1,5 @@
 .testimonials {
-  padding: 100px 0 50px;
+  padding: 60px 0 44px;
   background: var(--bg-white);
 }
 
@@ -95,7 +95,7 @@
 
 @media (max-width: 768px) {
   .testimonials {
-    padding: 70px 0 40px;
+    padding: 52px 0 36px;
   }
 
   .section-header {

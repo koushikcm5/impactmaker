@@ -67,7 +67,7 @@ const EventCard = ({ event }) => {
                 <><ChevronDown size={16} /> Read More</>
               )}
             </button>
-            <a href="#contact" className="event-register-btn">
+            <a href="/#enquiry" className="event-register-btn">
               Enquire Now <ArrowRight size={15} />
             </a>
           </div>
@@ -99,7 +99,7 @@ const Events = () => {
 
         <div className="events-cta-strip">
           <p>Want to host a session at your organisation?</p>
-          <a href="#contact" className="events-host-btn">
+          <a href="/#enquiry" className="events-host-btn">
             Get in Touch <ArrowRight size={15} />
           </a>
         </div>

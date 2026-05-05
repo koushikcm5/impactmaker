@@ -42,14 +42,14 @@ const Hero = ({ data }) => {
             </h1>
 
             <div className="hero-subtitle-badge">
-              <span className="hero-badge-pill">AI Enabler</span>
+              <span className="hero-badge-pill">AI Strategist</span>
               <p className="hero-subtitle-text">{data.subtitle}</p>
             </div>
 
             <div className="hero-heading-spacer" aria-hidden="true" />
 
             <div className="hero-cta">
-              <Button variant="primary" href="#contact">{data.cta}</Button>
+              <Button variant="primary" href="#enquiry">{data.cta}</Button>
               <Button variant="outline" href="#about">{data.ctaSecondary}</Button>
             </div>
           </div>

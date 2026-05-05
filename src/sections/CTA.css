@@ -3,7 +3,7 @@
    ============================================================ */
 
 .cta-section {
-  padding: 100px 0 110px;
+  padding: 72px 0 80px;
   background: linear-gradient(180deg, #0d1522 0%, #162033 100%);
   position: relative;
   overflow: hidden;
@@ -193,7 +193,7 @@
 
 .submit-btn {
   width: 100%;
-  background: linear-gradient(135deg, #1659a7 0%, #2070c8 100%);
+  background: linear-gradient(135deg, #162033 0%, #1e3252 100%);
   color: #ffffff;
   padding: 14px 28px;
   border-radius: 12px;
@@ -213,7 +213,7 @@
 
 .submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(22, 89, 167, 0.38);
+  box-shadow: 0 12px 28px rgba(22, 32, 51, 0.3);
 }
 
 .submit-btn:disabled {
@@ -375,7 +375,7 @@
 
 @media (max-width: 600px) {
   .cta-section {
-    padding: 72px 0 80px;
+    padding: 56px 0 64px;
   }
 
   .enquiry-card {

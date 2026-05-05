@@ -1,5 +1,5 @@
 .about {
-  padding: 100px 0 80px;
+  padding: 60px 0 56px;
   position: relative;
   background: #ffffff;
   overflow: hidden;
@@ -329,7 +329,7 @@
 
 @media (max-width: 768px) {
   .about {
-    padding: 70px 0 60px;
+    padding: 52px 0 48px;
   }
   
   .about-main-title {

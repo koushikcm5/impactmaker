@@ -20,7 +20,7 @@ const CTA = ({ data }) => {
 
   return (
     <section className="cta-section" id="enquiry">
-      <span id="contact" aria-hidden="true" style={{ position: 'absolute', top: 0 }} />
+
       <div className="cta-glow-bottom" aria-hidden="true" />
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
