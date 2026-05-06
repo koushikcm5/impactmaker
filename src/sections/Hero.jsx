@@ -3,7 +3,7 @@ import Button from '../components/Button';
 import { Lightbulb } from 'lucide-react';
 import './Hero.css';
 
-import img1 from '../assets/home/3-1.jpg.jpeg';
+import img1 from '../assets/home/dba1ece9-23d1-4c41-8f7f-bc6c60ed3040.jpeg';
 import img2 from '../assets/home/IMG-20220819-WA0013.jpg.jpeg';
 import img3 from '../assets/home/IMG-20220819-WA0014.jpg.jpeg';
 
