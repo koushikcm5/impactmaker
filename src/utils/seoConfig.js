@@ -8,7 +8,7 @@ export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 // ─── Default / Fallback SEO ───────────────────────────────────────────────────
 export const DEFAULT_SEO = {
-  title: `Top AI Trainer in India | ${FOUNDER_NAME} | J-Impact`,
+  title: `J-Impact Creative Learning Services | ${FOUNDER_NAME} | Top AI Trainer in India`,
   description: `${FOUNDER_NAME} — India's Top AI Trainer & Keynote Speaker. Expert in Generative AI, Agentic AI, Corporate AI Workshops, Design Thinking, Enterprise Agile & Leadership Training. 50,000+ professionals trained across 15+ countries.`,
   keywords: 'Top AI Trainer India, Best AI Trainer Tamil Nadu, AI Trainer Coimbatore, Best AI Leadership Trainer India, Generative AI Trainer, Agentic AI Trainer, Corporate AI Workshops India, Keynote Speaker Tamil Nadu Kerala, Design Thinking Trainer, Enterprise Agile Trainer',
 };
@@ -16,7 +16,7 @@ export const DEFAULT_SEO = {
 // ─── Per-Page SEO Configurations ─────────────────────────────────────────────
 export const PAGE_SEO = {
   home: {
-    title: `Top AI Trainer in India | ${FOUNDER_NAME} | J-Impact`,
+    title: `J-Impact Creative Learning Services | ${FOUNDER_NAME} | Top AI Trainer in India`,
     description: `${FOUNDER_NAME} is India's Top AI Trainer & Keynote Speaker. Expert in Generative AI, Agentic AI, Corporate AI Workshops, Design Thinking, Enterprise Agile & Leadership Training. 50,000+ professionals trained across 15+ countries.`,
     keywords: 'Top AI Trainer India, Best AI Trainer Tamil Nadu, Best AI Trainer Kerala, AI Trainer Coimbatore, Best AI Leadership Trainer India, Generative AI Trainer India, Agentic AI Trainer, Corporate AI Workshops, Keynote Speaker Tamil Nadu, Keynote Speaker Kerala, Design Thinking Trainer, Enterprise Agile Trainer, AI Transformation Consultant, Corporate Soft Skills Trainer, Future Skills Trainer India',
     canonical: `${SITE_URL}/`,
