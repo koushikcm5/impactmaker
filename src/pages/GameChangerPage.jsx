@@ -2,10 +2,24 @@ import { useEffect, useRef } from 'react';
 import { Sparkles, ArrowRight, Zap, Users, Target, TrendingUp } from 'lucide-react';
 import Navbar from '../sections/Navbar';
 import Footer from '../sections/Footer';
+import SEOHead from '../components/SEOHead';
 import { siteData } from '../data/siteData';
 import { domains } from '../data/workshopData';
 import gameChangerImg from '../assets/Gallery/others/f0e5ee81-4645-4133-a12e-f5104b7e1658.png';
+import { PAGE_SEO, makeBreadcrumb, makeServiceSchema } from '../utils/seoConfig';
 import '../sections/Workshops.css';
+
+const schemas = [
+  makeBreadcrumb([
+    { name: 'Workshops', path: '/workshops/game-changer' },
+    { name: 'Game-Changer Workshops', path: '/workshops/game-changer' },
+  ]),
+  makeServiceSchema(
+    'Game-Changer Corporate Workshops',
+    'Holistic transformation workshops for corporates, educators, and students — unlocking creative thinking and AI adoption through proven methodologies.',
+    '/workshops/game-changer'
+  ),
+];
 
 const GameChangerPage = () => {
   const sectionRef = useRef(null);
@@ -28,6 +42,13 @@ const GameChangerPage = () => {
 
   return (
     <>
+      <SEOHead
+        title={PAGE_SEO.workshopGameChanger.title}
+        description={PAGE_SEO.workshopGameChanger.description}
+        keywords={PAGE_SEO.workshopGameChanger.keywords}
+        canonical={PAGE_SEO.workshopGameChanger.canonical}
+        schemas={schemas}
+      />
       <Navbar />
       <div style={{ paddingTop: '90px' }}>
         <section className="workshops" style={{ paddingTop: '60px' }}>
@@ -35,7 +56,7 @@ const GameChangerPage = () => {
             <div className="game-changer-section" ref={sectionRef} style={{ marginBottom: 0 }}>
               <div className="game-changer-header">
                 <span className="workshops-pill">Holistic Evolution</span>
-                <h2 className="game-changer-title">The Game-Changer Workshops</h2>
+                <h1 className="game-changer-title">The Game-Changer Workshops</h1>
               </div>
 
               <div className="game-changer-content">

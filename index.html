@@ -1,15 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <meta name="theme-color" content="#1659a7" />
+
     <!-- Performance: DNS Prefetch & Preconnect -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://read.amazon.in" />
-    
+    <link rel="preconnect" href="https://ui-avatars.com" crossorigin />
+
+    <!-- Preload hero image for LCP improvement -->
+    <link rel="preload" as="image" href="/favicon.png" />
+
     <!-- Inline Critical CSS for faster FCP -->
     <style>
       :root {
@@ -34,81 +38,170 @@
       .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
       .relative-z10 { position: relative; z-index: 10; }
     </style>
-    
-    <!-- Core SEO & GEO Meta Tags -->
-    <title>J-Impact Creative Learning Services | Dr. Arun Divakaran</title>
-    <meta name="description" content="J-Impact Creative Learning Services by Dr. Arun Divakaran offers high-impact corporate workshops, faculty development programs (FDP), and student motivation training focused on Human Creative Intelligence and Digital Transformation." />
-    <meta name="keywords" content="Dr. Arun Divakaran, J-Impact Creative Learning Services, corporate training workshops, faculty development programs India, student motivation seminars, creative intelligence training, digital transformation skills, employability training, AI enabler, AI Trainer in Coimbatore, Data Analytics Trainer Coimbatore, Best Corporate Trainer Coimbatore, Generative AI Training Coimbatore, Power BI Trainer Coimbatore, Agile Coach Coimbatore, AI Consultant Coimbatore, Workshops in Coimbatore Colleges, Corporate" />
+
+    <!-- ═══ PRIMARY SEO META TAGS ═══ -->
+    <title>Top AI Trainer in India | Dr. Arun Divakaran | J-Impact</title>
+    <meta name="description" content="Dr. Arun Divakaran — India's Top AI Trainer & Keynote Speaker. Expert in Generative AI, Agentic AI, Corporate AI Workshops, Design Thinking, Enterprise Agile & Leadership Training. 50,000+ professionals trained across 15+ countries." />
+    <meta name="keywords" content="Top AI Trainer India, Best AI Trainer Tamil Nadu, Top AI Trainers Coimbatore, Best AI Leadership Trainer India, Best AI Leadership Trainer Tamil Nadu, Best AI Leadership Trainer Kerala, Best Keynote Speakers Tamil Nadu, Best Keynote Speakers Kerala, Tamil AI Trainer, Malayalam AI Trainer, Hindi AI Trainer, Design Thinking Trainer, Enterprise Agile Trainer, Generative AI Trainer, Agentic AI Trainer, AI Business Automation Trainer, AI Transformation Consultant, Corporate AI Keynote Speaker, Gamified Learning Expert, Future Skills Trainer India, Digital Transformation Speaker, AI Training Programs Enterprises" />
     <meta name="author" content="Dr. Arun Divakaran" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://impactmaker.in/" />
 
-    <!-- Open Graph Tags (Social Media & AI Link Previews) -->
-    <meta property="og:title" content="J-Impact Creative Learning Services | Dr. Arun Divakaran" />
-    <meta property="og:description" content="Empowering the corporate employees, teaching fraternity, and student community through transformative, action-packed workshops." />
+    <!-- Geo targeting -->
+    <meta name="geo.region" content="IN-TN" />
+    <meta name="geo.placename" content="Coimbatore, Tamil Nadu, India" />
+    <meta name="geo.position" content="11.0168;76.9558" />
+    <meta name="ICBM" content="11.0168, 76.9558" />
+    <meta httpEquiv="content-language" content="en-IN" />
+    <link rel="alternate" hrefLang="en-IN" href="https://impactmaker.in/" />
+    <link rel="alternate" hrefLang="en" href="https://impactmaker.in/" />
+
+    <!-- ═══ OPEN GRAPH (Social + AI Link Previews) ═══ -->
+    <meta property="og:title" content="Top AI Trainer in India | Dr. Arun Divakaran | J-Impact" />
+    <meta property="og:description" content="Dr. Arun Divakaran — India's Top AI Trainer & Keynote Speaker. Generative AI, Agentic AI, Corporate Workshops, Design Thinking & Leadership Training. 50,000+ professionals trained." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://impactmaker.in/" />
-    <meta property="og:site_name" content="Impact Maker" />
+    <meta property="og:image" content="https://impactmaker.in/og-image.jpg" />
+    <meta property="og:image:alt" content="Dr. Arun Divakaran — Top AI Trainer India" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="J-Impact Creative Learning Services" />
     <meta property="og:locale" content="en_IN" />
 
-    <!-- Twitter Cards -->
+    <!-- ═══ TWITTER CARD ═══ -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="J-Impact Creative Learning Services | Dr. Arun Divakaran" />
-    <meta name="twitter:description" content="Empowering the corporate employees, teaching fraternity, and student community through transformative, action-packed workshops." />
+    <meta name="twitter:title" content="Top AI Trainer in India | Dr. Arun Divakaran | J-Impact" />
+    <meta name="twitter:description" content="India's Top AI Trainer & Keynote Speaker. Generative AI, Agentic AI, Corporate Workshops & Leadership Training." />
+    <meta name="twitter:image" content="https://impactmaker.in/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Dr. Arun Divakaran — Top AI Trainer India" />
 
-    <!-- JSON-LD Structured Data for Generative Engine Optimization (GEO) -->
-    <!-- This helps AI, like ChatGPT and Perplexity, explicitly understand the entity and its authority -->
+    <!-- ═══ JSON-LD STRUCTURED DATA ═══ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "EducationalOrganization",
+          "@type": ["EducationalOrganization", "LocalBusiness"],
           "@id": "https://impactmaker.in/#organization",
           "name": "J-Impact Creative Learning Services",
+          "alternateName": ["J-Impact", "ImpactMaker", "Impact Maker"],
           "url": "https://impactmaker.in",
-          "logo": "https://impactmaker.in/favicon.svg",
-          "description": "J-Impact Creative Learning Services provides corporate workshops, faculty development programs, and student motivation seminars to impart creative teaching methods.",
-          "founder": {
-            "@id": "https://impactmaker.in/#founder"
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://impactmaker.in/favicon.png",
+            "width": 512,
+            "height": 512
           },
+          "image": "https://impactmaker.in/og-image.jpg",
+          "description": "India's leading AI training and corporate learning platform. Expert corporate AI workshops, Generative AI, Agentic AI, Design Thinking, Enterprise Agile, Keynote Speaking, and Leadership Development by Dr. Arun Divakaran.",
+          "founder": { "@id": "https://impactmaker.in/#founder" },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Coimbatore",
+            "addressRegion": "Tamil Nadu",
+            "addressCountry": "IN",
+            "postalCode": "641001"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 11.0168,
+            "longitude": 76.9558
+          },
+          "areaServed": [
+            { "@type": "Country", "name": "India" },
+            { "@type": "State", "name": "Tamil Nadu" },
+            { "@type": "State", "name": "Kerala" },
+            { "@type": "City", "name": "Coimbatore" },
+            { "@type": "City", "name": "Chennai" },
+            { "@type": "City", "name": "Bangalore" }
+          ],
+          "serviceType": [
+            "AI Training",
+            "Corporate AI Workshops",
+            "Generative AI Training",
+            "Agentic AI Training",
+            "Keynote Speaking",
+            "Design Thinking Workshops",
+            "Enterprise Agile Training",
+            "Leadership Development",
+            "Soft Skills Training",
+            "Business Workflow Automation"
+          ],
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+91-8078834082",
             "email": "arun.divakaran@hotmail.com",
             "contactType": "customer service",
-            "availableLanguage": ["English", "Hindi"]
-          }
+            "availableLanguage": ["English", "Tamil", "Hindi", "Malayalam"]
+          },
+          "priceRange": "₹₹₹",
+          "openingHours": ["Mo-Fr 09:00-18:00", "Sa 09:00-14:00"]
         },
         {
           "@type": "Person",
           "@id": "https://impactmaker.in/#founder",
           "name": "Dr. Arun Divakaran",
-          "jobTitle": "Human Creative intelligence focussed AI enabler",
-          "description": "Arun Divakaran is a trainer renowned for his innovative and creative teaching techniques. With over 18 years of industry experience, he specializes in faculty development, corporate training, and digital transformation.",
-          "knowsAbout": ["Corporate Strategy", "Faculty Development", "Student Motivation", "Creative Intelligence", "Artificial Intelligence", "Digital Transformation Skills", "Employability", "Entrepreneurship"]
+          "givenName": "Arun",
+          "familyName": "Divakaran",
+          "honorificPrefix": "Dr.",
+          "jobTitle": "Top AI Trainer, Keynote Speaker & Corporate Learning Specialist",
+          "description": "Dr. Arun Divakaran is India's top AI Trainer and Keynote Speaker with 19+ years of experience. Expert in Generative AI, Agentic AI, Design Thinking, Enterprise Agile, and Leadership Development. Trained 50,000+ professionals across 15+ countries in India, Tamil Nadu, Kerala, and Coimbatore.",
+          "url": "https://impactmaker.in",
+          "image": "https://impactmaker.in/og-image.jpg",
+          "worksFor": { "@id": "https://impactmaker.in/#organization" },
+          "knowsAbout": [
+            "Artificial Intelligence", "Generative AI", "Agentic AI",
+            "Corporate Training", "AI Leadership", "Design Thinking",
+            "Enterprise Agile", "Business Workflow Automation",
+            "Soft Skills Training", "Keynote Speaking",
+            "Innovation and Creativity", "Digital Transformation",
+            "AI Productivity", "Gamified Learning", "Future Skills",
+            "AI for HR", "AI for Marketing", "AI for IT Teams"
+          ],
+          "knowsLanguage": [
+            { "@type": "Language", "name": "English" },
+            { "@type": "Language", "name": "Tamil" },
+            { "@type": "Language", "name": "Hindi" },
+            { "@type": "Language", "name": "Malayalam" }
+          ],
+          "award": ["Trainer of the Year"],
+          "hasCredential": [
+            { "@type": "EducationalOccupationalCredential", "name": "Doctorate" }
+          ]
         },
         {
           "@type": "WebSite",
           "@id": "https://impactmaker.in/#website",
           "url": "https://impactmaker.in",
-          "name": "J-Impact",
-          "publisher": {
-            "@id": "https://impactmaker.in/#organization"
-          }
+          "name": "J-Impact Creative Learning Services",
+          "description": "India's top AI training platform by Dr. Arun Divakaran — Generative AI, Agentic AI, Corporate Workshops, Keynote Speaking, and Leadership Training.",
+          "publisher": { "@id": "https://impactmaker.in/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://impactmaker.in/blog?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          },
+          "inLanguage": "en-IN"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://impactmaker.in/"
+            }
+          ]
         }
       ]
     }
     </script>
   </head>
   <body>
-    <!-- Hidden SEO HTML for local ranking in Coimbatore -->
-    <div style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;" aria-hidden="true">
-      <h1>AI Trainer in Coimbatore</h1>
-      <h2>Data Analytics Trainer Coimbatore</h2>
-      <h3>Best Corporate Trainer Coimbatore</h3>
-      <p>Specializing in Generative AI Training Coimbatore, Power BI Trainer Coimbatore, and serving as a premier Agile Coach Coimbatore and AI Consultant Coimbatore. Offering specialized Workshops in Coimbatore Colleges and comprehensive Corporate training.</p>
-    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

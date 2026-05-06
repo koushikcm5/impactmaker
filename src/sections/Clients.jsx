@@ -34,30 +34,29 @@ const Clients = () => {
         <div className="clients-header">
           <span className="clients-kicker">Professional Network</span>
           <h2>Trusted by Industry Leaders</h2>
-          <p>Delivered workforce transformation Programs at these prestigious organizations.
-</p>
+          <p>Delivered workforce transformation Programs at these prestigious organizations.</p>
         </div>
 
-        <div className="marquee-wrapper">
-          <div className="marquee-fade-left"></div>
-          <div className="marquee-fade-right"></div>
-          
-          <div className="marquee-content">
-            {/* First set of logos */}
-            <div className="marquee-track">
-              {clientLogos.map((logo, index) => (
-                <div key={`logo-1-${index}`} className="logo-item">
-                  <img src={logo} alt={`Client Logo ${index + 1}`} loading="lazy" />
-                </div>
-              ))}
-            </div>
-            {/* Duplicate set for seamless looping */}
-            <div className="marquee-track" aria-hidden="true">
-              {clientLogos.map((logo, index) => (
-                <div key={`logo-2-${index}`} className="logo-item">
-                  <img src={logo} alt={`Client Logo ${index + 1}`} loading="lazy" />
-                </div>
-              ))}
+        <div className="marquee-3d-stage">
+          <div className="marquee-wrapper">
+            <div className="marquee-fade-left"></div>
+            <div className="marquee-fade-right"></div>
+
+            <div className="marquee-content">
+              <div className="marquee-track">
+                {clientLogos.map((logo, index) => (
+                  <div key={`logo-1-${index}`} className="logo-item">
+                    <img src={logo} alt={`Client Logo ${index + 1}`} loading="lazy" />
+                  </div>
+                ))}
+              </div>
+              <div className="marquee-track" aria-hidden="true">
+                {clientLogos.map((logo, index) => (
+                  <div key={`logo-2-${index}`} className="logo-item">
+                    <img src={logo} alt={`Client Logo ${index + 1}`} loading="lazy" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

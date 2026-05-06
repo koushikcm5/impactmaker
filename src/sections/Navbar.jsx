@@ -9,7 +9,7 @@ const workshopDropdownItems = [
   { label: "Deep-Dive Workshops",        href: "/workshops/deep-dive"       },
   { label: "Technical Workshops",        href: "/workshops/technical"       },
   { label: "Transformational Workshops", href: "/workshops/transformational" },
-  { label: "Speaker",                    href: "/workshops/speaker"         },
+  { label: "Keynote Speaker",            href: "/workshops/speaker"         },
 ];
 
 const navLinks = [

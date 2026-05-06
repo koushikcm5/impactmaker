@@ -1,0 +1,498 @@
+/* GeoPage — SEO-targeted landing page styles */
+
+.geo-page {
+  background: #ffffff;
+}
+
+/* ─── Hero ─────────────────────────────────────────────────────────────────── */
+.geo-hero {
+  position: relative;
+  padding: 8rem 0 5rem;
+  background: linear-gradient(135deg, #0a0e27 0%, #1659a7 60%, #0a0e27 100%);
+  overflow: hidden;
+}
+
+.geo-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.geo-breadcrumb {
+  margin-bottom: 1.5rem;
+}
+
+.geo-breadcrumb ol {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.geo-breadcrumb a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.geo-breadcrumb a:hover {
+  color: #fff;
+}
+
+.geo-hero-h1 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 1rem;
+  line-height: 1.15;
+  max-width: 800px;
+}
+
+.geo-hero-sub {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 2rem;
+  max-width: 600px;
+}
+
+.geo-keyword-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.geo-chip {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+.geo-hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────────*/
+.geo-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f28c28;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.geo-btn-primary:hover {
+  background: #d97820;
+  transform: translateY(-1px);
+}
+
+.geo-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.75rem;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.geo-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.geo-btn-full {
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* ─── Stats ──────────────────────────────────────────────────────────────────*/
+.geo-stats {
+  background: #0a0e27;
+  padding: 2.5rem 0;
+}
+
+.geo-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+
+.geo-stat-card {
+  padding: 1.5rem 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.geo-stat-card:last-child { border-right: none; }
+
+.geo-stat-value {
+  display: block;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: #f28c28;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.geo-stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ─── Common Section Styles ─────────────────────────────────────────────────*/
+.geo-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1659a7;
+  margin-bottom: 0.75rem;
+}
+
+.geo-section-h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #0a0e27;
+  margin: 0 0 1rem;
+  line-height: 1.25;
+}
+
+.geo-section-sub {
+  font-size: 1rem;
+  color: #555;
+  max-width: 680px;
+  margin: 0 0 2.5rem;
+  line-height: 1.7;
+}
+
+/* ─── Intro Section ──────────────────────────────────────────────────────────*/
+.geo-intro-section {
+  padding: 5rem 0;
+  background: #f9fbff;
+}
+
+.geo-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.geo-intro-para {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.geo-intro-usps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.geo-intro-usps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.geo-intro-usps svg {
+  color: #1659a7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Contact card */
+.geo-contact-card {
+  background: #fff;
+  border: 1px solid #e5eaf3;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 24px rgba(22, 89, 167, 0.08);
+  position: sticky;
+  top: 100px;
+}
+
+.geo-contact-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0a0e27;
+  margin: 0 0 0.5rem;
+}
+
+.geo-contact-card p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+.geo-contact-card address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.geo-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.geo-contact-link:hover { color: #1659a7; }
+
+.geo-contact-link svg { color: #1659a7; flex-shrink: 0; }
+
+/* ─── Services ───────────────────────────────────────────────────────────────*/
+.geo-services-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.geo-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.geo-service-card {
+  background: #f9fbff;
+  border: 1px solid #e5eaf3;
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.geo-service-card:hover {
+  border-color: #1659a7;
+  box-shadow: 0 4px 20px rgba(22, 89, 167, 0.1);
+}
+
+.geo-service-icon-wrap {
+  width: 40px;
+  height: 40px;
+  background: rgba(22, 89, 167, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1659a7;
+  margin-bottom: 1rem;
+}
+
+.geo-service-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0a0e27;
+  margin: 0 0 0.5rem;
+  line-height: 1.4;
+}
+
+.geo-service-desc {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+
+.geo-service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1659a7;
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.geo-service-link:hover { gap: 0.55rem; }
+
+/* ─── Testimonials ───────────────────────────────────────────────────────────*/
+.geo-testimonial-section {
+  padding: 5rem 0;
+  background: #f0f4ff;
+}
+
+.geo-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.geo-testimonial-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 16px rgba(22, 89, 167, 0.07);
+  margin: 0;
+}
+
+.geo-testimonial-text {
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: #444;
+  margin: 0 0 1.25rem;
+  font-style: italic;
+}
+
+.geo-testimonial-footer {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.geo-testimonial-footer cite {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.geo-testimonial-footer strong {
+  font-size: 0.9rem;
+  color: #0a0e27;
+}
+
+.geo-testimonial-footer span {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.geo-testimonial-company {
+  color: #1659a7 !important;
+  font-weight: 600 !important;
+}
+
+/* ─── Internal Links ─────────────────────────────────────────────────────────*/
+.geo-links-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.geo-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.geo-internal-link {
+  display: block;
+  padding: 1.5rem;
+  background: #f9fbff;
+  border: 1px solid #e5eaf3;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.geo-internal-link:hover {
+  border-color: #1659a7;
+  box-shadow: 0 4px 16px rgba(22, 89, 167, 0.1);
+}
+
+.geo-internal-link h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1659a7;
+  margin: 0 0 0.4rem;
+}
+
+.geo-internal-link p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── Final CTA ──────────────────────────────────────────────────────────────*/
+.geo-final-cta {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #0a0e27 0%, #1659a7 100%);
+  text-align: center;
+}
+
+.geo-final-cta h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+
+.geo-final-cta p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 2rem;
+  max-width: 600px;
+  margin-inline: auto;
+  line-height: 1.7;
+}
+
+.geo-final-cta-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────*/
+@media (max-width: 1024px) {
+  .geo-intro-grid { grid-template-columns: 1fr; }
+  .geo-contact-card { position: static; }
+  .geo-services-grid,
+  .geo-testimonials-grid,
+  .geo-links-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .geo-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .geo-stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .geo-stat-card:nth-child(even),
+  .geo-stat-card:last-child { border-bottom: none; }
+  .geo-services-grid,
+  .geo-testimonials-grid,
+  .geo-links-grid { grid-template-columns: 1fr; }
+  .geo-hero-cta,
+  .geo-final-cta-btns { flex-direction: column; }
+  .geo-btn-primary,
+  .geo-btn-secondary { justify-content: center; }
+}

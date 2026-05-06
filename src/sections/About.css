@@ -1,7 +1,7 @@
 .about {
   padding: 60px 0 56px;
   position: relative;
-  background: #ffffff;
+  background: transparent;
   overflow: hidden;
 }
 
@@ -28,10 +28,94 @@
   z-index: 1;
 }
 
+/* ── Scroll-triggered animations ──────────────────────────── */
+
+@keyframes aboutUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aboutRight {
+  from { opacity: 0; transform: translateX(-22px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes aboutLeft {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes uspFadeIn {
+  from { opacity: 0; transform: translateX(-22px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Header */
+.about-section-header {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.about.in-view .about-section-header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Philosophy items */
+.philosophy-item {
+  opacity: 0;
+}
+
+.about.in-view .philosophy-item {
+  animation: aboutUp 0.65s cubic-bezier(0.165, 0.84, 0.44, 1) var(--delay, 0.2s) both;
+}
+
+/* USP items */
+.usp-item {
+  opacity: 0;
+}
+
+.about.in-view .usp-item {
+  opacity: 1;
+  animation: uspFadeIn 0.55s cubic-bezier(0.165, 0.84, 0.44, 1) var(--delay, 0.3s) backwards;
+  transition: transform 0.3s ease;
+}
+
+/* Narrative paragraphs */
+.narrative-para {
+  opacity: 0;
+}
+
+.about.in-view .narrative-para {
+  animation: aboutUp 0.6s ease var(--delay, 0.4s) both;
+}
+
+/* Founder panel */
+.about-founder-panel {
+  opacity: 0;
+}
+
+.about.in-view .about-founder-panel {
+  animation: aboutLeft 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0.15s both;
+}
+
+/* USP section title */
+.usp-inline-section {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.about.in-view .usp-inline-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Header Styling */
 .about-section-header {
-  max-width: 850px;
-  margin-bottom: 60px;
+  margin-bottom: 56px;
+  text-align: left;
 }
 
 .mission-badge {
@@ -59,18 +143,19 @@
 }
 
 .about-intro-lead {
-  font-size: 1.25rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.75;
   color: #4b5e78;
   font-weight: 500;
-  max-width: 100%;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Layout Grid */
 .about-layout-grid {
   display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 100px;
+  grid-template-columns: 1fr 380px;
+  gap: clamp(36px, 4.5vw, 64px);
   align-items: start;
 }
 
@@ -78,6 +163,30 @@
 .about-narrative-panel {
   display: flex;
   flex-direction: column;
+  gap: 28px;
+}
+
+.arun-bio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* Arun bio paragraph */
+.arun-bio-para {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #3a4660;
+  margin: 0;
+  max-width: 75ch;
+  opacity: 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.about.in-view .arun-bio-para {
+  animation: aboutUp 0.6s ease var(--delay, 0.25s) both;
 }
 
 /* Philosophy Grid */
@@ -128,16 +237,16 @@
 
 /* USP Section */
 .usp-inline-section {
-  margin-bottom: 60px;
+  margin-bottom: 0;
   padding: 0;
   background: transparent;
   border: none;
 }
 
 .usp-inline-title {
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: #162033;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
@@ -148,13 +257,13 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
 }
 
 .usp-item {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 10px;
   padding: 0;
   background: transparent;
   border: none;
@@ -172,32 +281,37 @@
 }
 
 .usp-text {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.6;
   color: #4b5e78;
+  white-space: pre-line;
+  text-align: left;
 }
 
 .usp-text strong {
   color: #162033;
   font-weight: 700;
-  display: inline-block;
-  margin-bottom: 2px;
+  display: inline;
+  margin-bottom: 0;
 }
 
-/* Long Narrative */
+/* Long Narrative — full-width row spanning both grid columns */
 .about-long-narrative {
+  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding-top: 60px;
+  gap: 20px;
+  padding-top: 32px;
   border-top: 1px solid rgba(22, 32, 51, 0.08);
 }
 
 .narrative-para {
-  font-size: 1.15rem;
-  line-height: 1.9;
+  font-size: 1rem;
+  line-height: 1.85;
   color: #4b5e78;
   margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Founder Panel */
@@ -244,15 +358,16 @@
 }
 
 .founder-badge span {
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .founder-body {
-  padding: 48px;
+  padding: 32px;
 }
 
 .founder-body h3 {
@@ -268,13 +383,13 @@
   color: #f28c28;
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   letter-spacing: 0.08em;
 }
 
 .founder-accent-quote {
   position: relative;
-  margin-bottom: 32px;
+  margin-bottom: 0;
   padding-left: 24px;
   border-left: 3px solid #f28c28;
 }
@@ -288,7 +403,7 @@
 }
 
 .founder-accent-quote p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-style: italic;
   font-weight: 500;
   line-height: 1.6;
@@ -297,7 +412,7 @@
 }
 
 .founder-bio-text {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
@@ -314,22 +429,27 @@
 @media (max-width: 1024px) {
   .about-layout-grid {
     grid-template-columns: 1fr;
+    gap: 48px;
   }
   
   .about-founder-panel {
     position: static;
     max-width: 550px;
-    margin: 60px auto 0;
+    margin: 0 auto;
   }
   
   .about-section-header {
-    margin-bottom: 60px;
+    margin-bottom: 52px;
   }
 }
 
 @media (max-width: 768px) {
   .about {
     padding: 52px 0 48px;
+  }
+
+  .about-section-header {
+    margin-bottom: 40px;
   }
   
   .about-main-title {
@@ -339,10 +459,19 @@
   .about-philosophy-grid {
     gap: 32px;
   }
+
+  .arun-bio-stack {
+    gap: 18px;
+    margin-bottom: 32px;
+  }
   
   .usp-inline-section {
-    padding: 32px;
-    border-radius: 24px;
+    margin-bottom: 0;
+  }
+
+  .about-long-narrative {
+    gap: 20px;
+    padding-top: 28px;
   }
   
   .founder-body {
@@ -351,6 +480,12 @@
   
   .founder-img-container {
     height: 350px;
+  }
+
+  .arun-bio-para,
+  .narrative-para,
+  .usp-text {
+    font-size: 1rem;
   }
 }
 

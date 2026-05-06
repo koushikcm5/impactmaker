@@ -1,6 +1,6 @@
 .trust {
   position: relative;
-  background: #f4f8ff;
+  background: transparent;
 }
 
 .trust::before {

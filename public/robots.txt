@@ -1,4 +1,22 @@
 User-agent: *
 Allow: /
 
+# Block admin / utility routes (none currently, but proactive)
+Disallow: /src/
+Disallow: /*.jsx$
+Disallow: /*.js$
+
+# Allow all crawlers to access assets
+Allow: /assets/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Sitemap
 Sitemap: https://impactmaker.in/sitemap.xml
+
+# Crawl-delay (optional — be respectful to crawl budget)
+Crawl-delay: 1

@@ -47,6 +47,56 @@
   z-index: 10;
 }
 
+.hero-brain-overlay {
+  position: absolute;
+  left: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(200px, 22vw, 320px);
+  opacity: 0.13;
+  z-index: 6;
+  pointer-events: none;
+  color: #4aa3f5;
+  filter: drop-shadow(0 0 24px rgba(74, 163, 245, 0.6)) drop-shadow(0 0 8px rgba(74, 163, 245, 0.4));
+  animation: brainFloat 7s ease-in-out infinite, brainGlow 4s ease-in-out infinite;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-brain-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes brainFloat {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-54%) translateX(6px); }
+}
+
+@keyframes brainGlow {
+  0%, 100% { opacity: 0.13; filter: drop-shadow(0 0 24px rgba(74, 163, 245, 0.6)) drop-shadow(0 0 8px rgba(74, 163, 245, 0.4)); }
+  50% { opacity: 0.22; filter: drop-shadow(0 0 40px rgba(74, 163, 245, 0.85)) drop-shadow(0 0 16px rgba(74, 163, 245, 0.6)); }
+}
+
+/* ── Name hover → full scene light burst ── */
+.hero:has(.hero-heading:hover) .hero-visual {
+  filter: brightness(1.7) saturate(1.3);
+}
+
+.hero:has(.hero-heading:hover) .hero-brain-overlay {
+  opacity: 0.42;
+  filter: drop-shadow(0 0 56px rgba(74, 163, 245, 1)) drop-shadow(0 0 22px rgba(74, 163, 245, 0.95));
+}
+
+.hero-heading:hover .hero-heading-name {
+  text-shadow:
+    0 0 72px rgba(242, 140, 40, 0.85),
+    0 0 36px rgba(245, 176, 64, 0.65),
+    0 0 16px rgba(242, 140, 40, 0.45),
+    0 2px 32px rgba(0, 0, 0, 0.55),
+    0 1px 0 rgba(0, 0, 0, 0.22);
+}
+
 .hero-content {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
@@ -90,6 +140,8 @@
   color: #ffffff;
   font-weight: 800;
   text-shadow: 0 2px 32px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(0, 0, 0, 0.22);
+  transition: text-shadow 0.6s ease;
+  cursor: default;
 }
 
 .hero-heading-gradient {
@@ -209,9 +261,13 @@
   align-items: center;
   justify-content: flex-end;
   animation: heroFadeRight 1s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both;
+  transition: filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-scene {
+  --hero-dna-accent: #f5b040;
+  --hero-dna-accent-soft: rgba(245, 176, 64, 0.88);
+  --hero-dna-accent-glow: rgba(245, 176, 64, 0.28);
   position: relative;
   width: min(100%, 500px);
   height: 540px;
@@ -319,11 +375,31 @@
 
 .scene-core-subtitle {
   font-size: 0.60rem;
-  color: #f5b040;
+  color: var(--hero-dna-accent);
   text-transform: uppercase;
   letter-spacing: 0.07em;
   font-weight: 700;
   margin: 0;
+}
+
+.scene-core-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hero-dna-accent);
+  filter: drop-shadow(0 0 16px var(--hero-dna-accent-glow));
+  animation: iconGlow 3s ease-in-out infinite;
+}
+
+@keyframes iconGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 16px var(--hero-dna-accent-glow));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 24px rgba(245, 176, 64, 0.55));
+    transform: scale(1.05);
+  }
 }
 
 /* ── Service cards ── */
@@ -359,7 +435,8 @@
   display: block;
   font-size: 0.67rem;
   line-height: 1.35;
-  color: rgba(138, 184, 238, 0.70);
+  color: var(--hero-dna-accent-soft);
+  text-shadow: 0 0 16px var(--hero-dna-accent-glow);
   margin: 0;
 }
 
@@ -582,7 +659,8 @@
   .hero-cta,
   .hero-visual,
   .hero-badge-pill,
-  .hero-badge-pill::before {
+  .hero-badge-pill::before,
+  .hero-brain-overlay {
     animation: none;
   }
 }

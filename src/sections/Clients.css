@@ -1,8 +1,7 @@
 .clients-section {
-  padding: 80px 0;
-  background: transparent;
+  padding: 80px 0 100px;
+  background: rgba(242, 140, 40, 0.06);
   width: 100%;
-  overflow: hidden;
 }
 
 .clients-header {
@@ -37,15 +36,27 @@
   margin: 0 auto;
 }
 
-/* Marquee Logic */
+/* 3D perspective stage */
+.marquee-3d-stage {
+  perspective: 900px;
+  perspective-origin: 50% -20%;
+}
+
+/* Marquee strip — tilted in 3D */
 .marquee-wrapper {
   position: relative;
   width: 100%;
   height: 120px;
-  margin-top: 20px;
   display: flex;
   align-items: center;
   overflow: hidden;
+  transform: rotateX(22deg);
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  border-radius: 6px;
+  box-shadow:
+    0 40px 80px rgba(22, 89, 167, 0.18),
+    0 16px 32px rgba(22, 89, 167, 0.10);
 }
 
 /* Side Gradient Fade Masks */
@@ -61,19 +72,18 @@
 
 .marquee-fade-left {
   left: 0;
-  background: linear-gradient(to right, #ffffff, transparent);
+  background: linear-gradient(to right, rgba(255, 246, 234, 0.95), transparent);
 }
 
 .marquee-fade-right {
   right: 0;
-  background: linear-gradient(to left, #ffffff, transparent);
+  background: linear-gradient(to left, rgba(255, 246, 234, 0.95), transparent);
 }
 
 .marquee-content {
   display: flex;
   width: max-content;
   flex-wrap: nowrap;
-  /* Hardware acceleration */
   will-change: transform;
   transform: translate3d(0, 0, 0);
   animation: marquee-scroll 60s linear infinite;
@@ -103,7 +113,6 @@
   height: auto;
   max-height: 60px;
   object-fit: contain;
-  /* Premium grayscale base */
   filter: grayscale(100%);
   opacity: 0.5;
   transition: all 0.4s ease;
@@ -117,33 +126,30 @@
 
 /* Animation Keyframes */
 @keyframes marquee-scroll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
-/* Responsive Scaling */
+/* Responsive */
 @media (max-width: 768px) {
   .clients-section {
-    padding: 60px 0;
+    padding: 60px 0 80px;
   }
-  
+
   .marquee-wrapper {
     height: 100px;
+    transform: rotateX(16deg);
   }
-  
+
   .logo-item {
     width: 140px;
     padding: 0 25px;
   }
-  
+
   .logo-item img {
     max-height: 45px;
   }
-  
+
   .marquee-fade-left,
   .marquee-fade-right {
     width: 80px;
@@ -151,11 +157,15 @@
 }
 
 @media (max-width: 480px) {
+  .marquee-wrapper {
+    transform: rotateX(12deg);
+  }
+
   .logo-item {
     width: 120px;
     padding: 0 20px;
   }
-  
+
   .logo-item img {
     max-height: 40px;
   }

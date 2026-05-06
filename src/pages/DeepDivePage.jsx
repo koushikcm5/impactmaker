@@ -2,8 +2,19 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Sparkles, X, ArrowRight, ExternalLink } from 'lucide-react';
 import Navbar from '../sections/Navbar';
 import Footer from '../sections/Footer';
+import SEOHead from '../components/SEOHead';
 import { siteData } from '../data/siteData';
+import { PAGE_SEO, makeBreadcrumb, makeServiceSchema } from '../utils/seoConfig';
 import '../sections/Workshops.css';
+
+const schemas = [
+  makeBreadcrumb([{ name: 'Deep-Dive Workshops', path: '/workshops/deep-dive' }]),
+  makeServiceSchema(
+    'Deep-Dive AI & Analytics Workshops',
+    'Intensive deep-dive workshops on Generative AI, Agentic AI, Data Analytics, and enterprise technology for corporates.',
+    '/workshops/deep-dive'
+  ),
+];
 
 const DeepDivePage = () => {
   const [selectedWorkshop, setSelectedWorkshop] = useState(null);
@@ -35,6 +46,13 @@ const DeepDivePage = () => {
 
   return (
     <>
+      <SEOHead
+        title={PAGE_SEO.workshopDeepDive.title}
+        description={PAGE_SEO.workshopDeepDive.description}
+        keywords={PAGE_SEO.workshopDeepDive.keywords}
+        canonical={PAGE_SEO.workshopDeepDive.canonical}
+        schemas={schemas}
+      />
       <Navbar />
       <div style={{ paddingTop: '90px' }}>
         <section className="workshops" style={{ paddingTop: '60px' }}>
@@ -42,7 +60,7 @@ const DeepDivePage = () => {
             <div className="deep-dive-part" ref={sectionRef}>
               <div className="section-header">
                 <span className="workshops-pill">Transformative Learning</span>
-                <h2>Deep-Dive Workshops</h2>
+                <h1>Deep-Dive Workshops</h1>
                 <p>Holistic transformation modules designed for sustainable impact across all levels of education and corporate life.</p>
               </div>
 

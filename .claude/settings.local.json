@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(\\(Get-Content \"d:\\\\j-impact\\\\src\\\\sections\\\\About.css\" | Measure-Object -Line\\).Lines)",
+      "Bash(npm install *)",
+      "Bash(npm run *)"
+    ]
+  }
+}
