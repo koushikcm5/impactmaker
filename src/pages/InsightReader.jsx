@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft, X, Download, FileText } from 'lucide-react';
 import { siteData } from '../data/siteData';
 import { getArticleAssets } from '../utils/assetLoader';
@@ -7,6 +7,7 @@ import '../sections/Insights.css';
 const InsightReader = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   
   const insight = siteData.blog.find(item => item.id === parseInt(id));
   const { pdf } = insight ? getArticleAssets(insight.title) : { pdf: null };
@@ -16,7 +17,7 @@ const InsightReader = () => {
   return (
     <div className="full-screen-reader-page animate-fade-in">
       <div className="reader-header">
-        <button className="reader-back-btn" onClick={() => navigate(-1)}>
+        <button className="reader-back-btn" onClick={() => location.key !== 'default' ? navigate(-1) : navigate(`/insight/${id}`)}>
           <ArrowLeft size={20} /> Exit Reader
         </button>
         <div className="reader-title-info">

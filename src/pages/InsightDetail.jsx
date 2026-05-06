@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Download, FileText, ExternalLink, Maximize2, Clock, Tag } from 'lucide-react';
 import { siteData } from '../data/siteData';
 import { getArticleAssets, AMAZON_KINDLE_URL } from '../utils/assetLoader';
@@ -9,6 +9,9 @@ import '../sections/Insights.css';
 const InsightDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const goBack = () => location.key !== 'default' ? navigate(-1) : navigate('/blog');
 
   const insight = siteData.blog.find(item => item.id === parseInt(id));
 
@@ -67,7 +70,7 @@ const InsightDetail = () => {
       <div className="insight-page-wrapper animate-fade-in">
         <div className="article-viewer-container page-mode">
           <div className="article-viewer-header">
-            <button className="back-btn" onClick={() => navigate(-1)} aria-label="Go back">
+            <button className="back-btn" onClick={goBack} aria-label="Go back">
               <ArrowLeft size={20} /> Back
             </button>
 

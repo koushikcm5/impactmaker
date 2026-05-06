@@ -22,13 +22,13 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #f8fafc;
+  background: #eef4ff;
 }
 
 .insight-card-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -103,7 +103,7 @@
   gap: 8px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #2563eb;
+  color: #0d2b6b;
   background: transparent;
   border: none;
   padding: 0;
@@ -114,7 +114,7 @@
 
 .insight-read-btn:hover {
   gap: 12px;
-  color: #1d4ed8;
+  color: #1a3d8f;
 }
 
 .insight-card-glow {
@@ -130,14 +130,47 @@
   opacity: 1;
 }
 
+/* ── CREATI-WITTY book card ── */
+.insight-card-book .insight-image-container {
+  aspect-ratio: 3 / 4;
+  background: #f0f5ff;
+}
+
+.insight-card-book .insight-card-img {
+  object-fit: contain;
+  padding: 8px;
+}
+
+.insight-card-book .insight-card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
 @media (max-width: 640px) {
   .insight-card-modern {
     border-radius: 20px;
   }
   .insight-content {
-    padding: 20px;
+    padding: 18px;
   }
   .insight-card-title {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+  }
+  .insight-card-excerpt {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 2;
+    margin-bottom: 16px;
+  }
+
+  /* book card on mobile: cap image height so card stays compact */
+  .insight-card-book .insight-image-container {
+    aspect-ratio: unset;
+    height: 220px;
+  }
+
+  .insight-card-book .insight-card-title {
     font-size: 1.1rem;
   }
 }

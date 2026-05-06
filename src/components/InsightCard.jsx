@@ -3,7 +3,7 @@ import './InsightCard.css';
 
 const InsightCard = ({ title, excerpt, category, image, onClick, isBook }) => {
   return (
-    <div className="insight-card-modern" onClick={onClick}>
+    <div className={`insight-card-modern${isBook ? ' insight-card-book' : ''}`} onClick={onClick}>
       <div className="insight-image-container">
         {image ? (
           <img src={image} alt={title} className="insight-card-img" loading="lazy" />
