@@ -1,12 +1,37 @@
-import { useEffect, useRef } from 'react';
-import { Sparkles, ArrowRight, Zap, Users, Target, TrendingUp } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Sparkles, ArrowRight, CheckCircle2, FileText, Eye, Download, ChevronDown } from 'lucide-react';
 import NetworkCanvas from '../components/NetworkCanvas';
 import gameChangerImg from '../assets/Gallery/others/f0e5ee81-4645-4133-a12e-f5104b7e1658.png';
 import { domains } from '../data/workshopData';
+import pdf1 from '../assets/pdf/J-Impact Creative Learning Services Brochure.pdf?url';
+import pdf2 from '../assets/pdf/Quantum minds - A One Day Creative Teaching Workshop - Brochure.pdf?url';
+import pdf3 from '../assets/pdf/Quantum minds Creative Teaching  (Flyer).pdf?url';
 import './Workshops.css';
+
+const brochures = [
+  {
+    title: 'J-Impact Creative Learning Services',
+    subtitle: 'Company Brochure',
+    url: pdf1,
+    filename: 'J-Impact Creative Learning Services Brochure.pdf',
+  },
+  {
+    title: 'Quantum Minds',
+    subtitle: 'A One Day Creative Teaching Workshop — Brochure',
+    url: pdf2,
+    filename: 'Quantum Minds Creative Teaching Workshop Brochure.pdf',
+  },
+  {
+    title: 'Quantum Minds',
+    subtitle: 'Creative Teaching — Flyer',
+    url: pdf3,
+    filename: 'Quantum Minds Creative Teaching Flyer.pdf',
+  },
+];
 
 const Workshops = () => {
   const sectionRef = useRef(null);
+  const [brochureOpen, setBrochureOpen] = useState(false);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -36,7 +61,6 @@ const Workshops = () => {
             <h2 className="game-changer-title">The Game-Changer Workshops</h2>
           </div>
 
-          {/* Two-column: image | highlights + CTA */}
           <div className="game-changer-content">
             <div className="game-changer-image-wrapper">
               <div className="game-changer-image">
@@ -56,35 +80,23 @@ const Workshops = () => {
                 <strong>ancient practices</strong>.
               </p>
 
-              <div className="highlights-grid">
-                <div className="highlight-item">
-                  <div className="highlight-icon"><Zap size={20} /></div>
-                  <div className="highlight-content">
-                    <h4>Transform Employees</h4>
-                    <p>Change the way your employees perform and deliver</p>
-                  </div>
-                </div>
-                <div className="highlight-item">
-                  <div className="highlight-icon"><Users size={20} /></div>
-                  <div className="highlight-content">
-                    <h4>Transform Teachers</h4>
-                    <p>Revolutionize the way your educators teach and engage</p>
-                  </div>
-                </div>
-                <div className="highlight-item">
-                  <div className="highlight-icon"><Target size={20} /></div>
-                  <div className="highlight-content">
-                    <h4>Transform Students</h4>
-                    <p>Reshape the way your students learn and grow</p>
-                  </div>
-                </div>
-                <div className="highlight-item">
-                  <div className="highlight-icon"><TrendingUp size={20} /></div>
-                  <div className="highlight-content">
-                    <h4>Expert Facilitation</h4>
-                    <p>19+ years of transformative training across corporates and campuses</p>
-                  </div>
-                </div>
+              <div className="offerings-section">
+                <h3 className="offerings-title">What we offer?</h3>
+                <ul className="offerings-list">
+                  {[
+                    'New Age Technology Workshops (Gen AI, ML, Data Science, Programming & Analytics etc.)',
+                    'Design Thinking | Art of Business Story Telling | Domain Knowledge',
+                    'Agile & Digital Transformation, Clearing the Digital Blur.',
+                    'Building Entrepreneurial Thought Leadership Development.',
+                    'Creative Teaching Formulas - Faculty Development Workshops.',
+                    'Placement & Transformative Skill Enablement Workshops.',
+                  ].map((item, idx) => (
+                    <li key={idx} className="offerings-item" style={{ '--delay': `${0.35 + idx * 0.08}s` }}>
+                      <CheckCircle2 className="offerings-tick" size={17} />
+                      <div className="offerings-text">{item}</div>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div className="game-changer-cta">
@@ -96,10 +108,60 @@ const Workshops = () => {
                   <span>Success Stories</span>
                 </a>
               </div>
+
+              {/* Brochure dropdown */}
+              <div className="ws-brochure-wrap">
+                <button
+                  className={`ws-brochure-trigger${brochureOpen ? ' open' : ''}`}
+                  onClick={() => setBrochureOpen((v) => !v)}
+                  aria-expanded={brochureOpen}
+                >
+                  <FileText size={18} />
+                  <span>Download Brochures</span>
+                  <span className="ws-brochure-count">3 PDFs</span>
+                  <ChevronDown size={16} className="ws-brochure-chevron" />
+                </button>
+
+                {brochureOpen && (
+                  <div className="ws-brochure-list">
+                    {brochures.map(({ title, subtitle, url, filename }) => (
+                      <div key={filename} className="ws-brochure-item">
+                        <div className="ws-brochure-item-icon">
+                          <FileText size={20} />
+                        </div>
+                        <div className="ws-brochure-item-info">
+                          <strong>{title}</strong>
+                          <span>{subtitle}</span>
+                        </div>
+                        <div className="ws-brochure-item-actions">
+                          <a
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="ws-brochure-btn ws-brochure-btn-view"
+                            title="View PDF"
+                          >
+                            <Eye size={15} />
+                            View
+                          </a>
+                          <a
+                            href={url}
+                            download={filename}
+                            className="ws-brochure-btn ws-brochure-btn-dl"
+                            title="Download PDF"
+                          >
+                            <Download size={15} />
+                            Download
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
-          {/* Domain Expertise — full-width row */}
           <div className="domain-expertise-row">
             <div className="domain-row-header">
               <div className="domain-divider" />

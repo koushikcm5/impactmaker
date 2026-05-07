@@ -1,0 +1,261 @@
+/* ═══════════════════════════════════════════════════════════
+   Book Promo Widget — site palette: #162033 / #1659a7 / #4aa3f5 / #f28c28
+   ═══════════════════════════════════════════════════════════ */
+
+.bpw-root {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 9500;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.bpw-root > * {
+  pointer-events: all;
+}
+
+/* ── Panel ─────────────────────────────────────────────── */
+.bpw-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* ── Controls ──────────────────────────────────────────── */
+.bpw-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+}
+
+.bpw-ctrl {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(74, 163, 245, 0.25);
+  background: rgba(8, 14, 36, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: rgba(190, 215, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.bpw-ctrl:hover {
+  background: rgba(74, 163, 245, 0.22);
+  border-color: rgba(74, 163, 245, 0.5);
+  color: #fff;
+}
+
+/* ── Cards stack ───────────────────────────────────────── */
+.bpw-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.bpw-card-outer {
+  width: 190px;
+}
+
+/* ── Individual card ───────────────────────────────────── */
+.bpw-card {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(7, 12, 30, 0.86);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(74, 163, 245, 0.2);
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  will-change: transform;
+  outline: none;
+  user-select: none;
+}
+
+.bpw-card:focus-visible {
+  box-shadow: 0 0 0 3px rgba(74, 163, 245, 0.5), 0 8px 28px rgba(0, 0, 0, 0.48);
+}
+
+/* ── Badge ─────────────────────────────────────────────── */
+.bpw-badge {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  z-index: 4;
+  background: linear-gradient(90deg, #f28c28, #e07620);
+  color: #fff;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(242, 140, 40, 0.4);
+  white-space: nowrap;
+}
+
+/* ── Pulse dot ─────────────────────────────────────────── */
+.bpw-card-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 4;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f28c28;
+  animation: bpwCardDot 1.8s ease-in-out infinite;
+}
+
+@keyframes bpwCardDot {
+  0%   { box-shadow: 0 0 0 0   rgba(242, 140, 40, 0.75); }
+  70%  { box-shadow: 0 0 0 7px rgba(242, 140, 40, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(242, 140, 40, 0); }
+}
+
+/* ── Book cover image ──────────────────────────────────── */
+.bpw-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 108px;
+  overflow: hidden;
+  background: #0b1428;
+}
+
+.bpw-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 5px;
+  box-sizing: border-box;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.bpw-card:hover .bpw-img {
+  transform: scale(1.07);
+}
+
+.bpw-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(7, 12, 30, 0.7) 100%);
+  pointer-events: none;
+}
+
+/* ── Card body ─────────────────────────────────────────── */
+.bpw-body {
+  padding: 7px 10px 10px;
+}
+
+.bpw-title {
+  margin: 0 0 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #ddeaff;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bpw-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.63rem;
+  font-weight: 700;
+  color: #4aa3f5;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.bpw-card:hover .bpw-cta {
+  color: #82c8ff;
+}
+
+/* ── Minimised bubble ──────────────────────────────────── */
+.bpw-bubble {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1659a7 0%, #0d2b6b 100%);
+  border: 2px solid rgba(74, 163, 245, 0.35);
+  box-shadow: 0 6px 20px rgba(13, 43, 107, 0.55), inset 0 1px 0 rgba(255,255,255,0.12);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.bpw-bubble:focus-visible {
+  box-shadow: 0 0 0 3px rgba(74, 163, 245, 0.5);
+}
+
+.bpw-bubble-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #f28c28;
+  border: 2px solid #0d2b6b;
+  animation: bpwBubbleDot 2s ease-in-out infinite;
+}
+
+@keyframes bpwBubbleDot {
+  0%, 100% { transform: scale(1);    opacity: 1; }
+  50%       { transform: scale(1.3);  opacity: 0.75; }
+}
+
+/* ── Mobile ────────────────────────────────────────────── */
+@media (max-width: 540px) {
+  .bpw-root {
+    bottom: 12px;
+    right: 10px;
+  }
+
+  .bpw-card-outer {
+    width: 162px;
+  }
+
+  .bpw-img-wrap {
+    height: 90px;
+  }
+
+  .bpw-title {
+    font-size: 0.63rem;
+  }
+
+  .bpw-badge {
+    font-size: 0.46rem;
+    padding: 2px 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .bpw-card-outer {
+    width: 144px;
+  }
+
+  .bpw-img-wrap {
+    height: 78px;
+  }
+}

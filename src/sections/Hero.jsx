@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import Button from '../components/Button';
-import { Lightbulb } from 'lucide-react';
 import './Hero.css';
 
 import img1 from '../assets/home/dba1ece9-23d1-4c41-8f7f-bc6c60ed3040.jpeg';
 import img2 from '../assets/home/IMG-20220819-WA0013.jpg.jpeg';
 import img3 from '../assets/home/IMG-20220819-WA0014.jpg.jpeg';
+import arunPhoto from '../assets/Arun sir.png';
 
 const heroImages = [img1, img2, img3];
 
@@ -77,41 +77,63 @@ const Hero = ({ data }) => {
             </div>
           </div>
 
-          <div className="hero-visual" aria-hidden="true">
-            <div className="hero-scene">
-              <div className="scene-glow" />
-              <div className="scene-orbit scene-orbit-one" />
-              <div className="scene-orbit scene-orbit-two" />
+          <div className="hero-visual">
+            <div className="hero-photo-scene">
 
-              <div className="scene-core">
-                <div className="scene-core-subtitle">My Innovative DNA</div>
-                <div className="scene-core-icon">
-                  <Lightbulb size={64} strokeWidth={2} />
+              <div className="hero-cloud hero-cloud-tl">
+                <div className="hero-cloud-bubble">
+                  <span className="hero-cloud-label">My Innovative DNA</span>
+                  <strong className="hero-cloud-title">Driven by Passion, Excellence Assured</strong>
                 </div>
-                <div className="scene-core-tagline">Driven by Passion, Excellence Assured</div>
+                <div className="hero-cloud-tail" aria-hidden="true">
+                  <span /><span /><span />
+                </div>
               </div>
 
-              <div className="scene-panel scene-panel-left">
-                <span>IT Consultancy &amp; Leadership</span>
-                <strong>Gen AI for Functional Roles</strong>
+              <div className="hero-cloud hero-cloud-tr">
+                <div className="hero-cloud-bubble">
+                  <span className="hero-cloud-label">IT Consultancy &amp; Leadership</span>
+                  <strong className="hero-cloud-title">Gen AI for Functional Roles</strong>
+                </div>
+                <div className="hero-cloud-tail" aria-hidden="true">
+                  <span /><span /><span />
+                </div>
               </div>
 
-              <div className="scene-panel scene-panel-featured">
-                <span>IT, HR, Marketing, Business &amp; MSME</span>
-                <strong>Agentic AI - Business Workflow Automation</strong>
+              <div className="hero-photo-frame">
+                <div className="hero-photo-glow" aria-hidden="true" />
+                <div className="hero-photo-ring" aria-hidden="true" />
+                <img
+                  src={arunPhoto}
+                  alt="Dr. Arun Divakaran — AI Trainer, Business Intelligence Enabler, Strategist"
+                  className="hero-photo-img"
+                />
+                <div className="hero-photo-badge">
+                  <span className="hero-photo-badge-dot" aria-hidden="true" />
+                  AI Trainer &amp; Strategist
+                </div>
               </div>
 
-              <div className="scene-panel scene-panel-bottom">
-                <span>Enterprise Agile &amp; Design Thinking</span>
-                <strong>Gamified Learning for Gen Z</strong>
+              <div className="hero-cloud hero-cloud-bl">
+                <div className="hero-cloud-tail" aria-hidden="true">
+                  <span /><span /><span />
+                </div>
+                <div className="hero-cloud-bubble">
+                  <span className="hero-cloud-label">IT, HR, Marketing &amp; MSME</span>
+                  <strong className="hero-cloud-title">Agentic AI — Business Workflow Automation</strong>
+                </div>
               </div>
 
-              <div className="scene-node scene-node-one" />
-              <div className="scene-node scene-node-two" />
-              <div className="scene-node scene-node-three" />
-              <div className="scene-node scene-node-four" />
-              <div className="scene-beam scene-beam-one" />
-              <div className="scene-beam scene-beam-two" />
+              <div className="hero-cloud hero-cloud-br">
+                <div className="hero-cloud-tail" aria-hidden="true">
+                  <span /><span /><span />
+                </div>
+                <div className="hero-cloud-bubble">
+                  <span className="hero-cloud-label">Enterprise Agile &amp; Design Thinking</span>
+                  <strong className="hero-cloud-title">Gamified Learning for Gen Z</strong>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

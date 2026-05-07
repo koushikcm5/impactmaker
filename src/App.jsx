@@ -10,6 +10,7 @@ import About from './sections/About';
 import CTA from './sections/CTA';
 import Footer from './sections/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import BookPromoWidget from './components/BookPromoWidget';
 import NetworkCanvas from './components/NetworkCanvas';
 import SEOHead from './components/SEOHead';
 import { siteData } from './data/siteData';
@@ -180,6 +181,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <NetworkCanvas fixed />
+      <BookPromoWidget />
       <div className="app">
         <Routes>
           <Route path="/" element={<HomePage />} />

@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { Sparkles, ArrowRight, Zap, Users, Target, TrendingUp } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Sparkles, ArrowRight, FileText, Eye, Download, ChevronDown } from 'lucide-react';
 import Navbar from '../sections/Navbar';
 import Footer from '../sections/Footer';
 import SEOHead from '../components/SEOHead';
@@ -7,7 +7,31 @@ import { siteData } from '../data/siteData';
 import { domains } from '../data/workshopData';
 import gameChangerImg from '../assets/Gallery/others/f0e5ee81-4645-4133-a12e-f5104b7e1658.png';
 import { PAGE_SEO, makeBreadcrumb, makeServiceSchema } from '../utils/seoConfig';
+import pdf1 from '../assets/pdf/J-Impact Creative Learning Services Brochure.pdf?url';
+import pdf2 from '../assets/pdf/Quantum minds - A One Day Creative Teaching Workshop - Brochure.pdf?url';
+import pdf3 from '../assets/pdf/Quantum minds Creative Teaching  (Flyer).pdf?url';
 import '../sections/Workshops.css';
+
+const brochures = [
+  {
+    title: 'J-Impact Creative Learning Services',
+    subtitle: 'Company Brochure',
+    url: pdf1,
+    filename: 'J-Impact Creative Learning Services Brochure.pdf',
+  },
+  {
+    title: 'Quantum Minds',
+    subtitle: 'A One Day Creative Teaching Workshop — Brochure',
+    url: pdf2,
+    filename: 'Quantum Minds Creative Teaching Workshop Brochure.pdf',
+  },
+  {
+    title: 'Quantum Minds',
+    subtitle: 'Creative Teaching — Flyer',
+    url: pdf3,
+    filename: 'Quantum Minds Creative Teaching Flyer.pdf',
+  },
+];
 
 const schemas = [
   makeBreadcrumb([
@@ -23,6 +47,7 @@ const schemas = [
 
 const GameChangerPage = () => {
   const sectionRef = useRef(null);
+  const [brochureOpen, setBrochureOpen] = useState(false);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -78,35 +103,16 @@ const GameChangerPage = () => {
                     <strong>ancient practices</strong>.
                   </p>
 
-                  <div className="highlights-grid">
-                    <div className="highlight-item">
-                      <div className="highlight-icon"><Zap size={20} /></div>
-                      <div className="highlight-content">
-                        <h4>Transform Employees</h4>
-                        <p>Change the way your employees perform and deliver</p>
-                      </div>
-                    </div>
-                    <div className="highlight-item">
-                      <div className="highlight-icon"><Users size={20} /></div>
-                      <div className="highlight-content">
-                        <h4>Transform Teachers</h4>
-                        <p>Revolutionize the way your educators teach and engage</p>
-                      </div>
-                    </div>
-                    <div className="highlight-item">
-                      <div className="highlight-icon"><Target size={20} /></div>
-                      <div className="highlight-content">
-                        <h4>Transform Students</h4>
-                        <p>Reshape the way your students learn and grow</p>
-                      </div>
-                    </div>
-                    <div className="highlight-item">
-                      <div className="highlight-icon"><TrendingUp size={20} /></div>
-                      <div className="highlight-content">
-                        <h4>Expert Facilitation</h4>
-                        <p>19+ years of transformative training across corporates and campuses</p>
-                      </div>
-                    </div>
+                  <div className="offerings-section">
+                    <h3 className="offerings-title">What we offer?</h3>
+                    <ul className="offerings-list">
+                      <li>New Age Technology Workshops (Gen AI, ML, Data Science, Programming &amp; Analytics etc.)</li>
+                      <li>Design Thinking | Art of Business Story Telling | Domain Knowledge</li>
+                      <li>Agile &amp; Digital Transformation, Clearing the Digital Blur.</li>
+                      <li>Building Entrepreneurial Thought Leadership Development.</li>
+                      <li>Creative Teaching Formulas - Faculty Development Workshops.</li>
+                      <li>Placement &amp; Transformative Skill Enablement Workshops.</li>
+                    </ul>
                   </div>
 
                   <div className="game-changer-cta">
@@ -119,6 +125,63 @@ const GameChangerPage = () => {
                     </a>
                   </div>
                 </div>
+              </div>
+
+              {/* Brochure dropdown section */}
+              <div className="brochure-section">
+                <div className="brochure-row-header">
+                  <div className="domain-divider" />
+                  <span className="domain-section-label">Download Brochures</span>
+                  <div className="domain-divider" />
+                </div>
+
+                <button
+                  className={`brochure-dropdown-trigger${brochureOpen ? ' open' : ''}`}
+                  onClick={() => setBrochureOpen((v) => !v)}
+                  aria-expanded={brochureOpen}
+                >
+                  <span className="brochure-trigger-left">
+                    <FileText size={20} />
+                    View &amp; Download Our Brochures
+                  </span>
+                  <span className="brochure-trigger-count">3 PDFs</span>
+                  <ChevronDown size={18} className="brochure-trigger-chevron" />
+                </button>
+
+                {brochureOpen && (
+                  <div className="brochure-cards brochure-cards-open">
+                    {brochures.map(({ title, subtitle, url, filename }) => (
+                      <div key={filename} className="brochure-card">
+                        <div className="brochure-card-icon">
+                          <FileText size={26} />
+                        </div>
+                        <div className="brochure-card-info">
+                          <strong className="brochure-card-title">{title}</strong>
+                          <span className="brochure-card-subtitle">{subtitle}</span>
+                        </div>
+                        <div className="brochure-card-actions">
+                          <a
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="brochure-btn brochure-btn-view"
+                          >
+                            <Eye size={15} />
+                            View
+                          </a>
+                          <a
+                            href={url}
+                            download={filename}
+                            className="brochure-btn brochure-btn-download"
+                          >
+                            <Download size={15} />
+                            Download
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div className="domain-expertise-row">

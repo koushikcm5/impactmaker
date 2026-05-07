@@ -462,11 +462,11 @@ These technology focussed workshops for the teaching fraternity is a perfect ble
     phone: "91 80788 34082",
     email: "arun.divakaran@hotmail.com",
     social: {
-      linkedin: "#",
-      twitter: "#",
-      instagram: "#",
-      youtube: "#",
-      facebook: "#"
+      linkedin: "https://www.linkedin.com/in/ad-the-visionary-pm",
+      twitter: "",
+      instagram: "https://www.instagram.com/arun_divakaran_impactmaker/",
+      youtube: "https://www.youtube.com/c/ArunDivakaran",
+      facebook: "https://www.facebook.com/arun.divakaran.7"
     }
   },
   navigation: [
