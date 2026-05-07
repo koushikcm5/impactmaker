@@ -130,6 +130,19 @@
   opacity: 1;
 }
 
+/* ── Article card (full-width image) ── */
+.insight-article-img-container {
+  aspect-ratio: 16 / 9;
+}
+
+.insight-article-full-img {
+  object-fit: cover !important;
+}
+
+.insight-article-tag {
+  background: #f97316 !important;
+}
+
 /* ── CREATI-WITTY book card ── */
 .insight-card-book .insight-image-container {
   aspect-ratio: 3 / 4;
@@ -174,4 +187,3 @@
     font-size: 1.1rem;
   }
 }
-

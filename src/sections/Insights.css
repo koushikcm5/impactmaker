@@ -1,10 +1,10 @@
-.insights {
+﻿.insights {
   padding: 100px 0;
   position: relative;
   background: white;
 }
 
-/* ── Section Header ── */
+/* â”€â”€ Section Header â”€â”€ */
 .insights-header {
   text-align: center;
   margin-bottom: 60px;
@@ -48,7 +48,7 @@
   line-height: 1.7;
 }
 
-/* ── Card wrapper animation ── */
+/* â”€â”€ Card wrapper animation â”€â”€ */
 .insights-card-wrap {
   opacity: 0;
   transform: translateY(32px);
@@ -63,7 +63,7 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Grid ── */
+/* â”€â”€ Grid â”€â”€ */
 .insights-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -529,7 +529,7 @@
   }
 }
 
-/* ── Blog Category Filter ─────────────────────────────────────────────────── */
+/* â”€â”€ Blog Category Filter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .insights-category-nav {
   margin-bottom: 2.5rem;
 }
@@ -571,7 +571,48 @@
   padding: 2rem 0;
 }
 
-/* ── More / Additional Articles Toggle ──────────────────────────────────── */
+/* â”€â”€ More / Additional Articles Toggle â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+/* -- Articles sub-section -- */
+.insights-articles-section {
+  margin-top: 64px;
+}
+
+.insights-articles-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.insights-articles-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.1);
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+
+.insights-articles-heading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #162033;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.insights-articles-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 768px) {
+  .insights-articles-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .insights-more-section {
   margin-top: 3.5rem;
   border-top: 2px solid #e8edf6;
@@ -669,7 +710,7 @@
   }
 }
 
-/* ── Article Breadcrumb & Meta ────────────────────────────────────────────── */
+/* â”€â”€ Article Breadcrumb & Meta â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .article-breadcrumb {
   margin-bottom: 0.5rem;
 }
@@ -724,7 +765,7 @@
   border: 1px solid #d0dcf5;
 }
 
-/* ── Related Articles ─────────────────────────────────────────────────────── */
+/* â”€â”€ Related Articles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .article-related {
   margin-top: 3rem;
   padding-top: 2.5rem;
@@ -788,3 +829,4 @@
   .related-grid { grid-template-columns: 1fr; }
   .viewer-meta-row { flex-wrap: wrap; gap: 0.5rem; }
 }
+

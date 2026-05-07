@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import InsightCard from '../components/InsightCard';
-import { getArticleAssets } from '../utils/assetLoader';
+import { getArticleAssets, getBookArticleImage } from '../utils/assetLoader';
 import { BLOG_CATEGORIES } from '../utils/seoConfig';
 import './Insights.css';
 
@@ -22,10 +22,19 @@ const Insights = ({ data }) => {
     return () => observer.disconnect();
   }, []);
 
-  const enhancedData = data.map(item => ({
-    ...item,
-    ...getArticleAssets(item.title)
-  }));
+  const enhancedData = data.map(item => {
+    const assets = getArticleAssets(item.title);
+    let image = assets.image;
+    if (!image && item.featuredImage) {
+      image = getBookArticleImage(item.featuredImage);
+    }
+    if (!image && item.inlineImages) {
+      const firstKey = Object.keys(item.inlineImages)[0];
+      if (firstKey) image = getBookArticleImage(item.inlineImages[firstKey]);
+    }
+    const isArticle = !!(item.featuredImage || item.inlineImages);
+    return { ...item, ...assets, image, isArticle };
+  });
 
   // Split: original articles (2024) vs additional/newer articles (2025+)
   const originalData = enhancedData.filter(item =>
@@ -44,6 +53,9 @@ const Insights = ({ data }) => {
 
   const filteredOriginal = filterItems(originalData);
   const filteredAdditional = filterItems(additionalData);
+
+  const filteredBooks = filteredOriginal.filter(item => !item.isArticle);
+  const filteredArticles = filteredOriginal.filter(item => item.isArticle);
 
   return (
     <section className="insights" id="blog" ref={sectionRef} aria-label="Blog articles and books">
@@ -76,9 +88,9 @@ const Insights = ({ data }) => {
           </ul>
         </nav>
 
-        {/* Original articles */}
+        {/* Books & blog cards */}
         <div className="insights-grid" role="list">
-          {filteredOriginal.map((insight, i) => (
+          {filteredBooks.map((insight, i) => (
             <div
               key={insight.id}
               className="insights-card-wrap"
@@ -94,7 +106,33 @@ const Insights = ({ data }) => {
           ))}
         </div>
 
-        {filteredOriginal.length === 0 && filteredAdditional.length === 0 && (
+        {/* Articles section — separate with heading */}
+        {filteredArticles.length > 0 && (
+          <div className="insights-articles-section">
+            <div className="insights-articles-header">
+              <span className="insights-articles-eyebrow">Written Works</span>
+              <h3 className="insights-articles-heading">Articles</h3>
+            </div>
+            <div className="insights-grid insights-articles-grid" role="list">
+              {filteredArticles.map((insight, i) => (
+                <div
+                  key={insight.id}
+                  className="insights-card-wrap"
+                  style={{ '--delay': `${0.08 + i * 0.09}s` }}
+                  role="listitem"
+                >
+                  <InsightCard
+                    {...insight}
+                    onClick={() => navigate(`/insight/${insight.id}`)}
+                    isArticle={insight.isArticle}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {filteredBooks.length === 0 && filteredArticles.length === 0 && filteredAdditional.length === 0 && (
           <p className="insights-empty" role="status">No articles found in this category yet.</p>
         )}
 

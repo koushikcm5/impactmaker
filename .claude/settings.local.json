@@ -3,7 +3,12 @@
     "allow": [
       "PowerShell(\\(Get-Content \"d:\\\\j-impact\\\\src\\\\sections\\\\About.css\" | Measure-Object -Line\\).Lines)",
       "Bash(npm install *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "PowerShell(Head -20)",
+      "PowerShell(Get-ChildItem \"d:\\\\j-impact\\\\src\\\\assets\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object FullName | Select-Object -First 40)",
+      "PowerShell(\\(Get-Content \"d:\\\\j-impact\\\\src\\\\data\\\\siteData.js\"\\) | Select-String -Pattern \"id:|title:|publishedDate:|featuredImage:|inlineImages:\" | Select-Object -First 60)",
+      "PowerShell(\\(Get-Content \"d:\\\\j-impact\\\\src\\\\data\\\\siteData.js\"\\) | Select-String -Pattern \"id: 9|id:9|AEROBICS|MECHANICS\")",
+      "PowerShell(\\(Get-Content \"d:\\\\j-impact\\\\src\\\\data\\\\siteData.js\"\\) | Select-String -Pattern \"id: 9|inlineImages|IMAGE_\" | Select-Object -First 20)"
     ]
   }
 }
