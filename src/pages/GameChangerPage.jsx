@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { Sparkles, ArrowRight, FileText, Eye, Download, ChevronDown } from 'lucide-react';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { Sparkles, ArrowRight, FileText, Eye, Download, ChevronDown, X, ExternalLink, CheckCircle2 } from 'lucide-react';
 import Navbar from '../sections/Navbar';
 import Footer from '../sections/Footer';
 import SEOHead from '../components/SEOHead';
@@ -45,9 +45,25 @@ const schemas = [
   ),
 ];
 
+const corporateWorkshop = siteData.workshops.find(w => w.id === 1);
+
 const GameChangerPage = () => {
   const sectionRef = useRef(null);
   const [brochureOpen, setBrochureOpen] = useState(false);
+  const [selectedWorkshop, setSelectedWorkshop] = useState(null);
+
+  const closeModal = useCallback(() => setSelectedWorkshop(null), []);
+
+  useEffect(() => {
+    document.body.style.overflow = selectedWorkshop ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [selectedWorkshop]);
+
+  useEffect(() => {
+    const handleKey = (e) => { if (e.key === 'Escape') closeModal(); };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [closeModal]);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -80,8 +96,8 @@ const GameChangerPage = () => {
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="game-changer-section" ref={sectionRef} style={{ marginBottom: 0 }}>
               <div className="game-changer-header">
-                <span className="workshops-pill">Holistic Evolution</span>
-                <h1 className="game-changer-title">The Game-Changer Workshops</h1>
+                <span className="workshops-pill">Holistic Transformation</span>
+                <h1 className="game-changer-title">The Game-Changer Corporate Workshops</h1>
               </div>
 
               <div className="game-changer-content">
@@ -106,12 +122,19 @@ const GameChangerPage = () => {
                   <div className="offerings-section">
                     <h3 className="offerings-title">What we offer?</h3>
                     <ul className="offerings-list">
-                      <li>New Age Technology Workshops (Gen AI, ML, Data Science, Programming &amp; Analytics etc.)</li>
-                      <li>Design Thinking | Art of Business Story Telling | Domain Knowledge</li>
-                      <li>Agile &amp; Digital Transformation, Clearing the Digital Blur.</li>
-                      <li>Building Entrepreneurial Thought Leadership Development.</li>
-                      <li>Creative Teaching Formulas - Faculty Development Workshops.</li>
-                      <li>Placement &amp; Transformative Skill Enablement Workshops.</li>
+                      {[
+                        'New Age Technology Workshops (Gen AI, ML, Data Science, Programming & Analytics etc.)',
+                        'Design Thinking | Art of Business Story Telling | Domain Knowledge',
+                        'Agile & Digital Transformation, Clearing the Digital Blur.',
+                        'Building Entrepreneurial Thought Leadership Development.',
+                        'Creative Teaching Formulas - Faculty Development Workshops.',
+                        'Placement & Transformative Skill Enablement Workshops.',
+                      ].map((item, idx) => (
+                        <li key={idx} className="offerings-item" style={{ '--delay': `${0.35 + idx * 0.08}s` }}>
+                          <CheckCircle2 className="offerings-tick" size={17} />
+                          <div className="offerings-text">{item}</div>
+                        </li>
+                      ))}
                     </ul>
                   </div>
 
@@ -184,6 +207,40 @@ const GameChangerPage = () => {
                 )}
               </div>
 
+              {corporateWorkshop && (
+                <div className="corporate-workshops-row" style={{ marginTop: '44px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.75rem' }}>
+                    <span className="domain-section-label" style={{ background: 'rgba(242,140,40,0.12)', color: '#c9720a', border: '1px solid rgba(242,140,40,0.25)', fontSize: '0.75rem', letterSpacing: '0.13em' }}>
+                      Corporate Workshops
+                    </span>
+                  </div>
+                  <div className="corp-ws-card">
+                    <div className="corp-ws-image">
+                      <img src={corporateWorkshop.image} alt={corporateWorkshop.title} loading="lazy" />
+                      <div className="workshop-card-overlay">
+                        <button
+                          onClick={() => setSelectedWorkshop(corporateWorkshop)}
+                          className="workshop-expand-btn"
+                          aria-label={`Read more about ${corporateWorkshop.title}`}
+                        >
+                          <ExternalLink size={20} />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="corp-ws-body">
+                      <div className="workshop-card-header">
+                        <Sparkles className="workshop-card-icon" size={16} />
+                        <h3>{corporateWorkshop.title}</h3>
+                      </div>
+                      <p className="corp-ws-text">{corporateWorkshop.short}</p>
+                      <button onClick={() => setSelectedWorkshop(corporateWorkshop)} className="workshop-read-more">
+                        Read More <ArrowRight size={16} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <div className="domain-expertise-row">
                 <div className="domain-row-header">
                   <div className="domain-divider" />
@@ -207,6 +264,35 @@ const GameChangerPage = () => {
           </div>
         </section>
       </div>
+      {selectedWorkshop && (
+        <div className="workshop-modal-overlay" onClick={closeModal} role="dialog" aria-modal="true">
+          <div className="workshop-modal-container" onClick={e => e.stopPropagation()}>
+            <button className="workshop-modal-close" onClick={closeModal} aria-label="Close">
+              <X size={24} />
+            </button>
+            <div className="workshop-modal-content animate-modal">
+              <div className="workshop-modal-visual">
+                {selectedWorkshop.intro && <p className="workshop-modal-intro">{selectedWorkshop.intro}</p>}
+                <img src={selectedWorkshop.image} alt={selectedWorkshop.title} />
+              </div>
+              <div className="workshop-modal-info">
+                <span className="workshop-modal-tag">Workshop Programme</span>
+                <h2>{selectedWorkshop.title}</h2>
+                <div className="workshop-modal-divider" />
+                <div className="workshop-modal-narrative">
+                  {selectedWorkshop.full.split('\n\n').map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))}
+                </div>
+                <button className="workshop-modal-cta" onClick={closeModal}>
+                  Close Discovery
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer contact={siteData.contact} />
     </>
   );

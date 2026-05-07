@@ -88,17 +88,19 @@ const About = ({ data }) => {
           </div>
 
           {/* Full-width — Narrative paragraphs span both columns */}
-          <div className="about-long-narrative">
-            {data.content.split('\n\n').map((paragraph, index) => (
-              <p
-                key={index}
-                className="narrative-para"
-                style={{ '--delay': `${0.4 + index * 0.1}s` }}
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          {data.content && data.content.trim() && (
+            <div className="about-long-narrative">
+              {data.content.split('\n\n').map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="narrative-para"
+                  style={{ '--delay': `${0.4 + index * 0.1}s` }}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          )}
 
         </div>
       </div>

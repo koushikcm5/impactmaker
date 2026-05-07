@@ -167,6 +167,22 @@
   max-width: 800px;
 }
 
+.article-inline-figure {
+  margin: 32px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(22, 32, 51, 0.1);
+  background: #f8faff;
+  border: 1px solid rgba(22, 89, 167, 0.08);
+}
+
+.article-inline-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .article-featured-img-wrap {
   width: 100%;
   border-radius: 20px;

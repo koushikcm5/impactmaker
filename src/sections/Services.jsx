@@ -9,7 +9,7 @@ const Services = ({ data }) => {
       <NetworkCanvas />
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="section-header services-header">
-          <h2>The Game-Changer Workshops</h2>
+          <h2>The Game-Changer Corporate Workshops</h2>
           
           <div className="premium-quote-box">
             <Quote size={40} className="quote-bg-icon" />

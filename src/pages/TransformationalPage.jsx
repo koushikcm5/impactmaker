@@ -8,7 +8,7 @@ import { PAGE_SEO, makeBreadcrumb, makeServiceSchema } from '../utils/seoConfig'
 import '../sections/Workshops.css';
 
 const schemas = [
-  makeBreadcrumb([{ name: 'Design Thinking & Leadership Workshops', path: '/workshops/transformational' }]),
+  makeBreadcrumb([{ name: 'Design Thinking & Agile Workshops', path: '/workshops/transformational' }]),
   makeServiceSchema(
     'Design Thinking & Leadership Transformation Workshops',
     'Design Thinking, Leadership Transformation, and Agile & Scrum workshops for corporate teams — human-centered innovation and enterprise agile for India.',
@@ -40,13 +40,13 @@ const TransformationalPage = () => {
         schemas={schemas}
       />
       <Navbar />
-      <div style={{ paddingTop: '90px' }}>
+      <div style={{ paddingTop: '120px' }}>
         <section className="workshops" style={{ paddingTop: '60px' }}>
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="ws-category-section ws-section-alt" ref={sectionRef} style={{ marginTop: 0 }}>
               <div className="ws-category-header">
                 <span className="workshops-pill ws-pill-orange">Non-Technical</span>
-                <h1 className="ws-category-title ws-title-orange">Design Thinking &amp; Leadership Workshops</h1>
+                <h1 className="ws-category-title ws-title-orange">Design Thinking &amp; Agile Workshops</h1>
                 <p className="ws-category-desc">
                   People-first programmes that reshape thinking, leadership, and team culture through experiential learning.
                 </p>

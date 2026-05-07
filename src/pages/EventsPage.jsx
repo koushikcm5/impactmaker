@@ -6,7 +6,7 @@ import { siteData } from '../data/siteData';
 const EventsPage = () => (
   <>
     <Navbar />
-    <div style={{ paddingTop: '90px' }}>
+    <div style={{ paddingTop: '120px' }}>
       <Events />
     </div>
     <Footer contact={siteData.contact} />

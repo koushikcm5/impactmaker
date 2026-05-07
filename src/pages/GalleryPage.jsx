@@ -6,7 +6,7 @@ import { siteData } from '../data/siteData';
 const GalleryPage = () => (
   <>
     <Navbar />
-    <div style={{ paddingTop: '90px' }}>
+    <div style={{ paddingTop: '120px' }}>
       <Gallery />
     </div>
     <Footer contact={siteData.contact} />

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { Sparkles, X, ArrowRight, ExternalLink } from 'lucide-react';
+import { GraduationCap, Users, X, ArrowRight } from 'lucide-react';
 import Navbar from '../sections/Navbar';
 import Footer from '../sections/Footer';
 import SEOHead from '../components/SEOHead';
@@ -15,6 +15,11 @@ const schemas = [
     '/workshops/deep-dive'
   ),
 ];
+
+const cardMeta = {
+  2: { icon: GraduationCap, pill: 'Student Empowerment', pillClass: '' },
+  3: { icon: Users,         pill: 'Faculty Development',  pillClass: 'ws-pill-orange' },
+};
 
 const DeepDivePage = () => {
   const [selectedWorkshop, setSelectedWorkshop] = useState(null);
@@ -44,6 +49,8 @@ const DeepDivePage = () => {
     return () => observer.disconnect();
   }, []);
 
+  const edtechWorkshops = siteData.workshops.filter(w => w.id !== 1);
+
   return (
     <>
       <SEOHead
@@ -57,40 +64,47 @@ const DeepDivePage = () => {
       <div style={{ paddingTop: '90px' }}>
         <section className="workshops" style={{ paddingTop: '60px' }}>
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-            <div className="deep-dive-part" ref={sectionRef}>
-              <div className="section-header">
+            <div className="ws-category-section" ref={sectionRef} style={{ marginTop: 0 }}>
+              <div className="ws-category-header">
                 <span className="workshops-pill">Transformative Learning</span>
-                <h1>Deep-Dive Workshops</h1>
-                <p>Holistic transformation modules designed for sustainable impact across all levels of education and corporate life.</p>
+                <h1 className="ws-category-title">Ed Tech Workshops</h1>
+                <p className="ws-category-desc">
+                  Holistic transformation modules designed for sustainable impact across all levels of education.
+                </p>
               </div>
 
-              <div className="workshops-grid">
-                {siteData.workshops.map((workshop, i) => (
-                  <div key={workshop.id} className="workshop-card" style={{ '--delay': `${i * 0.1}s` }}>
-                    <div className="workshop-card-image">
-                      <img src={workshop.image} alt={workshop.title} loading="lazy" />
-                      <div className="workshop-card-overlay">
-                        <button
-                          onClick={() => setSelectedWorkshop(workshop)}
-                          className="workshop-expand-btn"
-                          aria-label={`Read more about ${workshop.title}`}
-                        >
-                          <ExternalLink size={20} />
+              <div className="edtech-cards-stack">
+                {edtechWorkshops.map((workshop, i) => {
+                  const meta = cardMeta[workshop.id] || {};
+                  const Icon = meta.icon || GraduationCap;
+                  return (
+                    <div key={workshop.id} className="corp-ws-card edtech-ws-card" style={{ '--delay': `${i * 0.12}s` }}>
+                      <div className="corp-ws-image">
+                        <img src={workshop.image} alt={workshop.title} loading="lazy" />
+                      </div>
+                      <div className="corp-ws-body">
+                        <span className={`workshops-pill edtech-card-pill ${meta.pillClass || ''}`} style={{ marginBottom: '4px', display: 'inline-block' }}>
+                          {meta.pill}
+                        </span>
+                        <div className="edtech-card-heading">
+                          <div className="edtech-card-icon-wrap">
+                            <Icon size={20} />
+                          </div>
+                          <h2 className="edtech-card-title">{workshop.title}</h2>
+                        </div>
+                        <p className="corp-ws-text">{workshop.short}</p>
+                        <button onClick={() => setSelectedWorkshop(workshop)} className="workshop-read-more" style={{ marginTop: '8px' }}>
+                          Read More <ArrowRight size={16} />
                         </button>
                       </div>
                     </div>
-                    <div className="workshop-card-body">
-                      <div className="workshop-card-header">
-                        <Sparkles className="workshop-card-icon" size={16} />
-                        <h3>{workshop.title}</h3>
-                      </div>
-                      <p className="workshop-card-short">{workshop.short}</p>
-                      <button onClick={() => setSelectedWorkshop(workshop)} className="workshop-read-more">
-                        Read More <ArrowRight size={16} />
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
+              </div>
+
+              <div className="edtech-intro" style={{ marginTop: '48px' }}>
+                <p>As an educator, I have seen how schools can struggle to build the habits that make students lifelong learners. Through regular conversations with education professionals, one pattern stands out: institutions and staff are often caught up in repetitive processes, paperwork, standards, marks, and quality checks. Over time, teaching can become mechanical, and learning begins to feel like a struggle instead of a joyful, courageous journey.</p>
+                <p>Our state-of-the-art workshops are built to change that. Grounded in real classroom challenges, they introduce simple, action-ready frameworks, disciplines, and tools that help educators create spaces where students take risks, make mistakes, experiment, and think beyond the obvious. The result is a meaningful shift in how educators see themselves, their work, and their vision for lasting learning experiences.</p>
               </div>
             </div>
           </div>

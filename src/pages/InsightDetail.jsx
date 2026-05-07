@@ -1,7 +1,7 @@
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Download, FileText, ExternalLink, Maximize2, Clock, Tag } from 'lucide-react';
 import { siteData } from '../data/siteData';
-import { getArticleAssets, AMAZON_KINDLE_URL } from '../utils/assetLoader';
+import { getArticleAssets, getBookArticleImage, AMAZON_KINDLE_URL } from '../utils/assetLoader';
 import SEOHead from '../components/SEOHead';
 import { SITE_URL, FOUNDER_NAME, SITE_NAME, makeBreadcrumb, makeArticleSchema } from '../utils/seoConfig';
 import '../sections/Insights.css';
@@ -163,9 +163,19 @@ const InsightDetail = () => {
                 )}
 
                 <div className="article-full-text" itemProp="articleBody">
-                  {insight.full.split('\n\n').map((para, idx) => (
-                    <p key={idx}>{para}</p>
-                  ))}
+                  {insight.full.split('\n\n').map((para, idx) => {
+                    const imgMatch = para.match(/^\[IMAGE_(\d+)\]$/);
+                    if (imgMatch && insight.inlineImages) {
+                      const key = `IMAGE_${imgMatch[1]}`;
+                      const src = insight.inlineImages[key] ? getBookArticleImage(insight.inlineImages[key]) : null;
+                      if (src) return (
+                        <figure key={idx} className="article-inline-figure">
+                          <img src={src} alt="" className="article-inline-img" loading="lazy" />
+                        </figure>
+                      );
+                    }
+                    return <p key={idx}>{para}</p>;
+                  })}
                 </div>
 
                 {pdf && (

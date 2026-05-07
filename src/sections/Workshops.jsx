@@ -57,8 +57,8 @@ const Workshops = () => {
 
         <div className="game-changer-section" id="game-changer" ref={sectionRef} style={{ marginBottom: 0 }}>
           <div className="game-changer-header">
-            <span className="workshops-pill">Holistic Evolution</span>
-            <h2 className="game-changer-title">The Game-Changer Workshops</h2>
+            <span className="workshops-pill">Holistic Transformation</span>
+            <h2 className="game-changer-title">The Game-Changer Corporate Workshops</h2>
           </div>
 
           <div className="game-changer-content">

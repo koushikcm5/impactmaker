@@ -1,5 +1,13 @@
 // Dynamically load all images and PDFs from assets/Events/article
 const imageFiles = import.meta.glob('../assets/Events/article/*.{png,jpg,jpeg,PNG,JPG,JPEG}', { eager: true });
+const bookArticleImages = import.meta.glob('../assets/books/article/*.{png,jpg,jpeg,PNG,JPG,JPEG}', { eager: true });
+
+export const getBookArticleImage = (filename) => {
+  for (const path in bookArticleImages) {
+    if (path.includes(filename)) return bookArticleImages[path].default;
+  }
+  return null;
+};
 const pdfFiles = import.meta.glob('../assets/Events/article/*.pdf', { eager: true });
 
 // Cache for asset lookups to avoid repeated file scanning

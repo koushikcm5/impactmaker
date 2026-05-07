@@ -1,6 +1,7 @@
 .trust {
   position: relative;
   background: transparent;
+  padding: 60px 0 40px;
 }
 
 .trust::before {

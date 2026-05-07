@@ -5,11 +5,11 @@ import logo from '../assets/J-Impact New Logo 2024 Main.png';
 import './Navbar.css';
 
 const workshopDropdownItems = [
-  { label: "The Game-Changer Workshops", href: "/workshops/game-changer"    },
-  { label: "Deep-Dive Workshops",        href: "/workshops/deep-dive"       },
-  { label: "Technical Workshops",        href: "/workshops/technical"       },
-  { label: "Transformational Workshops", href: "/workshops/transformational" },
-  { label: "Keynote Speaker",            href: "/workshops/speaker"         },
+  { label: "The Game-Changer Corporate Workshops", href: "/workshops/game-changer"    },
+  { label: "Ed-Tech Workshops",        href: "/workshops/deep-dive"       },
+  { label: "AI Training Workshops",        href: "/workshops/technical"       },
+  { label: "Design Thinking & Agile Workshops", href: "/workshops/transformational" },
+  { label: "Keynote Speaker & Leadership Speaker",            href: "/workshops/speaker"         },
 ];
 
 const navLinks = [

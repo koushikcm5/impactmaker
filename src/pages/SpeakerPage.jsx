@@ -41,13 +41,13 @@ const SpeakerPage = () => {
         schemas={schemas}
       />
       <Navbar />
-      <div style={{ paddingTop: '90px' }}>
+      <div style={{ paddingTop: '120px' }}>
         <section className="workshops" style={{ paddingTop: '60px' }}>
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="ws-category-section ws-section-speaker" ref={sectionRef} style={{ marginTop: 0 }}>
               <div className="ws-category-header">
                 <span className="workshops-pill ws-pill-navy">Speaking Engagements</span>
-                <h1 className="ws-category-title ws-title-navy">AI Keynote Speaker &amp; Leadership Speaker</h1>
+                <h1 className="ws-category-title ws-title-navy">Keynote Speaker &amp; Leadership Speaker</h1>
                 <p className="ws-category-desc">
                   High-impact talks that energize, inspire, and challenge audiences to think differently about leadership and the future.
                 </p>

@@ -59,7 +59,7 @@ const BlogPage = () => (
     <Navbar />
 
     {/* Breadcrumb — visible + semantic */}
-    <div style={{ paddingTop: '90px', background: '#f9fbff', borderBottom: '1px solid #e5eaf3' }}>
+    <div style={{ paddingTop: '120px', background: '#f9fbff', borderBottom: '1px solid #e5eaf3' }}>
       <div className="container">
         <nav aria-label="Breadcrumb" style={{ padding: '0.9rem 0', fontSize: '0.85rem', color: '#666' }}>
           <ol style={{ display: 'flex', gap: '0.5rem', listStyle: 'none', margin: 0, padding: 0 }}
