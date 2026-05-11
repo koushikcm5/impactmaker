@@ -12,6 +12,7 @@ import Footer from './sections/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import BookPromoWidget from './components/BookPromoWidget';
 import NetworkCanvas from './components/NetworkCanvas';
+import WhatsAppButton from './components/WhatsAppButton';
 import SEOHead from './components/SEOHead';
 import { siteData } from './data/siteData';
 import { PAGE_SEO, SITE_URL, SITE_NAME, FOUNDER_NAME, SITE_PHONE, SITE_EMAIL, makeBreadcrumb } from './utils/seoConfig';
@@ -182,6 +183,7 @@ function App() {
       <ScrollToTop />
       <NetworkCanvas fixed />
       <BookPromoWidget />
+      <WhatsAppButton phone={siteData.contact.phone} />
       <div className="app">
         <Routes>
           <Route path="/" element={<HomePage />} />

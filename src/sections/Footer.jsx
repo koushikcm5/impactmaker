@@ -84,11 +84,11 @@ const Footer = ({ contact }) => {
           <div className="footer-section">
             <h4>Workshops</h4>
             <nav className="footer-nav">
-              <Link to="/workshops/game-changer">The Game-Changer</Link>
-              <Link to="/workshops/deep-dive">Deep-Dive</Link>
-              <Link to="/workshops/technical">Technical</Link>
-              <Link to="/workshops/transformational">Transformational</Link>
-              <Link to="/workshops/speaker">Speaker</Link>
+              <Link to="/workshops/game-changer">The Game-Changer Corporate Workshops</Link>
+              <Link to="/workshops/deep-dive">Ed-Tech Workshops</Link>
+              <Link to="/workshops/technical">AI Training Workshops</Link>
+              <Link to="/workshops/transformational">Design Thinking &amp; Agile Workshops</Link>
+              <Link to="/workshops/speaker">Keynote Speaker &amp; Leadership Speaker</Link>
             </nav>
           </div>
 

@@ -3,6 +3,8 @@ import speakerImg from '../assets/about/IMG-20221221-WA0017.jpg';
 import { Target, Quote as QuoteIcon, CheckCircle2 } from 'lucide-react';
 import './About.css';
 
+const arunBio2 = `Arun Divakaran is a seasoned and internationally experienced IT Professional, Executive Corporate Trainer and carries with him 19+ years of Rich Program & Digital Portfolio Management experience while working for Multi nationals such as Cognizant, UST Global, IQVIA.`;
+
 const arunBio = `Arun Divakaran is a gifted creative educator who challenges educators to ask the question to themselves "What is the best way to teach my students". He received one of the most prestigious "Trainer of the year" awards from the institution he served for more than a decade. He has an incredible passion to understand, integrate and deepen the transformative changes needed in the conventional methods of education. Over thousands of education professionals and students across the country and abroad have been benefited in the Action-packed creativity enabling workshops he pioneered. The unique, innovative and interesting methods that he has uncovered in the education arena have proved to be highly effective in every field of education, at every job level, across cultures, and even at home and school. He believes that a great educator takes the child's hand, touches their heart and opens their mind. Their influence literally has no limits. The children they inspire will go on to save lives, lead countries, build innovative things and change the world forever.`;
 
 const About = ({ data }) => {
@@ -36,6 +38,7 @@ const About = ({ data }) => {
           </div>
           <h2 className="about-main-title">{data.title}</h2>
           <p className="about-intro-lead">{data.intro}</p>
+          <p className="about-intro-lead">{arunBio2}</p>
         </div>
 
         <div className="about-layout-grid">
