@@ -1,4 +1,4 @@
-import { Mail, Phone } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
@@ -95,10 +95,6 @@ const Footer = ({ contact }) => {
           <div className="footer-section">
             <h4>Get in Touch</h4>
             <div className="footer-contact">
-              <a href={`tel:${contact.phone}`} className="contact-link">
-                <Phone size={16} />
-                <span>{contact.phone}</span>
-              </a>
               <a href={`mailto:${contact.email}`} className="contact-link">
                 <Mail size={16} />
                 <span>{contact.email}</span>

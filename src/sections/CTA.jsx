@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, Send, MapPin, CheckCircle } from 'lucide-react';
+import { Mail, Send, MapPin, CheckCircle } from 'lucide-react';
 import './CTA.css';
 
 const CTA = ({ data }) => {
@@ -108,13 +108,6 @@ const CTA = ({ data }) => {
             <div className="contact-info-card">
               <h3>Contact Information</h3>
               <div className="contact-grid-simple">
-                <div className="contact-item">
-                  <div className="icon-box"><Phone size={18} /></div>
-                  <div>
-                    <span className="label">Call Us</span>
-                    <a href={`tel:${data.phone}`} className="value">{data.phone}</a>
-                  </div>
-                </div>
                 <div className="contact-item">
                   <div className="icon-box"><Mail size={18} /></div>
                   <div>
