@@ -100,7 +100,7 @@ const Insights = ({ data }) => {
               <InsightCard
                 {...insight}
                 onClick={() => navigate(`/insight/${insight.id}`)}
-                isBook={insight.title.toUpperCase().includes('CREATI-WITTY')}
+                isBook={!insight.isArticle}
               />
             </div>
           ))}
@@ -167,7 +167,7 @@ const Insights = ({ data }) => {
                     <InsightCard
                       {...insight}
                       onClick={() => navigate(`/insight/${insight.id}`)}
-                      isBook={insight.title.toUpperCase().includes('CREATI-WITTY')}
+                      isBook={!insight.isArticle}
                     />
                   </div>
                 ))}

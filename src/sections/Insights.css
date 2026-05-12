@@ -198,6 +198,136 @@
   background: #eef4ff;
 }
 
+/* ── Book detail page ─────────────────────────────────── */
+.book-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.book-hero-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.book-cover-front-wrap {
+  position: relative;
+}
+
+.book-cover-img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22), 0 4px 16px rgba(0, 0, 0, 0.12);
+  display: block;
+}
+
+.book-hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 8px;
+}
+
+.book-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.book-hero-author {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+.book-hero-excerpt {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 400;
+}
+
+.book-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.book-hero-cta {
+  margin-top: 8px;
+  width: fit-content;
+}
+
+.book-description-section {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #334155;
+  border-top: 1px solid #e8f0fe;
+  padding-top: 40px;
+}
+
+.book-description-section p {
+  margin-bottom: 22px;
+}
+
+.book-pull-quote {
+  margin: 0 0 28px;
+  padding: 20px 28px;
+  background: #f0f7ff;
+  border-left: 4px solid #2563eb;
+  border-radius: 0 12px 12px 0;
+  font-size: 1.08rem;
+  font-style: italic;
+  color: #1e3a6e;
+  line-height: 1.7;
+}
+
+.book-back-cover-section {
+  border-top: 1px solid #e8f0fe;
+  padding-top: 40px;
+}
+
+.book-back-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+.book-back-cover-wrap {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+@media (max-width: 680px) {
+  .book-hero-row {
+    grid-template-columns: 1fr;
+  }
+  .book-cover-front-wrap {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+}
+
+/* ── end book detail ──────────────────────────────────── */
+
 .article-full-text {
   font-size: 1.1rem;
   line-height: 1.8;

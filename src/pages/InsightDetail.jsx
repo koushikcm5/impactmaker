@@ -1,5 +1,5 @@
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Download, FileText, ExternalLink, Maximize2, Clock, Tag } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Maximize2, Clock, Tag } from 'lucide-react';
 import { siteData } from '../data/siteData';
 import { getArticleAssets, getBookArticleImage, AMAZON_KINDLE_URL } from '../utils/assetLoader';
 import SEOHead from '../components/SEOHead';
@@ -17,8 +17,9 @@ const InsightDetail = () => {
 
   if (!insight) return <div className="not-found">Insight not found</div>;
 
-  const { image, pdf } = getArticleAssets(insight.title);
+  const { image, pdf, imageBack } = getArticleAssets(insight.title);
   const isCreatiwitty = insight.title.toUpperCase().includes('CREATI-WITTY');
+  const isBook = isCreatiwitty || insight.title.toUpperCase().includes('ACCIDENTAL DATA ANALYST');
 
   // Related posts — same category, excluding current
   const relatedPosts = siteData.blog
@@ -135,60 +136,111 @@ const InsightDetail = () => {
                 <meta itemProp="author" content={FOUNDER_NAME} />
                 <meta itemProp="publisher" content={SITE_NAME} />
 
-                {image && (
-                  <div className="article-featured-img-wrap">
-                    <img
-                      src={image}
-                      alt={`${pageTitle} — ${FOUNDER_NAME}`}
-                      className="article-featured-img"
-                      loading="eager"
-                      itemProp="image"
-                    />
-                  </div>
-                )}
-
-                {isCreatiwitty && (
-                  <div className="book-action-banner">
-                    <div className="banner-visual">
-                      <BookOpen size={28} />
+                {isBook ? (
+                  <div className="book-detail-body">
+                    <div className="book-hero-row">
+                      {image && (
+                        <div className="book-cover-front-wrap">
+                          <img
+                            src={image}
+                            alt={`${pageTitle} Front Cover`}
+                            className="book-cover-img"
+                            loading="eager"
+                            itemProp="image"
+                          />
+                        </div>
+                      )}
+                      <div className="book-hero-info">
+                        <span className="book-hero-badge">
+                          <BookOpen size={14} /> Best Selling Book
+                        </span>
+                        <p className="book-hero-author">By {FOUNDER_NAME}</p>
+                        <p className="book-hero-excerpt">{insight.excerpt}</p>
+                        {insight.tags && (
+                          <div className="book-hero-tags">
+                            {insight.tags.slice(0, 3).map(t => (
+                              <span key={t} className="viewer-tag">{t}</span>
+                            ))}
+                          </div>
+                        )}
+                        <a
+                          href={AMAZON_KINDLE_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="read-book-here-btn book-hero-cta"
+                        >
+                          Read Book Here <ExternalLink size={17} />
+                        </a>
+                      </div>
                     </div>
-                    <div className="banner-info">
-                      <h2>Explore the complete book</h2>
-                      <p>Unlock practical strategies for creative teaching and personalized learning.</p>
+
+                    <div className="book-description-section" itemProp="articleBody">
+                      {insight.full.split('\n\n').map((para, idx) =>
+                        para.startsWith('"') || para.startsWith('“') ? (
+                          <blockquote key={idx} className="book-pull-quote">{para}</blockquote>
+                        ) : (
+                          <p key={idx}>{para}</p>
+                        )
+                      )}
                     </div>
-                    <a href={AMAZON_KINDLE_URL} target="_blank" rel="noopener noreferrer" className="read-book-here-btn">
-                      Read Book Here <ExternalLink size={18} />
-                    </a>
-                  </div>
-                )}
 
-                <div className="article-full-text" itemProp="articleBody">
-                  {insight.full.split('\n\n').map((para, idx) => {
-                    const imgMatch = para.match(/^\[IMAGE_(\d+)\]$/);
-                    if (imgMatch && insight.inlineImages) {
-                      const key = `IMAGE_${imgMatch[1]}`;
-                      const src = insight.inlineImages[key] ? getBookArticleImage(insight.inlineImages[key]) : null;
-                      if (src) return (
-                        <figure key={idx} className="article-inline-figure">
-                          <img src={src} alt="" className="article-inline-img" loading="lazy" />
-                        </figure>
-                      );
-                    }
-                    return <p key={idx}>{para}</p>;
-                  })}
-                </div>
-
-                {pdf && (
-                  <div className="reader-cta-box">
-                    <p>This article includes an interactive PDF companion.</p>
-                    <button
-                      className="open-reader-btn"
-                      onClick={() => navigate(`/insight/${id}/reader`)}
-                      aria-label="Open full-screen PDF reader"
-                    >
-                      Open Full-Screen Reader <Maximize2 size={18} />
-                    </button>
+                    {imageBack && (
+                      <div className="book-back-cover-section">
+                        <h3 className="book-back-label">Back Cover</h3>
+                        <div className="book-back-cover-wrap">
+                          <img
+                            src={imageBack}
+                            alt={`${pageTitle} Back Cover`}
+                            className="book-cover-img"
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                    )}
                   </div>
+                ) : (
+                  <>
+                    {image && (
+                      <div className="article-featured-img-wrap">
+                        <img
+                          src={image}
+                          alt={`${pageTitle} — ${FOUNDER_NAME}`}
+                          className="article-featured-img"
+                          loading="eager"
+                          itemProp="image"
+                        />
+                      </div>
+                    )}
+
+                    <div className="article-full-text" itemProp="articleBody">
+                      {insight.full.split('\n\n').map((para, idx) => {
+                        const imgMatch = para.match(/^\[IMAGE_(\d+)\]$/);
+                        if (imgMatch && insight.inlineImages) {
+                          const key = `IMAGE_${imgMatch[1]}`;
+                          const src = insight.inlineImages[key] ? getBookArticleImage(insight.inlineImages[key]) : null;
+                          if (src) return (
+                            <figure key={idx} className="article-inline-figure">
+                              <img src={src} alt="" className="article-inline-img" loading="lazy" />
+                            </figure>
+                          );
+                        }
+                        return <p key={idx}>{para}</p>;
+                      })}
+                    </div>
+
+                    {pdf && (
+                      <div className="reader-cta-box">
+                        <p>This article includes an interactive PDF companion.</p>
+                        <button
+                          className="open-reader-btn"
+                          onClick={() => navigate(`/insight/${id}/reader`)}
+                          aria-label="Open full-screen PDF reader"
+                        >
+                          Open Full-Screen Reader <Maximize2 size={18} />
+                        </button>
+                      </div>
+                    )}
+                  </>
                 )}
               </article>
 

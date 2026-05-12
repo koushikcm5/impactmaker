@@ -48,10 +48,31 @@ export const getArticleAssets = (title) => {
       if (simonPdf) pdf = simonPdf;
   }
 
+  // Books with separate front and back cover images
+  if (title.toUpperCase().includes('CREATI-WITTY')) {
+    const frontPath = Object.keys(imageFiles).find(p => p.toLowerCase().includes('creati-witty') && p.toLowerCase().includes('front'));
+    const backPath = Object.keys(imageFiles).find(p => p.toLowerCase().includes('creati-witty') && p.toLowerCase().includes('back'));
+    const imageFront = frontPath ? imageFiles[frontPath].default : image;
+    const imageBack = backPath ? imageFiles[backPath].default : null;
+    const result = { image: imageFront, pdf, imageFront, imageBack };
+    assetCache[title] = result;
+    return result;
+  }
+
+  if (title.toUpperCase().includes('ACCIDENTAL DATA ANALYST')) {
+    const frontPath = Object.keys(imageFiles).find(p => p.toLowerCase().includes('accidental') && p.toLowerCase().includes('front'));
+    const backPath = Object.keys(imageFiles).find(p => p.toLowerCase().includes('accidental') && p.toLowerCase().includes('back'));
+    const imageFront = frontPath ? imageFiles[frontPath].default : image;
+    const imageBack = backPath ? imageFiles[backPath].default : null;
+    const result = { image: imageFront, pdf, imageFront, imageBack };
+    assetCache[title] = result;
+    return result;
+  }
+
   // Store in cache before returning
   const result = { image, pdf };
   assetCache[title] = result;
-  
+
   return result;
 };
 
