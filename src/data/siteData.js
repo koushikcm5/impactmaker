@@ -5,7 +5,7 @@ import wsFtr from '../assets/workshops/Teacher Training Transformation.gif';
 export const siteData = {
   hero: {
     title: "Dr. Arun Divakaran",
-    subtitle: "Human Creative intelligence focussed AI enabler, Strategist",
+    subtitle: "Human Creative intelligence focused AI enabler, Strategist",
     cta: "Contact Now",
     ctaSecondary: "About Dr. Arun"
   },
@@ -74,7 +74,7 @@ export const siteData = {
     {
       id: 2,
       title: "Faculty Workshop",
-      description: "An Industry focussed workshop blended with \"activity based learning\" on the technologies of the future and empower them with a mindset of Transformed Mindset.",
+      description: "An Industry focused workshop blended with \"activity based learning\" on the technologies of the future and empower them with a mindset of Transformed Mindset.",
       icon: "users"
     },
     {
@@ -141,14 +141,14 @@ export const siteData = {
     {
       id: 3,
       title: "Teacher Empowerment Workshops",
-      intro: "An Industry focussed workshop blended with “activity based learning” on the technologies of the future and empower them with a mindset of Transformed Mindset.",
+      intro: "An Industry focused workshop blended with “activity based learning” on the technologies of the future and empower them with a mindset of Transformed Mindset.",
       short: `It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.
 The advent of technology has opened several doors to knowledge which were previously difficult to breach. With the Z-Generation students becoming more and more adept to use of newer technology.`,
       full: `It is no secret that teachers who learn to embrace technology can better streamline their operational tasks, improve their efficiency, and even lighten their workload by letting technology take care of some of their tasks through automation.
 The advent of technology has opened several doors to knowledge which were previously difficult to breach. With the Z-Generation students becoming more and more adept to use of newer technology.
 
 Teachers are in danger of being overtaken by their students. Although it is an occasion to celebrate when students do better, yet a repeated occurrence of the same also leads to a marked decrease in the respect they hold for their educators. Teachers, as a result, need to embrace the newer technology in the classroom and improve their overall way of teaching by using creative teaching techniques.
-These technology focussed workshops for the teaching fraternity is a perfect blend of expertise from the academy and technocrats from the industry, that helps to expand their repertoire. It gives teachers more confidence, which, in turn, helps them perform better. It adds value to the teaching-and-learning process by making it more effective and efficient. These techno savvy workshops enlighten them about the latest developments and trends happening in the industry and help them to prepare for the same in the field of education.`,
+These technology focused workshops for the teaching fraternity is a perfect blend of expertise from the academy and technocrats from the industry, that helps to expand their repertoire. It gives teachers more confidence, which, in turn, helps them perform better. It adds value to the teaching-and-learning process by making it more effective and efficient. These techno savvy workshops enlighten them about the latest developments and trends happening in the industry and help them to prepare for the same in the field of education.`,
       image: wsFte
     }
   ],
