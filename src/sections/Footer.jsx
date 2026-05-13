@@ -93,6 +93,17 @@ const Footer = ({ contact }) => {
           </div>
 
           <div className="footer-section">
+            <h4>Top AI Trainers In</h4>
+            <nav className="footer-nav" aria-label="Regions served">
+              <Link to="/top-ai-trainer-india">Top AI Trainers in India</Link>
+              <Link to="/ai-trainer-tamil-nadu">Top AI Trainers in Tamil Nadu</Link>
+              <Link to="/ai-trainer-coimbatore">Top AI Trainers in Coimbatore</Link>
+              <Link to="/best-ai-keynote-speaker-india">Best AI Keynote Speaker India</Link>
+              <Link to="/corporate-ai-workshops-india">Corporate AI Workshops India</Link>
+            </nav>
+          </div>
+
+          <div className="footer-section">
             <h4>Get in Touch</h4>
             <div className="footer-contact">
               <a href={`mailto:${contact.email}`} className="contact-link">

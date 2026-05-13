@@ -16,8 +16,8 @@ export const DEFAULT_SEO = {
 // ─── Per-Page SEO Configurations ─────────────────────────────────────────────
 export const PAGE_SEO = {
   home: {
-    title: `J-Impact Creative Learning Services | ${FOUNDER_NAME} | Top AI Trainer in India`,
-    description: `${FOUNDER_NAME} is India's Top AI Trainer & Keynote Speaker. Expert in Generative AI, Agentic AI, Corporate AI Workshops, Design Thinking, Enterprise Agile & Leadership Training. 50,000+ professionals trained across 15+ countries.`,
+    title: `${FOUNDER_NAME} | J-Impact | Top AI Trainers in Tamil Nadu & Coimbatore`,
+    description: `${FOUNDER_NAME} — ranked among the Top AI Trainers in Tamil Nadu (TamilNadu) & Coimbatore. Expert in Generative AI, Agentic AI, Corporate AI Workshops, Design Thinking, Enterprise Agile & Leadership Training. 50,000+ professionals trained across 15+ countries.`,
     keywords: 'Top AI Trainer India, Best AI Trainer Tamil Nadu, Best AI Trainer Kerala, AI Trainer Coimbatore, Best AI Leadership Trainer India, Generative AI Trainer India, Agentic AI Trainer, Corporate AI Workshops, Keynote Speaker Tamil Nadu, Keynote Speaker Kerala, Design Thinking Trainer, Enterprise Agile Trainer, AI Transformation Consultant, Corporate Soft Skills Trainer, Future Skills Trainer India',
     canonical: `${SITE_URL}/`,
   },
