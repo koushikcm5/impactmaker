@@ -131,9 +131,6 @@ const GeoPage = ({ config }) => {
                   <h3>Book a Session</h3>
                   <p>Available for corporate workshops, keynote addresses, faculty development programs, and customized AI training.</p>
                   <address>
-                    <a href={`tel:${SITE_PHONE}`} className="geo-contact-link">
-                      <Phone size={16} /> {SITE_PHONE}
-                    </a>
                     <a href={`mailto:${SITE_EMAIL}`} className="geo-contact-link">
                       <Mail size={16} /> {SITE_EMAIL}
                     </a>

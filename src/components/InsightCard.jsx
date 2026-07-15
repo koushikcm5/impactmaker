@@ -7,7 +7,7 @@ const InsightCard = ({ title, excerpt, category, image, onClick, isBook, isArtic
       <div className="insight-card-modern insight-card-article" onClick={onClick}>
         <div className="insight-image-container insight-article-img-container">
           {image ? (
-            <img src={image} alt={title} className="insight-card-img insight-article-full-img" loading="lazy" />
+            <img src={image} alt={title} className="insight-card-img insight-article-full-img" loading="lazy"  width="800" height="600" />
           ) : (
             <div className="insight-card-placeholder">
               <BookOpen size={40} strokeWidth={1} />
@@ -29,7 +29,7 @@ const InsightCard = ({ title, excerpt, category, image, onClick, isBook, isArtic
     <div className={`insight-card-modern${isBook ? ' insight-card-book' : ''}`} onClick={onClick}>
       <div className="insight-image-container">
         {image ? (
-          <img src={image} alt={title} className="insight-card-img" loading="lazy" />
+          <img src={image} alt={title} className="insight-card-img" loading="lazy"  width="800" height="600" />
         ) : (
           <div className="insight-card-placeholder">
             <BookOpen size={40} strokeWidth={1} />

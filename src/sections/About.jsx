@@ -72,7 +72,7 @@ const About = ({ data }) => {
           <div className="about-founder-panel">
             <div className="founder-card-premium">
               <div className="founder-img-container">
-                <img src={speakerImg} alt={data.founder.name} className="founder-portrait" />
+                <img src={speakerImg} alt={data.founder.name} className="founder-portrait"  width="800" height="600" />
                 <div className="founder-badge">
                   <span>Co-Founder & Executive Trainer</span>
                 </div>

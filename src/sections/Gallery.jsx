@@ -184,7 +184,7 @@ const Gallery = () => {
                   onClick={() => setActiveFolder(item.name)}
                 >
                   <div className="folder-cover">
-                    <img src={item.cover} alt={item.name} loading="lazy" />
+                    <img src={item.cover} alt={item.name} loading="lazy"  width="800" height="600" />
                     <div className="gallery-overlay">
                       <div className="gallery-overlay-text">
                         <span className="gallery-caption">{formatText(item.name)}</span>
@@ -206,7 +206,7 @@ const Gallery = () => {
                   onClick={() => setLightbox(i)}
                   aria-label={`Open image: ${item.alt}`}
                 >
-                  <img src={item.src} alt={item.alt} loading="lazy" />
+                  <img src={item.src} alt={item.alt} loading="lazy"  width="800" height="600" />
                   <div className="gallery-overlay">
                     <div className="gallery-overlay-text">
                       <span className="gallery-caption">{item.caption}</span>
@@ -227,7 +227,7 @@ const Gallery = () => {
           <button className="lb-close" onClick={close} aria-label="Close">✕</button>
           <button className="lb-nav lb-prev" onClick={prev} aria-label="Previous image">‹</button>
           <div className="lb-content" onClick={e => e.stopPropagation()}>
-            <img src={displayItems[lightbox].src} alt={displayItems[lightbox].alt} />
+            <img src={displayItems[lightbox].src} alt={displayItems[lightbox].alt}  width="800" height="600" />
             <div className="lb-caption">
               <strong>{displayItems[lightbox].caption}</strong>
               <span>{displayItems[lightbox].sub}</span>

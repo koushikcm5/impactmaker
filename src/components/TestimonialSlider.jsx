@@ -67,7 +67,7 @@ export default function TestimonialSlider() {
                     src={t.image}
                     alt={t.name}
                     className="w-24 h-24 object-cover rounded-full ring-4 ring-white shadow-md"
-                  />
+                   width="800" height="600" />
                 </div>
                 <h3 className="font-semibold text-lg text-gray-900 mt-2">{t.name}</h3>
                 <p className="text-sm text-gray-500 mb-4">{t.role}</p>

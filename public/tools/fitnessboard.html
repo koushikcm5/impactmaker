@@ -1,0 +1,1127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skill Fitness Board — ImpactMaker</title>
+
+  <!-- PNG Export helper (needs internet once). Dashboard works offline. -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <style>
+    :root{
+      --bg:#070a10;
+      --panel:#0b1220;
+      --panel2:#0a0f1a;
+      --line:#1b2a46;
+      --text:#e8f0ff;
+      --muted:#9fb3d9;
+      --accent:#4db2ff;
+      --accent2:#a855f7;
+      --good:#22c55e;
+      --warn:#f59e0b;
+      --bad:#ef4444;
+      --shadow: 0 18px 50px rgba(0,0,0,.55);
+      --radius: 18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1100px 550px at 18% 15%, rgba(77,178,255,.18), transparent 60%),
+        radial-gradient(900px 480px at 82% 20%, rgba(168,85,247,.14), transparent 55%),
+        radial-gradient(1000px 600px at 55% 88%, rgba(34,197,94,.08), transparent 60%),
+        linear-gradient(180deg, #05070c 0%, #070a10 55%, #04060b 100%);
+      color:var(--text);
+      font-family:var(--sans);
+      letter-spacing:.2px;
+    }
+
+    .wrap{max-width:1250px;margin:0 auto;padding:18px 18px 26px;}
+
+    .topbar{
+      display:flex;gap:14px;align-items:center;justify-content:space-between;
+      padding:14px 16px;border:1px solid rgba(27,42,70,.7);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(11,18,32,.92), rgba(10,15,26,.86));
+      box-shadow: var(--shadow);
+      position:sticky;top:10px;z-index:10;backdrop-filter: blur(10px);
+    }
+    .brand{display:flex;flex-direction:column;gap:2px;min-width:290px;}
+    .brand .title{
+      font-weight:900;letter-spacing:1.4px;font-size:16px;text-transform:uppercase;
+      background: linear-gradient(90deg, #e8f0ff, rgba(77,178,255,.95), rgba(168,85,247,.90));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .brand .sub{font-size:12px;color:var(--muted);opacity:.95;}
+    .motto{
+      text-align:center;flex:1;font-size:12px;color:rgba(232,240,255,.82);
+      letter-spacing:.9px;text-transform:uppercase;
+    }
+    .controls{display:flex;gap:10px;align-items:center;justify-content:flex-end;min-width:290px;}
+    .pill{
+      font-family:var(--mono);font-size:12px;color:rgba(232,240,255,.85);
+      padding:8px 10px;border-radius:999px;border:1px solid rgba(27,42,70,.9);
+      background: rgba(8,12,20,.65);display:flex;align-items:center;gap:8px;user-select:none;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background: var(--good);box-shadow: 0 0 18px rgba(34,197,94,.6);}
+
+    #board{margin-top:14px;}
+
+    .grid{display:grid;grid-template-columns: 1.25fr .9fr;gap:14px;align-items:stretch;}
+    .card{
+      border:1px solid rgba(27,42,70,.75);border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(11,18,32,.92), rgba(10,15,26,.86));
+      box-shadow: var(--shadow);overflow:hidden;position:relative;
+    }
+    .card::before{
+      content:"";position:absolute;inset:-120px -120px auto auto;width:280px;height:280px;
+      background: radial-gradient(circle, rgba(77,178,255,.20), transparent 62%);
+      pointer-events:none;
+    }
+    .cardHead{
+      padding:14px 16px;display:flex;align-items:center;justify-content:space-between;
+      border-bottom:1px solid rgba(27,42,70,.6);background: rgba(9,14,24,.55);
+    }
+    .cardHead h2{margin:0;font-size:13px;letter-spacing:1.1px;text-transform:uppercase;color:rgba(232,240,255,.88);}
+    .badge{
+      font-family:var(--mono);font-size:11px;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(27,42,70,.8);color:rgba(232,240,255,.75);background: rgba(7,10,16,.55);
+    }
+
+    .mainBody{padding:14px;display:grid;grid-template-columns: 1.05fr .95fr;gap:14px;}
+
+    .dialWrap{
+      padding:14px;border-radius: var(--radius);border:1px solid rgba(27,42,70,.7);
+      background: radial-gradient(240px 240px at 50% 40%, rgba(77,178,255,.16), transparent 70%),
+                  linear-gradient(180deg, rgba(10,15,26,.55), rgba(7,10,16,.35));
+      min-height:310px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;
+    }
+    .dial{
+      width:240px;height:240px;border-radius:50%;display:grid;place-items:center;position:relative;
+      background: radial-gradient(circle at 50% 50%, rgba(7,10,16,.90) 0%, rgba(8,12,20,.85) 55%, rgba(7,10,16,.95) 100%);
+      border:1px solid rgba(27,42,70,.9);box-shadow: 0 0 50px rgba(77,178,255,.12);
+    }
+    .dial::before{
+      content:"";position:absolute;inset:12px;border-radius:50%;
+      border:1px dashed rgba(77,178,255,.35);filter: drop-shadow(0 0 10px rgba(77,178,255,.18));
+    }
+    .ring{
+      position:absolute;inset:-2px;border-radius:50%;
+      background: conic-gradient(rgba(77,178,255,.95) var(--p), rgba(77,178,255,.10) 0);
+      mask: radial-gradient(circle, transparent 62%, #000 63%);
+      filter: drop-shadow(0 0 18px rgba(77,178,255,.25));
+    }
+    .dialInner{text-align:center;padding:10px 12px;position:relative;}
+    .dialInner .label{font-size:12px;letter-spacing:1.2px;color:rgba(159,179,217,.95);text-transform:uppercase;}
+    .dialInner .value{font-family:var(--mono);font-size:54px;font-weight:900;line-height:1.05;margin-top:6px;text-shadow: 0 0 18px rgba(77,178,255,.20);}
+    .dialInner .hint{margin-top:6px;font-size:12px;color:rgba(232,240,255,.65);}
+
+    .kpis{display:grid;gap:14px;grid-template-rows: 1fr 1fr 1fr;}
+
+    .kpi{
+      padding:14px;border-radius: var(--radius);border:1px solid rgba(27,42,70,.7);
+      background: radial-gradient(180px 120px at 18% 20%, rgba(168,85,247,.14), transparent 55%),
+                  linear-gradient(180deg, rgba(10,15,26,.55), rgba(7,10,16,.35));
+      min-height:92px;display:flex;flex-direction:column;justify-content:center;gap:8px;overflow:hidden;
+    }
+    .kpi .row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;}
+    .kpi .name{font-size:12px;letter-spacing:1.1px;color:rgba(232,240,255,.82);text-transform:uppercase;}
+    .kpi .num{font-family:var(--mono);font-size:28px;font-weight:900;}
+    .kpi .desc{font-size:12px;color:rgba(159,179,217,.85);}
+
+    .bar{height:9px;border-radius:999px;background: rgba(27,42,70,.55);overflow:hidden;border:1px solid rgba(27,42,70,.85);}
+    .bar > i{display:block;height:100%;width: var(--w);background: linear-gradient(90deg, rgba(77,178,255,.95), rgba(168,85,247,.88));box-shadow: 0 0 18px rgba(77,178,255,.22);}
+
+    .zones{
+      margin-top:2px;padding:12px;border-radius: var(--radius);border:1px solid rgba(27,42,70,.7);
+      background: linear-gradient(180deg, rgba(10,15,26,.55), rgba(7,10,16,.35));width:100%;
+    }
+    .zonesTop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+    .zonesTop .t{font-size:12px;letter-spacing:1.1px;text-transform:uppercase;color:rgba(232,240,255,.82);}
+    .zonesTop .z{
+      font-family:var(--mono);font-size:12px;font-weight:900;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(27,42,70,.85);background: rgba(7,10,16,.45);color:rgba(232,240,255,.9);
+    }
+    .zoneBar{height:12px;border-radius:999px;border:1px solid rgba(27,42,70,.85);overflow:hidden;background: rgba(27,42,70,.35);}
+    .zoneBar .fill{height:100%;width: var(--zw);background: linear-gradient(90deg, rgba(239,68,68,.9), rgba(245,158,11,.9), rgba(77,178,255,.95), rgba(34,197,94,.9));filter: drop-shadow(0 0 14px rgba(77,178,255,.18));}
+    .zoneTicks{display:grid;grid-template-columns: repeat(4, 1fr);margin-top:8px;gap:10px;font-size:11px;color:rgba(159,179,217,.9);}
+    .zoneTicks span{text-align:center;opacity:.9;}
+
+    .btnRow{
+      padding:12px 14px 16px;display:flex;gap:12px;align-items:center;justify-content:center;
+      border-top:1px solid rgba(27,42,70,.6);background: rgba(7,10,16,.35);
+    }
+    button.action{
+      appearance:none;border:1px solid rgba(27,42,70,.9);border-radius: 14px;padding:12px 18px;
+      font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(10,15,26,.95);
+      cursor:pointer;min-width:140px;box-shadow: 0 18px 40px rgba(0,0,0,.45);
+      transition: transform .12s ease, filter .12s ease;
+    }
+    button.action:active{transform: translateY(1px) scale(.99)}
+    button.action:hover{filter: brightness(1.06)}
+    .start{background: linear-gradient(180deg, rgba(34,197,94,.95), rgba(16,185,129,.9))}
+    .pause{background: linear-gradient(180deg, rgba(245,158,11,.95), rgba(234,179,8,.88))}
+    .stop{background: linear-gradient(180deg, rgba(239,68,68,.95), rgba(220,38,38,.9))}
+
+    .sideBody{padding:14px;display:grid;gap:14px;}
+    .donutRow{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+    .donut{
+      width:170px;height:170px;border-radius:50%;
+      background: conic-gradient(rgba(245,158,11,.95) 0 var(--ent), rgba(77,178,255,.95) var(--ent) 100%);
+      position:relative;border:1px solid rgba(27,42,70,.85);box-shadow: 0 0 40px rgba(77,178,255,.12);
+    }
+    .donut::after{
+      content:"";position:absolute;inset:22px;border-radius:50%;
+      background: radial-gradient(circle at 50% 35%, rgba(11,18,32,.96), rgba(7,10,16,.92));
+      border:1px solid rgba(27,42,70,.65);
+    }
+    .donutCenter{
+      position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:2;
+      padding:0 18px;pointer-events:none;
+    }
+    .donutCenter .pct{font-family:var(--mono);font-weight:900;font-size:20px;margin-bottom:4px;}
+    .donutCenter .small{font-size:11px;color:rgba(159,179,217,.9);letter-spacing:.9px;text-transform:uppercase;}
+
+    .legend{
+      flex:1;min-width:220px;display:grid;gap:10px;padding:12px;border-radius: var(--radius);
+      border:1px solid rgba(27,42,70,.7);
+      background: linear-gradient(180deg, rgba(10,15,26,.55), rgba(7,10,16,.35));
+    }
+    .legItem{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;color:rgba(232,240,255,.82);}
+    .swatch{width:10px;height:10px;border-radius:3px;margin-right:8px;display:inline-block;}
+    .ent{background: rgba(245,158,11,.95); box-shadow:0 0 14px rgba(245,158,11,.25)}
+    .prod{background: rgba(77,178,255,.95); box-shadow:0 0 14px rgba(77,178,255,.2)}
+    .legLeft{display:flex; align-items:center; gap:8px}
+    .legNum{font-family:var(--mono); font-weight:900; color:rgba(232,240,255,.9)}
+
+    .intensityBox{
+      padding:14px;border-radius: var(--radius);border:1px solid rgba(27,42,70,.7);
+      background: radial-gradient(220px 120px at 18% 20%, rgba(77,178,255,.12), transparent 55%),
+                  linear-gradient(180deg, rgba(10,15,26,.55), rgba(7,10,16,.35));
+      display:grid;gap:12px;
+    }
+    .intTop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+    .intTop .t{font-size:12px;letter-spacing:1.1px;text-transform:uppercase;color:rgba(232,240,255,.82);}
+    .chip{
+      font-family:var(--mono);
+      font-size:11px;
+      font-weight:900;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(27,42,70,.85);
+      background: rgba(7,10,16,.45);
+      color:rgba(232,240,255,.9);
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+    }
+    .range{width:100%;accent-color:#4db2ff;}
+    .splitBars{display:grid;gap:10px;}
+    .splitRow{
+      display:grid;grid-template-columns: 120px 1fr 70px;gap:10px;align-items:center;
+      font-size:12px;color:rgba(232,240,255,.82);
+    }
+    .miniBar{
+      height:10px;border-radius:999px;border:1px solid rgba(27,42,70,.85);
+      background: rgba(27,42,70,.35);overflow:hidden;
+    }
+    .miniBar i{display:block;height:100%;width: var(--mw);background: linear-gradient(90deg, rgba(168,85,247,.88), rgba(77,178,255,.95));}
+    .pct{font-family:var(--mono);font-weight:900;text-align:right;color:rgba(232,240,255,.9);}
+
+    .calories{
+      padding:14px;border-radius: var(--radius);border:1px solid rgba(27,42,70,.7);
+      background: radial-gradient(220px 120px at 15% 20%, rgba(239,68,68,.12), transparent 50%),
+                  linear-gradient(180deg, rgba(10,15,26,.55), rgba(7,10,16,.35));
+      display:grid;gap:12px;
+    }
+    .calHead{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+    .calHead .t{
+      font-size:12px;letter-spacing:1.1px;text-transform:uppercase;color:rgba(232,240,255,.82);
+    }
+    .calGrid{display:grid;grid-template-columns: 1fr 1fr;gap:12px;}
+    .calTile{
+      border:1px solid rgba(27,42,70,.8);
+      background: rgba(7,10,16,.35);
+      border-radius: 14px;
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .calTile .k{font-size:11px;color:rgba(159,179,217,.92);text-transform:uppercase;letter-spacing:.9px;}
+    .calTile .v{
+      font-family:var(--mono);
+      font-size:26px;
+      font-weight:900;
+      display:flex;
+      align-items:baseline;
+      gap:8px;
+    }
+    .calTile .v span{font-size:11px;color:rgba(159,179,217,.85);font-weight:800;text-transform:uppercase;letter-spacing:.8px;}
+    .calTile input{
+      width:100%;
+      padding:10px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(27,42,70,.9);
+      background: rgba(7,10,16,.55);
+      color:rgba(232,240,255,.92);
+      outline:none;
+      font-family:var(--mono);
+      font-size:14px;
+    }
+    .calTile input:focus{
+      border-color: rgba(77,178,255,.75);
+      box-shadow: 0 0 0 4px rgba(77,178,255,.12);
+    }
+    .calNote{
+      font-size:12px;color:rgba(159,179,217,.85);
+      display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+    }
+    .flame{
+      width:44px;height:44px;border-radius:14px;
+      display:grid;place-items:center;
+      background: rgba(239,68,68,.12);
+      border:1px solid rgba(239,68,68,.25);
+      box-shadow: 0 0 28px rgba(239,68,68,.10);
+      font-size:20px;
+    }
+
+    .miniGrid{display:grid;grid-template-columns: 1fr 1fr;gap:14px;}
+    .mini{
+      padding:14px;border-radius: var(--radius);border:1px solid rgba(27,42,70,.7);
+      background: radial-gradient(220px 120px at 18% 20%, rgba(34,197,94,.10), transparent 55%),
+                  linear-gradient(180deg, rgba(10,15,26,.55), rgba(7,10,16,.35));
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .mini .head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+    .mini .head .t{font-size:12px;letter-spacing:1.1px;text-transform:uppercase;color:rgba(232,240,255,.82);}
+    .mini .head .n{font-family:var(--mono);font-weight:900;font-size:22px;}
+    .statusPill{
+      font-family:var(--mono);font-size:11px;font-weight:900;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(27,42,70,.85);background: rgba(7,10,16,.45);color:rgba(232,240,255,.9);
+      display:inline-flex;gap:8px;align-items:center;width:max-content;
+    }
+    .statusPill i{width:8px;height:8px;border-radius:50%;display:inline-block;background: var(--good);box-shadow:0 0 14px rgba(34,197,94,.35);}
+    .targetBar{height:10px;border-radius:999px;border:1px solid rgba(27,42,70,.85);background: rgba(27,42,70,.35);overflow:hidden;}
+    .targetBar .fill{height:100%;width: var(--tw);background: linear-gradient(90deg, rgba(77,178,255,.95), rgba(34,197,94,.92));}
+    .mini .sub{font-size:12px;color:rgba(159,179,217,.88);display:flex;justify-content:space-between;gap:10px;}
+
+    /* Inputs */
+    .inputs{
+      margin-top:14px;padding:14px;border:1px solid rgba(27,42,70,.75);border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(11,18,32,.92), rgba(10,15,26,.86));box-shadow: var(--shadow);
+      display:grid;gap:12px;
+    }
+    .inputsHead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+    .inputsHead h3{margin:0;font-size:13px;letter-spacing:1.1px;text-transform:uppercase;color:rgba(232,240,255,.88);}
+    .inputsHead .hint{font-size:12px;color:rgba(159,179,217,.85);}
+
+    .form{display:grid;grid-template-columns: repeat(6, minmax(0,1fr));gap:10px;}
+    label{display:grid;gap:6px;font-size:11px;color:rgba(159,179,217,.92);letter-spacing:.9px;text-transform:uppercase;}
+    input{
+      width:100%;padding:10px 10px;border-radius: 12px;border:1px solid rgba(27,42,70,.9);
+      background: rgba(7,10,16,.55);color:rgba(232,240,255,.92);outline:none;font-family:var(--mono);font-size:13px;
+    }
+    input:focus{border-color: rgba(77,178,255,.75);box-shadow: 0 0 0 4px rgba(77,178,255,.12);}
+
+    .actions2{display:flex;gap:10px;align-items:center;justify-content:flex-end;flex-wrap:wrap;padding-top:6px;}
+    .ghost{
+      padding:10px 12px;border-radius: 12px;border:1px solid rgba(27,42,70,.9);
+      background: rgba(7,10,16,.35);color:rgba(232,240,255,.85);font-weight:900;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;
+    }
+    .primary{
+      padding:10px 12px;border-radius: 12px;border:1px solid rgba(77,178,255,.65);
+      background: linear-gradient(180deg, rgba(77,178,255,.22), rgba(77,178,255,.10));
+      color:rgba(232,240,255,.92);font-weight:900;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+
+    textarea{
+      width:100%;
+      padding:12px;
+      border-radius: 12px;
+      border:1px solid rgba(27,42,70,.9);
+      background: rgba(7,10,16,.55);
+      color:rgba(232,240,255,.92);
+      outline:none;
+      font-family: var(--mono);
+      font-size:12px;
+      resize: vertical;
+      min-height:110px;
+    }
+
+    @media (max-width: 1020px){
+      .grid{grid-template-columns:1fr}
+      .mainBody{grid-template-columns:1fr}
+      .form{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .controls{display:none}
+      .miniGrid{grid-template-columns:1fr}
+      .calGrid{grid-template-columns: 1fr}
+      .splitRow{grid-template-columns: 110px 1fr 60px;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="title">SKILL FITNESS BOARD</div>
+        <div class="sub">ImpactMaker · J-Impact Creative Learning Services</div>
+      </div>
+
+      <div class="motto" id="mottoText">Train your skills like you train your body</div>
+
+      <div class="controls">
+        <div class="pill"><span class="dot" id="statusDot"></span><span id="statusText">READY</span></div>
+        <div class="pill">View: <strong style="color:rgba(232,240,255,.92)">Full Board</strong></div>
+      </div>
+    </div>
+
+    <!-- EXPORT AREA -->
+    <div id="board">
+      <div class="grid">
+        <!-- Main Panel -->
+        <section class="card">
+          <div class="cardHead">
+            <h2>Performance Console</h2>
+            <div class="badge" id="personaBadge">AI-Skill Readiness</div>
+          </div>
+
+          <div class="mainBody">
+            <!-- Dial -->
+            <div class="dialWrap">
+              <div class="dial">
+                <div class="ring" id="lpaRing" style="--p: 77%;"></div>
+                <div class="dialInner">
+                  <div class="label">LPA</div>
+                  <div class="value" id="lpaValue">77.00</div>
+                  <div class="hint">Learnings Per Annum · Annual Learning Velocity</div>
+                </div>
+              </div>
+
+              <!-- AI Skill Zones -->
+              <div class="zones">
+                <div class="zonesTop">
+                  <div class="t">AI Skill Zones</div>
+                  <div class="z" id="zoneText">Builder · AI-Ready Contributor</div>
+                </div>
+                <div class="zoneBar"><div class="fill" id="zoneFill" style="--zw:60%"></div></div>
+                <div class="zoneTicks">
+                  <span>Warm-Up</span><span>Builder</span><span>Performer</span><span>Athlete</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="kpis">
+              <div class="kpi">
+                <div class="row">
+                  <div class="name">Learning Level</div>
+                  <div class="num" id="levelValue">6</div>
+                </div>
+                <div class="bar"><i id="levelBar" style="--w:60%"></i></div>
+                <div class="desc" id="levelLabel">AI-Ready Contributor</div>
+              </div>
+
+              <div class="kpi">
+                <div class="row">
+                  <div class="name">Speed</div>
+                  <div class="num"><span id="speedValue">4.00</span></div>
+                </div>
+                <div class="bar"><i id="speedBar" style="--w:40%"></i></div>
+                <div class="desc">Skill Acquisition Pace</div>
+              </div>
+
+              <div class="kpi">
+                <div class="row">
+                  <div class="name">Initiatives Taken</div>
+                  <div class="num"><span id="initValue">11.00</span></div>
+                </div>
+                <div class="bar"><i id="initBar" style="--w:55%"></i></div>
+                <div class="desc">Self-Driven Upskilling Actions</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="btnRow">
+            <button class="action start" id="btnStart" type="button">START</button>
+            <button class="action pause" id="btnPause" type="button">PAUSE</button>
+            <button class="action stop" id="btnStop" type="button">STOP</button>
+          </div>
+        </section>
+
+        <!-- Workout Profile -->
+        <aside class="card">
+          <div class="cardHead">
+            <h2>Workout Profile</h2>
+            <div class="badge">Weekly Split</div>
+          </div>
+
+          <div class="sideBody">
+            <!-- Entertainment vs Productive donut -->
+            <div class="donutRow">
+              <div class="donut" id="donut" style="--ent: 64%;">
+                <div class="donutCenter">
+                  <div class="pct" id="prodPct">36%</div>
+                  <div class="small">Productive</div>
+                </div>
+              </div>
+
+              <div class="legend">
+                <div class="legItem">
+                  <div class="legLeft"><span class="swatch ent"></span>Entertainment</div>
+                  <div class="legNum"><span id="entHours">3.8</span> hrs</div>
+                </div>
+                <div class="legItem">
+                  <div class="legLeft"><span class="swatch prod"></span>Productive</div>
+                  <div class="legNum"><span id="prodHours">2.1</span> hrs</div>
+                </div>
+                <div class="legItem">
+                  <div class="legLeft">Total</div>
+                  <div class="legNum"><span id="totalHours">5.9</span> hrs</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Intensity slider + Deep/Practice/Consume split -->
+            <div class="intensityBox">
+              <div class="intTop">
+                <div class="t">Intensity</div>
+                <div class="chip">Level <span id="intValue" style="font-weight:900">2</span> / 3</div>
+              </div>
+              <input class="range" id="inIntensity" type="range" min="1" max="3" step="1" value="2" />
+
+              <div class="splitBars">
+                <div class="splitRow">
+                  <div>Deep Work</div>
+                  <div class="miniBar"><i id="deepBar" style="--mw:35%"></i></div>
+                  <div class="pct" id="deepPct">35%</div>
+                </div>
+                <div class="splitRow">
+                  <div>Practice</div>
+                  <div class="miniBar"><i id="pracBar" style="--mw:40%"></i></div>
+                  <div class="pct" id="pracPct">40%</div>
+                </div>
+                <div class="splitRow">
+                  <div>Consume</div>
+                  <div class="miniBar"><i id="consBar" style="--mw:25%"></i></div>
+                  <div class="pct" id="consPct">25%</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cognitive Calories: Actual (editable) + Suggested (auto) -->
+            <div class="calories">
+              <div class="calHead">
+                <div class="t">Cognitive Calories Burnt</div>
+                <div class="flame" title="Skill Units">🔥</div>
+              </div>
+
+              <div class="calGrid">
+                <div class="calTile">
+                  <div class="k">Actual (editable)</div>
+                  <input id="inCalActual" type="number" step="1" value="1240" />
+                  <div style="font-size:11px;color:rgba(159,179,217,.85);margin-top:2px;">
+                    Manual override allowed
+                  </div>
+                </div>
+
+                <div class="calTile">
+                  <div class="k">Suggested (auto)</div>
+                  <div class="v"><span id="calSuggested">872</span> <span>units</span></div>
+                  <div style="font-size:11px;color:rgba(159,179,217,.85);margin-top:2px;">
+                    Based on productive hours + intensity split
+                  </div>
+                </div>
+              </div>
+
+              <div class="calNote">
+                <span>Suggested uses Deep×3 + Practice×2 + Consume×1 (per minute)</span>
+                <span class="chip" id="calMode">Mode: Auto-suggest + manual override</span>
+              </div>
+            </div>
+
+            <!-- Streak + Weekly Target -->
+            <div class="miniGrid">
+              <div class="mini">
+                <div class="head">
+                  <div class="t">Learning Streak</div>
+                  <div class="n"><span id="streakValue">12</span>d</div>
+                </div>
+                <div class="statusPill">
+                  <i id="streakDot"></i><span id="streakText">CONSISTENT</span>
+                </div>
+                <div class="sub">
+                  <span>Keep it alive</span>
+                  <span id="streakTip">1 small action today</span>
+                </div>
+              </div>
+
+              <div class="mini">
+                <div class="head">
+                  <div class="t">Weekly Target</div>
+                  <div class="n"><span id="targetPct">42</span>%</div>
+                </div>
+                <div class="targetBar"><div class="fill" id="targetFill" style="--tw:42%"></div></div>
+                <div class="sub">
+                  <span><strong id="prodActual">2.1</strong> hrs done</span>
+                  <span><strong id="weeklyTarget">5.0</strong> hrs goal</span>
+                </div>
+                <div class="sub" style="margin-top:-4px">
+                  <span id="targetStatusText" style="color:rgba(232,240,255,.86);font-weight:800">BEHIND</span>
+                  <span id="targetGap" style="font-family:var(--mono)">2.9 hrs to go</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="kpi" style="min-height:auto">
+              <div class="row">
+                <div class="name">Attention Split</div>
+                <div class="num" style="font-size:18px" id="splitText">64% Entertainment · 36% Productive</div>
+              </div>
+              <div class="desc">Conversation starter: “Where is my attention going — and what is it creating?”</div>
+            </div>
+
+            <div style="font-size:11px;color:rgba(159,179,217,.75);padding:0 2px;">
+              <strong style="color:rgba(232,240,255,.9)">ImpactMaker</strong> · J-Impact Creative Learning Services
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Inputs + Export -->
+    <section class="inputs">
+      <div class="inputsHead">
+        <h3>Enter your numbers</h3>
+        <div class="hint">Export CSV for Excel or copy TSV for Google Sheets paste.</div>
+      </div>
+
+      <div class="form">
+        <label>
+          LPA
+          <input id="inLpa" type="number" step="0.01" value="77.00" />
+        </label>
+
+        <label>
+          Learning Level (0–10)
+          <input id="inLevel" type="number" step="1" min="0" max="10" value="6" />
+        </label>
+
+        <label>
+          Speed
+          <input id="inSpeed" type="number" step="0.01" value="4.00" />
+        </label>
+
+        <label>
+          Initiatives Taken
+          <input id="inInit" type="number" step="0.01" value="11.00" />
+        </label>
+
+        <label>
+          Entertainment (hrs/week)
+          <input id="inEnt" type="number" step="0.1" value="3.8" />
+        </label>
+
+        <label>
+          Productive (hrs/week)
+          <input id="inProd" type="number" step="0.1" value="2.1" />
+        </label>
+
+        <label style="grid-column: span 2;">
+          Weekly Target (productive hrs/week)
+          <input id="inTarget" type="number" step="0.5" value="5.0" />
+        </label>
+
+        <label style="grid-column: span 2;">
+          Learning Streak (days)
+          <input id="inStreak" type="number" step="1" value="12" />
+        </label>
+
+        <label style="grid-column: span 3;">
+          Persona Label
+          <input id="inPersona" type="text" value="AI-Skill Readiness" />
+        </label>
+
+        <label style="grid-column: span 3;">
+          Tagline
+          <input id="inMotto" type="text" value="Train your skills like you train your body" />
+        </label>
+
+        <!-- NEW identity fields for export -->
+        <label style="grid-column: span 2;">
+          User Name
+          <input id="inUserName" type="text" placeholder="e.g., Riya Sharma" />
+        </label>
+
+        <label style="grid-column: span 2;">
+          Team / Department (optional)
+          <input id="inTeam" type="text" placeholder="e.g., Sales Ops" />
+        </label>
+
+        <label style="grid-column: span 2;">
+          Email (optional)
+          <input id="inEmail" type="email" placeholder="e.g., riya@company.com" />
+        </label>
+      </div>
+
+      <!-- Export Panel -->
+      <div style="
+        border:1px solid rgba(27,42,70,.75);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(11,18,32,.92), rgba(10,15,26,.86));
+        box-shadow: 0 18px 50px rgba(0,0,0,.35);
+        padding:14px;
+        display:grid;
+        gap:10px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <div style="font-size:13px; letter-spacing:1.1px; text-transform:uppercase; color:rgba(232,240,255,.88); font-weight:900;">
+            Export Data
+          </div>
+          <div id="exportHint" style="font-size:12px; color:rgba(159,179,217,.85);">
+            Download CSV (Excel) or copy TSV (Google Sheets paste).
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+          <button class="ghost" id="btnCopyTSV" type="button">Copy TSV</button>
+          <button class="primary" id="btnExportCSV" type="button">Download CSV</button>
+        </div>
+
+        <label>
+          Export Preview (CSV)
+          <textarea id="exportPreview" readonly></textarea>
+        </label>
+
+        <div id="exportToast" style="display:none; font-size:12px; color:rgba(232,240,255,.86);">
+          ✅ Export ready
+        </div>
+      </div>
+
+      <div class="actions2">
+        <button class="ghost" id="btnReset" type="button">Reset</button>
+        <button class="ghost" id="btnCopy" type="button">Copy Share Link</button>
+        <button class="primary" id="btnPng" type="button">Download PNG</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+    const safeNum = (v, fallback=0) => {
+      const n = Number(v);
+      return Number.isFinite(n) ? n : fallback;
+    };
+    const fmt2 = (n) => (Number.isFinite(Number(n)) ? Number(n).toFixed(2) : "0.00");
+    const fmt1 = (n) => (Number.isFinite(Number(n)) ? Number(n).toFixed(1) : "0.0");
+
+    const DEFAULTS = {
+      lpa: 77.00, level: 6, speed: 4.00, init: 11.00,
+      ent: 3.8, prod: 2.1, target: 5.0, streak: 12,
+      intensity: 2,
+      calActual: 1240,
+      persona: "AI-Skill Readiness",
+      motto: "Train your skills like you train your body"
+    };
+
+    let mode = "READY";
+
+    function setMode(next){
+      mode = next;
+      $("statusText").textContent = mode;
+      const dot = $("statusDot");
+      dot.style.background =
+        next === "RUNNING" ? "var(--good)" :
+        next === "PAUSED"  ? "var(--warn)" :
+        next === "STOPPED" ? "var(--bad)"  : "var(--good)";
+      dot.style.boxShadow =
+        next === "RUNNING" ? "0 0 18px rgba(34,197,94,.6)" :
+        next === "PAUSED"  ? "0 0 18px rgba(245,158,11,.55)" :
+        next === "STOPPED" ? "0 0 18px rgba(239,68,68,.55)" : "0 0 18px rgba(34,197,94,.45)";
+    }
+
+    function levelLabel(level){
+      if (level >= 9) return "AI Athlete";
+      if (level >= 7) return "AI-Ready Performer";
+      if (level >= 5) return "AI-Ready Contributor";
+      if (level >= 3) return "Building Momentum";
+      return "Warm-Up Phase";
+    }
+    function zoneLabel(level){
+      if (level <= 2) return "Warm-Up";
+      if (level <= 5) return "Builder";
+      if (level <= 8) return "Performer";
+      return "Athlete";
+    }
+
+    function streakStatus(days){
+      if (days >= 21) return { text:"HABIT LOCKED", tone:"good", tip:"Protect it with 15 minutes today" };
+      if (days >= 7)  return { text:"CONSISTENT", tone:"good", tip:"Keep the chain unbroken" };
+      if (days >= 3)  return { text:"BUILDING", tone:"warn", tip:"Repeat the same ritual for 3 days" };
+      return { text:"FRAGILE", tone:"bad", tip:"Start with 10 minutes, now" };
+    }
+
+    function intensitySplit(intensity){
+      if (intensity === 1) return { deep: 20, prac: 30, cons: 50 };
+      if (intensity === 2) return { deep: 35, prac: 40, cons: 25 };
+      return { deep: 50, prac: 35, cons: 15 };
+    }
+
+    function suggestedCalories(prodHours, split){
+      const minutes = Math.max(0, prodHours) * 60;
+      const deepM = minutes * (split.deep/100);
+      const pracM = minutes * (split.prac/100);
+      const consM = minutes * (split.cons/100);
+      return Math.round(deepM*3 + pracM*2 + consM*1);
+    }
+
+    function updateUI(){
+      const lpa = safeNum($("inLpa").value, DEFAULTS.lpa);
+      const level = clamp(Math.round(safeNum($("inLevel").value, DEFAULTS.level)), 0, 10);
+      const speed = safeNum($("inSpeed").value, DEFAULTS.speed);
+      const init = safeNum($("inInit").value, DEFAULTS.init);
+
+      const ent = Math.max(0, safeNum($("inEnt").value, DEFAULTS.ent));
+      const prod = Math.max(0, safeNum($("inProd").value, DEFAULTS.prod));
+
+      const target = Math.max(0, safeNum($("inTarget").value, DEFAULTS.target));
+      const streak = Math.max(0, Math.round(safeNum($("inStreak").value, DEFAULTS.streak)));
+
+      const persona = $("inPersona").value?.trim() || DEFAULTS.persona;
+      const motto = $("inMotto").value?.trim() || DEFAULTS.motto;
+
+      const intensity = clamp(Math.round(safeNum($("inIntensity").value, DEFAULTS.intensity)), 1, 3);
+      $("intValue").textContent = intensity;
+
+      const split = intensitySplit(intensity);
+      $("deepPct").textContent = `${split.deep}%`;
+      $("pracPct").textContent = `${split.prac}%`;
+      $("consPct").textContent = `${split.cons}%`;
+      $("deepBar").style.setProperty("--mw", `${split.deep}%`);
+      $("pracBar").style.setProperty("--mw", `${split.prac}%`);
+      $("consBar").style.setProperty("--mw", `${split.cons}%`);
+
+      const suggested = suggestedCalories(prod, split);
+      $("calSuggested").textContent = suggested.toLocaleString("en-IN");
+
+      $("mottoText").textContent = motto;
+      $("personaBadge").textContent = persona;
+
+      const lpaPct = clamp(lpa, 0, 100);
+      $("lpaValue").textContent = fmt2(lpa);
+      $("lpaRing").style.setProperty("--p", `${lpaPct}%`);
+
+      $("levelValue").textContent = level;
+      $("levelBar").style.setProperty("--w", `${(level/10)*100}%`);
+      $("levelLabel").textContent = levelLabel(level);
+
+      $("zoneText").textContent = `${zoneLabel(level)} · ${levelLabel(level)}`;
+      $("zoneFill").style.setProperty("--zw", `${(level/10)*100}%`);
+
+      $("speedValue").textContent = fmt2(speed);
+      $("speedBar").style.setProperty("--w", `${clamp((speed/10)*100,0,100)}%`);
+
+      $("initValue").textContent = fmt2(init);
+      $("initBar").style.setProperty("--w", `${clamp((init/20)*100,0,100)}%`);
+
+      const total = ent + prod;
+      const prodPercent = total > 0 ? Math.round((prod/total) * 100) : 0;
+      const entPercent = 100 - prodPercent;
+
+      $("donut").style.setProperty("--ent", `${entPercent}%`);
+      $("prodPct").textContent = `${prodPercent}%`;
+      $("entHours").textContent = fmt1(ent);
+      $("prodHours").textContent = fmt1(prod);
+      $("totalHours").textContent = fmt1(total);
+
+      $("splitText").textContent = `${entPercent}% Entertainment · ${prodPercent}% Productive`;
+
+      $("streakValue").textContent = streak;
+      const s = streakStatus(streak);
+      $("streakText").textContent = s.text;
+      $("streakTip").textContent = s.tip;
+
+      const sd = $("streakDot");
+      if (s.tone === "good"){ sd.style.background="var(--good)"; sd.style.boxShadow="0 0 14px rgba(34,197,94,.35)"; }
+      else if (s.tone === "warn"){ sd.style.background="var(--warn)"; sd.style.boxShadow="0 0 14px rgba(245,158,11,.35)"; }
+      else { sd.style.background="var(--bad)"; sd.style.boxShadow="0 0 14px rgba(239,68,68,.35)"; }
+
+      $("prodActual").textContent = fmt1(prod);
+      $("weeklyTarget").textContent = fmt1(target);
+      const pct = target > 0 ? Math.round(clamp((prod/target)*100, 0, 140)) : 0;
+      $("targetPct").textContent = pct;
+      $("targetFill").style.setProperty("--tw", `${clamp(pct, 0, 100)}%`);
+      const gap = Math.max(0, target - prod);
+      $("targetGap").textContent = `${fmt1(gap)} hrs to go`;
+      const status = prod >= target ? "ON TRACK" : (prod >= target*0.7 ? "CATCH UP" : "BEHIND");
+      $("targetStatusText").textContent = status;
+
+      // Keep export preview updated
+      refreshExportPreview();
+    }
+
+    // Share URL (kept simple)
+    function syncUrl(state, push=true){
+      const u = new URL(window.location.href);
+      Object.entries(state).forEach(([k,v]) => u.searchParams.set(k, v));
+      if (push) window.history.pushState({}, "", u.toString());
+      else window.history.replaceState({}, "", u.toString());
+    }
+
+    // -------- Export helpers --------
+    function nowISO(){ return new Date().toISOString(); }
+
+    function sanitizeFileName(s){
+      return (s || "User")
+        .toString()
+        .trim()
+        .replace(/[\/\\?%*:|"<>]/g, "-")
+        .replace(/\s+/g, "_")
+        .slice(0, 40) || "User";
+    }
+
+    function csvEscape(value){
+      const v = value === null || value === undefined ? "" : String(value);
+      const escaped = v.replace(/"/g, '""');
+      if (/[",\n]/.test(escaped)) return `"${escaped}"`;
+      return escaped;
+    }
+
+    function buildExportObject(){
+      const userName = ($("inUserName")?.value || "").trim();
+      const team = ($("inTeam")?.value || "").trim();
+      const email = ($("inEmail")?.value || "").trim();
+
+      const lpa = safeNum($("inLpa").value, 0).toFixed(2);
+      const level = clamp(Math.round(safeNum($("inLevel").value, 0)), 0, 10);
+      const speed = safeNum($("inSpeed").value, 0).toFixed(2);
+      const initiatives = safeNum($("inInit").value, 0).toFixed(2);
+
+      const entHours = safeNum($("inEnt").value, 0).toFixed(1);
+      const prodHours = safeNum($("inProd").value, 0).toFixed(1);
+
+      const weeklyTarget = safeNum($("inTarget").value, 0).toFixed(1);
+      const streak = Math.max(0, Math.round(safeNum($("inStreak").value, 0)));
+
+      const intensity = clamp(Math.round(safeNum($("inIntensity").value, 2)), 1, 3);
+
+      const caloriesActual = ($("inCalActual")?.value ?? "").toString().trim();
+
+      const persona = ($("inPersona")?.value || "").trim();
+      const tagline = ($("inMotto")?.value || "").trim();
+
+      const zone = ($("zoneText")?.textContent || "").trim();
+      const status = mode;
+
+      const deepPct = ($("deepPct")?.textContent || "").replace("%","").trim();
+      const pracPct = ($("pracPct")?.textContent || "").replace("%","").trim();
+      const consPct = ($("consPct")?.textContent || "").replace("%","").trim();
+
+      const calSuggested = ($("calSuggested")?.textContent || "").replace(/,/g,"").trim();
+
+      const prodPct = ($("prodPct")?.textContent || "").replace("%","").trim();
+      const entPct = (100 - (Number(prodPct) || 0)).toString();
+
+      const targetPct = ($("targetPct")?.textContent || "").trim();
+
+      return {
+        Timestamp: nowISO(),
+        UserName: userName,
+        Team: team,
+        Email: email,
+
+        LPA: lpa,
+        LearningLevel: level,
+        Zone: zone,
+        Speed: speed,
+        InitiativesTaken: initiatives,
+
+        EntertainmentHours: entHours,
+        ProductiveHours: prodHours,
+        EntertainmentPct: entPct,
+        ProductivePct: prodPct,
+
+        WeeklyTargetHours: weeklyTarget,
+        WeeklyTargetPct: targetPct,
+        StreakDays: streak,
+
+        Intensity: intensity,
+        DeepPct: deepPct,
+        PracticePct: pracPct,
+        ConsumePct: consPct,
+
+        CaloriesActual: caloriesActual,
+        CaloriesSuggested: calSuggested,
+
+        Persona: persona,
+        Tagline: tagline,
+        Status: status
+      };
+    }
+
+    function buildCSV(obj){
+      const headers = Object.keys(obj);
+      const row = headers.map(h => csvEscape(obj[h]));
+      return headers.join(",") + "\n" + row.join(",");
+    }
+
+    function buildTSV(obj){
+      const headers = Object.keys(obj);
+      const row = headers.map(h => (obj[h] ?? "").toString().replace(/\t/g," "));
+      return headers.join("\t") + "\n" + row.join("\t");
+    }
+
+    function setToast(msg){
+      const t = $("exportToast");
+      if (!t) return;
+      t.textContent = msg;
+      t.style.display = "block";
+      clearTimeout(setToast._timer);
+      setToast._timer = setTimeout(()=>{ t.style.display = "none"; }, 1200);
+    }
+
+    function refreshExportPreview(){
+      const box = $("exportPreview");
+      if (!box) return;
+      const obj = buildExportObject();
+      box.value = buildCSV(obj);
+    }
+
+    function setupExportButtons(){
+      $("btnExportCSV")?.addEventListener("click", () => {
+        updateUI();
+        const obj = buildExportObject();
+
+        if (!obj.UserName){
+          $("exportHint").textContent = "Please enter User Name to export.";
+          $("exportHint").style.color = "rgba(245,158,11,.95)";
+          setToast("⚠️ Add User Name first");
+          return;
+        }
+        $("exportHint").textContent = "Download CSV (Excel) or copy TSV (Google Sheets paste).";
+        $("exportHint").style.color = "rgba(159,179,217,.85)";
+
+        const csv = buildCSV(obj);
+        $("exportPreview").value = csv;
+
+        const fileName = `SkillFitnessBoard_${sanitizeFileName(obj.UserName)}_${new Date().toISOString().slice(0,16).replace(/[:T]/g,"-")}.csv`;
+        const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+
+        setToast("✅ CSV downloaded");
+      });
+
+      $("btnCopyTSV")?.addEventListener("click", async () => {
+        updateUI();
+        const obj = buildExportObject();
+
+        if (!obj.UserName){
+          $("exportHint").textContent = "Please enter User Name to copy TSV.";
+          $("exportHint").style.color = "rgba(245,158,11,.95)";
+          setToast("⚠️ Add User Name first");
+          return;
+        }
+        $("exportHint").textContent = "Download CSV (Excel) or copy TSV (Google Sheets paste).";
+        $("exportHint").style.color = "rgba(159,179,217,.85)";
+
+        const tsv = buildTSV(obj);
+        try{
+          await navigator.clipboard.writeText(tsv);
+          setToast("✅ TSV copied (paste into Google Sheets)");
+        }catch(e){
+          prompt("Copy this TSV:", tsv);
+        }
+      });
+    }
+
+    // -------- Buttons --------
+    $("btnStart")?.addEventListener("click", () => setMode("RUNNING"));
+    $("btnPause")?.addEventListener("click", () => setMode("PAUSED"));
+    $("btnStop")?.addEventListener("click", () => setMode("STOPPED"));
+
+    $("btnReset")?.addEventListener("click", () => {
+      $("inLpa").value = DEFAULTS.lpa;
+      $("inLevel").value = DEFAULTS.level;
+      $("inSpeed").value = DEFAULTS.speed;
+      $("inInit").value = DEFAULTS.init;
+      $("inEnt").value = DEFAULTS.ent;
+      $("inProd").value = DEFAULTS.prod;
+      $("inTarget").value = DEFAULTS.target;
+      $("inStreak").value = DEFAULTS.streak;
+      $("inIntensity").value = DEFAULTS.intensity;
+      $("inCalActual").value = DEFAULTS.calActual;
+      $("inPersona").value = DEFAULTS.persona;
+      $("inMotto").value = DEFAULTS.motto;
+      $("inUserName").value = "";
+      $("inTeam").value = "";
+      $("inEmail").value = "";
+      setMode("READY");
+      updateUI();
+    });
+
+    $("btnCopy")?.addEventListener("click", async () => {
+      updateUI();
+      syncUrl(buildExportObject(), false);
+      try{
+        await navigator.clipboard.writeText(window.location.href);
+        $("btnCopy").textContent = "Copied!";
+        setTimeout(()=> $("btnCopy").textContent = "Copy Share Link", 900);
+      }catch(e){
+        prompt("Copy this link:", window.location.href);
+      }
+    });
+
+    $("btnPng")?.addEventListener("click", async () => {
+      updateUI();
+      const btn = $("btnPng");
+      btn.textContent = "Rendering...";
+      btn.disabled = true;
+
+      try{
+        if (!window.html2canvas){
+          alert("PNG export needs internet once (html2canvas). Dashboard works offline.");
+          return;
+        }
+        const node = document.getElementById("board");
+        const canvas = await html2canvas(node, { backgroundColor: null, scale: 2, useCORS: true });
+        const a = document.createElement("a");
+        a.download = `Skill-Fitness-Board_${Date.now()}.png`;
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+      }catch(err){
+        console.error(err);
+        alert("Could not export PNG. Try Chrome. If you need offline export, tell me.");
+      }finally{
+        btn.textContent = "Download PNG";
+        btn.disabled = false;
+      }
+    });
+
+    // Live update
+    [
+      "inLpa","inLevel","inSpeed","inInit","inEnt","inProd","inTarget","inStreak",
+      "inPersona","inMotto","inIntensity","inCalActual","inUserName","inTeam","inEmail"
+    ].forEach(id => $(id)?.addEventListener("input", updateUI));
+
+    // Init
+    setMode("READY");
+    setupExportButtons();
+    updateUI();
+  </script>
+</body>
+</html>

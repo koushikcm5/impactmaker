@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import Navbar from '../sections/Navbar';
 import Footer from '../sections/Footer';
 import SEOHead from '../components/SEOHead';
+import Breadcrumb from '../components/Breadcrumb';
 import { siteData } from '../data/siteData';
 import { speakerSessions } from '../data/workshopData';
 import { PAGE_SEO, makeBreadcrumb, makeServiceSchema } from '../utils/seoConfig';
@@ -41,8 +42,15 @@ const SpeakerPage = () => {
         schemas={schemas}
       />
       <Navbar />
-      <div style={{ paddingTop: '120px' }}>
-        <section className="workshops" style={{ paddingTop: '60px' }}>
+      
+      {/* Visual Breadcrumb */}
+      <Breadcrumb 
+        items={[{ name: 'AI Keynote Speaker', path: '/workshops/speaker' }]} 
+        style={{ paddingTop: '100px' }} 
+      />
+
+      <div style={{ paddingTop: '10px' }}>
+        <section className="workshops" style={{ paddingTop: '30px' }}>
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="ws-category-section ws-section-speaker" ref={sectionRef} style={{ marginTop: 0 }}>
               <div className="ws-category-header">

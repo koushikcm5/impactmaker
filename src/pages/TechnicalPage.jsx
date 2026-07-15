@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Navbar from '../sections/Navbar';
 import Footer from '../sections/Footer';
 import SEOHead from '../components/SEOHead';
+import Breadcrumb from '../components/Breadcrumb';
 import { siteData } from '../data/siteData';
 import { technicalWorkshops } from '../data/workshopData';
 import { PAGE_SEO, makeBreadcrumb, makeServiceSchema } from '../utils/seoConfig';
@@ -40,8 +41,15 @@ const TechnicalPage = () => {
         schemas={schemas}
       />
       <Navbar />
-      <div style={{ paddingTop: '120px' }}>
-        <section className="workshops" style={{ paddingTop: '60px' }}>
+      
+      {/* Visual Breadcrumb */}
+      <Breadcrumb 
+        items={[{ name: 'Technical AI Training', path: '/workshops/technical' }]} 
+        style={{ paddingTop: '100px' }} 
+      />
+
+      <div style={{ paddingTop: '10px' }}>
+        <section className="workshops" style={{ paddingTop: '30px' }}>
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="ws-category-section" ref={sectionRef} style={{ marginTop: 0 }}>
               <div className="ws-category-header">

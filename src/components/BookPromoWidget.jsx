@@ -142,7 +142,7 @@ const BookPromoWidget = () => {
                             className="bpw-img"
                             loading="lazy"
                             draggable={false}
-                          />
+                           width="800" height="600" />
                           <div className="bpw-img-overlay" aria-hidden="true" />
                         </div>
 

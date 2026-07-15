@@ -25,7 +25,7 @@ const EventCard = ({ event }) => {
     <article className={`event-card ${event.featured ? 'event-card--featured' : ''} event-card--${event.accent}`}>
       {event.image && (
         <div className="event-img-wrap">
-          <img src={event.image} alt={event.title} className="event-img" />
+          <img src={event.image} alt={event.title} className="event-img"  width="800" height="600" />
         </div>
       )}
       <div className="event-card-inner">

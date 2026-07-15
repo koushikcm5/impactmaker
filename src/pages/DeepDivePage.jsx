@@ -3,6 +3,7 @@ import { GraduationCap, Users, X, ArrowRight } from 'lucide-react';
 import Navbar from '../sections/Navbar';
 import Footer from '../sections/Footer';
 import SEOHead from '../components/SEOHead';
+import Breadcrumb from '../components/Breadcrumb';
 import { siteData } from '../data/siteData';
 import { PAGE_SEO, makeBreadcrumb, makeServiceSchema } from '../utils/seoConfig';
 import '../sections/Workshops.css';
@@ -61,8 +62,15 @@ const DeepDivePage = () => {
         schemas={schemas}
       />
       <Navbar />
-      <div style={{ paddingTop: '90px' }}>
-        <section className="workshops" style={{ paddingTop: '60px' }}>
+      
+      {/* Visual Breadcrumb */}
+      <Breadcrumb 
+        items={[{ name: 'Workshops & Ed-Tech', path: '/workshops/deep-dive' }]} 
+        style={{ paddingTop: '100px' }} 
+      />
+
+      <div style={{ paddingTop: '10px' }}>
+        <section className="workshops" style={{ paddingTop: '30px' }}>
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="ws-category-section" ref={sectionRef} style={{ marginTop: 0 }}>
               <div className="ws-category-header">
@@ -80,7 +88,7 @@ const DeepDivePage = () => {
                   return (
                     <div key={workshop.id} className="corp-ws-card edtech-ws-card" style={{ '--delay': `${i * 0.12}s` }}>
                       <div className="corp-ws-image">
-                        <img src={workshop.image} alt={workshop.title} loading="lazy" />
+                        <img src={workshop.image} alt={workshop.title} loading="lazy"  width="800" height="600" />
                       </div>
                       <div className="corp-ws-body">
                         <span className={`workshops-pill edtech-card-pill ${meta.pillClass || ''}`} style={{ marginBottom: '4px', display: 'inline-block' }}>
@@ -120,7 +128,7 @@ const DeepDivePage = () => {
             <div className="workshop-modal-content animate-modal">
               <div className="workshop-modal-visual">
                 {selectedWorkshop.intro && <p className="workshop-modal-intro">{selectedWorkshop.intro}</p>}
-                <img src={selectedWorkshop.image} alt={selectedWorkshop.title} />
+                <img src={selectedWorkshop.image} alt={selectedWorkshop.title}  width="800" height="600" />
               </div>
               <div className="workshop-modal-info">
                 <span className="workshop-modal-tag">Workshop Programme</span>

@@ -33,7 +33,7 @@ const TestimonialImageSlider = ({ images, interval = 5000 }) => {
           src={img}
           alt={`Testimonial slide ${index + 1}`}
           className={`testimonial-slider-image ${index === currentIndex ? 'active' : ''}`}
-        />
+         width="800" height="600" />
       ))}
     </div>
   );

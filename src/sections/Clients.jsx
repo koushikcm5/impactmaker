@@ -46,14 +46,14 @@ const Clients = () => {
               <div className="marquee-track">
                 {clientLogos.map((logo, index) => (
                   <div key={`logo-1-${index}`} className="logo-item">
-                    <img src={logo} alt={`Client Logo ${index + 1}`} loading="lazy" />
+                    <img src={logo} alt={`Client Logo ${index + 1}`} loading="lazy"  width="800" height="600" />
                   </div>
                 ))}
               </div>
               <div className="marquee-track" aria-hidden="true">
                 {clientLogos.map((logo, index) => (
                   <div key={`logo-2-${index}`} className="logo-item">
-                    <img src={logo} alt={`Client Logo ${index + 1}`} loading="lazy" />
+                    <img src={logo} alt={`Client Logo ${index + 1}`} loading="lazy"  width="800" height="600" />
                   </div>
                 ))}
               </div>

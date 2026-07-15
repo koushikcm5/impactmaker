@@ -1,19 +1,65 @@
+import { useState } from 'react';
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, ExternalLink, Maximize2, Clock, Tag } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Maximize2, Clock, Tag, CheckCircle2, Lightbulb, Target, TrendingUp, Users, Award, ArrowRight, ChevronDown } from 'lucide-react';
 import { siteData } from '../data/siteData';
 import { getArticleAssets, getBookArticleImage, AMAZON_KINDLE_URL } from '../utils/assetLoader';
 import SEOHead from '../components/SEOHead';
 import { SITE_URL, FOUNDER_NAME, SITE_NAME, makeBreadcrumb, makeArticleSchema } from '../utils/seoConfig';
 import '../sections/Insights.css';
+import '../pages/InsightDetail.css';
 
-const InsightDetail = () => {
+// Renders inline markdown: **bold**, *italic*, `code`
+const renderInline = (text) => {
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) return <strong key={i}>{part.slice(2, -2)}</strong>;
+    if (part.startsWith('*') && part.endsWith('*')) return <em key={i}>{part.slice(1, -1)}</em>;
+    if (part.startsWith('`') && part.endsWith('`')) return <code key={i} className="article-inline-code">{part.slice(1, -1)}</code>;
+    return part;
+  });
+};
+
+// Para-level pattern helpers
+const isLocationLine  = (p) => p.trim().startsWith('📍');
+const isRatingLine    = (p) => p.trim().startsWith('⭐');
+const isBestFor       = (p) => /^\*\*✓/.test(p.trim());
+const isFocusLine     = (p) => /^\*\*(Focus|Notable Focus):/.test(p.trim());
+const isNotableFocus  = (p) => /^\*\*Notable Focus/.test(p.trim());
+const isWebsiteLine   = (p) => /^\*\*Website:/.test(p.trim());
+// Quick-ref card: ### 01. Name — City\n**Best For:** ...
+const isQuickRefCard  = (p) => /^###\s+\d{2}\./.test(p.trim()) && p.includes('\n');
+
+// Article inline FAQ accordion
+const ArticleFAQ = ({ items }) => {
+  const [open, setOpen] = useState(null);
+  return (
+    <div className="article-faq">
+      {items.map((item, i) => (
+        <div key={i} className={`article-faq-item${open === i ? ' article-faq-item--open' : ''}`}>
+          <button className="article-faq-q" onClick={() => setOpen(open === i ? null : i)} aria-expanded={open === i}>
+            <span>{item.q}</span>
+            <ChevronDown className="article-faq-chevron" size={18} />
+          </button>
+          <div className="article-faq-a-wrap">
+            <p className="article-faq-a">{renderInline(item.a)}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const InsightDetail = ({ slugOverride }) => {
   const { id } = useParams();
+  const resolvedId = slugOverride || id;
   const navigate = useNavigate();
   const location = useLocation();
 
   const goBack = () => location.key !== 'default' ? navigate(-1) : navigate('/blog');
 
-  const insight = siteData.blog.find(item => item.id === parseInt(id));
+  const insight = siteData.blog.find(item => 
+    item.id === parseInt(resolvedId) || item.slug === resolvedId
+  );
 
   if (!insight) return <div className="not-found">Insight not found</div>;
 
@@ -26,14 +72,27 @@ const InsightDetail = () => {
     .filter(p => p.id !== insight.id && (p.category === insight.category || (p.tags && insight.tags && p.tags.some(t => insight.tags.includes(t)))))
     .slice(0, 3);
 
-  const canonicalUrl = `${SITE_URL}/insight/${insight.id}`;
+  const canonicalUrl = slugOverride
+    ? `${SITE_URL}/${slugOverride}`
+    : `${SITE_URL}/insight/${insight.slug || insight.id}`;
   const pageTitle = insight.seoTitle || insight.title;
   const pageDesc = insight.metaDescription || insight.excerpt;
+
+  const getIconForSection = (title) => {
+    const lowerTitle = title.toLowerCase();
+    if (lowerTitle.includes('specialist') || lowerTitle.includes('expert')) return <Award size={24} />;
+    if (lowerTitle.includes('workshop') || lowerTitle.includes('training')) return <Users size={24} />;
+    if (lowerTitle.includes('benefit') || lowerTitle.includes('advantage')) return <CheckCircle2 size={24} />;
+    if (lowerTitle.includes('innovation') || lowerTitle.includes('idea')) return <Lightbulb size={24} />;
+    if (lowerTitle.includes('result') || lowerTitle.includes('outcome')) return <TrendingUp size={24} />;
+    if (lowerTitle.includes('goal') || lowerTitle.includes('target')) return <Target size={24} />;
+    return <ArrowRight size={24} />;
+  };
 
   const schemas = [
     makeBreadcrumb([
       { name: 'Blog & Articles', path: '/blog' },
-      { name: pageTitle, path: `/insight/${insight.id}` },
+      { name: pageTitle, path: `/insight/${insight.slug || insight.id}` },
     ]),
     makeArticleSchema(insight),
     {
@@ -147,7 +206,7 @@ const InsightDetail = () => {
                             className="book-cover-img"
                             loading="eager"
                             itemProp="image"
-                          />
+                           width="800" height="600" />
                         </div>
                       )}
                       <div className="book-hero-info">
@@ -193,7 +252,7 @@ const InsightDetail = () => {
                             alt={`${pageTitle} Back Cover`}
                             className="book-cover-img"
                             loading="lazy"
-                          />
+                           width="800" height="600" />
                         </div>
                       </div>
                     )}
@@ -208,38 +267,171 @@ const InsightDetail = () => {
                           className="article-featured-img"
                           loading="eager"
                           itemProp="image"
-                        />
+                         width="800" height="600" />
                       </div>
                     )}
 
                     <div className="article-full-text" itemProp="articleBody">
-                      {insight.full.split('\n\n').map((para, idx) => {
-                        const imgMatch = para.match(/^\[IMAGE_(\d+)\]$/);
-                        if (imgMatch && insight.inlineImages) {
-                          const key = `IMAGE_${imgMatch[1]}`;
-                          const src = insight.inlineImages[key] ? getBookArticleImage(insight.inlineImages[key]) : null;
-                          if (src) return (
-                            <figure key={idx} className="article-inline-figure">
-                              <img src={src} alt="" className="article-inline-img" loading="lazy" />
-                            </figure>
-                          );
+                      {(() => {
+                        const paras = insight.full.split('\n\n');
+                        const nodes = [];
+                        let i = 0;
+                        while (i < paras.length) {
+                          const para = paras[i];
+
+                          // FAQ section: triggered by ## Frequently Asked Questions heading
+                          // Collects all ### Q + following plain-para answers until --- or next ##
+                          if (/^##\s+Frequently Asked Questions/i.test(para.trim())) {
+                            i++; // skip the heading itself
+                            const faqItems = [];
+                            while (i < paras.length) {
+                              const p = paras[i];
+                              if (p.trim() === '---' || /^##\s+/.test(p.trim())) break;
+                              const ls = p.split('\n');
+                              const isQ = /^###\s+/.test(ls[0].trim()) && !/^###\s+\d{2}\./.test(ls[0].trim());
+                              if (isQ) {
+                                const q = ls[0].replace(/^###\s+/, '').trim();
+                                const answerParts = ls.slice(1).join(' ').trim() ? [ls.slice(1).join(' ').trim()] : [];
+                                i++;
+                                // absorb following plain paragraphs as extra answer text
+                                while (i < paras.length) {
+                                  const next = paras[i];
+                                  if (next.trim() === '---' || /^##\s+/.test(next.trim()) || /^###\s+/.test(next.trim())) break;
+                                  answerParts.push(next.trim());
+                                  i++;
+                                }
+                                faqItems.push({ q, a: answerParts.join(' ') });
+                              } else {
+                                i++; // skip unexpected para inside FAQ block
+                              }
+                            }
+                            nodes.push(<ArticleFAQ key={`faq-${i}`} items={faqItems} />);
+                            continue;
+                          }
+
+                          // Standalone FAQ item outside a section (fallback)
+                          const isFaqItem = (p) => {
+                            const ls = p.split('\n');
+                            return ls.length >= 2 && /^###\s+/.test(ls[0].trim()) && !/^###\s+\d{2}\./.test(ls[0].trim());
+                          };
+                          if (isFaqItem(para)) {
+                            const faqItems = [];
+                            while (i < paras.length && isFaqItem(paras[i])) {
+                              const ls = paras[i].split('\n');
+                              faqItems.push({ q: ls[0].replace(/^###\s+/, '').trim(), a: ls.slice(1).join(' ').trim() });
+                              i++;
+                            }
+                            nodes.push(<ArticleFAQ key={`faq-${i}`} items={faqItems} />);
+                            continue;
+                          }
+
+                          // --- all other rendering below ---
+                          const idx = i;
+                          i++;
+
+                          // Inline image
+                          const imgMatch = para.match(/^\[IMAGE_(\d+)\]$/);
+                          if (imgMatch && insight.inlineImages) {
+                            const key = `IMAGE_${imgMatch[1]}`;
+                            const src = insight.inlineImages[key] ? getBookArticleImage(insight.inlineImages[key]) : null;
+                            if (src) { nodes.push(<figure key={idx} className="article-inline-figure"><img src={src} alt="" className="article-inline-img" loading="lazy"  width="800" height="600" /></figure>); continue; }
+                          }
+
+                          if (para.trim() === '---') { nodes.push(<hr key={idx} className="article-divider" />); continue; }
+
+                          const lines = para.split('\n');
+
+                          if (isQuickRefCard(para)) {
+                            const headerLine = lines[0];
+                            const qrMatch = headerLine.match(/^###\s+(\d{2})\.\s+(.+)$/);
+                            const bestForLine = lines.slice(1).find(l => /^\*\*Best For:/.test(l.trim()));
+                            const bestForText = bestForLine ? bestForLine.replace(/\*\*/g, '').replace(/^Best For:\s*/, '') : '';
+                            const namePart = qrMatch ? qrMatch[2] : headerLine.replace(/^###\s+/, '');
+                            nodes.push(
+                              <div key={idx} className="quick-ref-card">
+                                <span className="trainer-rank">{qrMatch ? qrMatch[1] : ''}</span>
+                                <div className="quick-ref-info">
+                                  <span className="quick-ref-name">{namePart}</span>
+                                  {bestForText && <span className="quick-ref-best">{bestForText}</span>}
+                                </div>
+                              </div>
+                            ); continue;
+                          }
+
+                          const trainerMatch = para.match(/^###\s+(\d{2})\.\s+(.+)$/);
+                          if (trainerMatch) { nodes.push(<div key={idx} className="trainer-card-heading"><span className="trainer-rank">{trainerMatch[1]}</span><h3 className="trainer-name">{trainerMatch[2]}</h3></div>); continue; }
+
+                          const h3Match = para.match(/^###\s+(.+)$/);
+                          if (h3Match) { nodes.push(<h3 key={idx} className="article-h3">{h3Match[1]}</h3>); continue; }
+
+                          const h2Match = para.match(/^##\s+(.+)$/);
+                          if (h2Match) { nodes.push(<div key={idx} className="article-section heading-level-2"><div className="section-header"><div className="section-icon">{getIconForSection(h2Match[1])}</div><h2 className="section-title">{h2Match[1]}</h2></div></div>); continue; }
+
+                          const h1Match = para.match(/^#\s+(.+)$/);
+                          if (h1Match) { nodes.push(<div key={idx} className="article-section heading-level-2"><div className="section-header"><div className="section-icon">{getIconForSection(h1Match[1])}</div><h2 className="section-title">{h1Match[1]}</h2></div></div>); continue; }
+
+                          if (isLocationLine(para)) { nodes.push(<p key={idx} className="trainer-location">{renderInline(para.trim())}</p>); continue; }
+                          if (isRatingLine(para))   { nodes.push(<p key={idx} className="trainer-rating">{para.trim()}</p>); continue; }
+                          if (isBestFor(para))      { nodes.push(<p key={idx} className="trainer-best-for">{para.replace(/\*\*/g, '')}</p>); continue; }
+                          if (isFocusLine(para) || isNotableFocus(para)) { nodes.push(<p key={idx} className="trainer-focus">{renderInline(para)}</p>); continue; }
+                          if (isWebsiteLine(para))  { nodes.push(<p key={idx} className="trainer-website">{renderInline(para)}</p>); continue; }
+
+                          const isList = lines.length > 1 && lines.every(l => l.trim().startsWith('- ') || l.trim().startsWith('• '));
+                          if (isList) { nodes.push(<ul key={idx} className="article-list">{lines.map((l, li) => <li key={li} className="article-list-item">{renderInline(l.replace(/^[-•]\s*/, ''))}</li>)}</ul>); continue; }
+
+                          if (lines.length > 1) {
+                            nodes.push(
+                              <div key={idx} className="mixed-block">
+                                {lines.map((l, li) => {
+                                  const trimmed = l.trim();
+                                  if (!trimmed) return null;
+                                  const bTrainer = trimmed.match(/^###\s+(\d{2})\.\s+(.+)$/);
+                                  if (bTrainer) return <div key={li} className="trainer-card-heading" style={{marginTop: li===0?0:undefined}}><span className="trainer-rank">{bTrainer[1]}</span><h3 className="trainer-name">{bTrainer[2]}</h3></div>;
+                                  const bH3 = trimmed.match(/^###\s+(.+)$/);
+                                  if (bH3) return <h3 key={li} className="article-h3" style={{marginTop: li===0?0:undefined}}>{bH3[1]}</h3>;
+                                  const bH2 = trimmed.match(/^##\s+(.+)$/);
+                                  if (bH2) return <h2 key={li} className="section-title" style={{marginTop: li===0?0:'20px'}}>{bH2[1]}</h2>;
+                                  const bH1 = trimmed.match(/^#\s+(.+)$/);
+                                  if (bH1) return <h2 key={li} className="section-title" style={{marginTop: li===0?0:'20px'}}>{bH1[1]}</h2>;
+                                  if (trimmed.startsWith('- ') || trimmed.startsWith('• ')) return <div key={li} className="mixed-bullet">{renderInline(trimmed.replace(/^[-•]\s*/, ''))}</div>;
+                                  if (/^\*\*[^*]+\*\*/.test(trimmed)) return <p key={li} className="mixed-label">{renderInline(trimmed)}</p>;
+                                  return <p key={li} className="article-paragraph" style={{marginBottom:'4px'}}>{renderInline(trimmed)}</p>;
+                                })}
+                              </div>
+                            ); continue;
+                          }
+
+                          nodes.push(<p key={idx} className="article-paragraph">{renderInline(para)}</p>);
                         }
-                        return <p key={idx}>{para}</p>;
-                      })}
+                        return nodes;
+                      })()}
                     </div>
 
                     {pdf && (
                       <div className="reader-cta-box">
                         <p>This article includes an interactive PDF companion.</p>
-                        <button
-                          className="open-reader-btn"
-                          onClick={() => navigate(`/insight/${id}/reader`)}
+                        <button className="open-reader-btn"
+                          onClick={() => navigate(`/insight/${resolvedId}/reader`)}
                           aria-label="Open full-screen PDF reader"
                         >
                           Open Full-Screen Reader <Maximize2 size={18} />
                         </button>
                       </div>
                     )}
+
+                    <div className="article-author-section">
+                      <div className="author-card">
+                        <h3>About the Author</h3>
+                        <p className="author-name">Dr. Arun Divakaran</p>
+                        <p className="author-title">AI Enabler & Corporate Trainer</p>
+                        <p className="author-bio">With 19+ years of IT leadership and international experience, Dr. Arun Divakaran has transformed over 50,000 professionals through practical AI training and leadership workshops.</p>
+                        <div className="author-cta">
+                          <Link to="/#contact" className="contact-link">
+                            Get in Touch <ArrowRight size={16} />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </>
                 )}
               </article>

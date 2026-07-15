@@ -64,7 +64,7 @@ const Workshops = () => {
           <div className="game-changer-content">
             <div className="game-changer-image-wrapper">
               <div className="game-changer-image">
-                <img src={gameChangerImg} alt="Game-Changer Workshops" loading="lazy" />
+                <img src={gameChangerImg} alt="Game-Changer Workshops" loading="lazy"  width="800" height="600" />
                 <div className="image-badge">
                   <Sparkles size={16} />
                   <span>Transformative Learning</span>

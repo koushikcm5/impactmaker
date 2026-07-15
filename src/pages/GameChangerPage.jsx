@@ -3,6 +3,7 @@ import { Sparkles, ArrowRight, FileText, Eye, Download, ChevronDown, X, External
 import Navbar from '../sections/Navbar';
 import Footer from '../sections/Footer';
 import SEOHead from '../components/SEOHead';
+import Breadcrumb from '../components/Breadcrumb';
 import { siteData } from '../data/siteData';
 import { domains } from '../data/workshopData';
 import gameChangerImg from '../assets/Gallery/others/f0e5ee81-4645-4133-a12e-f5104b7e1658.png';
@@ -35,7 +36,6 @@ const brochures = [
 
 const schemas = [
   makeBreadcrumb([
-    { name: 'Workshops', path: '/workshops/game-changer' },
     { name: 'Game-Changer Workshops', path: '/workshops/game-changer' },
   ]),
   makeServiceSchema(
@@ -91,8 +91,15 @@ const GameChangerPage = () => {
         schemas={schemas}
       />
       <Navbar />
-      <div style={{ paddingTop: '90px' }}>
-        <section className="workshops" style={{ paddingTop: '60px' }}>
+      
+      {/* Visual Breadcrumb */}
+      <Breadcrumb 
+        items={[{ name: 'Game-Changer Workshops', path: '/workshops/game-changer' }]} 
+        style={{ paddingTop: '100px' }} 
+      />
+
+      <div style={{ paddingTop: '10px' }}>
+        <section className="workshops" style={{ paddingTop: '30px' }}>
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="game-changer-section" ref={sectionRef} style={{ marginBottom: 0 }}>
               <div className="game-changer-header">
@@ -103,7 +110,7 @@ const GameChangerPage = () => {
               <div className="game-changer-content">
                 <div className="game-changer-image-wrapper">
                   <div className="game-changer-image">
-                    <img src={gameChangerImg} alt="Game-Changer Workshops" loading="lazy" />
+                    <img src={gameChangerImg} alt="Game-Changer Workshops" loading="lazy"  width="800" height="600" />
                     <div className="image-badge">
                       <Sparkles size={16} />
                       <span>Transformative Learning</span>
@@ -216,7 +223,7 @@ const GameChangerPage = () => {
                   </div>
                   <div className="corp-ws-card">
                     <div className="corp-ws-image">
-                      <img src={corporateWorkshop.image} alt={corporateWorkshop.title} loading="lazy" />
+                      <img src={corporateWorkshop.image} alt={corporateWorkshop.title} loading="lazy"  width="800" height="600" />
                       <div className="workshop-card-overlay">
                         <button
                           onClick={() => setSelectedWorkshop(corporateWorkshop)}
@@ -273,7 +280,7 @@ const GameChangerPage = () => {
             <div className="workshop-modal-content animate-modal">
               <div className="workshop-modal-visual">
                 {selectedWorkshop.intro && <p className="workshop-modal-intro">{selectedWorkshop.intro}</p>}
-                <img src={selectedWorkshop.image} alt={selectedWorkshop.title} />
+                <img src={selectedWorkshop.image} alt={selectedWorkshop.title}  width="800" height="600" />
               </div>
               <div className="workshop-modal-info">
                 <span className="workshop-modal-tag">Workshop Programme</span>

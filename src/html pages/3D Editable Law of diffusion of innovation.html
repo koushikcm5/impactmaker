@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Innovation Landscape - ImpactMaker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #020508; --teal: #00f2ff; --amber: #ffaa00; --pink: #ff007b; }
+        body { margin: 0; background: var(--bg); color: white; font-family: 'Rajdhani', sans-serif; display: flex; height: 100vh; overflow: hidden; }
+        #sidebar { width: 450px; background: #0a0d12; border-right: 1px solid #1a222d; padding: 20px; overflow-y: auto; z-index: 100; box-shadow: 10px 0 30px #000; }
+        .section-box { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #222; position: relative; }
+        h3 { font-family: 'Orbitron'; color: var(--teal); font-size: 0.7rem; margin: 0 0 10px 0; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 5px; }
+        input[type="text"] { width: 92%; background: #000; border: 1px solid #333; color: #fff; padding: 8px; margin: 5px 0; border-radius: 4px; }
+        input[type="range"] { width: 100%; margin: 8px 0; accent-color: var(--teal); }
+        .btn { cursor: pointer; padding: 10px; font-weight: bold; text-transform: uppercase; font-family: 'Orbitron'; border: none; border-radius: 4px; width: 100%; margin-top: 10px; }
+        .btn-add { background: var(--teal); color: #000; }
+        .btn-export { background: var(--amber); color: #000; font-size: 1rem; margin-top: 20px; }
+        #preview-container { flex-grow: 1; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, #0a1018 0%, #020508 100%); position: relative; }
+        canvas { max-width: 95%; max-height: 95%; cursor: crosshair; }
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <h2 style="font-family:Orbitron; color:var(--teal); margin:0 0 20px 0; letter-spacing: 2px;">3D LANDSCAPE</h2>
+    <p style="font-size:0.75rem; color:#888; margin-bottom:20px;">ImpactMaker · Innovation Diffusion</p>
+    
+    <div class="section-box">
+        <h3>Terrain Controls</h3>
+        <label style="font-size:0.7rem">Chasm Bridge Label</label>
+        <input type="text" id="chasmLabel" value="THE CHASM BRIDGE" oninput="draw()">
+        <label style="font-size:0.7rem">Chasm Shift</label>
+        <input type="range" id="chasmPos" min="10" max="90" value="25" oninput="draw()">
+        <label style="font-size:0.7rem">Mountain Height</label>
+        <input type="range" id="mountainH" min="200" max="700" value="500" oninput="draw()">
+    </div>
+
+    <div id="categories-container">
+        </div>
+    <button class="btn btn-add" onclick="addCategory()">+ Add Segment</button>
+    <button class="btn btn-export" onclick="downloadPNG()">Export 4K PNG</button>
+</div>
+
+<div id="preview-container">
+    <canvas id="canvas" width="2400" height="1350"></canvas>
+</div>
+
+<script>
+    let categories = [
+        { pct: "2.5%", t1: "Innovators", t2: "Tech-Savy", width: 15 },
+        { pct: "13.5%", t1: "Early,Adopters", t2: "Visionary", width: 15 },
+        { pct: "34%", t1: "Early,Majority", t2: "Pragmatic", width: 25 },
+        { pct: "34%", t1: "Late,Majority", t2: "Conservative", width: 25 },
+        { pct: "16%", t1: "Laggards", t2: "Sceptical", width: 20 }
+    ];
+
+    let particles = [];
+    for(let i=0; i<30; i++) {
+        particles.push({
+            x: Math.random() * 2000 + 200,
+            y: 0,
+            speed: Math.random() * 2 + 1,
+            size: Math.random() * 5 + 2,
+            offset: Math.random() * 100
+        });
+    }
+
+    function addCategory() {
+        categories.push({ pct: "10%", t1: "New", t2: "Segment", width: 15 });
+        renderControls();
+        draw();
+    }
+
+    function renderControls() {
+        const cont = document.getElementById('categories-container');
+        cont.innerHTML = '<h3>Landscape Segments</h3>';
+        categories.forEach((c, i) => {
+            const div = document.createElement('div');
+            div.className = 'section-box';
+            div.innerHTML = `
+                <input type="text" value="${c.pct}" oninput="categories[${i}].pct=this.value; draw()">
+                <input type="text" value="${c.t1}" oninput="categories[${i}].t1=this.value; draw()">
+                <input type="range" min="5" max="50" value="${c.width}" oninput="categories[${i}].width=parseInt(this.value); draw()">
+            `;
+            cont.appendChild(div);
+        });
+    }
+
+    function getCurveY(x, w, baseline, h) {
+        let relX = (x - w/2) / (w * 0.18);
+        return baseline - (h * Math.exp(-0.5 * Math.pow(relX, 2)));
+    }
+
+    function draw() {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const w = canvas.width, h = canvas.height;
+        const baseline = h - 450;
+        const mH = parseInt(document.getElementById('mountainH').value);
+        
+        ctx.clearRect(0, 0, w, h);
+
+        // 1. Draw 3D Mountain Surface (Isometric feel)
+        const margin = 200;
+        ctx.beginPath();
+        ctx.moveTo(margin, baseline);
+        for(let x = margin; x <= w - margin; x++) {
+            ctx.lineTo(x, getCurveY(x, w, baseline, mH));
+        }
+        ctx.lineTo(w - margin, baseline + 100);
+        ctx.lineTo(margin, baseline + 100);
+        ctx.closePath();
+
+        const terrainGrad = ctx.createLinearGradient(0, baseline - mH, 0, baseline + 100);
+        terrainGrad.addColorStop(0, '#00f2ff');
+        terrainGrad.addColorStop(0.3, '#004466');
+        terrainGrad.addColorStop(1, '#050a10');
+        ctx.fillStyle = terrainGrad;
+        ctx.fill();
+
+        // 2. Animated Stream/Fish (Particles)
+        particles.forEach(p => {
+            p.x -= p.speed;
+            if(p.x < margin) p.x = w - margin;
+            let currentY = getCurveY(p.x, w, baseline, mH);
+            ctx.fillStyle = "rgba(0, 242, 255, 0.6)";
+            ctx.shadowBlur = 10; ctx.shadowColor = varteal = "#00f2ff";
+            ctx.beginPath();
+            ctx.ellipse(p.x, currentY - 10, p.size * 2, p.size, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        });
+
+        // 3. Fences & Categories
+        const totalW = categories.reduce((a, b) => a + b.width, 0);
+        let curX = margin;
+        
+        categories.forEach((cat, i) => {
+            let segW = ((w - 2*margin) * cat.width) / totalW;
+            let midX = curX + segW/2;
+
+            // Draw 3D "Fence" Pillar
+            if(i > 0) {
+                ctx.fillStyle = "rgba(0, 242, 255, 0.2)";
+                ctx.fillRect(curX - 5, getCurveY(curX, w, baseline, mH), 10, 450);
+                ctx.strokeStyle = varteal; ctx.lineWidth = 2;
+                ctx.strokeRect(curX - 5, getCurveY(curX, w, baseline, mH), 10, 450);
+            }
+
+            // Text
+            ctx.textAlign = "center";
+            ctx.font = "bold 45px Orbitron";
+            ctx.fillStyle = "white";
+            ctx.fillText(cat.pct, midX, baseline - 50);
+
+            ctx.font = "bold 40px Rajdhani";
+            ctx.fillStyle = "var(--teal)";
+            let lines = cat.t1.split(',');
+            lines.forEach((l, li) => ctx.fillText(l.toUpperCase(), midX, baseline + 80 + (li * 45)));
+
+            curX += segW;
+        });
+
+        // 4. The Chasm Bridge
+        const cX = margin + (w - 2*margin) * (document.getElementById('chasmPos').value/100);
+        ctx.strokeStyle = "#ffaa00"; ctx.lineWidth = 15;
+        ctx.beginPath(); ctx.moveTo(cX, 100); ctx.lineTo(cX, h - 100); ctx.stroke();
+        
+        ctx.save();
+        ctx.translate(cX - 30, h/2); ctx.rotate(-Math.PI/2);
+        ctx.font = "bold 50px Orbitron"; ctx.fillStyle = "#ffaa00";
+        ctx.fillText(document.getElementById('chasmLabel').value, 0, 0);
+        ctx.restore();
+
+        requestAnimationFrame(draw);
+    }
+
+    function downloadPNG() {
+        const link = document.createElement('a');
+        link.download = 'Innovation-3D-Mountain.png';
+        link.href = document.getElementById('canvas').toDataURL("image/png");
+        link.click();
+    }
+
+    window.onload = () => { renderControls(); draw(); };
+</script>
+</body>
+</html>

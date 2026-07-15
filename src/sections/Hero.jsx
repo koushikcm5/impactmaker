@@ -107,7 +107,7 @@ const Hero = ({ data }) => {
                   src={arunPhoto}
                   alt="Dr. Arun Divakaran — AI Trainer, Business Intelligence Enabler, Strategist"
                   className="hero-photo-img"
-                />
+                 width="800" height="600" />
                 <div className="hero-photo-badge">
                   <span className="hero-photo-badge-dot" aria-hidden="true" />
                   AI Trainer &amp; Strategist

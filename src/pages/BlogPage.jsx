@@ -4,6 +4,7 @@ import Insights from '../sections/Insights';
 import FAQ from '../sections/FAQ';
 import Footer from '../sections/Footer';
 import SEOHead from '../components/SEOHead';
+import Breadcrumb from '../components/Breadcrumb';
 import { siteData } from '../data/siteData';
 import { PAGE_SEO, SITE_URL, SITE_NAME, FOUNDER_NAME, makeBreadcrumb, BLOG_CATEGORIES } from '../utils/seoConfig';
 
@@ -30,7 +31,7 @@ const blogSchemas = [
       '@type': 'BlogPosting',
       headline: post.seoTitle || post.title,
       description: post.metaDescription || post.excerpt,
-      url: `${SITE_URL}/insight/${post.id}`,
+      url: `${SITE_URL}/insight/${post.slug || post.id}`,
       datePublished: post.publishedDate || '2024-01-01',
       dateModified: post.modifiedDate || '2025-01-01',
       keywords: post.tags ? post.tags.join(', ') : post.focusKeyword,
@@ -58,27 +59,11 @@ const BlogPage = () => (
 
     <Navbar />
 
-    {/* Breadcrumb — visible + semantic */}
-    <div style={{ paddingTop: '120px', background: '#f9fbff', borderBottom: '1px solid #e5eaf3' }}>
-      <div className="container">
-        <nav aria-label="Breadcrumb" style={{ padding: '0.9rem 0', fontSize: '0.85rem', color: '#666' }}>
-          <ol style={{ display: 'flex', gap: '0.5rem', listStyle: 'none', margin: 0, padding: 0 }}
-            itemScope itemType="https://schema.org/BreadcrumbList">
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link to="/" itemProp="item" style={{ color: '#1659a7', textDecoration: 'none' }}>
-                <span itemProp="name">Home</span>
-              </Link>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li aria-hidden="true">›</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name">Blog &amp; Articles</span>
-              <meta itemProp="position" content="2" />
-            </li>
-          </ol>
-        </nav>
-      </div>
-    </div>
+    {/* Reusable visual Breadcrumb */}
+    <Breadcrumb 
+      items={[{ name: 'Blog & Articles', path: '/blog' }]} 
+      style={{ paddingTop: '110px' }} 
+    />
 
     <div>
       <Insights data={siteData.blog} />

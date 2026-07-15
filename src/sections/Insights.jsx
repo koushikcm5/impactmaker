@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { MapPin } from 'lucide-react';
 import InsightCard from '../components/InsightCard';
 import { getArticleAssets, getBookArticleImage } from '../utils/assetLoader';
 import { BLOG_CATEGORIES } from '../utils/seoConfig';
@@ -99,7 +100,7 @@ const Insights = ({ data }) => {
             >
               <InsightCard
                 {...insight}
-                onClick={() => navigate(`/insight/${insight.id}`)}
+                onClick={() => navigate(`/insight/${insight.slug || insight.id}`)}
                 isBook={!insight.isArticle}
               />
             </div>
@@ -123,7 +124,7 @@ const Insights = ({ data }) => {
                 >
                   <InsightCard
                     {...insight}
-                    onClick={() => navigate(`/insight/${insight.id}`)}
+                    onClick={() => navigate(`/insight/${insight.slug || insight.id}`)}
                     isArticle={insight.isArticle}
                   />
                 </div>
@@ -166,11 +167,144 @@ const Insights = ({ data }) => {
                   >
                     <InsightCard
                       {...insight}
-                      onClick={() => navigate(`/insight/${insight.id}`)}
+                      onClick={() => navigate(`/insight/${insight.slug || insight.id}`)}
                       isBook={!insight.isArticle}
                     />
                   </div>
                 ))}
+              </div>
+
+              {/* ── SEO Topic Authority Hub ── */}
+              <div className="insights-seo-hub">
+                <div className="insights-seo-hub-header">
+                  <span className="insights-seo-hub-eyebrow">Expert Knowledge Hub</span>
+                  <h3 className="insights-seo-hub-title">AI Training, Leadership &amp; Digital Transformation</h3>
+                  <p className="insights-seo-hub-sub">Explore expert perspectives, corporate training programs, and AI adoption strategies by Dr. Arun Divakaran — India's leading AI trainer and keynote speaker.</p>
+                </div>
+
+                <div className="insights-seo-clusters">
+
+                  <div className="insights-seo-cluster">
+                    <h4 className="insights-seo-cluster-title">AI Training Programs</h4>
+                    <div className="insights-seo-tags">
+                      {[
+                        'Top AI Trainer in India','Top AI Trainers in India','Best AI Trainer in India',
+                        'Corporate AI Trainer','Enterprise AI Trainer','Corporate AI Training India',
+                        'AI Workshop India','AI Workshop Tamil Nadu','AI Workshop Coimbatore',
+                        'AI for Business','AI for Executives','AI for Leaders',
+                        'AI Readiness Assessment','AI Productivity Training','AI Automation Workshop',
+                      ].map(kw => (
+                        <span key={kw} className="insights-seo-tag">{kw}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="insights-seo-cluster">
+                    <h4 className="insights-seo-cluster-title">Generative &amp; Agentic AI</h4>
+                    <div className="insights-seo-tags">
+                      {[
+                        'Generative AI Trainer India','Generative AI Trainer Tamil Nadu','Generative AI Trainer Coimbatore',
+                        'Best Generative AI Trainer in India','Agentic AI Trainer','Agentic AI Trainer India',
+                        'Prompt Engineering Trainer','Prompt Engineering Workshop',
+                        'Claude AI Trainer','Claude AI Training India','Claude Corporate Training',
+                        'ChatGPT Trainer','ChatGPT Corporate Trainer',
+                        'Google Gemini Trainer','Gemini AI Trainer',
+                        'Microsoft Copilot Trainer','Copilot Corporate Training',
+                      ].map(kw => (
+                        <span key={kw} className="insights-seo-tag">{kw}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="insights-seo-cluster">
+                    <h4 className="insights-seo-cluster-title">Keynote Speaking</h4>
+                    <div className="insights-seo-tags">
+                      {[
+                        'AI Keynote Speaker','Best AI Keynote Speaker',
+                        'Best Keynote Speaker in India','Best Keynote Speaker in Tamil Nadu','Best Keynote Speaker in Coimbatore',
+                        'AI Speaker India','Future of AI Speaker',
+                        'AI Transformation Speaker','Artificial Intelligence Speaker',
+                        'Innovation Speaker',
+                      ].map(kw => (
+                        <span key={kw} className="insights-seo-tag">{kw}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="insights-seo-cluster">
+                    <h4 className="insights-seo-cluster-title">Leadership &amp; Innovation</h4>
+                    <div className="insights-seo-tags">
+                      {[
+                        'Best AI Leadership Trainer in India','Best AI Leadership Trainer in Tamil Nadu','Best AI Leadership Trainer in Coimbatore',
+                        'AI Consulting India','Enterprise AI Consultant',
+                        'Design Thinking Trainer','Innovation Workshop',
+                        'Enterprise Agile Trainer','Leadership Trainer',
+                        'Corporate Trainer India','Future Skills Trainer',
+                        'Digital Transformation Trainer','Responsible AI Training','AI Governance Workshop',
+                      ].map(kw => (
+                        <span key={kw} className="insights-seo-tag">{kw}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="insights-seo-cluster">
+                    <h4 className="insights-seo-cluster-title">Regional Expertise</h4>
+                    <div className="insights-seo-tags">
+                      {[
+                        'Top AI Trainer in Tamil Nadu','Top AI Trainers in Tamil Nadu',
+                        'Top AI Trainer in Coimbatore','Top AI Trainers in Coimbatore',
+                        'Generative AI Trainer Coimbatore','Generative AI Trainer Tamil Nadu',
+                        'Best AI Leadership Trainer in Coimbatore',
+                      ].map(kw => (
+                        <span key={kw} className="insights-seo-tag insights-seo-tag--accent">{kw}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div className="insights-regional-hub">
+                <div className="insights-regional-header">
+                  <span className="insights-regional-title">Top AI Trainers In</span>
+                </div>
+                <div className="insights-regional-grid">
+                  <Link to="/top-ai-trainer-india" className="insights-regional-link">
+                    <MapPin size={15} /> Top AI Trainers in India
+                  </Link>
+                  <Link to="/ai-trainer-tamil-nadu" className="insights-regional-link">
+                    <MapPin size={15} /> Top AI Trainers in Tamil Nadu
+                  </Link>
+                  <Link to="/ai-trainer-coimbatore" className="insights-regional-link">
+                    <MapPin size={15} /> Top AI Trainers in Coimbatore
+                  </Link>
+                  <Link to="/best-ai-keynote-speaker-india" className="insights-regional-link">
+                    <MapPin size={15} /> Best AI Keynote Speaker India
+                  </Link>
+                  <Link to="/corporate-ai-workshops-india" className="insights-regional-link">
+                    <MapPin size={15} /> Corporate AI Workshops India
+                  </Link>
+                  <Link to="/top-10-claude-ai-trainers-india-2026" className="insights-regional-link">
+                    <MapPin size={15} /> Top Claude AI Trainers India 2026
+                  </Link>
+                  <Link to="/best-keynote-speaker-coimbatore" className="insights-regional-link">
+                    <MapPin size={15} /> Best Keynote Speaker in Coimbatore
+                  </Link>
+                  <Link to="/generative-ai-trainer-india" className="insights-regional-link">
+                    <MapPin size={15} /> Top Generative AI Trainer India
+                  </Link>
+                  <Link to="/generative-ai-trainer-coimbatore" className="insights-regional-link">
+                    <MapPin size={15} /> Generative AI Trainer Coimbatore
+                  </Link>
+                  <Link to="/generative-ai-trainer-tamil-nadu" className="insights-regional-link">
+                    <MapPin size={15} /> Generative AI Trainer Tamil Nadu
+                  </Link>
+                  <Link to="/agentic-ai-trainer-india" className="insights-regional-link">
+                    <MapPin size={15} /> Agentic AI Trainer India
+                  </Link>
+                  <Link to="/prompt-engineering-trainer-india" className="insights-regional-link">
+                    <MapPin size={15} /> Prompt Engineering Trainer India
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

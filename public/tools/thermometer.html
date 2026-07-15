@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate Thermometer - ImpactMaker</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --asset: #00C9A7;
+    --transition: #F5A623;
+    --liability: #E8455A;
+    --dark: #0D0F1A;
+    --card: #141626;
+    --border: rgba(255,255,255,0.07);
+    --text: #F0F2FF;
+    --muted: #8890B0;
+  }
+
+  body {
+    background: linear-gradient(135deg, #0D0F1A 0%, #1a1a2e 100%);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+  }
+
+  .infographic {
+    width: 900px;
+    max-width: 100%;
+    position: relative;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--asset), var(--transition), var(--liability));
+    margin: 16px auto 0;
+    border-radius: 2px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 30%, #8890B0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 12px;
+    font-weight: 400;
+  }
+
+  /* THERMOMETER VISUAL */
+  .thermometer-section {
+    display: flex;
+    gap: 32px;
+    align-items: stretch;
+    margin-bottom: 40px;
+  }
+
+  .thermo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
+    flex-shrink: 0;
+  }
+  .thermo-tube {
+    width: 40px;
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border-radius: 20px 20px 0 0;
+    border: 2px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.3);
+  }
+  .thermo-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    height: 85%;
+    background: linear-gradient(0deg, var(--liability) 0%, var(--transition) 45%, var(--asset) 100%);
+    border-radius: 0;
+    animation: fillUp 2s ease forwards;
+  }
+  @keyframes fillUp {
+    from { height: 0%; }
+    to { height: 85%; }
+  }
+  .thermo-bulb {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--liability), #c73648);
+    border: 2px solid rgba(232,69,90,0.5);
+    box-shadow: 0 0 30px rgba(232,69,90,0.6), 0 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: white;
+  }
+
+  .stage-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  .asset .stage-icon {
+    background: rgba(0,201,167,0.2);
+    color: var(--asset);
+  }
+  .transition .stage-icon {
+    background: rgba(245,166,35,0.2);
+    color: var(--transition);
+  }
+  .liability .stage-icon {
+    background: rgba(232,69,90,0.2);
+    color: var(--liability);
+  }
+
+  /* STAGE CARDS */
+  .stages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stage-card {
+    background: linear-gradient(135deg, var(--card) 0%, rgba(20,22,38,0.8) 100%);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 26px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .stage-card:hover { 
+    transform: translateX(6px); 
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+  .stage-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    border-radius: 5px 0 0 5px;
+  }
+  .stage-card.asset::before { background: var(--asset); }
+  .stage-card.transition::before { background: var(--transition); }
+  .stage-card.liability::before { background: var(--liability); }
+
+  .stage-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .stage-badge {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .asset .stage-badge { background: rgba(0,201,167,0.15); color: var(--asset); }
+  .transition .stage-badge { background: rgba(245,166,35,0.15); color: var(--transition); }
+  .liability .stage-badge { background: rgba(232,69,90,0.15); color: var(--liability); }
+
+  .stage-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .stage-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .stage-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+  }
+  .meta-pill {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    color: #aab;
+  }
+
+  /* DIVIDER ARROW */
+  .arrow-down {
+    text-align: center;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1;
+    margin: -4px 0;
+  }
+
+  /* CTE FRAMEWORK */
+  .framework {
+    background: linear-gradient(135deg, var(--card) 0%, rgba(20,22,38,0.9) 100%);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+  }
+  .framework::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,201,167,0.08) 0%, transparent 70%);
+  }
+  .framework-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .framework-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .cte-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .cte-item {
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .cte-item:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+  .cte-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .cte-item:nth-child(1) .cte-letter { color: var(--asset); }
+  .cte-item:nth-child(2) .cte-letter { color: var(--transition); }
+  .cte-item:nth-child(3) .cte-letter { color: #A78BFA; }
+
+  .cte-word {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .cte-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* CTC vs CTE BAR */
+  .contrast-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .contrast-card {
+    border-radius: 16px;
+    padding: 26px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .contrast-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  }
+  .contrast-card.ctc {
+    background: linear-gradient(135deg, rgba(232,69,90,0.12), rgba(232,69,90,0.08));
+    border: 2px solid rgba(232,69,90,0.25);
+  }
+  .contrast-card.cte {
+    background: linear-gradient(135deg, rgba(0,201,167,0.12), rgba(0,201,167,0.08));
+    border: 2px solid rgba(0,201,167,0.25);
+  }
+  .contrast-acronym {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+  }
+  .ctc .contrast-acronym { color: var(--liability); }
+  .cte .contrast-acronym { color: var(--asset); }
+  .contrast-full {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 4px 0 10px;
+    opacity: 0.8;
+  }
+  .contrast-tagline {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .vs-divider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .contrast-wrapper {
+    position: relative;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+  }
+  .footer-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 10px;
+    opacity: 0.85;
+  }
+  .footer-credit {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .thermometer-section { flex-direction: column; align-items: center; }
+    .thermo-wrap { flex-direction: row; width: 100%; gap: 12px; }
+    .thermo-tube { min-height: 60px; width: 100%; flex: none; height: 60px; border-radius: 18px; }
+    .thermo-fill { width: 80%; right: auto; height: 100%; }
+    .thermo-bulb { flex-shrink: 0; }
+    .cte-grid { grid-template-columns: 1fr; }
+    .contrast-bar { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="infographic">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="eyebrow"> A Corporate Career Framework</div>
+    <h1>The Corporate Thermometer</h1>
+    <p class="sub">Are you an asset or a liability to your organization?</p>
+  </div>
+
+  <!-- THERMOMETER + STAGES -->
+  <div class="thermometer-section">
+    <div class="thermo-wrap">
+      <div class="thermo-tube"><div class="thermo-fill"></div></div>
+      <div class="thermo-bulb"><i class="fas fa-temperature-high"></i></div>
+    </div>
+    <div class="stages">
+      <div class="stage-card asset">
+        <div class="stage-header">
+          <span class="stage-badge">Zone 1</span>
+          <span class="stage-title">Asset Zone</span>
+          <span class="stage-icon"><i class="fas fa-check-circle"></i></span>
+        </div>
+        <div class="stage-desc">Fresh talent, high billing margins. The company profits directly from your output. You generate more than you cost.</div>
+        <div class="stage-meta">
+          <span class="meta-pill">Entry to Mid-level</span>
+          <span class="meta-pill">Revenue Generator</span>
+          <span class="meta-pill">Low CTC, High Billing</span>
+        </div>
+      </div>
+
+      <div class="arrow-down">↓</div>
+
+      <div class="stage-card transition">
+        <div class="stage-header">
+          <span class="stage-badge">Zone 2</span>
+          <span class="stage-title">Transition Zone</span>
+          <span class="stage-icon"><i class="fas fa-exclamation-triangle"></i></span>
+        </div>
+        <div class="stage-desc">Salary rises, direct revenue impact blurs. Value is real but harder to measure. You're at a crossroads — upskill or drift.</div>
+        <div class="stage-meta">
+          <span class="meta-pill">Mid to Senior</span>
+          <span class="meta-pill">Value is Indirect</span>
+          <span class="meta-pill"><i class="fas fa-exclamation-circle"></i> Critical Decision Point</span>
+        </div>
+      </div>
+
+      <div class="arrow-down">↓</div>
+
+      <div class="stage-card liability">
+        <div class="stage-header">
+          <span class="stage-badge">Zone 3</span>
+          <span class="stage-title">Liability Zone</span>
+          <span class="stage-icon"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="stage-desc">Seen as a cost center. High CTC with no visible ROI. Vulnerable in layoffs and AI-driven restructuring.</div>
+        <div class="stage-meta">
+          <span class="meta-pill">Senior+ stagnant</span>
+          <span class="meta-pill">Cost Center Label</span>
+          <span class="meta-pill"><i class="fas fa-bolt"></i> AI Disruption Risk</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTC vs CTE -->
+  <div class="contrast-wrapper" style="margin-bottom:40px;">
+    <div class="contrast-bar">
+      <div class="contrast-card ctc">
+        <div class="contrast-acronym">CTC</div>
+        <div class="contrast-full">Cost to Company</div>
+        <div class="contrast-tagline">How your employer sees you on a spreadsheet. A number. A cost line. A variable to be optimized.</div>
+      </div>
+      <div class="contrast-card cte">
+        <div class="contrast-acronym">CTE</div>
+        <div class="contrast-full">Commit to Excellence</div>
+        <div class="contrast-tagline">How you fight back. A mindset shift that turns your career into a value engine no one can ignore.</div>
+      </div>
+    </div>
+    <div class="vs-divider">VS</div>
+  </div>
+
+  <!-- CTE FRAMEWORK -->
+  <div class="framework">
+    <div class="framework-title">The CTE Framework</div>
+    <div class="framework-sub">Your 3-step playbook to move from cost center → value creator</div>
+    <div class="cte-grid">
+      <div class="cte-item">
+        <div class="cte-letter">C</div>
+        <div class="cte-word">Clarify Your USP</div>
+        <div class="cte-desc">Identify the one skill you do better than anyone else that's critical to the business. Own it. Brand it.</div>
+      </div>
+      <div class="cte-item">
+        <div class="cte-letter">T</div>
+        <div class="cte-word">Translate to Value</div>
+        <div class="cte-desc">Show explicitly how your work drives revenue or saves cost. Numbers speak louder than job titles.</div>
+      </div>
+      <div class="cte-item">
+        <div class="cte-letter">E</div>
+        <div class="cte-word">Evolve with AI</div>
+        <div class="cte-desc">Get strategic certifications — especially in AI — that make you indispensable, not replaceable.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER QUOTE -->
+  <div class="footer">
+    <div class="footer-quote">"Stop being a cost on a spreadsheet. Start being a value no one can afford to lose."</div>
+    <div class="footer-credit">The Corporate Thermometer · A Framework by ImpactMaker</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -50,6 +50,26 @@ const faqs = [
   {
     q: 'How can organizations book a workshop or keynote session?',
     a: 'Organizations can connect directly through the contact or enquiry section to schedule customized workshops, keynote speeches, leadership programs, or AI transformation sessions.'
+  },
+  {
+    q: 'Who is the best Claude AI trainer in India in 2026?',
+    a: 'Arun Divakaran is widely recognized as one of India\'s leading Claude AI trainers, known for delivering enterprise-focused Claude AI programs, executive AI workshops, leadership transformation initiatives, AI strategy consulting, and organization-wide AI adoption programs. His implementation-first approach makes him a preferred choice for companies seeking measurable business outcomes.'
+  },
+  {
+    q: 'What makes Claude AI different from ChatGPT?',
+    a: 'Claude excels in long-context reasoning, document analysis, enterprise collaboration, responsible AI, business writing, and knowledge management. Its ecosystem includes Claude Code, Projects, Artifacts, Team Workspaces, AI Agents, and MCP integrations, making it especially suitable for enterprise environments.'
+  },
+  {
+    q: 'Does Arun Divakaran provide corporate Claude AI training?',
+    a: 'Yes. Arun delivers onsite and virtual Claude AI workshops across India covering executive leadership, AI strategy, enterprise AI adoption, Claude implementation, AI productivity, automation, and responsible AI including DPDP compliance.'
+  },
+  {
+    q: 'What is covered in a Claude AI enterprise training program?',
+    a: 'Enterprise Claude training covers Claude 4 Models (Haiku, Sonnet & Opus), Claude Code, Claude Projects, Claude Artifacts, Claude Team Workspace, AI Agents, MCP (Model Context Protocol), enterprise automation, responsible AI, DPDP compliance, prompt engineering, and business process automation.'
+  },
+  {
+    q: 'Is Arun Divakaran the top AI trainer in Coimbatore and Tamil Nadu?',
+    a: 'Yes. Arun Divakaran is recognized as the Top AI Trainer in Coimbatore, Top AI Trainer in Tamil Nadu, and Best Keynote Speaker in Coimbatore. He delivers Generative AI training, Claude AI workshops, corporate leadership programs, and keynote sessions across Tamil Nadu and pan India.'
   }
 ];
 
