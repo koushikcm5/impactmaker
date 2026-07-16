@@ -700,36 +700,6 @@ For top-down AI strategy, governance, and leadership alignment, **Arun Divakaran
       full: "Design Thinking has evolved from a buzzword into a measurable business capability for leading Indian enterprises. Organizations like Infosys, TCS, and hundreds of MSMEs are using Design Thinking frameworks to reduce product failures, improve customer satisfaction, and foster a culture of innovation.\n\nAt its core, Design Thinking is a human-centered approach to problem-solving. It starts not with solutions, but with deep empathy for the people who face the problem.\n\nThe 5 Stages of Design Thinking:\n\n1. Empathize: Understand the real needs, pain points, and motivations of your customers or employees — through observation, interviews, and immersive research.\n\n2. Define: Synthesize your research into a clear, compelling problem statement that captures the human need you are solving.\n\n3. Ideate: Generate a wide range of creative solutions without judgment — using brainstorming, mind mapping, and lateral thinking techniques.\n\n4. Prototype: Build quick, low-cost representations of your best ideas to test and learn from rapidly.\n\n5. Test: Put your prototypes in front of real users, gather feedback, and iterate — continuously improving until you reach a solution that truly works.\n\nWhen combined with AI tools, Design Thinking becomes exponentially more powerful. AI can accelerate the empathy stage through sentiment analysis, supercharge ideation through Generative AI, and validate prototypes through rapid A/B testing.\n\nDr. Arun Divakaran's hands-on Design Thinking workshops for corporates in India combine this proven framework with practical AI integration — equipping teams to innovate faster and more effectively."
     },
     {
-      id: 16,
-      title: "COMPLETE BACKLINK BUILDING CHECKLIST",
-      slug: "backlink-building-checklist-seo-success",
-      seoTitle: "Complete Backlink Building Checklist for SEO Success | Step-by-Step Guide",
-      metaDescription: "Master backlink building with this comprehensive checklist. Learn high-quality link-building strategies, tactics, and best practices by Dr. Arun Divakaran.",
-      focusKeyword: "backlink building checklist SEO strategy",
-      category: "SEO Strategy",
-      tags: ["SEO Strategy", "Backlink Building", "Link Building Tactics", "Digital Transformation", "SEO for Business"],
-      publishedDate: "2025-06-15T00:00:00+05:30",
-      modifiedDate: "2025-06-15T00:00:00+05:30",
-      readTime: "12 min read",
-      excerpt: "Backlinks remain one of Google's top ranking factors. This comprehensive checklist provides a systematic approach to building high-quality, relevant backlinks that strengthen your domain authority and improve SERP rankings.",
-      full: "Backlinks remain one of the three most important ranking factors in Google's algorithm. This comprehensive checklist provides a systematic approach to building high-quality, relevant backlinks that strengthen your domain authority, improve SERP rankings, and drive referral traffic.\n\nThe checklist covers: Pre-backlink strategy foundation, content-first backlink foundations, outreach strategy, niche-specific link building tactics, and advanced backlink strategies. Includes monthly implementation roadmap, success metrics tracking, and common pitfalls to avoid.\n\nKey sections: Resource link building (scalable approach), relationship-based link building, broken link building, competitor link monitoring, and industry-specific tactics for B2B SaaS, e-commerce, service businesses, and educational content.\n\nQuality over quantity. Relevance over metrics. Patience over manipulation. The best backlink strategy is not about gaming Google—it's about creating such valuable content that other websites want to link to you."
-    },
-    {
-      id: 17,
-      title: "GOOGLE MY BUSINESS OPTIMIZATION GUIDE 2025",
-      slug: "google-my-business-optimization-guide-2025",
-      seoTitle: "Google My Business Optimization Guide 2025 | Complete Local SEO Mastery",
-      metaDescription: "Dominate local search results with this complete Google My Business optimization guide. Learn GMB best practices, profile optimization, and local SEO strategies by Dr. Arun Divakaran.",
-      focusKeyword: "Google My Business optimization local SEO 2025",
-      category: "Local SEO",
-      tags: ["Local SEO", "Google My Business", "Local Business Marketing", "Digital Transformation", "Business Growth"],
-      publishedDate: "2025-06-18T00:00:00+05:30",
-      modifiedDate: "2025-06-18T00:00:00+05:30",
-      readTime: "14 min read",
-      excerpt: "82% of consumers use Google Maps to find local businesses. This complete GMB optimization guide helps you dominate local search results and turn searchers into customers through systematic profile optimization.",
-      full: "Google My Business is the cornerstone of local SEO success. With 76% of people who search for a local business on mobile visiting that business within 24 hours, optimizing your GMB profile is non-negotiable.\n\nThis guide provides step-by-step approach to: Profile verification and setup, complete business information optimization, categories and service area selection, visual content optimization, customer review management, post and content strategy, advanced GMB features (Q&A, messaging, appointments), and performance tracking.\n\nIncludes: 30-day implementation plan, mobile optimization checklist, industry-specific tips for service businesses, restaurants, retail stores, and professional services. Plus monthly maintenance checklist, common mistakes to avoid, and metrics to track for measuring GMB success.\n\nYour Google My Business profile is often the first impression potential customers have. A well-optimized profile doesn't just improve local rankings—it builds trust, encourages reviews, and drives measurable business results."
-    },
-    {
       id: 19,
       title: "TOP 10 AI TRAINERS WHO TEACH CLAUDE IN INDIA IN 2026",
       slug: "top-10-claude-ai-trainers-india-2026",
@@ -1031,21 +1001,6 @@ Claude is a trademark of Anthropic PBC. This article is an independent editorial
 ---
 
  Best Claude AI Trainer India • Top Claude AI Trainers India • Claude AI Corporate Training India • Enterprise Claude AI Training • Claude AI Workshop India • Claude AI Consultant India • Claude AI Expert India • Claude AI Leadership Training • Anthropic Claude Training India • AI Trainer India 2026 • Arun Divakaran Claude AI • ImpactMaker Claude AI Training`
-    },
-    {
-      id: 18,
-      title: "BLOG POST TEMPLATES FOR LONG-TAIL KEYWORDS",
-      slug: "blog-post-templates-long-tail-keywords-seo",
-      seoTitle: "Blog Post Templates Targeting Long-Tail Keywords | 8 Proven Templates",
-      metaDescription: "Ready-to-use blog post templates designed to capture long-tail keyword searches. 8 proven templates for SEO success by Dr. Arun Divakaran.",
-      focusKeyword: "blog post templates long-tail keywords SEO",
-      category: "Content Strategy",
-      tags: ["Content Strategy", "Long-Tail Keywords", "Blog Writing", "SEO Strategy", "Content Marketing"],
-      publishedDate: "2025-06-20T00:00:00+05:30",
-      modifiedDate: "2025-06-20T00:00:00+05:30",
-      readTime: "10 min read",
-      excerpt: "Long-tail keywords account for 70% of search traffic with significantly lower competition. This guide provides 8 ready-to-use blog post templates designed to capture long-tail searches and rank faster.",
-      full: "Long-tail keywords (3+ word phrases) account for 70% of all search traffic and have significantly lower competition than head terms. This comprehensive guide provides ready-to-use blog post templates designed to capture long-tail keyword searches while providing genuine value to readers.\n\nIncludes 8 proven templates: How-To Posts (problem-solving), Best [Thing] List Posts (comparison/discovery), Complete Guides (pillar content), [Number] Reasons Why/How Posts, Comparison Posts ([A] vs [B]), Trend Posts (timely content), Beginner's Guide, and Problem-Solution Posts.\n\nEach template includes: Complete structure with word count guidance, introduction strategy, content organization, section breakdown with specific elements, FAQ section format, conclusion and CTA strategy.\n\nPlus: SEO optimization tips for all templates (keyword integration, structure, content quality, link building), guidance on creating your content calendar, and quick reference template selection guide matching long-tail keyword patterns to appropriate templates.\n\nMaster long-tail content and you've mastered SEO. These templates eliminate guesswork and help you create optimized, reader-focused content that ranks and converts."
     },
     {
       id: 20,
