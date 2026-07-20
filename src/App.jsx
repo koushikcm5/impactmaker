@@ -9,6 +9,7 @@ import Testimonials from './sections/Testimonials';
 import About from './sections/About';
 import CTA from './sections/CTA';
 import Footer from './sections/Footer';
+import RecentGallery from './sections/RecentGallery';
 import ScrollToTop from './components/ScrollToTop';
 import BookPromoWidget from './components/BookPromoWidget';
 import NetworkCanvas from './components/NetworkCanvas';
@@ -89,6 +90,7 @@ const HomePage = () => (
     />
     <Navbar />
     <Hero data={siteData.hero} />
+    <RecentGallery />
     <Trust data={siteData.trust} />
     <Clients />
     <Workshops />

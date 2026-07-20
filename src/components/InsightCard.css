@@ -1,22 +1,28 @@
+/* ══════════════════════════════════════════════════════════
+   InsightCard — Premium Blog/Book Card
+   ══════════════════════════════════════════════════════════ */
+
 .insight-card-modern {
-  background: white;
-  border-radius: 24px;
+  background: #ffffff;
+  border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(22, 32, 51, 0.08);
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
   display: flex;
   flex-direction: column;
   position: relative;
   cursor: pointer;
   height: 100%;
+  box-shadow: 0 2px 12px rgba(22, 32, 51, 0.05);
 }
 
 .insight-card-modern:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 30px 60px rgba(22, 32, 51, 0.12);
-  border-color: rgba(22, 32, 51, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 24px 48px rgba(22, 32, 51, 0.14);
+  border-color: rgba(22, 32, 51, 0.12);
 }
 
+/* ── Image Container ── */
 .insight-image-container {
   position: relative;
   width: 100%;
@@ -29,42 +35,63 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .insight-card-modern:hover .insight-card-img {
-  transform: scale(1.1);
+  transform: scale(1.07);
 }
 
+/* Clean gradient placeholders — no icons */
 .insight-card-placeholder {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #f0f7ff 0%, #e0e7ff 100%);
-  color: #162033;
-  opacity: 0.5;
 }
 
+.insight-placeholder-article {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 40%, #e0e7ff 100%);
+}
+
+.insight-placeholder-book {
+  background: linear-gradient(160deg, #0a1628 0%, #0f2756 50%, #1a3a7c 100%);
+}
+
+/* ── Category Tag ── */
 .insight-card-tag {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(22, 32, 51, 0.85);
+  top: 14px;
+  left: 14px;
+  background: rgba(13, 27, 62, 0.88);
   backdrop-filter: blur(8px);
   color: white;
-  padding: 6px 14px;
+  padding: 5px 13px;
   border-radius: 99px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   z-index: 2;
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
+.insight-card-tag-inline {
+  display: inline-block;
+  background: rgba(13, 27, 62, 0.08);
+  color: #1e3a8a;
+  padding: 5px 13px;
+  border-radius: 99px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  width: fit-content;
+  border: 1px solid rgba(13, 27, 62, 0.1);
+}
+
+/* ── Content Area ── */
 .insight-content {
-  padding: 24px;
+  padding: 22px 22px 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -72,24 +99,43 @@
   z-index: 2;
 }
 
+/* Subtle divider between image and content */
+.insight-card-modern::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1e3a8a, #3b82f6, #60a5fa);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.insight-card-modern:hover::before {
+  opacity: 1;
+}
+
 .insight-card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   color: #162033;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   line-height: 1.4;
-  transition: color 0.3s ease;
+  letter-spacing: -0.01em;
+  transition: color 0.25s ease;
 }
 
 .insight-card-modern:hover .insight-card-title {
-  color: #2563eb;
+  color: #1e3a8a;
 }
 
 .insight-card-excerpt {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #4b5563;
-  margin-bottom: 24px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #6b7280;
+  margin-bottom: 20px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -97,30 +143,36 @@
   flex-grow: 1;
 }
 
+/* ── CTA Button ── */
 .insight-read-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #0d2b6b;
-  background: transparent;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  background: #eff6ff;
   border: none;
-  padding: 0;
+  padding: 8px 16px;
+  border-radius: 99px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   width: fit-content;
+  letter-spacing: 0.01em;
 }
 
 .insight-read-btn:hover {
-  gap: 12px;
-  color: #1a3d8f;
+  background: #1e3a8a;
+  color: #ffffff;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
 }
 
+/* ── Hover Glow ── */
 .insight-card-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
@@ -130,7 +182,7 @@
   opacity: 1;
 }
 
-/* ── Article card (full-width image) ── */
+/* ── Article Card Variants ── */
 .insight-article-img-container {
   aspect-ratio: 16 / 9;
 }
@@ -140,13 +192,14 @@
 }
 
 .insight-article-tag {
-  background: #f97316 !important;
+  background: #ea580c !important;
+  border-color: rgba(255,255,255,0.15) !important;
 }
 
-/* ── CREATI-WITTY book card ── */
+/* ── Book Card Variant ── */
 .insight-card-book .insight-image-container {
   aspect-ratio: 3 / 4;
-  background: #f0f5ff;
+  background: linear-gradient(135deg, #f0f5ff 0%, #e8eeff 100%);
 }
 
 .insight-card-book .insight-card-img {
@@ -155,35 +208,18 @@
 }
 
 .insight-card-book .insight-card-title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
+/* ── Responsive ── */
 @media (max-width: 640px) {
-  .insight-card-modern {
-    border-radius: 20px;
-  }
-  .insight-content {
-    padding: 18px;
-  }
-  .insight-card-title {
-    font-size: 1.05rem;
-    margin-bottom: 10px;
-  }
-  .insight-card-excerpt {
-    font-size: 0.9rem;
-    -webkit-line-clamp: 2;
-    margin-bottom: 16px;
-  }
-
-  /* book card on mobile: cap image height so card stays compact */
-  .insight-card-book .insight-image-container {
-    aspect-ratio: unset;
-    height: 220px;
-  }
-
-  .insight-card-book .insight-card-title {
-    font-size: 1.1rem;
-  }
+  .insight-card-modern { border-radius: 16px; }
+  .insight-content { padding: 16px; }
+  .insight-card-title { font-size: 1rem; margin-bottom: 8px; }
+  .insight-card-excerpt { font-size: 0.87rem; -webkit-line-clamp: 2; margin-bottom: 14px; }
+  .insight-read-btn { font-size: 0.8rem; padding: 7px 13px; }
+  .insight-card-book .insight-image-container { aspect-ratio: unset; height: 200px; }
+  .insight-card-book .insight-card-title { font-size: 1rem; }
 }

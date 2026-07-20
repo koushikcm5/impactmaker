@@ -60,16 +60,18 @@ const Insights = ({ data }) => {
 
   return (
     <section className="insights" id="blog" ref={sectionRef} aria-label="Blog articles and books">
-      <div className="container">
 
-        <div className="insights-header">
-          <span className="insights-eyebrow">Knowledge Hub</span>
-          <h2 className="insights-heading">Articles, Insights &amp; Books</h2>
-          <p className="insights-sub">
-            Expert perspectives on AI training, corporate learning, digital transformation,
-            and the future of work — by Dr. Arun Divakaran, India's top AI trainer.
-          </p>
-        </div>
+      {/* Full-bleed dark hero header band */}
+      <div className="insights-header">
+        <span className="insights-eyebrow">Knowledge Hub</span>
+        <h2 className="insights-heading">Articles, Insights &amp; Books</h2>
+        <p className="insights-sub">
+          Expert perspectives on AI training, corporate learning, digital transformation,
+          and the future of work — by Dr. Arun Divakaran, India's top AI trainer.
+        </p>
+      </div>
+
+      <div className="container">
 
         {/* Category filter — semantic nav for crawlability */}
         <nav className="insights-category-nav" aria-label="Blog categories">
