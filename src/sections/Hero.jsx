@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Button from '../components/Button';
 import './Hero.css';
 
-import img1 from '../assets/home/dba1ece9-23d1-4c41-8f7f-bc6c60ed3040.jpeg';
-import img2 from '../assets/home/IMG-20220819-WA0013.jpg.jpeg';
-import img3 from '../assets/home/IMG-20220819-WA0014.jpg.jpeg';
-import arunPhoto from '../assets/Arun sir.png';
+import img1 from '../assets/home/dba1ece9-23d1-4c41-8f7f-bc6c60ed3040.webp';
+import img2 from '../assets/home/IMG-20220819-WA0013.jpg.webp';
+import img3 from '../assets/home/IMG-20220819-WA0014.jpg.webp';
+import arunPhoto from '../assets/Arun sir.webp';
 
 const heroImages = [img1, img2, img3];
 
@@ -22,6 +23,10 @@ const Hero = ({ data }) => {
 
   return (
     <section className="hero" id="home">
+      <Helmet>
+        <link rel="preload" as="image" href={img1} />
+        <link rel="preload" as="image" href={arunPhoto} />
+      </Helmet>
       <div className="hero-bg-slider" aria-hidden="true">
         {heroImages.map((img, idx) => (
           <div
@@ -107,7 +112,10 @@ const Hero = ({ data }) => {
                   src={arunPhoto}
                   alt="Dr. Arun Divakaran — AI Trainer, Business Intelligence Enabler, Strategist"
                   className="hero-photo-img"
-                 width="800" height="600" />
+                  width="800" height="600"
+                  fetchPriority="high"
+                  decoding="sync"
+                />
                 <div className="hero-photo-badge">
                   <span className="hero-photo-badge-dot" aria-hidden="true" />
                   AI Trainer &amp; Strategist

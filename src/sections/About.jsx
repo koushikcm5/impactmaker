@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import speakerImg from '../assets/about/IMG-20221221-WA0017.jpg';
+import speakerImg from '../assets/about/IMG-20221221-WA0017.webp';
 import { Target, Quote as QuoteIcon, CheckCircle2 } from 'lucide-react';
 import './About.css';
 

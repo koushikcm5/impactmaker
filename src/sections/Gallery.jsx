@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Folder } from 'lucide-react';
 import './Gallery.css';
 
-const images = import.meta.glob('../assets/Gallery/**/*.{jpg,jpeg,png,gif,webp}', { eager: true });
+const images = import.meta.glob('../assets/Gallery/**/*.webp', { eager: true });
 
 const formatText = (str) => {
   if (!str) return '';

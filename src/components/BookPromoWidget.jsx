@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Minus, BookOpen, ExternalLink } from 'lucide-react';
 import './BookPromoWidget.css';
 
-import book1Img from '../assets/books/Creati-Witty, Unfolding The Secret Formulas Of A Creative Teacher.jpg';
-import book2Img from "../assets/books/THE ACCIDENTAL DATA ANALYST, A BEGINNER'S GUIDE TO UNLOCKING INSIGHTS.jpg";
+import book1Img from '../assets/books/Creati-Witty, Unfolding The Secret Formulas Of A Creative Teacher.webp';
+import book2Img from "../assets/books/THE ACCIDENTAL DATA ANALYST, A BEGINNER'S GUIDE TO UNLOCKING INSIGHTS.webp";
 
 const BOOKS = [
   {

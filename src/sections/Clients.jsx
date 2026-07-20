@@ -1,29 +1,29 @@
 import './Clients.css';
 
 // Logo Imports
-import logo1 from '../assets/about/clients/1699758570211.jpeg';
-import logo2 from '../assets/about/clients/1713083233323.jpeg';
-import logo3 from '../assets/about/clients/1774619006451.jpeg';
-import logo4 from '../assets/about/clients/2165uiNlScL._SY200_.jpg';
-import logo5 from '../assets/about/clients/82162196-034b-4335-977a-aac82aedabad.png';
-import logo6 from '../assets/about/clients/ANI-20230503075501.png';
-import logo7 from '../assets/about/clients/Asian-paints-202201211346409722690.png';
-import logo8 from '../assets/about/clients/CII Logo369.png';
-import logo9 from '../assets/about/clients/Continental-Logo-Social.jpg';
-import logo10 from '../assets/about/clients/HEXAWARE-LOGO.PNG';
-import logo11 from '../assets/about/clients/Infoblox_Logo.jpg';
-import logo12 from '../assets/about/clients/Target-brand-strategy-positioning.jpg';
-import logo13 from '../assets/about/clients/Untitled-design-14.png';
-import logo14 from '../assets/about/clients/channels4_profile.jpg';
-import logo15 from '../assets/about/clients/images.jpeg';
-import logo16 from '../assets/about/clients/images.png';
-import logo17 from '../assets/about/clients/logo_widen_1200.jpeg';
-import logo18 from '../assets/about/clients/star-agile.png';
-import logo19 from '../assets/about/clients/unnamed.jpg';
-import logo20 from '../assets/about/clients/upgrade-Knowledgehunt-institute-logo.png';
-import logo21 from '../assets/about/clients/corning-inc-logo-png_seeklogo-402622.jpg';
-import logo22 from '../assets/about/clients/catterpillar.jpg';
-import logo23 from '../assets/about/clients/mahendra.jpg';
+import logo1 from '../assets/about/clients/1699758570211.webp';
+import logo2 from '../assets/about/clients/1713083233323.webp';
+import logo3 from '../assets/about/clients/1774619006451.webp';
+import logo4 from '../assets/about/clients/2165uiNlScL._SY200_.webp';
+import logo5 from '../assets/about/clients/82162196-034b-4335-977a-aac82aedabad.webp';
+import logo6 from '../assets/about/clients/ANI-20230503075501.webp';
+import logo7 from '../assets/about/clients/Asian-paints-202201211346409722690.webp';
+import logo8 from '../assets/about/clients/CII Logo369.webp';
+import logo9 from '../assets/about/clients/Continental-Logo-Social.webp';
+import logo10 from '../assets/about/clients/HEXAWARE-LOGO.webp';
+import logo11 from '../assets/about/clients/Infoblox_Logo.webp';
+import logo12 from '../assets/about/clients/Target-brand-strategy-positioning.webp';
+import logo13 from '../assets/about/clients/Untitled-design-14.webp';
+import logo14 from '../assets/about/clients/channels4_profile.webp';
+import logo15 from '../assets/about/clients/images.webp';
+import logo16 from '../assets/about/clients/images.webp';
+import logo17 from '../assets/about/clients/logo_widen_1200.webp';
+import logo18 from '../assets/about/clients/star-agile.webp';
+import logo19 from '../assets/about/clients/unnamed.webp';
+import logo20 from '../assets/about/clients/upgrade-Knowledgehunt-institute-logo.webp';
+import logo21 from '../assets/about/clients/corning-inc-logo-png_seeklogo-402622.webp';
+import logo22 from '../assets/about/clients/catterpillar.webp';
+import logo23 from '../assets/about/clients/mahendra.webp';
 
 const clientLogos = [
   logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10,

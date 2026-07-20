@@ -1,7 +1,7 @@
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/J-Impact New Logo 2024 Main.png';
+import logo from '../assets/J-Impact New Logo 2024 Main.webp';
 import './Navbar.css';
 
 const workshopDropdownItems = [

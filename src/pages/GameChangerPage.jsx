@@ -6,7 +6,7 @@ import SEOHead from '../components/SEOHead';
 import Breadcrumb from '../components/Breadcrumb';
 import { siteData } from '../data/siteData';
 import { domains } from '../data/workshopData';
-import gameChangerImg from '../assets/Gallery/others/f0e5ee81-4645-4133-a12e-f5104b7e1658.png';
+import gameChangerImg from '../assets/Gallery/others/f0e5ee81-4645-4133-a12e-f5104b7e1658.webp';
 import { PAGE_SEO, makeBreadcrumb, makeServiceSchema } from '../utils/seoConfig';
 import pdf1 from '../assets/pdf/J-Impact Creative Learning Services Brochure.pdf?url';
 import pdf2 from '../assets/pdf/Quantum minds - A One Day Creative Teaching Workshop - Brochure.pdf?url';

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Sparkles, ArrowRight, CheckCircle2, FileText, Eye, Download, ChevronDown } from 'lucide-react';
 import NetworkCanvas from '../components/NetworkCanvas';
-import gameChangerImg from '../assets/Gallery/others/f0e5ee81-4645-4133-a12e-f5104b7e1658.png';
+import gameChangerImg from '../assets/Gallery/others/f0e5ee81-4645-4133-a12e-f5104b7e1658.webp';
 import { domains } from '../data/workshopData';
 import pdf1 from '../assets/pdf/J-Impact Creative Learning Services Brochure.pdf?url';
 import pdf2 from '../assets/pdf/Quantum minds - A One Day Creative Teaching Workshop - Brochure.pdf?url';

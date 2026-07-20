@@ -1,9 +1,9 @@
 import React from 'react';
 import './RecentGallery.css';
 
-import imgCorning from '../assets/Gallery/corporate/AI for leaders for Owens Corning mumbai/AI for leaders for Owens Corning mumbai.jpg';
-import imgCaterpillar from '../assets/Gallery/corporate/AI workshops for Caterpillar/AI workshops for Caterpillar.jpeg';
-import imgMahindra from '../assets/Gallery/corporate/AI for mechanical  and Aerospace engineers Mahindra AeroStructures Pvt Ltd/AI for mechanical  and Aerospace engineers Mahindra AeroStructures Pvt Ltd.jpeg';
+import imgCorning from '../assets/Gallery/corporate/AI for leaders for Owens Corning mumbai/AI for leaders for Owens Corning mumbai.webp';
+import imgCaterpillar from '../assets/Gallery/corporate/AI workshops for Caterpillar/AI workshops for Caterpillar.webp';
+import imgMahindra from '../assets/Gallery/corporate/AI for mechanical  and Aerospace engineers Mahindra AeroStructures Pvt Ltd/AI for mechanical  and Aerospace engineers Mahindra AeroStructures Pvt Ltd.webp';
 
 const RecentGallery = () => {
   const engagements = [

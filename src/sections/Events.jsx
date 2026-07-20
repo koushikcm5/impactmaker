@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, ArrowRight, Mic } from 'lucide-react';
-import corpVisImg from '../assets/Events/Corporate Visibility.png';
+import corpVisImg from '../assets/Events/Corporate Visibility.webp';
 import './Events.css';
 
 const eventsData = [
