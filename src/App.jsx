@@ -390,6 +390,28 @@ function App() {
             </Suspense>
           } />
 
+          {/* Dedicated Top AI Trainer SEO Article Routes */}
+          <Route path="/top-ai-trainer-in-coimbatore" element={
+            <Suspense fallback={<PageLoader />}>
+              <InsightDetail slugOverride="top-ai-trainer-in-coimbatore" />
+            </Suspense>
+          } />
+          <Route path="/top-ai-trainer-in-tamil-nadu" element={
+            <Suspense fallback={<PageLoader />}>
+              <InsightDetail slugOverride="top-ai-trainer-in-tamil-nadu" />
+            </Suspense>
+          } />
+          <Route path="/top-ai-trainers-in-coimbatore" element={
+            <Suspense fallback={<PageLoader />}>
+              <InsightDetail slugOverride="top-ai-trainers-in-coimbatore" />
+            </Suspense>
+          } />
+          <Route path="/top-ai-trainers-in-tamil-nadu" element={
+            <Suspense fallback={<PageLoader />}>
+              <InsightDetail slugOverride="top-ai-trainers-in-tamil-nadu" />
+            </Suspense>
+          } />
+
           {/* Generative AI Trainer geo pages */}
           <Route path="/generative-ai-trainer-india" element={
             <Suspense fallback={<PageLoader />}>
