@@ -2,19 +2,19 @@
  * SEO CONTENT GENERATOR
  * 
  * This utility generates SEO-optimized content targeting specific keywords
- * for Dr. Arun Divakaran / Impact Maker based on the SEO Master Prompt.
+ * for Dr. Arun Divakaran / J-Impact based on the SEO Master Prompt.
  * 
  * Primary Keywords:
  * - Top AI Trainers in Coimbatore
  * - Top AI Trainer in Coimbatore
- * - Top AI Trainers in Tamil Nadu
- * - Top AI Trainer in Tamil Nadu
+ * - Top AI Trainers in Tamilnadu
+ * - Top AI Trainer in Tamilnadu
  * - Top AI Trainers in India
  * - Best AI Leadership Trainer in India
- * - Best Keynote Speaker in Tamil Nadu
+ * - Best Keynote Speaker in Tamilnadu
  * - Best Keynote Speaker in Coimbatore
  * - Generative AI Trainer in Coimbatore
- * - Generative AI Trainer in Tamil Nadu
+ * - Generative AI Trainer in Tamilnadu
  * - Agentic AI Trainer
  */
 
@@ -33,11 +33,11 @@ export const PRIMARY_KEYWORDS = {
       'Best AI Keynote Speaker Coimbatore',
     ],
     tamilNadu: [
-      'Top AI Trainers in Tamil Nadu',
-      'Top AI Trainer in Tamil Nadu',
-      'Top Generative AI Trainer Tamil Nadu',
-      'Generative AI Trainer in Tamil Nadu',
-      'Best Keynote Speaker in Tamil Nadu',
+      'Top AI Trainers in Tamilnadu',
+      'Top AI Trainer in Tamilnadu',
+      'Top Generative AI Trainer Tamilnadu',
+      'Generative AI Trainer in Tamilnadu',
+      'Best Keynote Speaker in Tamilnadu',
     ],
     india: [
       'Top AI Trainers in India',
@@ -63,7 +63,7 @@ export const PRIMARY_KEYWORDS = {
 export const SEMANTIC_KEYWORDS = [
   'AI Expert India',
   'AI Speaker India',
-  'AI Consultant Tamil Nadu',
+  'AI Consultant Tamilnadu',
   'AI Mentor India',
   'Generative AI Expert',
   'AI Coach',
@@ -82,7 +82,7 @@ export const SEMANTIC_KEYWORDS = [
 export const generateH2Headings = (location = 'India') => {
   const headings = [
     `About Dr. Arun Divakaran — Top AI Trainer in ${location}`,
-    `Why Choose Impact Maker for AI Training in ${location}`,
+    `Why Choose J-Impact for AI Training in ${location}`,
     `Generative AI Training Programs in ${location}`,
     `Agentic AI Workshops by India's Leading AI Trainer`,
     `AI Leadership Training for ${location} Executives`,
@@ -103,7 +103,7 @@ export const generateLocationIntro = (city = null, region = 'India') => {
   
   return `${FOUNDER_NAME} is widely recognized as the **Top AI Trainer in ${location}**, delivering transformative 
 AI training programs that empower professionals and organizations to harness the full potential of Artificial Intelligence. 
-Based in Coimbatore, Tamil Nadu, Dr. Arun has trained over **50,000+ professionals across 15+ countries** and delivered 
+Based in Coimbatore, Tamilnadu, Dr. Arun has trained over **50,000+ professionals across 15+ countries** and delivered 
 **450+ keynote addresses** on AI, digital transformation, and leadership.
 
 As the **Top Generative AI Trainer in ${location}** and a leading **Agentic AI Trainer**, Dr. Arun specializes in 
@@ -177,7 +177,7 @@ to address industry-specific challenges and use cases, ensuring maximum relevanc
       question: `Are AI training programs available in Tamil and Malayalam?`,
       answer: `Yes! Dr. Arun Divakaran conducts AI training programs in **English, Tamil, Hindi, and Malayalam**, making 
 advanced AI education accessible to diverse audiences across India. This multilingual capability is especially valuable 
-for regional enterprises, government institutions, and colleges in Tamil Nadu, Kerala, and other states.`,
+for regional enterprises, government institutions, and colleges in Tamilnadu, Kerala, and other states.`,
       keywords: ['Tamil AI Training', 'Malayalam AI Training', 'Multilingual AI Trainer'],
     },
     {
@@ -203,7 +203,7 @@ export const generateInternalLinks = () => {
     { text: 'Design Thinking & Agile Training', url: '/workshops/transformational', description: 'Innovation and enterprise agility' },
     { text: 'AI Keynote Speaking Services', url: '/workshops/speaker', description: 'Best keynote speaker for corporate events' },
     { text: 'Top AI Trainer in Coimbatore', url: '/ai-trainer-coimbatore', description: 'Coimbatore AI training services' },
-    { text: 'Top AI Trainer in Tamil Nadu', url: '/ai-trainer-tamil-nadu', description: 'Tamil Nadu AI training programs' },
+    { text: 'Top AI Trainer in Tamilnadu', url: '/ai-trainer-tamilnadu', description: 'Tamilnadu AI training programs' },
     { text: 'Corporate AI Workshops India', url: '/corporate-ai-workshops-india', description: 'Enterprise AI training nationwide' },
     { text: 'AI Training Blog', url: '/blog', description: 'Expert articles on AI and digital transformation' },
   ];
@@ -212,7 +212,7 @@ export const generateInternalLinks = () => {
 /**
  * Generate meta description with keywords
  */
-export const generateMetaDescription = (location = 'Coimbatore, Tamil Nadu & India') => {
+export const generateMetaDescription = (location = 'Coimbatore, Tamilnadu & India') => {
   return `Top AI Trainer in ${location}. Generative AI Trainer, Agentic AI Trainer, AI Leadership Coach & Keynote Speaker. 
 50,000+ trained. Corporate AI Workshops by Dr. Arun Divakaran.`;
 };
@@ -225,11 +225,11 @@ export const generateKeyStrengths = () => {
     '19+ years of corporate training & IT leadership experience',
     '50,000+ professionals trained across 15+ countries',
     '450+ keynote addresses on AI and digital transformation',
-    'Top AI Trainer in Coimbatore, Tamil Nadu & India',
+    'Top AI Trainer in Coimbatore, Tamilnadu & India',
     'Top Generative AI Trainer with hands-on methodology',
     'Leading Agentic AI Trainer for enterprise automation',
     'Best AI Leadership Trainer for executives in India',
-    'Best Keynote Speaker in Tamil Nadu & Coimbatore',
+    'Best Keynote Speaker in Tamilnadu & Coimbatore',
     'Training available in English, Tamil, Hindi & Malayalam',
     'Customized AI programs for every industry',
     'Gamified, activity-based learning approach',

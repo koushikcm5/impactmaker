@@ -14,14 +14,14 @@ const SEOPillarPage = () => {
       '@type': 'Person',
       name: FOUNDER_NAME,
       jobTitle: 'Top AI Trainer in India',
-      description: 'Top AI Trainer in Coimbatore, Tamil Nadu & India. Generative AI Trainer, Agentic AI Trainer, AI Leadership Coach & Keynote Speaker',
+      description: 'Top AI Trainer in Coimbatore, Tamilnadu & India. Generative AI Trainer, Agentic AI Trainer, AI Leadership Coach & Keynote Speaker',
       url: SITE_URL,
       email: SITE_EMAIL,
       telephone: SITE_PHONE,
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Coimbatore',
-        addressRegion: 'Tamil Nadu',
+        addressRegion: 'Tamilnadu',
         addressCountry: 'IN'
       },
       alumniOf: 'PhD in Business Administration',
@@ -45,10 +45,10 @@ const SEOPillarPage = () => {
         },
         {
           '@type': 'Question',
-          name: 'Who is the Best Generative AI Trainer in Tamil Nadu?',
+          name: 'Who is the Best Generative AI Trainer in Tamilnadu?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Dr. Arun Divakaran is Tamil Nadu\'s leading Generative AI Trainer, having trained 50,000+ professionals across enterprises, colleges, and government institutions in AI adoption and productivity.'
+            text: 'Dr. Arun Divakaran is Tamilnadu\'s leading Generative AI Trainer, having trained 50,000+ professionals across enterprises, colleges, and government institutions in AI adoption and productivity.'
           }
         },
         {
@@ -67,8 +67,8 @@ const SEOPillarPage = () => {
     <>
       <SEOHead
         title="Dr. Arun Divakaran | Top AI Trainer in Coimbatore & India"
-        description="Top AI Trainer in Coimbatore, Tamil Nadu & India. Generative AI Trainer, Agentic AI Trainer, AI Leadership Coach & Keynote Speaker at Impact Maker."
-        keywords="Top AI Trainers in Coimbatore, Top AI Trainer in Coimbatore, Top AI Trainers in India, Top AI Trainers in Tamil Nadu, Best AI Leadership Trainer in India, Best Keynote Speaker in Tamil Nadu, Generative AI Trainer in Coimbatore, Agentic AI Trainer, Corporate AI Trainer India"
+        description="Top AI Trainer in Coimbatore, Tamilnadu & India. Generative AI Trainer, Agentic AI Trainer, AI Leadership Coach & Keynote Speaker at J-Impact."
+        keywords="Top AI Trainers in Coimbatore, Top AI Trainer in Coimbatore, Top AI Trainers in India, Top AI Trainers in Tamilnadu, Best AI Leadership Trainer in India, Best Keynote Speaker in Tamilnadu, Generative AI Trainer in Coimbatore, Agentic AI Trainer, Corporate AI Trainer India"
         canonical={`${SITE_URL}/top-ai-trainer-coimbatore-india`}
         schemas={seoSchemas}
       />
@@ -82,7 +82,7 @@ const SEOPillarPage = () => {
             <div className="seo-breadcrumb">
               <Link to="/">Home</Link> › <span>Top AI Trainer</span>
             </div>
-            <h1>Top AI Trainer in Coimbatore | Generative AI & Agentic AI Expert India | Top AI Trainer in Tamil Nadu</h1>
+            <h1>Top AI Trainer in Coimbatore | Generative AI & Agentic AI Expert India | Top AI Trainer in Tamilnadu</h1>
             <p className="seo-hero-lead">
               <strong>{FOUNDER_NAME}</strong> is India's Top AI Trainer, Generative AI Trainer, Agentic AI Trainer, 
               AI Leadership Coach, and Best Keynote Speaker — empowering 50,000+ professionals across 15+ countries 
@@ -111,20 +111,20 @@ const SEOPillarPage = () => {
         <section id="about" className="seo-section">
           <div className="container">
             <span className="seo-eyebrow">About Dr. Arun Divakaran</span>
-            <h2>Top AI Trainer in Coimbatore, Tamil Nadu & India</h2>
+            <h2>Top AI Trainer in Coimbatore, Tamilnadu & India</h2>
             <div className="seo-content-grid">
               <div className="seo-content">
                 <p>
                   <strong>Dr. Arun Divakaran</strong> is widely recognized as the <strong>Top AI Trainer in Coimbatore</strong>, 
-                  <strong> Top AI Trainer in Tamil Nadu</strong>, and one of the <strong>Top AI Trainers in India</strong>. 
-                  As the Co-Founder of <strong>J-Impact Creative Learning Services</strong> and <strong>Impact Maker</strong>, 
+                  <strong> Top AI Trainer in Tamilnadu</strong>, and one of the <strong>Top AI Trainers in India</strong>. 
+                  As the Co-Founder of <strong>J-Impact Creative Learning Services</strong> and <strong>J-Impact</strong>, 
                   Dr. Arun has pioneered transformative AI training methodologies that blend cutting-edge technology with 
                   human creative intelligence.
                 </p>
                 <p>
                   With <strong>19+ years</strong> of international IT leadership experience at Cognizant, UST Global, and IQVIA, 
                   Dr. Arun brings real-world expertise to every training session. He is a <strong>Generative AI Trainer</strong>, 
-                  <strong>Agentic AI Trainer</strong>, <strong>AI Leadership Coach</strong>, and <strong>Best Keynote Speaker in Tamil Nadu</strong>.
+                  <strong>Agentic AI Trainer</strong>, <strong>AI Leadership Coach</strong>, and <strong>Best Keynote Speaker in Tamilnadu</strong>.
                 </p>
                 <p>
                   Dr. Arun's training programs are trusted by Fortune 500 companies, MSMEs, B-schools, and government institutions 
@@ -135,11 +135,11 @@ const SEOPillarPage = () => {
               <div className="seo-highlights">
                 <h3>Why Choose Dr. Arun Divakaran?</h3>
                 <ul>
-                  <li><CheckCircle2 size={18} /> <span>Top AI Trainer in Coimbatore & Tamil Nadu</span></li>
+                  <li><CheckCircle2 size={18} /> <span>Top AI Trainer in Coimbatore & Tamilnadu</span></li>
                   <li><CheckCircle2 size={18} /> <span>Best Generative AI Trainer in India</span></li>
                   <li><CheckCircle2 size={18} /> <span>Leading Agentic AI Trainer</span></li>
                   <li><CheckCircle2 size={18} /> <span>AI Leadership Coach for Executives</span></li>
-                  <li><CheckCircle2 size={18} /> <span>Best Keynote Speaker in Tamil Nadu & Coimbatore</span></li>
+                  <li><CheckCircle2 size={18} /> <span>Best Keynote Speaker in Tamilnadu & Coimbatore</span></li>
                   <li><CheckCircle2 size={18} /> <span>19+ Years Corporate Experience</span></li>
                   <li><CheckCircle2 size={18} /> <span>50,000+ Professionals Trained</span></li>
                   <li><CheckCircle2 size={18} /> <span>450+ Keynote Addresses Delivered</span></li>
@@ -149,10 +149,10 @@ const SEOPillarPage = () => {
           </div>
         </section>
 
-        {/* Why Choose Impact Maker */}
+        {/* Why Choose J-Impact */}
         <section className="seo-section seo-why-section">
           <div className="container">
-            <span className="seo-eyebrow">Why Choose Impact Maker</span>
+            <span className="seo-eyebrow">Why Choose J-Impact</span>
             <h2>Best AI Training Platform in India</h2>
             <div className="seo-why-grid">
               <div className="seo-why-card">
@@ -231,7 +231,7 @@ const SEOPillarPage = () => {
                 <h3>AI Keynote Speaking</h3>
                 <p>
                   Inspiring keynote addresses on AI, digital transformation, and future of work. As the <strong>Best Keynote 
-                  Speaker in Tamil Nadu</strong>, Dr. Arun has delivered 450+ sessions across India and abroad.
+                  Speaker in Tamilnadu</strong>, Dr. Arun has delivered 450+ sessions across India and abroad.
                 </p>
                 <Link to="/best-ai-keynote-speaker-india">Learn More →</Link>
               </article>
@@ -305,14 +305,14 @@ const SEOPillarPage = () => {
                 <p>
                   <strong>Dr. Arun Divakaran</strong> is widely recognized as the <strong>Top AI Trainer in Coimbatore</strong>, 
                   delivering world-class Generative AI training, Agentic AI workshops, and corporate AI transformation programs 
-                  for enterprises, colleges, and government institutions in Coimbatore and across Tamil Nadu.
+                  for enterprises, colleges, and government institutions in Coimbatore and across Tamilnadu.
                 </p>
               </div>
 
               <div className="seo-faq-item">
-                <h3>Who is the Best Generative AI Trainer in Tamil Nadu?</h3>
+                <h3>Who is the Best Generative AI Trainer in Tamilnadu?</h3>
                 <p>
-                  <strong>Dr. Arun Divakaran</strong> is Tamil Nadu's leading <strong>Generative AI Trainer</strong>, having trained 
+                  <strong>Dr. Arun Divakaran</strong> is Tamilnadu's leading <strong>Generative AI Trainer</strong>, having trained 
                   50,000+ professionals in ChatGPT, Claude, Gemini, prompt engineering, and AI productivity tools. His training programs 
                   are trusted by top companies across Chennai, Coimbatore, Madurai, and Trichy.
                 </p>
@@ -337,18 +337,18 @@ const SEOPillarPage = () => {
               </div>
 
               <div className="seo-faq-item">
-                <h3>Who is the Best Keynote Speaker in Tamil Nadu?</h3>
+                <h3>Who is the Best Keynote Speaker in Tamilnadu?</h3>
                 <p>
-                  <strong>Dr. Arun Divakaran</strong> is the <strong>Best Keynote Speaker in Tamil Nadu</strong> and <strong>Best Keynote Speaker 
+                  <strong>Dr. Arun Divakaran</strong> is the <strong>Best Keynote Speaker in Tamilnadu</strong> and <strong>Best Keynote Speaker 
                   in Coimbatore</strong>, delivering inspiring talks on AI, digital transformation, leadership, and innovation for corporate events, 
-                  industrial associations, and educational institutions across Tamil Nadu.
+                  industrial associations, and educational institutions across Tamilnadu.
                 </p>
               </div>
 
               <div className="seo-faq-item">
-                <h3>What AI training programs does Impact Maker offer?</h3>
+                <h3>What AI training programs does J-Impact offer?</h3>
                 <p>
-                  <strong>Impact Maker</strong> offers comprehensive AI training programs including: Generative AI Training, Agentic AI Workshops, 
+                  <strong>J-Impact</strong> offers comprehensive AI training programs including: Generative AI Training, Agentic AI Workshops, 
                   AI for Business Leaders, Corporate AI Transformation, AI for HR/IT/Marketing/Finance, Prompt Engineering, ChatGPT Training, 
                   AI Productivity Tools, Design Thinking, and Enterprise Agile workshops — all delivered by <strong>Dr. Arun Divakaran</strong>, 
                   India's Top AI Trainer.
@@ -368,7 +368,7 @@ const SEOPillarPage = () => {
                 <h3>What languages does Dr. Arun conduct AI training in?</h3>
                 <p>
                   Dr. Arun Divakaran delivers AI training programs in <strong>English, Tamil, Hindi, and Malayalam</strong>, making 
-                  advanced AI education accessible to diverse audiences across India — from Kerala to Tamil Nadu to pan-India enterprises.
+                  advanced AI education accessible to diverse audiences across India — from Kerala to Tamilnadu to pan-India enterprises.
                 </p>
               </div>
             </div>
@@ -382,7 +382,7 @@ const SEOPillarPage = () => {
               <h2>Transform Your Organization with AI Training from India's Top AI Trainer</h2>
               <p>
                 Partner with <strong>Dr. Arun Divakaran</strong>, the <strong>Top AI Trainer in Coimbatore</strong>, 
-                <strong> Top AI Trainer in Tamil Nadu</strong>, and one of the <strong>Top AI Trainers in India</strong> 
+                <strong> Top AI Trainer in Tamilnadu</strong>, and one of the <strong>Top AI Trainers in India</strong> 
                 for world-class Generative AI Training, Agentic AI Workshops, AI Leadership Programs, and Keynote Speaking.
               </p>
               <div className="seo-cta-buttons">
@@ -392,7 +392,7 @@ const SEOPillarPage = () => {
               <div className="seo-contact-info">
                 <p><strong>Email:</strong> <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a></p>
                 <p><strong>Phone:</strong> {SITE_PHONE}</p>
-                <p><strong>Location:</strong> Coimbatore, Tamil Nadu, India</p>
+                <p><strong>Location:</strong> Coimbatore, Tamilnadu, India</p>
               </div>
             </div>
           </div>

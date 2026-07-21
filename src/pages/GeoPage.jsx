@@ -33,7 +33,7 @@ const GeoPage = ({ config }) => {
       url: seo.canonical,
       telephone: SITE_PHONE,
       email: SITE_EMAIL,
-      areaServed: city ? [city, region, 'India'] : ['India', 'Tamil Nadu', 'Kerala', 'Coimbatore'],
+      areaServed: city ? [city, region, 'India'] : ['India', 'Tamilnadu', 'Kerala', 'Coimbatore'],
       provider: {
         '@type': 'Person',
         name: FOUNDER_NAME,

@@ -10,7 +10,7 @@ export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const DEFAULT_SEO = {
   title: `J-Impact Creative Learning Services | ${FOUNDER_NAME} | Top AI Trainer in India`,
   description: `${FOUNDER_NAME} — India's Top AI Trainer, Top Generative AI Trainer & Best Keynote Speaker in Coimbatore. Expert in Generative AI, Agentic AI, Corporate AI Workshops, Design Thinking, Enterprise Agile & Leadership Training. 50,000+ professionals trained across 15+ countries.`,
-  keywords: 'Top AI Trainer India, Top Generative AI Trainer India, Best AI Trainer Tamil Nadu, Top AI Trainer Coimbatore, Top Generative AI Trainer Coimbatore, Top AI Trainer Tamil Nadu, Best Keynote Speaker Coimbatore, Best AI Keynote Speaker Coimbatore, Best AI Leadership Trainer India, Generative AI Trainer, Agentic AI Trainer, Corporate AI Workshops India, Keynote Speaker Tamil Nadu Kerala, Design Thinking Trainer, Enterprise Agile Trainer',
+  keywords: 'Top AI Trainer India, Top Generative AI Trainer India, Best AI Trainer Tamilnadu, Top AI Trainer Coimbatore, Top Generative AI Trainer Coimbatore, Top AI Trainer Tamilnadu, Best Keynote Speaker Coimbatore, Best AI Keynote Speaker Coimbatore, Best AI Leadership Trainer India, Generative AI Trainer, Agentic AI Trainer, Corporate AI Workshops India, Keynote Speaker Tamilnadu Kerala, Design Thinking Trainer, Enterprise Agile Trainer',
 };
 
 // ─── Per-Page SEO Configurations ─────────────────────────────────────────────
@@ -18,7 +18,7 @@ export const PAGE_SEO = {
   home: {
     title: `${FOUNDER_NAME} | Top AI Trainer Coimbatore | Top Generative AI Trainer Coimbatore`,
     description: `${FOUNDER_NAME} — Top AI Trainer in Coimbatore, Top Generative AI Trainer Coimbatore & Best Keynote Speaker in Coimbatore. Expert in Generative AI, Agentic AI, Corporate AI Workshops, Design Thinking, Enterprise Agile & Leadership Training. 50,000+ professionals trained across 15+ countries.`,
-    keywords: 'Top AI Trainer Coimbatore, Top Generative AI Trainer Coimbatore, Best AI Trainer Coimbatore, Top AI Trainer Tamil Nadu, Best Generative AI Trainer Tamil Nadu, Best Keynote Speaker Coimbatore, Best AI Keynote Speaker Coimbatore, Keynote Speaker Coimbatore, Leadership Speaker Coimbatore, Best AI Trainer Tamil Nadu, Best Keynote Speaker Tamil Nadu, Best AI Leadership Trainer India, Generative AI Trainer Coimbatore, Agentic AI Trainer India, Corporate AI Workshops Coimbatore, Motivational Speaker Coimbatore, Design Thinking Trainer Coimbatore, Enterprise Agile Trainer, AI Transformation Consultant Coimbatore',
+    keywords: 'Top AI Trainer Coimbatore, Top Generative AI Trainer Coimbatore, Best AI Trainer Coimbatore, Top AI Trainer Tamilnadu, Best Generative AI Trainer Tamilnadu, Best Keynote Speaker Coimbatore, Best AI Keynote Speaker Coimbatore, Keynote Speaker Coimbatore, Leadership Speaker Coimbatore, Best AI Trainer Tamilnadu, Best Keynote Speaker Tamilnadu, Best AI Leadership Trainer India, Generative AI Trainer Coimbatore, Agentic AI Trainer India, Corporate AI Workshops Coimbatore, Motivational Speaker Coimbatore, Design Thinking Trainer Coimbatore, Enterprise Agile Trainer, AI Transformation Consultant Coimbatore',
     canonical: `${SITE_URL}/`,
   },
   blog: {
@@ -65,8 +65,8 @@ export const PAGE_SEO = {
   },
   workshopSpeaker: {
     title: 'Best Keynote Speaker India | Best Keynote Speaker Coimbatore | Dr. Arun Divakaran',
-    description: `Book ${FOUNDER_NAME} — Best Keynote Speaker in India & Best Keynote Speaker in Coimbatore. Leadership Speaker for corporate events, conferences, leadership summits, and innovation forums across India, Tamil Nadu, and Coimbatore.`,
-    keywords: 'Best Keynote Speaker India, Best Keynote Speaker Coimbatore, Best AI Keynote Speaker Coimbatore, Top AI Keynote Speaker India, Best Keynote Speaker Tamil Nadu, Best Keynote Speaker Kerala, AI Keynote Speaker Coimbatore, Corporate Speaker India, Leadership Speaker Coimbatore, Digital Transformation Speaker Coimbatore, Innovation Speaker Coimbatore, Motivational Speaker Coimbatore',
+    description: `Book ${FOUNDER_NAME} — Best Keynote Speaker in India & Best Keynote Speaker in Coimbatore. Leadership Speaker for corporate events, conferences, leadership summits, and innovation forums across India, Tamilnadu, and Coimbatore.`,
+    keywords: 'Best Keynote Speaker India, Best Keynote Speaker Coimbatore, Best AI Keynote Speaker Coimbatore, Top AI Keynote Speaker India, Best Keynote Speaker Tamilnadu, Best Keynote Speaker Kerala, AI Keynote Speaker Coimbatore, Corporate Speaker India, Leadership Speaker Coimbatore, Digital Transformation Speaker Coimbatore, Innovation Speaker Coimbatore, Motivational Speaker Coimbatore',
     canonical: `${SITE_URL}/workshops/speaker`,
   },
   geoGenAIIndia: {
@@ -82,10 +82,10 @@ export const PAGE_SEO = {
     canonical: `${SITE_URL}/generative-ai-trainer-coimbatore`,
   },
   geoGenAITamilNadu: {
-    title: 'Top Generative AI Trainer in Tamil Nadu | Best Generative AI Trainer Tamil Nadu | Dr. Arun Divakaran',
-    description: `${FOUNDER_NAME} is Tamil Nadu's Top Generative AI Trainer — delivering Generative AI workshops in Tamil & English for enterprises, colleges, and professionals across Chennai, Coimbatore, Madurai, Trichy, and all of Tamil Nadu.`,
-    keywords: 'Top Generative AI Trainer Tamil Nadu, Best Generative AI Trainer Tamil Nadu, Generative AI Trainer Tamil Nadu, Generative AI Training Tamil Nadu, ChatGPT Trainer Tamil Nadu, AI Workshop Tamil Nadu, Corporate AI Training Tamil Nadu, Tamil Generative AI Trainer, AI Training Chennai Coimbatore Madurai',
-    canonical: `${SITE_URL}/generative-ai-trainer-tamil-nadu`,
+    title: 'Top Generative AI Trainer in Tamilnadu | Best Generative AI Trainer Tamilnadu | Dr. Arun Divakaran',
+    description: `${FOUNDER_NAME} is Tamilnadu's Top Generative AI Trainer — delivering Generative AI workshops in Tamil & English for enterprises, colleges, and professionals across Chennai, Coimbatore, Madurai, Trichy, and all of Tamilnadu.`,
+    keywords: 'Top Generative AI Trainer Tamilnadu, Best Generative AI Trainer Tamilnadu, Generative AI Trainer Tamilnadu, Generative AI Training Tamilnadu, ChatGPT Trainer Tamilnadu, AI Workshop Tamilnadu, Corporate AI Training Tamilnadu, Tamil Generative AI Trainer, AI Training Chennai Coimbatore Madurai',
+    canonical: `${SITE_URL}/generative-ai-trainer-tamilnadu`,
   },
   geoAgenticAI: {
     title: 'Top Agentic AI Trainer in India | Agentic AI Corporate Training | Dr. Arun Divakaran',
@@ -106,10 +106,10 @@ export const PAGE_SEO = {
     canonical: `${SITE_URL}/top-ai-trainer-india`,
   },
   geoTamilNadu: {
-    title: 'Top AI Trainer in Tamil Nadu | Top Generative AI Trainer Tamil Nadu | Dr. Arun Divakaran',
-    description: `${FOUNDER_NAME} — Top AI Trainer in Tamil Nadu & Top Generative AI Trainer Tamil Nadu. Corporate AI workshops, keynote speaking, and leadership programs in Tamil & English across Chennai, Coimbatore, Madurai, Trichy, and all of Tamil Nadu.`,
-    keywords: 'Top AI Trainer Tamil Nadu, Best AI Trainer Tamil Nadu, Top Generative AI Trainer Tamil Nadu, Best Generative AI Trainer Tamil Nadu, AI Training Tamil Nadu, Tamil AI Trainer, AI Workshops Tamil Nadu, Best Keynote Speaker Tamil Nadu, Top Soft Skills Trainer Tamil Nadu, AI Training Chennai Coimbatore Madurai, Future Skills Trainer Tamil Nadu, Top AI Trainer Coimbatore',
-    canonical: `${SITE_URL}/ai-trainer-tamil-nadu`,
+    title: 'Top AI Trainer in Tamilnadu | Top Generative AI Trainer Tamilnadu | Dr. Arun Divakaran',
+    description: `${FOUNDER_NAME} — Top AI Trainer in Tamilnadu & Top Generative AI Trainer Tamilnadu. Corporate AI workshops, keynote speaking, and leadership programs in Tamil & English across Chennai, Coimbatore, Madurai, Trichy, and all of Tamilnadu.`,
+    keywords: 'Top AI Trainer Tamilnadu, Best AI Trainer Tamilnadu, Top Generative AI Trainer Tamilnadu, Best Generative AI Trainer Tamilnadu, AI Training Tamilnadu, Tamil AI Trainer, AI Workshops Tamilnadu, Best Keynote Speaker Tamilnadu, Top Soft Skills Trainer Tamilnadu, AI Training Chennai Coimbatore Madurai, Future Skills Trainer Tamilnadu, Top AI Trainer Coimbatore',
+    canonical: `${SITE_URL}/ai-trainer-tamilnadu`,
   },
   geoCoimbatore: {
     title: 'Top AI Trainer in Coimbatore | Top Generative AI Trainer Coimbatore | Dr. Arun Divakaran',
@@ -126,7 +126,7 @@ export const PAGE_SEO = {
   geoKeynote: {
     title: 'Best AI Keynote Speaker in India | Conferences & Summits | Dr. Arun Divakaran',
     description: `Book ${FOUNDER_NAME} — India's Best AI Keynote Speaker for corporate events, conferences, innovation summits, and leadership forums. Inspiring talks on Generative AI, Digital Transformation, and the Future of Work.`,
-    keywords: 'Best AI Keynote Speaker India, Best Keynote Speaker Tamil Nadu Kerala, AI Speaker India, Corporate Keynote AI India, Digital Transformation Speaker India, AI Conference Speaker India, Innovation Speaker India, Corporate AI Keynote Speaker',
+    keywords: 'Best AI Keynote Speaker India, Best Keynote Speaker Tamilnadu Kerala, AI Speaker India, Corporate Keynote AI India, Digital Transformation Speaker India, AI Conference Speaker India, Innovation Speaker India, Corporate AI Keynote Speaker',
     canonical: `${SITE_URL}/best-ai-keynote-speaker-india`,
   },
   geoCorporate: {
@@ -188,7 +188,7 @@ export const makeArticleSchema = (post) => ({
     sameAs: [
       'https://www.linkedin.com/in/ad-the-visionary-pm',
       'https://www.youtube.com/c/ArunDivakaran',
-      'https://www.instagram.com/arun_divakaran_impactmaker/',
+      'https://www.instagram.com/arun_divakaran_J-Impact/',
     ],
   },
   publisher: {
@@ -217,13 +217,13 @@ export const makePersonSchema = () => ({
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Coimbatore',
-    addressRegion: 'Tamil Nadu',
+    addressRegion: 'Tamilnadu',
     addressCountry: 'IN',
   },
   sameAs: [
     'https://www.linkedin.com/in/ad-the-visionary-pm',
     'https://www.youtube.com/c/ArunDivakaran',
-    'https://www.instagram.com/arun_divakaran_impactmaker/',
+    'https://www.instagram.com/arun_divakaran_J-Impact/',
     'https://www.facebook.com/arun.divakaran.7',
   ],
   knowsAbout: [
@@ -250,7 +250,7 @@ export const makeServiceSchema = (name, description, path) => ({
   url: `${SITE_URL}${path}`,
   areaServed: [
     { '@type': 'Country', name: 'India' },
-    { '@type': 'State', name: 'Tamil Nadu' },
+    { '@type': 'State', name: 'Tamilnadu' },
     { '@type': 'State', name: 'Kerala' },
     { '@type': 'City', name: 'Coimbatore' },
   ],
@@ -270,7 +270,7 @@ export const makeLocalBusinessSchema = (city, region, description) => ({
   address: {
     '@type': 'PostalAddress',
     addressLocality: city || 'Coimbatore',
-    addressRegion: region || 'Tamil Nadu',
+    addressRegion: region || 'Tamilnadu',
     addressCountry: 'IN',
     postalCode: '641001',
   },
@@ -279,7 +279,7 @@ export const makeLocalBusinessSchema = (city, region, description) => ({
     latitude: 11.0168,
     longitude: 76.9558,
   },
-  areaServed: city ? [city, region || 'Tamil Nadu', 'India'] : ['India', 'Tamil Nadu', 'Kerala', 'Coimbatore'],
+  areaServed: city ? [city, region || 'Tamilnadu', 'India'] : ['India', 'Tamilnadu', 'Kerala', 'Coimbatore'],
   priceRange: '₹₹₹',
   openingHours: ['Mo-Fr 09:00-18:00', 'Sa 09:00-14:00'],
 });

@@ -119,7 +119,7 @@ const CTA = ({ data }) => {
                   <div className="icon-box"><MapPin size={18} /></div>
                   <div>
                     <span className="label">Location</span>
-                    <span className="value">Coimbatore, Tamil Nadu, India</span>
+                    <span className="value">Coimbatore, Tamilnadu, India</span>
                   </div>
                 </div>
               </div>

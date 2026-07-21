@@ -120,21 +120,21 @@ const geoConfigs = {
       { title: 'Enterprise Agile & Scrum', desc: 'SAFe Agile, Scrum, and Agile transformation workshops for delivery teams, project managers, and enterprise leadership.' },
     ],
   },
-  'tamil-nadu': {
+  'tamilnadu': {
     seo: PAGE_SEO.geoTamilNadu,
-    heading: 'Top AI Trainer in Tamil Nadu | Top Generative AI Trainer Tamil Nadu',
-    subheading: 'Corporate AI Training, Keynote Speaking & Leadership Programs in Tamil Nadu',
-    city: 'Tamil Nadu',
-    region: 'Tamil Nadu',
-    heroKeywords: ['Top AI Trainer Tamil Nadu', 'Top Generative AI Trainer', 'Tamil AI Training', 'Keynote Speaker TN', 'Design Thinking', 'Enterprise Agile', 'AI Leadership', 'AI for Colleges'],
-    intro: `${FOUNDER_NAME} is Tamil Nadu's leading AI trainer and Top Generative AI Trainer in Tamil Nadu, delivering high-impact corporate AI workshops, keynote speeches, and leadership programs in Tamil and English. With deep roots in Coimbatore and a pan-Tamil Nadu presence covering Chennai, Madurai, Trichy, Salem, and Tirunelveli, Dr. Arun has trained professionals from leading IT firms, manufacturing companies, B-schools, and government institutions across the state.`,
+    heading: 'Top AI Trainer in Tamilnadu | Top Generative AI Trainer Tamilnadu',
+    subheading: 'Corporate AI Training, Keynote Speaking & Leadership Programs in Tamilnadu',
+    city: 'Tamilnadu',
+    region: 'Tamilnadu',
+    heroKeywords: ['Top AI Trainer Tamilnadu', 'Top Generative AI Trainer', 'Tamil AI Training', 'Keynote Speaker TN', 'Design Thinking', 'Enterprise Agile', 'AI Leadership', 'AI for Colleges'],
+    intro: `${FOUNDER_NAME} is Tamilnadu's leading AI trainer and Top Generative AI Trainer in Tamilnadu, delivering high-impact corporate AI workshops, keynote speeches, and leadership programs in Tamil and English. With deep roots in Coimbatore and a pan-Tamilnadu presence covering Chennai, Madurai, Trichy, Salem, and Tirunelveli, Dr. Arun has trained professionals from leading IT firms, manufacturing companies, B-schools, and government institutions across the state.`,
     services: [
-      { title: 'Generative AI & Agentic AI Training — Tamil Nadu', desc: 'Corporate AI workshops covering ChatGPT, Copilot, and AI automation tools — delivered in Tamil & English for maximum accessibility.' },
-      { title: 'Keynote Speaking — Tamil Nadu Events', desc: 'Powerful keynote addresses on AI, digital transformation, and future skills for Tamil Nadu corporate events, college fests, and industry summits.' },
-      { title: 'AI for Colleges & B-Schools — Tamil Nadu', desc: 'Specialized AI training for engineering students, MBA scholars, and faculty in colleges across Tamil Nadu — bridging the academia-industry gap.' },
-      { title: 'Soft Skills & Communication Training', desc: 'Corporate communication, professional etiquette, and leadership soft skills training for Tamil Nadu enterprises and freshers.' },
-      { title: 'Design Thinking & Innovation Workshops', desc: 'Human-centered design workshops for Tamil Nadu product teams, startups, and corporate innovation labs.' },
-      { title: 'Enterprise Agile & SAFe Agile', desc: 'Agile transformation, Scrum Master training, and SAFe Agile certification workshops for IT and manufacturing companies in Tamil Nadu.' },
+      { title: 'Generative AI & Agentic AI Training — Tamilnadu', desc: 'Corporate AI workshops covering ChatGPT, Copilot, and AI automation tools — delivered in Tamil & English for maximum accessibility.' },
+      { title: 'Keynote Speaking — Tamilnadu Events', desc: 'Powerful keynote addresses on AI, digital transformation, and future skills for Tamilnadu corporate events, college fests, and industry summits.' },
+      { title: 'AI for Colleges & B-Schools — Tamilnadu', desc: 'Specialized AI training for engineering students, MBA scholars, and faculty in colleges across Tamilnadu — bridging the academia-industry gap.' },
+      { title: 'Soft Skills & Communication Training', desc: 'Corporate communication, professional etiquette, and leadership soft skills training for Tamilnadu enterprises and freshers.' },
+      { title: 'Design Thinking & Innovation Workshops', desc: 'Human-centered design workshops for Tamilnadu product teams, startups, and corporate innovation labs.' },
+      { title: 'Enterprise Agile & SAFe Agile', desc: 'Agile transformation, Scrum Master training, and SAFe Agile certification workshops for IT and manufacturing companies in Tamilnadu.' },
     ],
   },
   coimbatore: {
@@ -142,9 +142,9 @@ const geoConfigs = {
     heading: 'Top AI Trainer in Coimbatore | Top Generative AI Trainer Coimbatore',
     subheading: 'Corporate AI Workshops, Keynote Speaking & Leadership Training in Coimbatore',
     city: 'Coimbatore',
-    region: 'Tamil Nadu',
+    region: 'Tamilnadu',
     heroKeywords: ['Top AI Trainer Coimbatore', 'Top Generative AI Trainer', 'Best Keynote Speaker', 'Corporate AI Training', 'Leadership Speaker', 'Data Analytics', 'Design Thinking', 'Agile Coach'],
-    intro: `${FOUNDER_NAME} is Coimbatore's Top AI Trainer, Top Generative AI Trainer and Best Keynote Speaker, based in the heart of Tamil Nadu's industrial capital. Serving manufacturing firms, textile companies, IT enterprises, healthcare organizations, and engineering colleges across Coimbatore, Dr. Arun delivers customized AI training, Generative AI workshops, Data Analytics programs, Design Thinking workshops, and keynote sessions that drive measurable business impact.`,
+    intro: `${FOUNDER_NAME} is Coimbatore's Top AI Trainer, Top Generative AI Trainer and Best Keynote Speaker, based in the heart of Tamilnadu's industrial capital. Serving manufacturing firms, textile companies, IT enterprises, healthcare organizations, and engineering colleges across Coimbatore, Dr. Arun delivers customized AI training, Generative AI workshops, Data Analytics programs, Design Thinking workshops, and keynote sessions that drive measurable business impact.`,
     services: [
       { title: 'Best Keynote Speaker — Coimbatore', desc: 'Engaging keynote addresses for Coimbatore industrial associations, corporate conclaves, college events, and leadership forums. Inspiring talks on AI, digital transformation, and innovation.' },
       { title: 'Generative AI Training — Coimbatore', desc: 'Corporate Generative AI workshops for Coimbatore manufacturing, IT, textile, and healthcare companies. Practical, hands-on, results-driven training programs.' },
@@ -160,7 +160,7 @@ const geoConfigs = {
     subheading: 'Inspiring AI & Digital Transformation Keynotes for Corporate India',
     city: null,
     region: 'India',
-    heroKeywords: ['AI Keynote India', 'Digital Transformation Speaker', 'Corporate AI Speaker', 'Innovation Speaker', 'Leadership Speaker', 'Tamil Nadu Keynote', 'Kerala Speaker', 'Tech Conferences'],
+    heroKeywords: ['AI Keynote India', 'Digital Transformation Speaker', 'Corporate AI Speaker', 'Innovation Speaker', 'Leadership Speaker', 'Tamilnadu Keynote', 'Kerala Speaker', 'Tech Conferences'],
     intro: `${FOUNDER_NAME} is India's most sought-after AI Keynote Speaker, delivering electrifying talks on Artificial Intelligence, Digital Transformation, Agentic AI, and the Future of Work for corporate conferences, leadership summits, technology events, and educational institutions. With 450+ keynote addresses delivered across India and 15+ countries, Dr. Arun brings a rare combination of deep technical expertise, business acumen, and captivating storytelling to every stage.`,
     services: [
       { title: 'AI & Future of Work Keynote', desc: 'A visionary keynote on how AI, automation, and human creativity will redefine careers, organizations, and industries by 2030.' },
@@ -193,7 +193,7 @@ const geoConfigs = {
     heading: 'Best Keynote Speaker in Coimbatore',
     subheading: 'Inspiring Leadership, AI & Technology Keynotes for Coimbatore',
     city: 'Coimbatore',
-    region: 'Tamil Nadu',
+    region: 'Tamilnadu',
     heroKeywords: ['Best Keynote Speaker', 'Best AI Keynote Speaker', 'Leadership Speaker Coimbatore', 'Corporate Speaker', 'Digital Transformation', 'Innovation Speaker', 'Motivational Speaker', 'Tech Keynote'],
     intro: `${FOUNDER_NAME} is Coimbatore's Best Keynote Speaker, delivering powerful and inspiring keynote addresses on Artificial Intelligence, Digital Transformation, Leadership, Innovation, and the Future of Work. With 450+ keynote sessions delivered across India and internationally, Dr. Arun brings unmatched expertise, engaging storytelling, and actionable insights to corporate events, industrial associations, leadership summits, college fests, and technology conferences in Coimbatore.`,
     services: [
@@ -227,7 +227,7 @@ const geoConfigs = {
     heading: 'Top Generative AI Trainer in Coimbatore',
     subheading: 'Hands-On Generative AI Workshops for Coimbatore Enterprises & Colleges',
     city: 'Coimbatore',
-    region: 'Tamil Nadu',
+    region: 'Tamilnadu',
     heroKeywords: ['Generative AI Coimbatore', 'ChatGPT Trainer', 'Claude AI Training', 'Prompt Engineering', 'AI Workshop', 'Corporate AI', 'AI Productivity', 'AI for Colleges'],
     intro: `${FOUNDER_NAME} is Coimbatore's Top Generative AI Trainer, delivering practical Generative AI workshops for manufacturing firms, IT companies, textile enterprises, healthcare organizations, and engineering colleges across Coimbatore. His programs are tailored to Coimbatore's unique business ecosystem — combining global AI best practices with local industry context, delivered in Tamil and English for maximum accessibility.`,
     services: [
@@ -239,21 +239,21 @@ const geoConfigs = {
       { title: 'AI Productivity Bootcamp', desc: 'Intensive one-day AI productivity bootcamp for Coimbatore corporate teams — covering 10+ AI tools with hands-on practice and implementation roadmap.' },
     ],
   },
-  'generative-ai-tamil-nadu': {
+  'generative-ai-tamilnadu': {
     seo: PAGE_SEO.geoGenAITamilNadu,
-    heading: 'Top Generative AI Trainer in Tamil Nadu',
-    subheading: 'Generative AI Training in Tamil & English Across Tamil Nadu',
-    city: 'Tamil Nadu',
-    region: 'Tamil Nadu',
-    heroKeywords: ['Generative AI Tamil Nadu', 'Tamil AI Trainer', 'ChatGPT Training TN', 'Claude AI Tamil Nadu', 'AI Workshop Chennai', 'AI Training Madurai', 'Prompt Engineering TN', 'Corporate AI TN'],
-    intro: `${FOUNDER_NAME} is Tamil Nadu's Top Generative AI Trainer, delivering high-impact Generative AI workshops in Tamil and English for enterprises, colleges, and professionals across Chennai, Coimbatore, Madurai, Trichy, Salem, Tirunelveli, and all of Tamil Nadu. His programs combine practical AI tools with Tamil Nadu's industrial context — manufacturing, IT services, textiles, healthcare, and education.`,
+    heading: 'Top Generative AI Trainer in Tamilnadu',
+    subheading: 'Generative AI Training in Tamil & English Across Tamilnadu',
+    city: 'Tamilnadu',
+    region: 'Tamilnadu',
+    heroKeywords: ['Generative AI Tamilnadu', 'Tamil AI Trainer', 'ChatGPT Training TN', 'Claude AI Tamilnadu', 'AI Workshop Chennai', 'AI Training Madurai', 'Prompt Engineering TN', 'Corporate AI TN'],
+    intro: `${FOUNDER_NAME} is Tamilnadu's Top Generative AI Trainer, delivering high-impact Generative AI workshops in Tamil and English for enterprises, colleges, and professionals across Chennai, Coimbatore, Madurai, Trichy, Salem, Tirunelveli, and all of Tamilnadu. His programs combine practical AI tools with Tamilnadu's industrial context — manufacturing, IT services, textiles, healthcare, and education.`,
     services: [
       { title: 'Generative AI Training — Chennai', desc: 'Corporate Generative AI workshops for Chennai IT companies, BPOs, and enterprises — covering ChatGPT, Claude, Gemini, and AI productivity tools.' },
       { title: 'Generative AI Training — Coimbatore', desc: 'Hands-on AI workshops for Coimbatore manufacturing, textile, and IT companies — practical tools for immediate business impact.' },
-      { title: 'Tamil Language AI Training', desc: 'Generative AI workshops delivered in Tamil — making AI accessible for Tamil Nadu professionals across all industries and education levels.' },
-      { title: 'AI for Tamil Nadu Colleges', desc: 'Generative AI literacy programs for engineering students, MBA scholars, and faculty across Tamil Nadu institutions.' },
-      { title: 'AI for Tamil Nadu MSMEs', desc: 'Practical AI adoption programs for Tamil Nadu small and medium enterprises — affordable, impactful, and immediately applicable.' },
-      { title: 'Prompt Engineering — Tamil Nadu', desc: 'Advanced prompt engineering workshops for Tamil Nadu professionals — maximizing productivity with ChatGPT, Claude, and Gemini.' },
+      { title: 'Tamil Language AI Training', desc: 'Generative AI workshops delivered in Tamil — making AI accessible for Tamilnadu professionals across all industries and education levels.' },
+      { title: 'AI for Tamilnadu Colleges', desc: 'Generative AI literacy programs for engineering students, MBA scholars, and faculty across Tamilnadu institutions.' },
+      { title: 'AI for Tamilnadu MSMEs', desc: 'Practical AI adoption programs for Tamilnadu small and medium enterprises — affordable, impactful, and immediately applicable.' },
+      { title: 'Prompt Engineering — Tamilnadu', desc: 'Advanced prompt engineering workshops for Tamilnadu professionals — maximizing productivity with ChatGPT, Claude, and Gemini.' },
     ],
   },
   'agentic-ai-india': {
@@ -345,9 +345,9 @@ function App() {
               <GeoPage config={geoConfigs.india} />
             </Suspense>
           } />
-          <Route path="/ai-trainer-tamil-nadu" element={
+          <Route path="/ai-trainer-tamilnadu" element={
             <Suspense fallback={<PageLoader />}>
-              <GeoPage config={geoConfigs['tamil-nadu']} />
+              <GeoPage config={geoConfigs['tamilnadu']} />
             </Suspense>
           } />
           <Route path="/ai-trainer-coimbatore" element={
@@ -396,9 +396,9 @@ function App() {
               <InsightDetail slugOverride="top-ai-trainer-in-coimbatore" />
             </Suspense>
           } />
-          <Route path="/top-ai-trainer-in-tamil-nadu" element={
+          <Route path="/top-ai-trainer-in-tamilnadu" element={
             <Suspense fallback={<PageLoader />}>
-              <InsightDetail slugOverride="top-ai-trainer-in-tamil-nadu" />
+              <InsightDetail slugOverride="top-ai-trainer-in-tamilnadu" />
             </Suspense>
           } />
           <Route path="/top-ai-trainers-in-coimbatore" element={
@@ -406,9 +406,9 @@ function App() {
               <InsightDetail slugOverride="top-ai-trainers-in-coimbatore" />
             </Suspense>
           } />
-          <Route path="/top-ai-trainers-in-tamil-nadu" element={
+          <Route path="/top-ai-trainers-in-tamilnadu" element={
             <Suspense fallback={<PageLoader />}>
-              <InsightDetail slugOverride="top-ai-trainers-in-tamil-nadu" />
+              <InsightDetail slugOverride="top-ai-trainers-in-tamilnadu" />
             </Suspense>
           } />
 
@@ -423,9 +423,9 @@ function App() {
               <GeoPage config={geoConfigs['generative-ai-coimbatore']} />
             </Suspense>
           } />
-          <Route path="/generative-ai-trainer-tamil-nadu" element={
+          <Route path="/generative-ai-trainer-tamilnadu" element={
             <Suspense fallback={<PageLoader />}>
-              <GeoPage config={geoConfigs['generative-ai-tamil-nadu']} />
+              <GeoPage config={geoConfigs['generative-ai-tamilnadu']} />
             </Suspense>
           } />
 

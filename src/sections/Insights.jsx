@@ -192,7 +192,7 @@ const Insights = ({ data }) => {
                       {[
                         'Top AI Trainer in India','Top AI Trainers in India','Best AI Trainer in India',
                         'Corporate AI Trainer','Enterprise AI Trainer','Corporate AI Training India',
-                        'AI Workshop India','AI Workshop Tamil Nadu','AI Workshop Coimbatore',
+                        'AI Workshop India','AI Workshop Tamilnadu','AI Workshop Coimbatore',
                         'AI for Business','AI for Executives','AI for Leaders',
                         'AI Readiness Assessment','AI Productivity Training','AI Automation Workshop',
                       ].map(kw => (
@@ -205,7 +205,7 @@ const Insights = ({ data }) => {
                     <h4 className="insights-seo-cluster-title">Generative &amp; Agentic AI</h4>
                     <div className="insights-seo-tags">
                       {[
-                        'Generative AI Trainer India','Generative AI Trainer Tamil Nadu','Generative AI Trainer Coimbatore',
+                        'Generative AI Trainer India','Generative AI Trainer Tamilnadu','Generative AI Trainer Coimbatore',
                         'Best Generative AI Trainer in India','Agentic AI Trainer','Agentic AI Trainer India',
                         'Prompt Engineering Trainer','Prompt Engineering Workshop',
                         'Claude AI Trainer','Claude AI Training India','Claude Corporate Training',
@@ -223,7 +223,7 @@ const Insights = ({ data }) => {
                     <div className="insights-seo-tags">
                       {[
                         'AI Keynote Speaker','Best AI Keynote Speaker',
-                        'Best Keynote Speaker in India','Best Keynote Speaker in Tamil Nadu','Best Keynote Speaker in Coimbatore',
+                        'Best Keynote Speaker in India','Best Keynote Speaker in Tamilnadu','Best Keynote Speaker in Coimbatore',
                         'AI Speaker India','Future of AI Speaker',
                         'AI Transformation Speaker','Artificial Intelligence Speaker',
                         'Innovation Speaker',
@@ -237,7 +237,7 @@ const Insights = ({ data }) => {
                     <h4 className="insights-seo-cluster-title">Leadership &amp; Innovation</h4>
                     <div className="insights-seo-tags">
                       {[
-                        'Best AI Leadership Trainer in India','Best AI Leadership Trainer in Tamil Nadu','Best AI Leadership Trainer in Coimbatore',
+                        'Best AI Leadership Trainer in India','Best AI Leadership Trainer in Tamilnadu','Best AI Leadership Trainer in Coimbatore',
                         'AI Consulting India','Enterprise AI Consultant',
                         'Design Thinking Trainer','Innovation Workshop',
                         'Enterprise Agile Trainer','Leadership Trainer',
@@ -253,9 +253,9 @@ const Insights = ({ data }) => {
                     <h4 className="insights-seo-cluster-title">Regional Expertise</h4>
                     <div className="insights-seo-tags">
                       {[
-                        'Top AI Trainer in Tamil Nadu','Top AI Trainers in Tamil Nadu',
+                        'Top AI Trainer in Tamilnadu','Top AI Trainers in Tamilnadu',
                         'Top AI Trainer in Coimbatore','Top AI Trainers in Coimbatore',
-                        'Generative AI Trainer Coimbatore','Generative AI Trainer Tamil Nadu',
+                        'Generative AI Trainer Coimbatore','Generative AI Trainer Tamilnadu',
                         'Best AI Leadership Trainer in Coimbatore',
                       ].map(kw => (
                         <span key={kw} className="insights-seo-tag insights-seo-tag--accent">{kw}</span>
@@ -273,8 +273,8 @@ const Insights = ({ data }) => {
                   <Link to="/top-ai-trainer-india" className="insights-regional-link">
                     <MapPin size={15} /> Top AI Trainers in India
                   </Link>
-                  <Link to="/ai-trainer-tamil-nadu" className="insights-regional-link">
-                    <MapPin size={15} /> Top AI Trainers in Tamil Nadu
+                  <Link to="/ai-trainer-tamilnadu" className="insights-regional-link">
+                    <MapPin size={15} /> Top AI Trainers in Tamilnadu
                   </Link>
                   <Link to="/ai-trainer-coimbatore" className="insights-regional-link">
                     <MapPin size={15} /> Top AI Trainers in Coimbatore
@@ -297,8 +297,8 @@ const Insights = ({ data }) => {
                   <Link to="/generative-ai-trainer-coimbatore" className="insights-regional-link">
                     <MapPin size={15} /> Generative AI Trainer Coimbatore
                   </Link>
-                  <Link to="/generative-ai-trainer-tamil-nadu" className="insights-regional-link">
-                    <MapPin size={15} /> Generative AI Trainer Tamil Nadu
+                  <Link to="/generative-ai-trainer-tamilnadu" className="insights-regional-link">
+                    <MapPin size={15} /> Generative AI Trainer Tamilnadu
                   </Link>
                   <Link to="/agentic-ai-trainer-india" className="insights-regional-link">
                     <MapPin size={15} /> Agentic AI Trainer India

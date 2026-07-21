@@ -72,7 +72,7 @@ const Trust = ({ data }) => {
         <div className="section-header trust-header">
           <span className="trust-eyebrow">Impact by Numbers</span>
           <h2>Impact Highlights</h2>
-          <p>On a mission to transform corporates, educators &amp; student learners into impactmakers.</p>
+          <p>On a mission to transform corporates, educators &amp; student learners into J-Impacts.</p>
         </div>
         <div className="trust-grid">
           {data.metrics.map((metric, index) => {

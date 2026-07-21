@@ -52,7 +52,7 @@ const SEOHead = ({
 
       {/* Geo targeting */}
       <meta name="geo.region" content="IN-TN" />
-      <meta name="geo.placename" content="Coimbatore, Tamil Nadu, India" />
+      <meta name="geo.placename" content="Coimbatore, Tamilnadu, India" />
       <meta name="geo.position" content="11.0168;76.9558" />
       <meta name="ICBM" content="11.0168, 76.9558" />
 

@@ -376,8 +376,21 @@ const InsightDetail = ({ slugOverride }) => {
                           if (isFocusLine(para) || isNotableFocus(para)) { nodes.push(<p key={idx} className="trainer-focus">{renderInline(para)}</p>); continue; }
                           if (isWebsiteLine(para))  { nodes.push(<p key={idx} className="trainer-website">{renderInline(para)}</p>); continue; }
 
-                          const isList = lines.length > 1 && lines.every(l => l.trim().startsWith('- ') || l.trim().startsWith('• '));
-                          if (isList) { nodes.push(<ul key={idx} className="article-list">{lines.map((l, li) => <li key={li} className="article-list-item">{renderInline(l.replace(/^[-•]\s*/, ''))}</li>)}</ul>); continue; }
+                          const isList = lines.length > 1 && lines.every(l => {
+                            const t = l.trim();
+                            return t.startsWith('- ') || t.startsWith('• ') || /^\d+\.\s/.test(t) || /^[a-zA-Z]\.\s/.test(t);
+                          });
+                          if (isList) { 
+                            nodes.push(
+                              <ul key={idx} className="article-list">
+                                {lines.map((l, li) => {
+                                  const content = renderInline(l.replace(/^([-•]|\d+\.|[a-zA-Z]\.)\s*/, ''));
+                                  return <li key={li} className="article-list-item">{content}</li>;
+                                })}
+                              </ul>
+                            ); 
+                            continue; 
+                          }
 
                           if (lines.length > 1) {
                             nodes.push(
@@ -393,7 +406,9 @@ const InsightDetail = ({ slugOverride }) => {
                                   if (bH2) return <h2 key={li} className="section-title" style={{marginTop: li===0?0:'20px'}}>{bH2[1]}</h2>;
                                   const bH1 = trimmed.match(/^#\s+(.+)$/);
                                   if (bH1) return <h2 key={li} className="section-title" style={{marginTop: li===0?0:'20px'}}>{bH1[1]}</h2>;
-                                  if (trimmed.startsWith('- ') || trimmed.startsWith('• ')) return <div key={li} className="mixed-bullet">{renderInline(trimmed.replace(/^[-•]\s*/, ''))}</div>;
+                                  if (trimmed.startsWith('- ') || trimmed.startsWith('• ') || /^\d+\.\s/.test(trimmed) || /^[a-zA-Z]\.\s/.test(trimmed)) {
+                                    return <div key={li} className="mixed-bullet">{renderInline(trimmed.replace(/^([-•]|\d+\.|[a-zA-Z]\.)\s*/, ''))}</div>;
+                                  }
                                   if (/^\*\*[^*]+\*\*/.test(trimmed)) return <p key={li} className="mixed-label">{renderInline(trimmed)}</p>;
                                   return <p key={li} className="article-paragraph" style={{marginBottom:'4px'}}>{renderInline(trimmed)}</p>;
                                 })}

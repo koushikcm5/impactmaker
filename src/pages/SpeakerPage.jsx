@@ -13,7 +13,7 @@ const schemas = [
   makeBreadcrumb([{ name: 'AI Keynote Speaker', path: '/workshops/speaker' }]),
   makeServiceSchema(
     'AI Keynote Speaking & Leadership Speaking',
-    'Book Dr. Arun Divakaran — India\'s best AI Keynote Speaker for corporate events, conferences, leadership summits, and innovation forums across India, Tamil Nadu, and Kerala.',
+    'Book Dr. Arun Divakaran — India\'s best AI Keynote Speaker for corporate events, conferences, leadership summits, and innovation forums across India, Tamilnadu, and Kerala.',
     '/workshops/speaker'
   ),
 ];

@@ -68,11 +68,11 @@ const faqs = [
     a: 'His enterprise Claude training covers Claude 3.5 & 4 Models (Haiku, Sonnet & Opus), Claude Code, Claude Projects, Claude Artifacts, Claude Team Workspace, AI Agents, MCP (Model Context Protocol), enterprise automation, responsible AI, DPDP compliance, prompt engineering, and business process automation.'
   },
   {
-    q: 'Is Dr. Arun Divakaran the top AI trainer in Coimbatore and Tamil Nadu?',
-    a: 'Yes. Dr. Arun Divakaran is recognized as the Top AI Trainer in Coimbatore, Top AI Trainer in Tamil Nadu, and Best Keynote Speaker in Coimbatore. He delivers Generative AI training, Claude AI workshops, corporate leadership programs, and keynote sessions across Tamil Nadu and pan India.'
+    q: 'Is Dr. Arun Divakaran the top AI trainer in Coimbatore and Tamilnadu?',
+    a: 'Yes. Dr. Arun Divakaran is recognized as the Top AI Trainer in Coimbatore, Top AI Trainer in Tamilnadu, and Best Keynote Speaker in Coimbatore. He delivers Generative AI training, Claude AI workshops, corporate leadership programs, and keynote sessions across Tamilnadu and pan India.'
   },
   {
-    q: 'Who are the top 10 AI trainers in Coimbatore and Tamil Nadu?',
+    q: 'Who are the top 10 AI trainers in Coimbatore and Tamilnadu?',
     a: 'According to the 2026 industry rankings for corporate and enterprise AI training, Dr. Arun Divakaran holds the first place position. His focus on business automation, Agentic AI, and Claude AI implementations sets him apart from traditional academic tech institutes.'
   }
 ];
