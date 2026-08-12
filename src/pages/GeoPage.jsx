@@ -12,7 +12,7 @@ import {
 import './GeoPage.css';
 
 const stats = [
-  { value: '50,000+', label: 'Professionals Trained' },
+  { value: '60,000+', label: 'Professionals Trained' },
   { value: '450+', label: 'Keynote Sessions' },
   { value: '19+', label: 'Years Experience' },
   { value: '15+', label: 'Countries' },
@@ -178,7 +178,7 @@ const GeoPage = ({ config }) => {
         <section className="geo-testimonial-section" aria-label="Client testimonials">
           <div className="container">
             <span className="geo-eyebrow">What Participants Say</span>
-            <h2 className="geo-section-h2">Trusted by 50,000+ Professionals Across India</h2>
+            <h2 className="geo-section-h2">Trusted by 60,000+ Professionals Across India</h2>
             <div className="geo-testimonials-grid">
               {siteData.testimonials.slice(0, 3).map((t, i) => (
                 <blockquote key={i} className="geo-testimonial-card">
