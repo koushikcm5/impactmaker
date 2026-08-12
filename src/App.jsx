@@ -16,6 +16,7 @@ import NetworkCanvas from './components/NetworkCanvas';
 import WhatsAppButton from './components/WhatsAppButton';
 import SEOHead from './components/SEOHead';
 import { siteData } from './data/siteData';
+import { seoLandingPages } from './data/seoLandingPages';
 import { PAGE_SEO, SITE_URL, SITE_NAME, FOUNDER_NAME, SITE_PHONE, SITE_EMAIL, makeBreadcrumb, makePersonSchema } from './utils/seoConfig';
 import './App.css';
 
@@ -32,6 +33,7 @@ const TransformationalPage= lazy(() => import('./pages/TransformationalPage'));
 const SpeakerPage         = lazy(() => import('./pages/SpeakerPage'));
 const GeoPage             = lazy(() => import('./pages/GeoPage'));
 const SEOPillarPage       = lazy(() => import('./pages/SEOPillarPage'));
+const LongFormSEOLandingPage = lazy(() => import('./pages/LongFormSEOLandingPage'));
 
 const PageLoader = () => (
   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
@@ -362,7 +364,7 @@ function App() {
           } />
           <Route path="/best-keynote-speaker-coimbatore" element={
             <Suspense fallback={<PageLoader />}>
-              <GeoPage config={geoConfigs['coimbatore-keynote']} />
+              <LongFormSEOLandingPage data={seoLandingPages.bestKeynoteSpeakerCoimbatore} />
             </Suspense>
           } />
           <Route path="/best-ai-keynote-speaker-india" element={
@@ -393,22 +395,32 @@ function App() {
           {/* Dedicated Top AI Trainer SEO Article Routes */}
           <Route path="/top-ai-trainer-in-coimbatore" element={
             <Suspense fallback={<PageLoader />}>
-              <InsightDetail slugOverride="top-ai-trainer-in-coimbatore" />
+              <LongFormSEOLandingPage data={seoLandingPages.coimbatore} />
+            </Suspense>
+          } />
+          <Route path="/top-ai-trainer-in-tamil-nadu" element={
+            <Suspense fallback={<PageLoader />}>
+              <LongFormSEOLandingPage data={seoLandingPages.tamilnadu} />
             </Suspense>
           } />
           <Route path="/top-ai-trainer-in-tamilnadu" element={
             <Suspense fallback={<PageLoader />}>
-              <InsightDetail slugOverride="top-ai-trainer-in-tamilnadu" />
+              <LongFormSEOLandingPage data={seoLandingPages.tamilnadu} />
             </Suspense>
           } />
           <Route path="/top-ai-trainers-in-coimbatore" element={
             <Suspense fallback={<PageLoader />}>
-              <InsightDetail slugOverride="top-ai-trainers-in-coimbatore" />
+              <LongFormSEOLandingPage data={seoLandingPages.coimbatore} />
             </Suspense>
           } />
           <Route path="/top-ai-trainers-in-tamilnadu" element={
             <Suspense fallback={<PageLoader />}>
-              <InsightDetail slugOverride="top-ai-trainers-in-tamilnadu" />
+              <LongFormSEOLandingPage data={seoLandingPages.tamilnadu} />
+            </Suspense>
+          } />
+          <Route path="/claude-trainer-in-coimbatore" element={
+            <Suspense fallback={<PageLoader />}>
+              <LongFormSEOLandingPage data={seoLandingPages.claudeTrainerCoimbatore} />
             </Suspense>
           } />
 
@@ -420,12 +432,22 @@ function App() {
           } />
           <Route path="/generative-ai-trainer-coimbatore" element={
             <Suspense fallback={<PageLoader />}>
-              <GeoPage config={geoConfigs['generative-ai-coimbatore']} />
+              <LongFormSEOLandingPage data={seoLandingPages.generativeAiTrainerCoimbatore} />
+            </Suspense>
+          } />
+          <Route path="/top-generative-ai-trainer-coimbatore" element={
+            <Suspense fallback={<PageLoader />}>
+              <LongFormSEOLandingPage data={seoLandingPages.generativeAiTrainerCoimbatore} />
             </Suspense>
           } />
           <Route path="/generative-ai-trainer-tamilnadu" element={
             <Suspense fallback={<PageLoader />}>
-              <GeoPage config={geoConfigs['generative-ai-tamilnadu']} />
+              <LongFormSEOLandingPage data={seoLandingPages.generativeAiTrainerTamilnadu} />
+            </Suspense>
+          } />
+          <Route path="/top-generative-ai-trainer-tamilnadu" element={
+            <Suspense fallback={<PageLoader />}>
+              <LongFormSEOLandingPage data={seoLandingPages.generativeAiTrainerTamilnadu} />
             </Suspense>
           } />
 
