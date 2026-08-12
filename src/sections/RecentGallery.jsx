@@ -4,6 +4,7 @@ import './RecentGallery.css';
 import imgCorning from '../assets/Gallery/corporate/AI for leaders for Owens Corning mumbai/AI for leaders for Owens Corning mumbai.webp';
 import imgCaterpillar from '../assets/Gallery/corporate/AI workshops for Caterpillar/AI workshops for Caterpillar.webp';
 import imgMahindra from '../assets/Gallery/corporate/AI for mechanical  and Aerospace engineers Mahindra AeroStructures Pvt Ltd/AI for mechanical  and Aerospace engineers Mahindra AeroStructures Pvt Ltd.webp';
+import imgKrishnammal from '../assets/Gallery/edtech/Workshop for Krishnammal College for women/418db161-8b49-455a-825f-dbca7745a246.jpg';
 
 const RecentGallery = () => {
   const engagements = [
@@ -24,6 +25,12 @@ const RecentGallery = () => {
       img: imgMahindra,
       title: 'Mahindra AeroStructures',
       desc: 'AI for Mechanical & Aerospace Engineers'
+    },
+    {
+      id: 4,
+      img: imgKrishnammal,
+      title: 'Krishnammal College for women',
+      desc: 'Workshop'
     }
   ];
 

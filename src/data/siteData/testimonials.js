@@ -173,5 +173,47 @@ export const testimonials = [
       author: "Student",
       designation: "Learning Program Participant",
       image: "https://ui-avatars.com/api/?name=Student&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "Sir, honestly I really like your teaching style. Naan paatha varaikum indha maari teaching method ah yaarum use pannadhu illa. U explain concepts with different ideas and realtime examples, so even difficult concepts become easy to understand and remember. Especially, class la one by one ah koopittu game maari different activities and initiatives kuduthu participate panna veikkaradhu romba interesting ah irukku. Initially konjam nervous ah irundhalum, gradually it increased my confidence and made me more active in the class. Overall, your teaching style is very different, creative, enjoyable. I really enjoyed learning in your class. Thank you ,Sir....!!!",
+      company: "PSGR Krishnammal College for Women",
+      author: "Manusha Devi M",
+      designation: "MSc. Data Analytics",
+      image: "https://ui-avatars.com/api/?name=Manusha+Devi+M&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "Its really fun from start to end ! I never listened to class for 5 hours together! But your class made it fun and made me to listen and that's very very interesting!",
+      company: "PSGR Krishnammal College for Women",
+      author: "Sai Atchaya G",
+      designation: "MSc. Data Analytics",
+      image: "https://ui-avatars.com/api/?name=Sai+Atchaya+G&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "Overall, I really enjoyed the sessions because they were interactive, engaging, and different from regular learning. I learned not only academic concepts but also the importance of teamwork, communication, creativity, confidence, and thinking beyond the edges. It was a memorable and enjoyable learning experience for me.",
+      company: "PSGR Krishnammal College for Women",
+      author: "Shri Saagambari A k",
+      designation: "MSc. Data Analytics",
+      image: "https://ui-avatars.com/api/?name=Shri+Saagambari+A+k&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "Overall session is superb, really interesting to play games. Learning algorithms with help of AI is also so useful ,that you have taught .",
+      company: "PSGR Krishnammal College for Women",
+      author: "Nivetha C",
+      designation: "MSc. Data Analytics",
+      image: "https://ui-avatars.com/api/?name=Nivetha+C&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "The most interactive and fun workshop I have ever seen....  For the first time I learned both educational and practical way.... I love the real time examples and interesting activities which you conducted.",
+      company: "PSGR Krishnammal College for Women",
+      author: "Sowmya V",
+      designation: "MSc. Data Analytics",
+      image: "https://ui-avatars.com/api/?name=Sowmya+V&background=1a1a2e&color=fff&size=128"
+    },
+    {
+      text: "It was very engaging. At the very first day when u came to cls I thought like it will be just another boring cls but the way u carried out the cls was amazing. I enjoyed the in between activities and games and your personal experience and knowledge u shared.",
+      company: "PSGR Krishnammal College for Women",
+      author: "Anjali P",
+      designation: "MSc. Data Analytics",
+      image: "https://ui-avatars.com/api/?name=Anjali+P&background=1a1a2e&color=fff&size=128"
     }
   ];
