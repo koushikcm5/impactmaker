@@ -34,6 +34,7 @@ const SpeakerPage         = lazy(() => import('./pages/SpeakerPage'));
 const GeoPage             = lazy(() => import('./pages/GeoPage'));
 const SEOPillarPage       = lazy(() => import('./pages/SEOPillarPage'));
 const LongFormSEOLandingPage = lazy(() => import('./pages/LongFormSEOLandingPage'));
+const NotFoundPage          = lazy(() => import('./pages/NotFoundPage'));
 
 const PageLoader = () => (
   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
@@ -347,7 +348,7 @@ function App() {
               <GeoPage config={geoConfigs.india} />
             </Suspense>
           } />
-          <Route path="/ai-trainer-tamilnadu" element={
+          <Route path="/ai-trainer-tamil-nadu" element={
             <Suspense fallback={<PageLoader />}>
               <GeoPage config={geoConfigs['tamilnadu']} />
             </Suspense>
@@ -418,7 +419,7 @@ function App() {
               <LongFormSEOLandingPage data={seoLandingPages.tamilnadu} />
             </Suspense>
           } />
-          <Route path="/claude-trainer-in-coimbatore" element={
+          <Route path="/claude-ai-trainer-in-coimbatore" element={
             <Suspense fallback={<PageLoader />}>
               <LongFormSEOLandingPage data={seoLandingPages.claudeTrainerCoimbatore} />
             </Suspense>
@@ -440,7 +441,7 @@ function App() {
               <LongFormSEOLandingPage data={seoLandingPages.generativeAiTrainerCoimbatore} />
             </Suspense>
           } />
-          <Route path="/generative-ai-trainer-tamilnadu" element={
+          <Route path="/generative-ai-trainer-tamil-nadu" element={
             <Suspense fallback={<PageLoader />}>
               <LongFormSEOLandingPage data={seoLandingPages.generativeAiTrainerTamilnadu} />
             </Suspense>
@@ -460,6 +461,13 @@ function App() {
           <Route path="/prompt-engineering-trainer-india" element={
             <Suspense fallback={<PageLoader />}>
               <GeoPage config={geoConfigs['prompt-engineering-india']} />
+            </Suspense>
+          } />
+
+          {/* Catch-all 404 Route */}
+          <Route path="*" element={
+            <Suspense fallback={<PageLoader />}>
+              <NotFoundPage />
             </Suspense>
           } />
         </Routes>

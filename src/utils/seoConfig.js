@@ -85,7 +85,7 @@ export const PAGE_SEO = {
     title: 'Top Generative AI Trainer in Tamilnadu | Best Generative AI Trainer Tamilnadu | Dr. Arun Divakaran',
     description: `${FOUNDER_NAME} is Tamilnadu's Top Generative AI Trainer — delivering Generative AI workshops in Tamil & English for enterprises, colleges, and professionals across Chennai, Coimbatore, Madurai, Trichy, and all of Tamilnadu.`,
     keywords: 'Top Generative AI Trainer Tamilnadu, Best Generative AI Trainer Tamilnadu, Generative AI Trainer Tamilnadu, Generative AI Training Tamilnadu, ChatGPT Trainer Tamilnadu, AI Workshop Tamilnadu, Corporate AI Training Tamilnadu, Tamil Generative AI Trainer, AI Training Chennai Coimbatore Madurai',
-    canonical: `${SITE_URL}/generative-ai-trainer-tamilnadu`,
+    canonical: `${SITE_URL}/generative-ai-trainer-tamil-nadu`,
   },
   geoAgenticAI: {
     title: 'Top Agentic AI Trainer in India | Agentic AI Corporate Training | Dr. Arun Divakaran',
@@ -109,7 +109,7 @@ export const PAGE_SEO = {
     title: 'Top AI Trainer in Tamilnadu | Top Generative AI Trainer Tamilnadu | Dr. Arun Divakaran',
     description: `${FOUNDER_NAME} — Top AI Trainer in Tamilnadu & Top Generative AI Trainer Tamilnadu. Corporate AI workshops, keynote speaking, and leadership programs in Tamil & English across Chennai, Coimbatore, Madurai, Trichy, and all of Tamilnadu.`,
     keywords: 'Top AI Trainer Tamilnadu, Best AI Trainer Tamilnadu, Top Generative AI Trainer Tamilnadu, Best Generative AI Trainer Tamilnadu, AI Training Tamilnadu, Tamil AI Trainer, AI Workshops Tamilnadu, Best Keynote Speaker Tamilnadu, Top Soft Skills Trainer Tamilnadu, AI Training Chennai Coimbatore Madurai, Future Skills Trainer Tamilnadu, Top AI Trainer Coimbatore',
-    canonical: `${SITE_URL}/ai-trainer-tamilnadu`,
+    canonical: `${SITE_URL}/ai-trainer-tamil-nadu`,
   },
   geoCoimbatore: {
     title: 'Top AI Trainer in Coimbatore | Top Generative AI Trainer Coimbatore | Dr. Arun Divakaran',
