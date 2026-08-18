@@ -52,7 +52,7 @@ const RecentGallery = () => {
             {engagements.map((item) => (
               <div className="recent-gallery-card" key={item.id}>
                 <div className="recent-gallery-img-wrapper">
-                  <img src={item.img} alt={item.title} className="recent-gallery-img" loading="lazy" />
+                  <img src={item.img} alt={item.title} className="recent-gallery-img" loading="lazy" width="400" height="300" />
                 </div>
                 <div className="recent-gallery-caption">
                   <h4>{item.title}</h4>
@@ -66,7 +66,7 @@ const RecentGallery = () => {
             {engagements.map((item) => (
               <div className="recent-gallery-card" key={`dup-${item.id}`}>
                 <div className="recent-gallery-img-wrapper">
-                  <img src={item.img} alt={item.title} className="recent-gallery-img" loading="lazy" />
+                  <img src={item.img} alt={item.title} className="recent-gallery-img" loading="lazy" width="400" height="300" />
                 </div>
                 <div className="recent-gallery-caption">
                   <h4>{item.title}</h4>

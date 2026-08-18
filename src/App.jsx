@@ -35,6 +35,7 @@ const GeoPage             = lazy(() => import('./pages/GeoPage'));
 const SEOPillarPage       = lazy(() => import('./pages/SEOPillarPage'));
 const LongFormSEOLandingPage = lazy(() => import('./pages/LongFormSEOLandingPage'));
 const NotFoundPage          = lazy(() => import('./pages/NotFoundPage'));
+const SitemapPage           = lazy(() => import('./pages/SitemapPage'));
 
 const PageLoader = () => (
   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
@@ -89,7 +90,6 @@ const HomePage = () => (
       description={PAGE_SEO.home.description}
       keywords={PAGE_SEO.home.keywords}
       canonical={PAGE_SEO.home.canonical}
-      schemas={homepageSchemas}
     />
     <Navbar />
     <Hero data={siteData.hero} />
@@ -446,6 +446,31 @@ function App() {
               <LongFormSEOLandingPage data={seoLandingPages.generativeAiTrainerTamilnadu} />
             </Suspense>
           } />
+          <Route path="/ai-trainer-kerala" element={
+            <Suspense fallback={<PageLoader />}>
+              <LongFormSEOLandingPage data={seoLandingPages.kerala} />
+            </Suspense>
+          } />
+          <Route path="/ai-trainer-chennai" element={
+            <Suspense fallback={<PageLoader />}>
+              <LongFormSEOLandingPage data={seoLandingPages.chennai} />
+            </Suspense>
+          } />
+          <Route path="/ai-trainer-kochi" element={
+            <Suspense fallback={<PageLoader />}>
+              <LongFormSEOLandingPage data={seoLandingPages.kochi} />
+            </Suspense>
+          } />
+          <Route path="/ai-trainer-trivandrum" element={
+            <Suspense fallback={<PageLoader />}>
+              <LongFormSEOLandingPage data={seoLandingPages.trivandrum} />
+            </Suspense>
+          } />
+          <Route path="/ai-trainer-palakkad" element={
+            <Suspense fallback={<PageLoader />}>
+              <LongFormSEOLandingPage data={seoLandingPages.palakkad} />
+            </Suspense>
+          } />
           <Route path="/top-generative-ai-trainer-tamilnadu" element={
             <Suspense fallback={<PageLoader />}>
               <LongFormSEOLandingPage data={seoLandingPages.generativeAiTrainerTamilnadu} />
@@ -465,6 +490,11 @@ function App() {
           } />
 
           {/* Catch-all 404 Route */}
+          <Route path="/sitemap" element={
+            <Suspense fallback={<PageLoader />}>
+              <SitemapPage />
+            </Suspense>
+          } />
           <Route path="*" element={
             <Suspense fallback={<PageLoader />}>
               <NotFoundPage />

@@ -230,6 +230,32 @@ const GeoPage = ({ config }) => {
           </div>
         </section>
 
+        {/* ── Related SEO Hubs (Internal Linking) ── */}
+        <section className="geo-related-section" aria-label="Related regional hubs" style={{ padding: '4rem 0', backgroundColor: '#f9fafa' }}>
+          <div className="container">
+            <span className="geo-eyebrow">Explore More</span>
+            <h2 className="geo-section-h2">Related Training Hubs</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
+              <Link to="/top-ai-trainer-india" style={{ padding: '1.5rem', backgroundColor: '#fff', border: '1px solid #eee', borderRadius: '8px', textDecoration: 'none', color: 'inherit', boxShadow: '0 2px 10px rgba(0,0,0,0.02)' }}>
+                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--primary-blue, #1659a7)' }}>Top AI Trainer in India</h3>
+                <p style={{ fontSize: '0.9rem', opacity: 0.8, margin: 0 }}>Discover pan-India AI training programs.</p>
+              </Link>
+              <Link to="/generative-ai-trainer-coimbatore" style={{ padding: '1.5rem', backgroundColor: '#fff', border: '1px solid #eee', borderRadius: '8px', textDecoration: 'none', color: 'inherit', boxShadow: '0 2px 10px rgba(0,0,0,0.02)' }}>
+                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--primary-blue, #1659a7)' }}>Gen AI Coimbatore</h3>
+                <p style={{ fontSize: '0.9rem', opacity: 0.8, margin: 0 }}>Specialized Generative AI workshops in TN.</p>
+              </Link>
+              <Link to="/ai-trainer-tamil-nadu" style={{ padding: '1.5rem', backgroundColor: '#fff', border: '1px solid #eee', borderRadius: '8px', textDecoration: 'none', color: 'inherit', boxShadow: '0 2px 10px rgba(0,0,0,0.02)' }}>
+                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--primary-blue, #1659a7)' }}>AI Trainer Tamil Nadu</h3>
+                <p style={{ fontSize: '0.9rem', opacity: 0.8, margin: 0 }}>Statewide corporate transformation programs.</p>
+              </Link>
+              <Link to="/best-keynote-speaker-coimbatore" style={{ padding: '1.5rem', backgroundColor: '#fff', border: '1px solid #eee', borderRadius: '8px', textDecoration: 'none', color: 'inherit', boxShadow: '0 2px 10px rgba(0,0,0,0.02)' }}>
+                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--primary-blue, #1659a7)' }}>Keynote Speaker Coimbatore</h3>
+                <p style={{ fontSize: '0.9rem', opacity: 0.8, margin: 0 }}>Book Dr. Arun for your next big event.</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ── FAQ ── */}
         <FAQ />
 

@@ -8,7 +8,7 @@ import Testimonials from '../sections/Testimonials';
 import RecentGallery from '../sections/RecentGallery';
 import SEOHead from '../components/SEOHead';
 import { siteData } from '../data/siteData';
-import { SITE_URL, FOUNDER_NAME, SITE_PHONE, SITE_EMAIL, makeBreadcrumb, makeLocalBusinessSchema, makeGeoFAQ } from '../utils/seoConfig';
+import { SITE_URL, FOUNDER_NAME, SITE_PHONE, SITE_EMAIL, makeBreadcrumb, makeLocalBusinessSchema, makeGeoFAQ, makeServiceSchema } from '../utils/seoConfig';
 import './LongFormSEOLandingPage.css';
 
 const LongFormSEOLandingPage = ({ data }) => {
@@ -52,7 +52,8 @@ const LongFormSEOLandingPage = ({ data }) => {
   const schemas = [
     makeBreadcrumb([{ name: data.hero.heading, path: new URL(data.seo.canonical).pathname }]),
     makeLocalBusinessSchema(data.hero.heading.includes('Coimbatore') ? 'Coimbatore' : 'Tamil Nadu', 'Tamil Nadu', data.seo.description),
-    makeGeoFAQ(data.hero.heading.includes('Coimbatore') ? 'Coimbatore' : 'Tamil Nadu')
+    makeGeoFAQ(data.hero.heading.includes('Coimbatore') ? 'Coimbatore' : 'Tamil Nadu'),
+    makeServiceSchema(data.hero.heading, data.seo.description, new URL(data.seo.canonical).pathname)
   ];
 
   return (
@@ -203,6 +204,29 @@ const LongFormSEOLandingPage = ({ data }) => {
         <div className="lf-testimonials-wrap">
           <Testimonials data={siteData.testimonials} />
         </div>
+
+        {/* RELATED SEO HUBS (Internal Linking) */}
+        <section className="lf-related-section container">
+          <h2 className="lf-section-title">Explore Related Training Hubs</h2>
+          <div className="lf-related-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
+            <Link to="/top-ai-trainer-india" className="lf-related-card" style={{ padding: '1.5rem', border: '1px solid #eee', borderRadius: '8px', textDecoration: 'none', color: 'inherit' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--primary-blue)' }}>Top AI Trainer in India</h3>
+              <p style={{ fontSize: '0.9rem', opacity: 0.8, margin: 0 }}>Discover pan-India AI training programs.</p>
+            </Link>
+            <Link to="/generative-ai-trainer-coimbatore" className="lf-related-card" style={{ padding: '1.5rem', border: '1px solid #eee', borderRadius: '8px', textDecoration: 'none', color: 'inherit' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--primary-blue)' }}>Gen AI Coimbatore</h3>
+              <p style={{ fontSize: '0.9rem', opacity: 0.8, margin: 0 }}>Specialized Generative AI workshops in TN.</p>
+            </Link>
+            <Link to="/ai-trainer-tamil-nadu" className="lf-related-card" style={{ padding: '1.5rem', border: '1px solid #eee', borderRadius: '8px', textDecoration: 'none', color: 'inherit' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--primary-blue)' }}>AI Trainer Tamil Nadu</h3>
+              <p style={{ fontSize: '0.9rem', opacity: 0.8, margin: 0 }}>Statewide corporate transformation programs.</p>
+            </Link>
+            <Link to="/best-keynote-speaker-coimbatore" className="lf-related-card" style={{ padding: '1.5rem', border: '1px solid #eee', borderRadius: '8px', textDecoration: 'none', color: 'inherit' }}>
+              <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--primary-blue)' }}>Keynote Speaker Coimbatore</h3>
+              <p style={{ fontSize: '0.9rem', opacity: 0.8, margin: 0 }}>Book Dr. Arun for your next big event.</p>
+            </Link>
+          </div>
+        </section>
 
         {/* REGION SPECIFIC FAQS */}
         <section className="lf-faq-section container">
