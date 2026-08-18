@@ -16,7 +16,6 @@ import logo12 from '../assets/about/clients/Target-brand-strategy-positioning.we
 import logo13 from '../assets/about/clients/Untitled-design-14.webp';
 import logo14 from '../assets/about/clients/channels4_profile.webp';
 import logo15 from '../assets/about/clients/images.webp';
-import logo16 from '../assets/about/clients/images.webp';
 import logo17 from '../assets/about/clients/logo_widen_1200.webp';
 import logo18 from '../assets/about/clients/star-agile.webp';
 import logo19 from '../assets/about/clients/unnamed.webp';
@@ -27,7 +26,7 @@ import logo23 from '../assets/about/clients/mahendra.webp';
 
 const clientLogos = [
   logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10,
-  logo11, logo12, logo13, logo14, logo15, logo16, logo17, logo18, logo19, logo20,
+  logo11, logo12, logo13, logo14, logo15, logo17, logo18, logo19, logo20,
   logo21, logo22, logo23
 ];
 

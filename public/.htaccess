@@ -16,36 +16,13 @@ Options -MultiViews -Indexes
   AddType application/ld+json .jsonld
 </IfModule>
 
-# ── Pre-compressed GZIP serving support ──────────────
+# ── SSL & Canonical Redirection (Hostinger Proxy Safe) ──
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Serve pre-compressed .gz file if browser accepts it and the file exists
-  RewriteCond %{HTTP:Accept-Encoding} gzip
-  RewriteCond %{DOCUMENT_ROOT}/$1.gz -f
-  RewriteRule ^(.*?)\.(js|css|html)$ $1.$2.gz [QSA,L]
-</IfModule>
-
-# Fix headers and content type for pre-compressed files
-<IfModule mod_headers.c>
-  <FilesMatch "\.js\.gz$">
-    ForceType application/javascript
-    Header set Content-Encoding gzip
-  </FilesMatch>
-  <FilesMatch "\.css\.gz$">
-    ForceType text/css
-    Header set Content-Encoding gzip
-  </FilesMatch>
-  <FilesMatch "\.html\.gz$">
-    ForceType text/html
-    Header set Content-Encoding gzip
-  </FilesMatch>
-</IfModule>
-
-# ── SSL & Canonical Redirection (Fixes "Page with redirect") ──
-<IfModule mod_rewrite.c>
-  # 1. Force HTTPS
+  # 1. Force HTTPS (Safe for Hostinger Nginx/LiteSpeed Reverse Proxy)
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteCond %{HTTPS} !=on
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
